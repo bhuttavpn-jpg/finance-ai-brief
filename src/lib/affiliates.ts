@@ -29,7 +29,11 @@ export type PartnerKey =
   | "citi-double-cash"
   | "lively"
   | "fidelity-hsa"
-  | "ynab";
+  | "ynab"
+  | "wise"
+  | "capital-one"
+  | "discover-it"
+  | "credit-karma";
 
 interface Partner {
   /** Display name shown to users. */
@@ -68,6 +72,10 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
   lively: { name: "Lively HSA", category: "HSA provider", envVar: "AFFILIATE_LIVELY" },
   "fidelity-hsa": { name: "Fidelity HSA", category: "HSA provider", envVar: "AFFILIATE_FIDELITY_HSA" },
   ynab: { name: "YNAB", category: "Budgeting app", envVar: "AFFILIATE_YNAB" },
+  wise: { name: "Wise", category: "Multi-currency account", envVar: "AFFILIATE_WISE" },
+  "capital-one": { name: "Capital One Platinum Secured", category: "Secured credit card", envVar: "AFFILIATE_CAPITAL_ONE" },
+  "discover-it": { name: "Discover it Secured", category: "Secured credit card", envVar: "AFFILIATE_DISCOVER_IT" },
+  "credit-karma": { name: "Credit Karma", category: "Free credit monitoring", envVar: "AFFILIATE_CREDIT_KARMA" },
 };
 
 /** Resolve a partner key to its current tracked URL, or null if not configured. */
