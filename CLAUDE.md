@@ -1,5 +1,7 @@
 # Finance Platform — Project Handoff
 
+> **Read [`SESSION_LOG.md`](./SESSION_LOG.md) first.** It records what's actually been shipped and what's pending — the running progress journal. This file is the original architecture/strategy handoff.
+
 > Drop this file into the project root as `CLAUDE.md` so Claude Code auto-loads it on startup. It is the single source of truth across the four phases delivered in the original planning session.
 
 ---
