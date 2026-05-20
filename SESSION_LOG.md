@@ -13,7 +13,7 @@
 | Vercel project | `finance-ai-brief` | `prj_PLS8cwPoRMC3jO6eatmqvvypIHML` |
 | Vercel team | `bhuttavpn-1595s-projects` | `team_DwYpse6Xwr9qT5jXrJ9WFUTJ` |
 | Custom domain | Live | https://finbrief.space (www redirects 308) |
-| Production deployment | READY | latest `dpl_GggVWdyupwieVRmcD3XiU5XtdUrg` |
+| Production deployment | READY | latest `dpl_Ap9BAbRfSyjkNwQX34jVUAeW72u2` (2026-05-20, articles 7–9; deployed via CLI from local commit `1c1e3d3`) |
 | Smoke test | Passed | apex 200, all 4 articles 200, `/go/wise` and `/go/sofi-money` 302 with correct `subid` |
 
 There is a **second, older Vercel project** called `finance-platform` (`prj_6ww1LLsFXR31YQdEnuQzAcF5bJI6`) in the same team. It is **abandoned**. `finbrief.space` was moved off it on 2026-05-19. Leave it alone (or delete it via Vercel dashboard if confirming).
@@ -90,7 +90,7 @@ Pre-existing partner keys reused: `ally`, `marcus`, `sofi-money`, `robinhood`, `
 
 ## Env vars on Vercel (production + preview + development)
 
-All 16 variables set 2026-05-19. To edit: Vercel dashboard → finance-ai-brief → Settings → Environment Variables. After editing, **trigger a redeploy** — Next.js bakes server env values at build time.
+Initial 16 variables set 2026-05-19; **9 more added 2026-05-20 (now 25 total — see Session 2026-05-20 note below)**. To edit: Vercel dashboard → finance-ai-brief → Settings → Environment Variables. After editing, **trigger a redeploy** — Next.js bakes server env values at build time.
 
 ```
 NEXT_PUBLIC_SITE_URL=https://finbrief.space
@@ -189,11 +189,13 @@ Build verified: 24 routes total (was 21), all 3 new articles statically prerende
 
 **Presentation spec adopted this session** (see "Articles to write next" note): articles 7–9 use mixed content blocks, inline Q&A, `<hr>` section separators, and strategic bold. Match for future articles.
 
-**Still to do for these articles before they earn / rank:**
-1. Verify IRS 2026 figures (Open issue #0).
-2. Add missing affiliate env vars to Vercel (see "Affiliate registry" warning) or those CTAs redirect to homepage.
-3. Commit + push to GitHub and deploy to Vercel (not done — repo not touched this session).
-4. Submit new URLs to Google Search Console once live.
+**Done later in the 2026-05-20 session:**
+1. ✅ Verified IRS 2026 figures (Open issue #0) — all correct; article hints made authoritative.
+2. ✅ Added 9 missing affiliate env vars to Vercel (production+preview+development): `AFFILIATE_CHASE_SAPPHIRE_PREFERRED`, `_AMEX_GOLD`, `_CITI_DOUBLE_CASH`, `_CAPITAL_ONE_VENTURE`, `_CHASE_SAPPHIRE_RESERVE`, `_SCHWAB`, `_VANGUARD`, `_BETTERMENT`, `_WEALTHFRONT`. Vercel env count now **25**. All still placeholder homepage URLs — replace with real tracked links once affiliate programs approve.
+3. ✅ Committed locally (`1c1e3d3`) and **deployed to production via Vercel CLI** (`vercel deploy --prod`) — bypassed GitHub because no GitHub credentials were available. Production deployment `dpl_Ap9BAbRfSyjkNwQX34jVUAeW72u2`, READY, aliased to finbrief.space. Smoke test passed: 3 new articles 200; `/go/{capital-one-venture,chase-sapphire-reserve,betterment,vanguard}` all 302 with correct `subid`.
+4. ⚠️ **GitHub is now BEHIND production.** Two local commits (`d865146`, `1c1e3d3`) are NOT pushed to origin/main — `git push` failed (HTTPS remote, no PAT/`gh`). The live site was deployed straight from local. **Next session: get a GitHub PAT or `gh auth login` and `git push origin main` so the repo matches what's live**, otherwise the source of truth has diverged from production.
+5. TODO: Submit new URLs to Google Search Console.
+6. Note: a `.vercel/` link dir was created locally by `vercel link` (gitignored by default).
 
 ---
 
