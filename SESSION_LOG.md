@@ -142,13 +142,15 @@ Build verified locally with `npm run build` in Next.js 16.2.6 / Turbopack. All 2
 
 5. **`opengraph-image.tsx`.** Generic placeholder only; build a real OG image with `@vercel/og` (Sprint 1 step 4 in `CLAUDE.md`).
 
-6. **Analytics provider.** `src/lib/analytics.ts` is still a `console.log` stub. Wire to Plausible / GA4 / PostHog. The `logAffiliateClick` call inside `/go/[partner]/route.ts` will start sending real events once this is hooked up.
+6. **Analytics provider.**
+   - ✅ **Vercel Web Analytics (page views) enabled 2026-05-20.** `@vercel/analytics@^2` installed; `<Analytics/>` from `@vercel/analytics/next` added to `src/app/layout.tsx` (commit `97b0940`, deployed via GitHub auto-deploy `dpl_ApixSrmmeVcyKBqGjXVCTYdqRsVC`). Dashboard toggle ON (`webAnalytics.enabledAt` = 2026-05-20T14:32Z); `/_vercel/insights/script.js` serves 200; deployed JS bundle contains the insights injection. Stats API shows 0 views so far — populates only on **real browser** traffic (curl doesn't run JS). Manual check: open finbrief.space in a browser, then Vercel → finance-ai-brief → Analytics shows the view within ~1 min.
+   - ⏳ **Still a stub:** `src/lib/analytics.ts` `logAffiliateClick` (server-side affiliate-click events) — separate concern from page views. Wire to PostHog/GA4/warehouse to capture `/go/[partner]` clicks.
 
 7. **Sitemap submission.** Submit `https://finbrief.space/sitemap.xml` to Google Search Console, then request indexing for the 4 new article URLs individually.
 
 8. **Newsletter signup.** Not yet built. Phase 2 GTM plan slots this for month 4 of operation.
 
-9. **`gh` CLI.** Not installed on user's Mac as of this session. If git pushes need automation in future sessions, either install `gh` (`brew install gh`) or have the user paste a fresh PAT.
+9. **Git auth.** ✅ Resolved 2026-05-20 — SSH key auth set up. An ed25519 key was generated at `~/.ssh/id_ed25519` (no passphrase) and added to GitHub; the `origin` remote was switched from HTTPS to `git@github.com:bhuttavpn-jpg/finance-ai-brief.git`. Plain `git push` now works in future sessions, no PAT needed. (`gh` CLI still not installed — only needed if PR/issue automation is wanted.)
 
 ---
 
