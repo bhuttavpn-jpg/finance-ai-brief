@@ -88,7 +88,7 @@ export default function Page() {
           publishedAt={PUBLISHED}
           updatedAt={PUBLISHED}
           author="Finbrief Editorial Team"
-          reviewer="Reviewed by a Certified Financial Planner (CFP®)"
+          reviewer="a Certified Financial Planner (CFP®)"
           readingTime="10 min read"
         />
 

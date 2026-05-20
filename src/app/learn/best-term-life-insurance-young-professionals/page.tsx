@@ -75,7 +75,7 @@ export default function Page() {
           publishedAt={PUBLISHED}
           updatedAt={PUBLISHED}
           author="Finbrief Editorial Team"
-          reviewer="Reviewed by a licensed life insurance professional"
+          reviewer="a licensed life insurance professional"
           readingTime="9 min read"
         />
 

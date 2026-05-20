@@ -78,7 +78,7 @@ export default function Page() {
           publishedAt="2026-05-17"
           updatedAt="2026-05-17"
           author="Finbrief Editor"
-          reviewer="Reviewed by a Certified Financial Planner (CFP®)"
+          reviewer="a Certified Financial Planner (CFP®)"
           readingTime="9 min read"
         />
 
