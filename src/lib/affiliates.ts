@@ -33,7 +33,9 @@ export type PartnerKey =
   | "wise"
   | "capital-one"
   | "discover-it"
-  | "credit-karma";
+  | "credit-karma"
+  | "capital-one-venture"
+  | "chase-sapphire-reserve";
 
 interface Partner {
   /** Display name shown to users. */
@@ -76,6 +78,8 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
   "capital-one": { name: "Capital One Platinum Secured", category: "Secured credit card", envVar: "AFFILIATE_CAPITAL_ONE" },
   "discover-it": { name: "Discover it Secured", category: "Secured credit card", envVar: "AFFILIATE_DISCOVER_IT" },
   "credit-karma": { name: "Credit Karma", category: "Free credit monitoring", envVar: "AFFILIATE_CREDIT_KARMA" },
+  "capital-one-venture": { name: "Capital One Venture Rewards", category: "Travel credit card", envVar: "AFFILIATE_CAPITAL_ONE_VENTURE" },
+  "chase-sapphire-reserve": { name: "Chase Sapphire Reserve", category: "Travel credit card", envVar: "AFFILIATE_CHASE_SAPPHIRE_RESERVE" },
 };
 
 /** Resolve a partner key to its current tracked URL, or null if not configured. */

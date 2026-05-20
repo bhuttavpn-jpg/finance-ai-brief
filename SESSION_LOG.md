@@ -30,6 +30,9 @@ There is a **second, older Vercel project** called `finance-platform` (`prj_6ww1
 | 4 | `how-to-invest-1000-beginners` | Invest | ~1,950 | **Shipped 2026-05-19** |
 | 5 | `best-term-life-insurance-young-professionals` | Protect | ~1,800 | **Shipped 2026-05-19** |
 | 6 | `how-to-build-credit-from-scratch` | Borrow smart | ~2,300 | **Shipped 2026-05-19** |
+| 7 | `best-travel-credit-cards-2026` | Borrow smart | ~2,100 | **Written 2026-05-20** (not yet deployed) |
+| 8 | `roth-ira-contribution-limits-2026` | Save tax | ~1,800 | **Written 2026-05-20** (not yet deployed) |
+| 9 | `tax-loss-harvesting-guide` | Save tax | ~2,100 | **Written 2026-05-20** (not yet deployed) |
 
 **Articles 3–6 spec used:** see the brief in this session's transcript or the spec block any future "write more cornerstones" prompt should follow. Each ships with:
 - `articleJsonLd` + `faqJsonLd` schema (and `howToJsonLd` for step-by-step pieces)
@@ -44,18 +47,21 @@ There is a **second, older Vercel project** called `finance-platform` (`prj_6ww1
 
 ## Articles to write next
 
-Phase 2 plan calls for 10 cornerstone (hub) articles total across the 5 pillars. **6 are done; 4 remain.** The full backlog of spokes lives in `Phase_2_Content_SEO_Workbook.xlsx` (sheet: Calendar) in the parent outputs directory — but the next priority block is:
+Phase 2 plan calls for 10 cornerstone (hub) articles total across the 5 pillars. **9 are written; 1 remains.** The full backlog of spokes lives in `Phase_2_Content_SEO_Workbook.xlsx` (sheet: Calendar) in the parent outputs directory — but the next priority block is:
 
 | Priority | Pillar | Slug (proposed) | Keyword | Why next |
 |---|---|---|---|---|
-| P0 | Save tax | `roth-ira-contribution-limits-2026` or `tax-loss-harvesting-guide` | "Roth IRA limits 2026" / "tax loss harvesting" | Save-tax pillar has no hub yet |
-| P0 | Borrow smart | `best-travel-credit-cards-2026` | "Best travel credit cards" | Highest affiliate CPA category (~$50–$200/approved app) |
+| ~~P0~~ ✅ | Save tax | ~~`roth-ira-contribution-limits-2026`~~ | "Roth IRA limits 2026" | **Written 2026-05-20** — Save-tax pillar now has a hub |
+| ~~P0~~ ✅ | Save tax | ~~`tax-loss-harvesting-guide`~~ | "tax loss harvesting" | **Written 2026-05-20** |
+| ~~P0~~ ✅ | Borrow smart | ~~`best-travel-credit-cards-2026`~~ | "Best travel credit cards" | **Written 2026-05-20** — highest CPA category |
 | P1 | Invest | `401k-vs-ira-which-first` | "401k vs IRA" | Pairs with existing 401(k) match tool |
 | P1 | Protect | `term-vs-whole-life-insurance` | "Term vs whole life" | Natural spoke off Article 5 |
 | P2 | Budget | `how-to-build-emergency-fund` | "Emergency fund" | Funnel from `best-hysa-2026` |
 | P2 | Budget | `couples-budgeting-guide` | "Couples budget" | Untouched audience segment |
 
-When the user asks for the next batch, default to the P0s unless told otherwise.
+When the user asks for the next batch, default to the P1s next.
+
+**Formatting note (introduced 2026-05-20):** Articles 7–9 follow a presentation spec — mixed content blocks (comparison tables + bullet lists + inline Q&A + short ≤5-sentence paragraphs), strategic bold on numbers/key terms, and `<hr className="my-10 border-brand-100" />` separators between major H2 sections. Match this shape for future articles. Content/accuracy standards from `CLAUDE.md` are unchanged — this only governs visual presentation.
 
 ---
 
@@ -70,8 +76,13 @@ All other partners point to **institution homepages as placeholders**. They earn
 - **Direct programs** for Policygenius, Bestow, Ladder, Ethos (life insurance carriers run their own programs)
 - **Credit Karma** has a Commission Junction (CJ) program
 
-Partner keys added in this session (`src/lib/affiliates.ts`):
+Partner keys added 2026-05-19 (`src/lib/affiliates.ts`):
 - `wise`, `capital-one`, `discover-it`, `credit-karma`
+
+Partner keys added 2026-05-20:
+- `capital-one-venture`, `chase-sapphire-reserve` (for the travel-cards article)
+
+⚠️ **New env vars NOT yet on Vercel.** The travel-cards article also reuses pre-existing keys `csp` / `amex-gold` / `citi-double-cash` whose `AFFILIATE_*` env vars were **never added to the 16-var Vercel set** (see env list below). Until added, `/go/csp`, `/go/amex-gold`, `/go/citi-double-cash`, `/go/capital-one-venture`, `/go/chase-sapphire-reserve` all fail-safe to the homepage. Same for the brokerage/robo CTAs in the two Save-tax articles that aren't in the Vercel set: `schwab`, `vanguard`, `betterment`, `wealthfront`. `fidelity` IS set and works. Add the missing vars before deploying articles 7–9 if those CTAs should be live.
 
 Pre-existing partner keys reused: `ally`, `marcus`, `sofi-money`, `robinhood`, `webull`, `fidelity`, `policygenius`, `bestow`, `ladder`, `ethos`.
 
@@ -116,6 +127,8 @@ Build verified locally with `npm run build` in Next.js 16.2.6 / Turbopack. All 2
 
 ## Open issues / things still to do
 
+0. ~~**VERIFY 2026 IRS FIGURES...**~~ ✅ **RESOLVED 2026-05-20.** All 2026 Roth figures verified against the official IRS news release (IR-2025-…, "401(k) limit increases to $24,500 for 2026, IRA limit increases to $7,500", irs.gov) and Vanguard's published 2026 limits. Confirmed accurate: limit **$7,500** / catch-up **$1,100** ($8,600 at 50+); MAGI phase-outs **$153,000–$168,000** (single/HOH), **$242,000–$252,000** (MFJ), **$0–$10,000** (MFS). Article hint text updated from "estimate, verify" to authoritative IRS citation. Tax-loss-harvesting $3,000 offset / 30-day wash-sale figures are stable statute (unchanged).
+
 1. **Reviewer + author identity.** Articles currently carry generic `"Finbrief Editorial Team"` + generic CFP / licensed-insurance-pro reviewer notes. Google YMYL E-E-A-T expects a real named person with verifiable credentials. Either:
    - Sign a CFP/CPA/EA on retainer to review (Phase 2 plan budgets for this), OR
    - The user becomes the named author and adds a personal bio + LinkedIn link
@@ -158,4 +171,30 @@ Build verified locally with `npm run build` in Next.js 16.2.6 / Turbopack. All 2
 
 ---
 
-*Last updated: 2026-05-19 by the session that shipped articles 3–6 and the finbrief.space production launch.*
+---
+
+## Session 2026-05-20 — articles 7–9 (P0 batch)
+
+Picked up the project per the standard startup checklist. Sanity checks passed: `layout.tsx` 1029 bytes (healthy, no restore needed), `npm run build` clean (Next 16.2.6 / Turbopack, all routes prerendered).
+
+**Written this session (built locally, NOT yet committed/deployed):**
+- `src/app/learn/best-travel-credit-cards-2026/page.tsx` — Borrow-smart hub. Article + FAQ JSON-LD. CTAs: csp, amex-gold, capital-one-venture, chase-sapphire-reserve, citi-double-cash.
+- `src/app/learn/roth-ira-contribution-limits-2026/page.tsx` — Save-tax hub. Article + FAQ JSON-LD. CTAs: fidelity, vanguard, schwab. **See Open issue #0 — IRS figures need verification.**
+- `src/app/learn/tax-loss-harvesting-guide/page.tsx` — Save-tax. Article + HowTo + FAQ JSON-LD. CTAs: betterment, wealthfront, fidelity.
+- `src/lib/affiliates.ts` — added `capital-one-venture`, `chase-sapphire-reserve`.
+- `src/lib/site-config.ts` — added 3 article entries (also flows into sitemap).
+- `.env.example` — added the 2 new `AFFILIATE_*` lines.
+
+Build verified: 24 routes total (was 21), all 3 new articles statically prerendered.
+
+**Presentation spec adopted this session** (see "Articles to write next" note): articles 7–9 use mixed content blocks, inline Q&A, `<hr>` section separators, and strategic bold. Match for future articles.
+
+**Still to do for these articles before they earn / rank:**
+1. Verify IRS 2026 figures (Open issue #0).
+2. Add missing affiliate env vars to Vercel (see "Affiliate registry" warning) or those CTAs redirect to homepage.
+3. Commit + push to GitHub and deploy to Vercel (not done — repo not touched this session).
+4. Submit new URLs to Google Search Console once live.
+
+---
+
+*Last updated: 2026-05-20 by the session that wrote articles 7–9 (P0 batch). Previous: 2026-05-19 — articles 3–6 + finbrief.space production launch.*
