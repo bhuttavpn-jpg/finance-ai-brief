@@ -105,8 +105,8 @@ export default function Page() {
 
         <div className="prose prose-lg max-w-none">
           <p className="lead">
-            Your credit score is the invisible number that determines how much you&apos;ll pay for
-            a house, car, and literally everything. Here&apos;s how to build it from 0.
+            <strong>Your credit score is the invisible number that determines how much you&apos;ll pay for
+            a house, car, and literally everything.</strong> Here&apos;s how to build it from 0.
           </p>
 
           <p>
@@ -122,6 +122,7 @@ export default function Page() {
             reach 750+ within 2–3 years. The process is mechanical. Follow it.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>What a credit score actually is</h2>
           <p>
             A credit score is a three-digit number (typically 300–850) summarizing the likelihood
@@ -146,6 +147,7 @@ export default function Page() {
             don&apos;t see.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How credit scores are built — the 5 factors</h2>
           <p>
             FICO has publicly disclosed the relative weighting of its five inputs. They&apos;re
@@ -204,6 +206,7 @@ export default function Page() {
             10% of your limit on a statement close date.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>If you have no credit history yet</h2>
           <p>
             About 26 million US adults are &quot;credit invisible&quot; — they have no file at any
@@ -246,6 +249,7 @@ export default function Page() {
             installment side of your credit mix. Use it as a supplement, not your primary tool.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Best starter credit cards in 2026</h2>
           <p>
             Two cards stand out for people building from zero. Both report to all three bureaus,
@@ -319,6 +323,7 @@ export default function Page() {
             are legitimate cards from major US issuers.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Monitor your credit for free</h2>
           <p>
             <strong>Credit Karma</strong> is the standard tool for tracking your score over time.
@@ -338,6 +343,7 @@ export default function Page() {
             for non-customers. Pull it once before any major application.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Fast-track strategies — how to compress 18 months into 9</h2>
 
           <h3>1. Pay your statement balance down before the statement closes</h3>
@@ -381,6 +387,7 @@ export default function Page() {
             CLI requests; Discover sometimes does a hard pull, so ask first.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The 18-month timeline</h2>
           <ul>
             <li><strong>Month 0:</strong> Pull all three credit reports at annualcreditreport.com. Apply for a secured card (Capital One or Discover). Sign up for Credit Karma. Ask family about becoming an authorized user.</li>
@@ -391,6 +398,7 @@ export default function Page() {
             <li><strong>Month 18+:</strong> 720–760 range. You qualify for premium travel cards, the lowest auto loan rates, and competitive mortgage pre-approvals.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>What to never do</h2>
           <ul>
             <li><strong>Never miss a payment.</strong> A single 30-day late payment can drop a new score by 60–110 points and stays on your report for 7 years.</li>
@@ -401,6 +409,7 @@ export default function Page() {
             <li><strong>Never co-sign for someone else.</strong> Their late payments become your late payments. If you must support a family member, gift the money instead.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>What good credit unlocks</h2>
           <p>
             Once your FICO crosses 720, you unlock:
@@ -419,6 +428,7 @@ export default function Page() {
             start optimizing across credit and tax decisions.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The bottom line</h2>
           <p>
             Open a secured card today. Use it for one small recurring charge. Set autopay. Pay

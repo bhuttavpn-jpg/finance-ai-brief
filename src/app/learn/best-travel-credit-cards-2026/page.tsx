@@ -87,8 +87,8 @@ export default function Page() {
 
         <div className="prose prose-lg max-w-none">
           <p className="lead">
-            The best travel credit card isn&apos;t the one with the flashiest bonus — it&apos;s the
-            one whose annual fee you&apos;ll actually earn back. Here&apos;s how to pick.
+            <strong>The best travel credit card isn&apos;t the one with the flashiest bonus — it&apos;s the
+            one whose annual fee you&apos;ll actually earn back.</strong> Here&apos;s how to pick.
           </p>
 
           <p>
@@ -107,6 +107,7 @@ export default function Page() {
             lounges and a big travel credit, the <strong>Chase Sapphire Reserve</strong>.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How to read a travel card (the only 4 numbers that matter)</h2>
           <p>
             Ignore the marketing. A travel card&apos;s value comes down to four inputs you can put
@@ -125,6 +126,7 @@ export default function Page() {
             numbers hold up even if you never master advanced transfer-partner redemptions.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The 2026 shortlist at a glance</h2>
           <div className="my-6 overflow-x-auto">
             <table className="w-full text-left text-sm">
@@ -166,6 +168,7 @@ export default function Page() {
             <p className="hint mt-2">Earn rates and fees reflect published issuer terms as of May 2026; confirm current offers on the issuer&apos;s site, as welcome bonuses change frequently.</p>
           </div>
 
+          <hr className="my-10 border-brand-100" />
           <h2>1. Chase Sapphire Preferred — the best first travel card</h2>
           <p>
             If you&apos;re getting your first real travel card, this is the default answer, and it
@@ -191,6 +194,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>2. Amex Gold — for heavy dining and grocery spenders</h2>
           <p>
             The American Express Gold Card is built for one kind of person: someone who spends a lot
@@ -217,6 +221,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>3. Capital One Venture — the set-and-forget option</h2>
           <p>
             If tracking bonus categories sounds like a chore, the Capital One Venture Rewards card
@@ -243,6 +248,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>4. Chase Sapphire Reserve — for frequent travelers</h2>
           <p>
             The Sapphire Reserve is the premium step up from the Preferred, and its $550 fee only
@@ -268,6 +274,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Not a frequent traveler? Consider flat cash back instead</h2>
           <p>
             If you travel less than twice a year, or you simply don&apos;t want to manage points and
@@ -286,6 +293,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Before you apply: 4 rules to protect your credit</h2>
           <ul>
             <li><strong>Check Chase&apos;s 5/24 rule first.</strong> If you&apos;ve opened 5 or more cards from any issuer in the past 24 months, Chase will almost certainly decline you. Apply for Chase cards (Sapphire Preferred/Reserve) before non-Chase cards.</li>
@@ -299,6 +307,7 @@ export default function Page() {
             — most premium travel cards want a 700+ FICO before they&apos;ll approve you.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How to value the rewards you earn</h2>
           <p>
             Earning points is only half the equation; redeeming them well is the other half. Three
@@ -310,6 +319,7 @@ export default function Page() {
             <li><strong>Never redeem points for cash or merchandise.</strong> That&apos;s where point values crater to 0.6–0.8 cents. Travel redemptions are where these cards earn their keep.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The bottom line</h2>
           <p>
             Most people are best served by one of two cards. If you travel a few times a year and

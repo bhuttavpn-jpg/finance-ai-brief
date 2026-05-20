@@ -87,8 +87,8 @@ export default function Page() {
 
         <div className="prose prose-lg max-w-none">
           <p className="lead">
-            If you have $10K+ sitting in a 0.01% savings account at your bank, you&apos;re leaving
-            $50–$100 per year on the table. Here&apos;s where to move it — and why.
+            <strong>If you have $10K+ sitting in a 0.01% savings account at your bank, you&apos;re leaving
+            $50–$100 per year on the table.</strong> Here&apos;s where to move it — and why.
           </p>
 
           <p>
@@ -100,6 +100,7 @@ export default function Page() {
             your life.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The three best HYSAs of 2026</h2>
           <p>
             We compared 14 high-yield savings accounts on APY, fees, minimums, ATM access,
@@ -223,6 +224,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Best HYSA by use case</h2>
 
           <h3>Best for an emergency fund: Marcus</h3>
@@ -267,6 +269,7 @@ export default function Page() {
             is the right call.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How to choose an HYSA — what actually matters</h2>
           <p>
             The marketing pages all look the same. These are the five criteria that actually
@@ -312,6 +315,7 @@ export default function Page() {
             hours.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How much you&apos;ll earn — the math</h2>
           <p>
             The gap between 0.01% and 4.40% APY sounds abstract until you put dollars on it.
@@ -359,6 +363,7 @@ export default function Page() {
             close.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How to move money over — the 10-minute process</h2>
           <ol>
             <li>Pick one of the three accounts above and click through.</li>
@@ -373,6 +378,7 @@ export default function Page() {
             do nothing.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>What we left out — and why</h2>
           <p>
             A few accounts you&apos;ll see on competing roundups didn&apos;t make our list:
@@ -383,6 +389,7 @@ export default function Page() {
             <li><strong>Crypto &quot;savings&quot; products</strong> advertise high yields but carry custodial and counterparty risk that no FDIC-insured account does. After the 2022 collapses (Celsius, BlockFi, Voyager), depositors lost real money. Skip them.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The bottom line</h2>
           <p>
             Pick one of these three. Open it tonight. Move your emergency fund this week. You&apos;re

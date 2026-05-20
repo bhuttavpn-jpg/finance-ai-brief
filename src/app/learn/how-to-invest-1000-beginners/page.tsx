@@ -96,8 +96,8 @@ export default function Page() {
 
         <div className="prose prose-lg max-w-none">
           <p className="lead">
-            Most people never invest because they think they need $10K to start. You don&apos;t.
-            Here&apos;s how to invest your first $1,000 in 15 minutes — and why you should.
+            <strong>Most people never invest because they think they need $10K to start.</strong>{" "}
+            You don&apos;t. Here&apos;s how to invest your first $1,000 in 15 minutes — and why you should.
           </p>
 
           <p>
@@ -112,6 +112,7 @@ export default function Page() {
             in a diversified portfolio. No jargon, no stock picks, no nonsense.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Before you start — check three things</h2>
           <ol>
             <li>
@@ -136,6 +137,7 @@ export default function Page() {
             next move.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Step 1: Choose a brokerage</h2>
           <p>
             A brokerage is the account that holds your investments. All three of the options
@@ -220,6 +222,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Step 2: Open the account</h2>
           <p>
             All three brokerages use the same SEC-required process. You&apos;ll need:
@@ -247,6 +250,7 @@ export default function Page() {
             <Link href="/learn/roth-ira-vs-traditional-ira">Roth vs. Traditional IRA comparison</Link>.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Step 3: Pick what to invest in</h2>
           <p>
             The simplest defensible portfolio for someone with $1,000 is two broad-market ETFs:
@@ -285,6 +289,7 @@ export default function Page() {
             but the convenience is real. Either approach is defensible.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Step 4: Make your first trade</h2>
           <p>
             Inside your brokerage app:
@@ -302,6 +307,7 @@ export default function Page() {
             after hours, the trade queues for the next opening bell. That&apos;s it.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>What to do next — set up automatic contributions</h2>
           <p>
             The most important thing you do after your first trade is set up automatic recurring
@@ -315,6 +321,7 @@ export default function Page() {
             for a year.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Common beginner mistakes</h2>
           <ul>
             <li>
@@ -344,6 +351,7 @@ export default function Page() {
             </li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How much $1,000 actually becomes</h2>
           <p>
             Assuming a 7% real (inflation-adjusted) return — the long-run S&amp;P 500 average per
@@ -362,6 +370,7 @@ export default function Page() {
             matters less than the habit.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The bottom line</h2>
           <p>
             Pick one brokerage. Open the account. Buy VTI and VXUS in an 80/20 split. Set up

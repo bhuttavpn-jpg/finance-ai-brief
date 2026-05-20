@@ -99,6 +99,7 @@ export default function Page() {
             actually use and flexible enough to match almost any income.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Try it on your number</h2>
         </div>
 
@@ -107,6 +108,7 @@ export default function Page() {
         </div>
 
         <div className="prose prose-lg max-w-none">
+          <hr className="my-10 border-brand-100" />
           <h2>A worked example</h2>
           <p>
             Say you take home $5,000/month after taxes and 401(k) contributions. The 50/30/20
@@ -118,6 +120,7 @@ export default function Page() {
             <li><strong>$1,000 for savings</strong> — emergency fund first, then retirement, then extra payments on debt above 7% interest.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Where the rule works well</h2>
           <ul>
             <li>Stable income, predictable expenses.</li>
@@ -126,6 +129,7 @@ export default function Page() {
             <li>You want a simple framework you can actually stick with.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Where the rule breaks down</h2>
           <ul>
             <li><strong>High-cost-of-living cities.</strong> If you live in NYC or SF and rent eats 45% of take-home before groceries, 50/30/20 isn&apos;t realistic. Shift to 60/20/20 or 70/10/20 for a few years.</li>
@@ -133,6 +137,7 @@ export default function Page() {
             <li><strong>FIRE plans.</strong> If you&apos;re aiming for early retirement, you&apos;ll want a 50/20/30 (savings-heavy) split or more.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How to actually implement it</h2>
           <ol>
             <li>Open a separate <Link href="/tools/budget-50-30-20">high-yield savings account</Link> for the 20% savings bucket.</li>
@@ -145,6 +150,7 @@ export default function Page() {
             the goal is something you can hold in your head and actually use.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>What about retirement?</h2>
           <p>
             Retirement saving lives inside the 20% bucket. If your employer offers a 401(k)

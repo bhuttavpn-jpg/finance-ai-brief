@@ -83,8 +83,8 @@ export default function Page() {
 
         <div className="prose prose-lg max-w-none">
           <p className="lead">
-            If you&apos;re 25–40 with dependents, term life insurance is the cheapest way to
-            protect them. Here&apos;s exactly how much you need and which companies quote fastest.
+            <strong>If you&apos;re 25–40 with dependents, term life insurance is the cheapest way to
+            protect them.</strong> Here&apos;s exactly how much you need and which companies quote fastest.
           </p>
 
           <p>
@@ -99,6 +99,7 @@ export default function Page() {
             past 50 it gets expensive fast. The single biggest mistake people make is waiting.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Do you actually need term life insurance?</h2>
           <p>
             Buy term life if any of these apply:
@@ -115,6 +116,7 @@ export default function Page() {
             and your employer&apos;s default coverage are enough to cover funeral costs.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How much coverage you need — the DIME method</h2>
           <p>
             DIME is a quick framework used by insurance agents and financial planners. Add up:
@@ -141,6 +143,7 @@ export default function Page() {
             calculator</Link>. Most young professionals land between $750K and $2M of coverage.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Term vs. whole life — what the agent won&apos;t tell you</h2>
           <p>
             Whole life insurance (sometimes sold as &quot;permanent&quot; or &quot;universal
@@ -165,6 +168,7 @@ export default function Page() {
             term.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Best term life insurance companies in 2026</h2>
           <p>
             We screened on three criteria: speed to quote, underwriting friendliness for healthy
@@ -274,6 +278,7 @@ export default function Page() {
             </AffiliateButton>
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How to get quotes fast — the 30-minute checklist</h2>
           <p>
             You can have real, bindable quotes in your inbox in under 30 minutes. Here&apos;s how.
@@ -311,6 +316,7 @@ export default function Page() {
             </li>
           </ol>
 
+          <hr className="my-10 border-brand-100" />
           <h2>What to skip</h2>
           <ul>
             <li>
@@ -334,6 +340,7 @@ export default function Page() {
             </li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The bottom line</h2>
           <p>
             Term life insurance is one of the rare financial products where the right answer is

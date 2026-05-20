@@ -78,6 +78,7 @@ export default function Page() {
             <li>If you have <strong>no idea</strong>, split your contribution 50/50. You&apos;ll be diversified across tax regimes.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How each one is taxed</h2>
           <p>
             A <strong>Traditional IRA</strong> works like a 401(k): you contribute pre-tax dollars
@@ -90,6 +91,7 @@ export default function Page() {
             are 100% tax-free — including all the growth.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>Run your scenario</h2>
         </div>
 
@@ -98,6 +100,7 @@ export default function Page() {
         </div>
 
         <div className="prose prose-lg max-w-none">
+          <hr className="my-10 border-brand-100" />
           <h2>Contribution and income limits (2026)</h2>
           <ul>
             <li><strong>Annual contribution limit:</strong> $7,000, or $8,000 if you&apos;re 50 or older. This is a combined limit across Roth and Traditional.</li>
@@ -110,6 +113,7 @@ export default function Page() {
             cap on conversions.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>When Roth wins</h2>
           <ul>
             <li>Early in your career, when you&apos;re in a low bracket but expect higher income later.</li>
@@ -118,6 +122,7 @@ export default function Page() {
             <li>You believe tax rates will be higher in the future (the TCJA brackets are scheduled to revert in 2026).</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>When Traditional wins</h2>
           <ul>
             <li>You&apos;re in a high bracket today (24%, 32%, or above) and expect to retire in a meaningfully lower one.</li>
@@ -125,6 +130,7 @@ export default function Page() {
             <li>You&apos;re close to retirement and your earning years are nearly over.</li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
           <h2>The hybrid strategy</h2>
           <p>
             If your future bracket is uncertain (whose isn&apos;t?), splitting contributions
@@ -133,6 +139,7 @@ export default function Page() {
             your tax bill that year.
           </p>
 
+          <hr className="my-10 border-brand-100" />
           <h2>How to open an IRA</h2>
           <p>
             All three of the major low-cost brokerages — Fidelity, Schwab, and Vanguard —
