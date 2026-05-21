@@ -120,5 +120,23 @@ export const siteConfig = {
       publishedAt: "2026-05-21",
       updatedAt: "2026-05-21",
     },
+    {
+      slug: "how-to-build-emergency-fund",
+      title: "How to build an emergency fund (step by step)",
+      pillar: "Budget",
+      tool: "budget-50-30-20",
+      keyword: "emergency fund",
+      publishedAt: "2026-05-21",
+      updatedAt: "2026-05-21",
+    },
+    {
+      slug: "couples-budgeting-guide",
+      title: "How to budget as a couple: A practical guide",
+      pillar: "Budget",
+      tool: "budget-50-30-20",
+      keyword: "couples budget",
+      publishedAt: "2026-05-21",
+      updatedAt: "2026-05-21",
+    },
   ] as const,
 };
