@@ -102,5 +102,23 @@ export const siteConfig = {
       publishedAt: "2026-05-20",
       updatedAt: "2026-05-20",
     },
+    {
+      slug: "401k-vs-ira-which-first",
+      title: "401(k) vs. IRA: Which should you fund first?",
+      pillar: "Invest",
+      tool: "401k-match",
+      keyword: "401k vs ira which first",
+      publishedAt: "2026-05-21",
+      updatedAt: "2026-05-21",
+    },
+    {
+      slug: "term-vs-whole-life-insurance",
+      title: "Term vs. whole life insurance: Which do you actually need?",
+      pillar: "Protect",
+      tool: "life-insurance",
+      keyword: "term vs whole life insurance",
+      publishedAt: "2026-05-21",
+      updatedAt: "2026-05-21",
+    },
   ] as const,
 };
