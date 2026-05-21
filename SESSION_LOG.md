@@ -477,7 +477,13 @@ Done via the Chrome browser tools, signed in as **jahanzebnawaz856@gmail.com**.
   - HTML file `public/google705d99193056a6d5.html` (content: `google-site-verification: google705d99193056a6d5.html`)
 - Deployed, then GSC reported **"Ownership auto verified"** (methods: HTML file, HTML tag).
 - **Submitted `sitemap.xml`** on the Sitemaps page → **"Sitemap submitted successfully."** Status initially shows **"Couldn't fetch"** — this is the normal transient state right after submission; the sitemap is live (200, application/xml, **22 URLs**) and Google re-fetches within hours. ⏳ **Next session: re-check the Sitemaps page; status should be "Success." If still "Couldn't fetch" after ~48h, re-submit.**
-- ⏳ Optional follow-up: use **URL inspection → Request indexing** for the 13 article URLs individually to speed up indexing.
+- ⏳ **URL inspection → Request indexing (in progress).** Done via browser; the GSC search box focuses intermittently and Google enforces a **daily request-indexing quota**, so this is being spread out. **Requested successfully so far (4 of 13 — the newest/highest-priority articles):**
+  - ✅ `401k-vs-ira-which-first`
+  - ✅ `term-vs-whole-life-insurance`
+  - ✅ `how-to-build-emergency-fund`
+  - ✅ `couples-budgeting-guide`
+  - **Still to request (9):** `roth-ira-contribution-limits-2026`, `tax-loss-harvesting-guide`, `best-travel-credit-cards-2026`, `how-to-build-credit-from-scratch`, `best-term-life-insurance-young-professionals`, `how-to-invest-1000-beginners`, `best-hysa-2026`, `roth-ira-vs-traditional-ira`, `how-to-budget-50-30-20`.
+  - **Note:** the submitted **sitemap already covers all 22 URLs** — individual requests only speed up crawl. Finish the remaining 9 in a future session (likely across a couple of days due to the quota). GSC flow: URL inspection search box → paste full URL → Enter → "Request indexing" → wait for live test → "Indexing requested".
 - ℹ️ Don't remove the meta tag or the HTML file — removing either un-verifies the property.
 
 ### Updated open issues (post-session)
