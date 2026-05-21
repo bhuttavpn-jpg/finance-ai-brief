@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: siteConfig.url },
   robots: { index: true, follow: true },
+  verification: {
+    // Google Search Console URL-prefix property (https://finbrief.space).
+    // Public verification token — safe to commit. Don't remove after verifying.
+    google: "O4v6KR8AAC0U9Tpf3ctYx-uzFvO73VvX19EL99KErB8",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
