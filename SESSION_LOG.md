@@ -367,4 +367,42 @@ Default next session: write both P1s.
 
 ---
 
-*Last updated: 2026-05-20 (end of session — articles 7–9 deployed, bugs fixed, formatting refactored, git/analytics/auth all resolved). 9 articles live, 2 P1s remain.*
+---
+
+---
+
+## Session 2026-05-21 — P1 batch (articles 10–11)
+
+Standard startup checklist passed: `layout.tsx` 1103 bytes (healthy), `npm run build` clean (Next 16.2.6 / Turbopack, 24 routes before this session's additions).
+
+**Written this session:**
+- `src/app/learn/401k-vs-ira-which-first/page.tsx` — Invest pillar. Thesis: match-first order of operations (401(k) to match → max IRA → back to 401(k) → HSA/taxable). Article + FAQ + **HowTo** JSON-LD. CTAs: `fidelity`, `vanguard`, `schwab` (all already in registry + Vercel env). Links to `/tools/401k-match`, `roth-ira-vs-traditional-ira`, `roth-ira-contribution-limits-2026`.
+- `src/app/learn/term-vs-whole-life-insurance/page.tsx` — Protect pillar. Thesis: "buy term and invest the difference"; covers the narrow cases where whole life fits. Article + FAQ JSON-LD. DIME sizing method. CTAs: `policygenius`, `bestow`, `ladder`, `ethos` (all already in registry + Vercel env). Links to `best-term-life-insurance-young-professionals`, `/tools/life-insurance`.
+- `src/lib/site-config.ts` — added the 2 article entries (also flows into sitemap).
+
+**No new affiliate keys or env vars** — both articles reuse existing partners. Nothing to add on Vercel.
+
+Build verified: **26 routes** total (was 24), both new articles statically prerendered, TypeScript passed.
+
+**Presentation:** followed the articles 8–9 spec + the expanded formatting guidelines provided this session (mixed content blocks — comparison tables + bullet lists + inline Q&A + ≤5-sentence paragraphs; strategic bold on numbers/key terms; `<hr className="my-10 border-brand-100" />` separators before each H2 except "Related reading"). Content/accuracy standards unchanged.
+
+**Git:** committed `03e0cac` ("Add 2 P1 cornerstone articles…", 3 files / 681 insertions) and pushed `7baba26..03e0cac` to `origin/main` over SSH. Working tree clean, in sync. GitHub auto-deploy should pick this up.
+
+### Cornerstone count
+**11 cornerstone articles now written** (Phase 2 plan called for 10 — now one ahead). Both P1s from the prior backlog are done.
+
+### Caveats flagged this session
+- **401(k) 50+ catch-up = $8,000 (2026)** is a COLA-projected figure, written with an IRS-confirm hint. The confidently-verified 2026 numbers remain the $24,500 employee deferral and the $7,500 / $1,100 IRA limit/catch-up (verified prior session). Confirm the 401(k) catch-up on IRS.gov before aggressive promotion.
+- **Reviewer/author bylines** are still the generic placeholders (`a Certified Financial Planner (CFP®)` / `a licensed insurance professional`) — same YMYL E-E-A-T open issue as the other articles.
+
+### Next articles (P2 backlog)
+| Priority | Pillar | Slug | Keyword |
+|---|---|---|---|
+| P2 | Budget | `how-to-build-emergency-fund` | "emergency fund" |
+| P2 | Budget | `couples-budgeting-guide` | "couples budget" |
+
+Beyond these, the full spoke backlog lives in `Phase_2_Content_SEO_Workbook.xlsx` (sheet: Calendar).
+
+---
+
+*Last updated: 2026-05-21 (articles 10–11 — 401k-vs-IRA and term-vs-whole-life — written, committed `03e0cac`, pushed to origin/main. 11 cornerstones written; P1 backlog cleared. P2 budget articles remain.)*
