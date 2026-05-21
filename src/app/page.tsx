@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { NewsletterSignup } from "@/components/content/NewsletterSignup";
 
 const PILLAR_BLURBS: Record<string, { headline: string; copy: string }> = {
   Budget: {
@@ -89,6 +90,12 @@ export default function HomePage() {
               <p className="mt-2 text-lg font-medium text-brand-700">{t.label}</p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="container-wide pb-24">
+        <div className="mx-auto max-w-2xl">
+          <NewsletterSignup />
         </div>
       </section>
     </>

@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { NewsletterSignup } from "@/components/content/NewsletterSignup";
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-brand-200 bg-brand-50 py-12">
+      <div className="container-wide mb-10 max-w-md border-b border-brand-200 pb-10">
+        <NewsletterSignup variant="compact" />
+      </div>
       <div className="container-wide grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="text-sm font-medium text-brand-700">{siteConfig.name}</p>

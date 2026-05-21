@@ -1,5 +1,9 @@
 // Server-side click logger for affiliate redirects.
-// Stub today; swap for PostHog / Segment / your own DB when you're ready.
+// Sends an "affiliate_click" custom event to Vercel Web Analytics (already
+// enabled for this project) and mirrors the event to stderr for Vercel logs.
+// Add destinations (PostHog / warehouse / partner S2S) here as needed.
+
+import { track } from "@vercel/analytics/server";
 
 interface ClickEvent {
   partner: string;
@@ -11,10 +15,17 @@ interface ClickEvent {
 }
 
 export async function logAffiliateClick(event: ClickEvent): Promise<void> {
-  // In production, fan this out to:
-  //   - PostHog `capture` (event = "affiliate_click")
-  //   - Your data warehouse (Snowflake / BigQuery) for attribution analysis
-  //   - Optional: ping the partner's S2S endpoint if they support it
-  // For now we just log to stderr so it appears in Vercel logs.
+  // Always log to stderr so the event shows up in Vercel runtime logs.
   console.log(JSON.stringify({ type: "affiliate_click", ...event }));
+
+  // Vercel Web Analytics custom event. Only low-cardinality, non-PII fields
+  // are sent as properties — never the user agent or IP.
+  try {
+    await track("affiliate_click", {
+      partner: event.partner,
+      source: event.source ?? "none",
+    });
+  } catch {
+    // Never let an analytics failure affect the redirect.
+  }
 }
