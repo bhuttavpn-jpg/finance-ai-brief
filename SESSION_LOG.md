@@ -201,4 +201,170 @@ Build verified: 24 routes total (was 21), all 3 new articles statically prerende
 
 ---
 
-*Last updated: 2026-05-20 by the session that wrote articles 7–9 (P0 batch). Previous: 2026-05-19 — articles 3–6 + finbrief.space production launch.*
+---
+
+## Session 2026-05-20 (continued) — infrastructure, bugs, refactor
+
+Picked up mid-session. All previous work (articles 7–9, env vars, Vercel deploy) was complete. Remaining issues in the open-issues list were resolved one by one.
+
+### Git / GitHub sync (was: GitHub behind production)
+
+SSH key auth set up:
+- ed25519 key generated at `~/.ssh/id_ed25519` (no passphrase)
+- Public key added to GitHub account (user manually added via Settings → SSH keys)
+- `origin` remote switched from HTTPS to `git@github.com:bhuttavpn-jpg/finance-ai-brief.git`
+- `git push origin main` succeeded — GitHub now matches production
+
+**Current git state:** `origin/main` = local HEAD = `eb9fc4a` (see below for all commits).
+
+### Vercel Analytics (end-to-end)
+
+1. Installed `@vercel/analytics@^2.0.1` in `package.json`
+2. Added `<Analytics />` from `@vercel/analytics/next` to `src/app/layout.tsx` (before `</body>`)
+3. Committed and pushed — GitHub auto-deploy triggered, production deployment updated
+4. Enabled Web Analytics toggle in Vercel dashboard → finance-ai-brief → Analytics
+5. Verified: `/_vercel/insights/script.js` returns HTTP 200 (only true when WA is enabled); deployed JS bundle contains `_vercel/insights` injection
+6. **Dashboard shows 0 views** — expected; populates only on real browser traffic (curl doesn't execute JS). Open finbrief.space in a browser → Vercel Analytics shows a view within ~1 min.
+
+### Rollback
+
+Confirmed via Vercel dashboard: every production deployment is retained and can be promoted back instantly (Deployments list → "Promote to Production"). GitHub `git revert` + push also triggers a new deploy. Multiple rollback paths exist.
+
+### Bug fix #1 — duplicate "Reviewed by" in article bylines
+
+**Root cause:** `ArticleHeader.tsx` renders `· Reviewed by {reviewer}`, but all 9 article files were passing `reviewer="Reviewed by a Certified Financial Planner (CFP®)"` — producing "Reviewed by Reviewed by…".
+
+**Fix:** Stripped the leading "Reviewed by " prefix from the `reviewer` prop in all 9 article files:
+```bash
+sed -i '' 's/reviewer="Reviewed by /reviewer="/' src/app/learn/*/page.tsx
+```
+Result: `reviewer="a Certified Financial Planner (CFP®)"` — component renders correctly.
+
+### Bug fix #2 — `/learn` page category filter not working
+
+**Root cause:** Two issues:
+1. `src/app/learn/page.tsx` was a plain (sync) Server Component reading `searchParams` synchronously — Next.js 15+ requires `searchParams` to be `await`-ed as a `Promise<{...}>`.
+2. `siteConfig.pillars` stores slugs (`borrow-smart`) while `siteConfig.articles[].pillar` stores display labels (`"Borrow smart"`) — direct comparison always failed.
+
+**Fix:** Completely rewrote `src/app/learn/page.tsx` as an async Server Component:
+```tsx
+export default async function LearnIndex({
+  searchParams,
+}: {
+  searchParams: Promise<{ pillar?: string }>;
+}) {
+  const { pillar } = await searchParams;
+  const activePillar = siteConfig.pillars.find((p) => p.slug === pillar) ?? null;
+  const articles = activePillar
+    ? siteConfig.articles.filter((a) => a.pillar === activePillar.label)
+    : siteConfig.articles;
+  // ...
+}
+```
+Added `FilterChip` component with active/inactive styles. `/learn` is now `ƒ` (dynamic, not static) in the build output — expected for a page with URL-driven filter state.
+
+### Formatting refactor — first 7 articles
+
+Articles 8–9 (Roth limits, tax-loss harvesting) were written with a new presentation spec: `<hr className="my-10 border-brand-100" />` separators before each major H2, bold lead-in paragraphs, and mixed content blocks (tables + bullets + inline Q&A).
+
+The first 7 articles were refactored to match **presentation only** — no content, research, or accuracy changes:
+1. Added `<hr className="my-10 border-brand-100" />` before each H2 except "Related reading"
+2. Bolded the opening sentence of each article's lead paragraph
+3. **Exception:** `how-to-budget-50-30-20` and `roth-ira-vs-traditional-ira` had no intro text before their first H2 — removed the leading hr from those two to avoid a visual separator with nothing above it
+
+**Articles 8–9 were NOT touched** (they are the reference; they already match the spec).
+
+### Full commit history (as of end of session)
+
+| Commit | Message |
+|---|---|
+| `eb9fc4a` | Refactor first 7 articles to match reference formatting |
+| `30c519b` | Fix duplicate "Reviewed by" byline and add category filtering to /learn |
+| `34ecb72` | Document Vercel Analytics enablement + SSH git auth in SESSION_LOG |
+| `97b0940` | Enable Vercel Analytics |
+| `392345f` | Update SESSION_LOG with 2026-05-20 deploy + GitHub sync notes |
+| `1c1e3d3` | Add 3 P0 cornerstone articles (travel cards, Roth limits, tax-loss harvesting) |
+| `d865146` | Add SESSION_LOG.md to track shipped progress |
+| `3c1c001` | Add 4 cornerstone articles + 4 new affiliate partners |
+
+### Updated deployment state
+
+| Surface | Status |
+|---|---|
+| GitHub `origin/main` | `eb9fc4a` ✅ in sync |
+| Vercel production | Latest auto-deploy from `eb9fc4a` ✅ |
+| Vercel env vars | **25 total** (see updated env-var table below) |
+| Vercel Analytics | Enabled and verified ✅ |
+| SSH auth | `~/.ssh/id_ed25519` configured ✅ |
+
+### Updated env vars on Vercel (25 total)
+
+```
+NEXT_PUBLIC_SITE_URL=https://finbrief.space
+NEXT_PUBLIC_SITE_NAME=Finbrief
+AFFILIATE_WISE=https://wise.com/invite/ahpc/jahanzebn17          ← real tracked URL
+AFFILIATE_SOFI_MONEY=https://sofi.hk/referral/?c=8FE92168        ← real tracked URL
+AFFILIATE_ALLY=https://www.ally.com
+AFFILIATE_MARCUS=https://www.marcus.com
+AFFILIATE_ROBINHOOD=https://robinhood.com
+AFFILIATE_WEBULL=https://www.webull.com
+AFFILIATE_FIDELITY=https://www.fidelity.com
+AFFILIATE_CAPITAL_ONE=https://www.capitalone.com
+AFFILIATE_DISCOVER_IT=https://www.discover.com
+AFFILIATE_POLICYGENIUS=https://www.policygenius.com
+AFFILIATE_BESTOW=https://www.bestow.com
+AFFILIATE_LADDER=https://www.ladder.com
+AFFILIATE_ETHOS=https://www.ethos.com
+AFFILIATE_CREDIT_KARMA=https://www.creditkarma.com
+AFFILIATE_CHASE_SAPPHIRE_PREFERRED=https://creditcards.chase.com   ← added 2026-05-20
+AFFILIATE_AMEX_GOLD=https://www.americanexpress.com                ← added 2026-05-20
+AFFILIATE_CITI_DOUBLE_CASH=https://www.citi.com                    ← added 2026-05-20
+AFFILIATE_CAPITAL_ONE_VENTURE=https://www.capitalone.com           ← added 2026-05-20
+AFFILIATE_CHASE_SAPPHIRE_RESERVE=https://creditcards.chase.com     ← added 2026-05-20
+AFFILIATE_SCHWAB=https://www.schwab.com                            ← added 2026-05-20
+AFFILIATE_VANGUARD=https://www.vanguard.com                        ← added 2026-05-20
+AFFILIATE_BETTERMENT=https://www.betterment.com                    ← added 2026-05-20
+AFFILIATE_WEALTHFRONT=https://www.wealthfront.com                  ← added 2026-05-20
+```
+All non-WISE/SOFI vars are placeholder homepages — replace with real tracked links when affiliate programs approve.
+
+### Updated articles table
+
+| # | Slug | Pillar | Status |
+|---|---|---|---|
+| 1 | `how-to-budget-50-30-20` | Budget | ✅ Live (initial MVP) |
+| 2 | `roth-ira-vs-traditional-ira` | Invest | ✅ Live (initial MVP) |
+| 3 | `best-hysa-2026` | Budget | ✅ Live (shipped 2026-05-19) |
+| 4 | `how-to-invest-1000-beginners` | Invest | ✅ Live (shipped 2026-05-19) |
+| 5 | `best-term-life-insurance-young-professionals` | Protect | ✅ Live (shipped 2026-05-19) |
+| 6 | `how-to-build-credit-from-scratch` | Borrow smart | ✅ Live (shipped 2026-05-19) |
+| 7 | `best-travel-credit-cards-2026` | Borrow smart | ✅ Live (shipped 2026-05-20) |
+| 8 | `roth-ira-contribution-limits-2026` | Save tax | ✅ Live (shipped 2026-05-20) |
+| 9 | `tax-loss-harvesting-guide` | Save tax | ✅ Live (shipped 2026-05-20) |
+
+**9 of 10 planned cornerstone articles live.**
+
+### Next articles to write (P1 priorities)
+
+| Priority | Pillar | Slug | Keyword |
+|---|---|---|---|
+| **P1** | Invest | `401k-vs-ira-which-first` | "401k vs IRA which to fund first" |
+| **P1** | Protect | `term-vs-whole-life-insurance` | "term vs whole life insurance" |
+| P2 | Budget | `how-to-build-emergency-fund` | "emergency fund" |
+| P2 | Budget | `couples-budgeting-guide` | "couples budget" |
+
+Default next session: write both P1s.
+
+### Remaining open issues
+
+1. **Real affiliate URLs** — all 23 non-WISE/SOFI vars are placeholders; apply to Bankrate CC / Impact / Fintel Connect.
+2. **Reviewer + author identity** — generic bylines only; need real credentialed person for YMYL E-E-A-T.
+3. **Sitemap submission** — submit `https://finbrief.space/sitemap.xml` + request indexing for 9 article URLs in Google Search Console.
+4. **`favicon.ico` + `apple-icon.png`** — not yet generated.
+5. **`opengraph-image.tsx`** — generic placeholder; build with `@vercel/og`.
+6. **Affiliate click analytics** — `src/lib/analytics.ts` `logAffiliateClick` is still a `console.log` stub.
+7. **Newsletter signup** — Phase 2 GTM, month 4.
+
+---
+
+*Last updated: 2026-05-20 (end of session — articles 7–9 deployed, bugs fixed, formatting refactored, git/analytics/auth all resolved). 9 articles live, 2 P1s remain.*
