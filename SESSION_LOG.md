@@ -442,3 +442,69 @@ The original "Articles to write next" tables are now exhausted. The remaining sp
 ---
 
 *Last updated: 2026-05-21 (P2 batch — emergency fund + couples budgeting — written, committed `9790cb0`, pushed to origin/main. 13 cornerstone articles written; original P1+P2 backlog fully cleared. Next content comes from the Phase 2 workbook Calendar sheet.)*
+
+---
+
+---
+
+## Session 2026-05-21 (continued) — infrastructure: OG/icons, analytics, newsletter, GSC
+
+Tackled the four standing infra open issues. **All four resolved or unblocked.** Two commits: `79d8c6f` (OG/analytics/newsletter) and `f176f8d` (GSC verification).
+
+### 1. ✅ favicon / OG polish (commit `79d8c6f`)
+- `src/app/opengraph-image.tsx` — rewrote with a branded layout (white "FB" logo lockup + full name top-left, tagline + description, domain footer, navy radial-gradient bg). Added `size`, `alt`, `contentType` exports.
+- **`src/app/icon.tsx` (new)** — generated favicon via `@vercel/og` ("FB" on navy, rounded). This is the real fix: the old `src/app/favicon.png` was **not a recognized Next filename** (Next only auto-detects `favicon.ico` or `icon.*`), so the site had no working favicon. Removed the dead `favicon.png`.
+- `apple-icon.png` was already a valid convention name — left as-is.
+- Verified live: `/opengraph-image` → 200 image/png; `/icon` → 200 image/png.
+
+### 2. ✅ Affiliate-click analytics (commit `79d8c6f`)
+- `src/lib/analytics.ts` — `logAffiliateClick` now calls `track("affiliate_click", { partner, source })` from **`@vercel/analytics/server`** (reuses the already-enabled Web Analytics — no new account). Still logs JSON to stderr. Only low-cardinality, non-PII fields sent as props (never UA/IP). Wrapped in try/catch so analytics never breaks the redirect.
+- ⚠️ **Vercel custom events require a Vercel Pro plan** to show in the dashboard. The `track()` call is harmless on lower tiers (no-op/ignored). If events don't appear, that's the plan tier, not a bug.
+
+### 3. ✅ Newsletter — beehiiv (commit `79d8c6f`)  ← **needs creds to go live**
+- **`src/components/content/NewsletterSignup.tsx` (new)** — `"use client"` form, brand-aligned, `variant="full" | "compact"`, idle/loading/success/error states. POSTs to `/api/subscribe`.
+- **`src/app/api/subscribe/route.ts` (new)** — server route validates email, then POSTs to the beehiiv API (`/v2/publications/{id}/subscriptions`) using `BEEHIIV_API_KEY` + `BEEHIIV_PUBLICATION_ID`. Secret stays server-side. `/api/*` is robots-disallowed. Returns 503 cleanly until env vars are set.
+- Placed: full variant on the **home page** (below tools), compact variant in the **Footer** (site-wide → covers "end of articles").
+- `.env.example` — added `BEEHIIV_API_KEY` + `BEEHIIV_PUBLICATION_ID` placeholders.
+- Verified live: `/api/subscribe` returns 400 on bad email, **503 ("not available") because env vars aren't set yet**.
+- 🔴 **TO ACTIVATE:** user must (a) create a beehiiv publication, (b) get the API key (beehiiv dashboard → Settings → API) and publication ID (`pub_...`), (c) add both as env vars on Vercel (production+preview+dev), (d) redeploy. Then signups will flow to beehiiv. **Code is done; only the credentials are missing.**
+
+### 4. ✅ Google Search Console — VERIFIED + sitemap submitted (commit `f176f8d`)
+Done via the Chrome browser tools, signed in as **jahanzebnawaz856@gmail.com**.
+- **Finding:** no GSC property existed for this account. Created a **URL-prefix property `https://finbrief.space`** (not domain — domain needs DNS verification; URL-prefix allows code-based methods).
+- Added **both** verification signals (public tokens, safe in git):
+  - HTML meta tag via `metadata.verification.google` in `src/app/layout.tsx` → token `O4v6KR8AAC0U9Tpf3ctYx-uzFvO73VvX19EL99KErB8`
+  - HTML file `public/google705d99193056a6d5.html` (content: `google-site-verification: google705d99193056a6d5.html`)
+- Deployed, then GSC reported **"Ownership auto verified"** (methods: HTML file, HTML tag).
+- **Submitted `sitemap.xml`** on the Sitemaps page → **"Sitemap submitted successfully."** Status initially shows **"Couldn't fetch"** — this is the normal transient state right after submission; the sitemap is live (200, application/xml, **22 URLs**) and Google re-fetches within hours. ⏳ **Next session: re-check the Sitemaps page; status should be "Success." If still "Couldn't fetch" after ~48h, re-submit.**
+- ⏳ Optional follow-up: use **URL inspection → Request indexing** for the 13 article URLs individually to speed up indexing.
+- ℹ️ Don't remove the meta tag or the HTML file — removing either un-verifies the property.
+
+### Updated open issues (post-session)
+1. **Real affiliate URLs** — still only Wise + SoFi pay; rest are placeholder homepages. (Apply to Bankrate CC / Impact / Fintel Connect.)
+2. **Reviewer/author identity** — still generic bylines; YMYL E-E-A-T blocker before aggressive promotion.
+3. **Newsletter creds** — beehiiv code shipped; needs API key + publication ID on Vercel to go live (see #3 above).
+4. **GSC sitemap "Couldn't fetch"** — expected transient; verify it flips to "Success" next session.
+5. **401(k) 50+ catch-up ($8,000, 2026)** in `401k-vs-ira-which-first` — COLA-projected, has an IRS-confirm hint; verify before promotion.
+6. **Analytics on Vercel Pro** — custom `affiliate_click` events only surface on a Pro plan.
+
+### Commit history this session
+| Commit | Message |
+|---|---|
+| `f176f8d` | Add Google Search Console verification (meta tag + HTML file) |
+| `79d8c6f` | Polish OG/icons, wire affiliate analytics, add beehiiv newsletter |
+| `5730f26` | Document 2026-05-21 P2 batch (articles 12-13) in SESSION_LOG |
+| `9790cb0` | Add 2 P2 Budget articles (emergency fund, couples budgeting) |
+| `aeccd89` | Document 2026-05-21 session (P1 articles 10-11) in SESSION_LOG |
+| `03e0cac` | Add 2 P1 cornerstone articles (401k vs IRA, term vs whole life) |
+
+### Where to start next session
+1. Read `SESSION_LOG.md` + `CLAUDE.md`; sanity-check `layout.tsx` non-empty; `npm run build`.
+2. **Check GSC Sitemaps page** → confirm `sitemap.xml` status is "Success" (was "Couldn't fetch" at submission, expected to resolve).
+3. If beehiiv creds are now available → add `BEEHIIV_API_KEY` + `BEEHIIV_PUBLICATION_ID` to Vercel, redeploy, test `/api/subscribe`.
+4. **Content:** all original P0/P1/P2 cornerstones (13 articles) are done. Next content = spoke backlog in `Phase_2_Content_SEO_Workbook.xlsx` (sheet: Calendar).
+5. Remaining non-content priorities: real affiliate URLs (revenue), reviewer/author identity (YMYL).
+
+---
+
+*Last updated: 2026-05-21 (infra session — OG/icons polished, affiliate analytics wired to Vercel server-side track, beehiiv newsletter built [needs creds], GSC property VERIFIED + sitemap submitted. Commits `79d8c6f`, `f176f8d`. 13 articles live; site fully indexable.)*
