@@ -406,3 +406,39 @@ Beyond these, the full spoke backlog lives in `Phase_2_Content_SEO_Workbook.xlsx
 ---
 
 *Last updated: 2026-05-21 (articles 10–11 — 401k-vs-IRA and term-vs-whole-life — written, committed `03e0cac`, pushed to origin/main. 11 cornerstones written; P1 backlog cleared. P2 budget articles remain.)*
+
+---
+
+---
+
+## Session 2026-05-21 (continued) — P2 Budget batch (articles 12–13)
+
+Continued straight from the P1 batch. Wrote both remaining P2 Budget articles.
+
+**Written this session:**
+- `src/app/learn/how-to-build-emergency-fund/page.tsx` — Budget pillar. 3–6 months of essentials in a HYSA; five-step plan; fund-vs-debt sequencing. Article + FAQ + **HowTo** JSON-LD. CTAs: `marcus`, `ally`, `sofi-money`. Funnels from / links to `best-hysa-2026`, `/tools/budget-50-30-20`.
+- `src/app/learn/couples-budgeting-guide/page.tsx` — Budget pillar. Account models (joint/separate/hybrid), fair splits (50/50 vs proportional), monthly check-in, joint emergency fund. Article + FAQ JSON-LD. CTAs: `marcus`, `ally`, `sofi-money`. Links to `how-to-build-emergency-fund`, `how-to-budget-50-30-20`, `/tools/budget-50-30-20`, `best-hysa-2026`.
+- `src/lib/site-config.ts` — added the 2 article entries (also flows into sitemap).
+
+**No new affiliate keys or env vars.** Deliberately used only HYSA partners with live Vercel env vars (`marcus`, `ally`, `sofi-money`) so every CTA resolves to a real URL — avoided `cit`/`ynab` since those `AFFILIATE_*` vars are not in the Vercel set.
+
+Build verified: **28 routes** total (was 26), both new articles statically prerendered, TypeScript passed.
+
+**Git:** committed `9790cb0` ("Add 2 P2 Budget articles…", 3 files / 617 insertions), pushed `aeccd89..9790cb0` to `origin/main` over SSH.
+
+### Cornerstone count
+**13 articles now written** (Phase 2 target was 10). All P1 and P2 backlog items from prior sessions are now cleared.
+
+### Next content (beyond the original backlog)
+The original "Articles to write next" tables are now exhausted. The remaining spoke backlog lives in `Phase_2_Content_SEO_Workbook.xlsx` (sheet: Calendar) in the parent outputs directory — pull the next priority block from there for future sessions.
+
+### Standing open issues (unchanged from prior session)
+1. **Real affiliate URLs** — only Wise + SoFi pay; all others are placeholder homepages.
+2. **Reviewer/author identity** — generic bylines; YMYL E-E-A-T blocker before aggressive promotion.
+3. **Sitemap submission** — submit `https://finbrief.space/sitemap.xml` + request indexing for the now-13 article URLs in Google Search Console.
+4. **favicon.ico + apple-icon.png**, **opengraph-image** polish, **affiliate click analytics** stub, **newsletter signup** — all still open.
+5. **401(k) 50+ catch-up ($8,000, 2026)** in article 10 is a COLA-projected figure with an IRS-confirm hint — verify before promotion.
+
+---
+
+*Last updated: 2026-05-21 (P2 batch — emergency fund + couples budgeting — written, committed `9790cb0`, pushed to origin/main. 13 cornerstone articles written; original P1+P2 backlog fully cleared. Next content comes from the Phase 2 workbook Calendar sheet.)*
