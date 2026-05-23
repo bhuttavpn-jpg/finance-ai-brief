@@ -534,9 +534,9 @@ Standard startup checklist passed: `layout.tsx` 1343 bytes (healthy), git clean 
 - 🔑 **Trailing-period typo in the pasted API key.** The key was first pasted with a trailing `.` (`...03r7.`). beehiiv returned `401 INVALID_API_KEY` for every request (both ID formats). Stripping the trailing dot fixed it — confirmed with a direct `GET /v2/publications/{id}` returning 200. The corrected key (no trailing dot) is what's now on Vercel. **Lesson: probe the provider API directly (`curl`) to surface the real error — our `/api/subscribe` route masks beehiiv's response as a generic 502.**
 - ⚠️ **Vercel CLI preview env vars NOT set.** The plugin-wrapped `vercel env add ... preview` couldn't take the "all preview branches" path non-interactively, and `main` is rejected (it's the production branch). Production + development cover the live site, so preview was left unset. If newsletter signups are ever needed on preview/PR deploys, add the two vars to Preview via the Vercel dashboard.
 
-### 🔴 Follow-ups for the user
-1. **Rotate the beehiiv API key.** It was pasted into chat (transcript exposure). Rotate in beehiiv → Settings → API, then update `BEEHIIV_API_KEY` on Vercel (prod+dev) and redeploy. Same token-hygiene rule as the GitHub/Vercel tokens in the process notes above.
-2. **Remove the test subscriber** `jahanzebnawaz856+finbrieftest@gmail.com` from the beehiiv audience (created by the end-to-end test).
+### Follow-ups
+1. ✅ **Beehiiv API key rotated.** User generated a fresh key in beehiiv, the old one was confirmed revoked (`401 INVALID_API_KEY` against beehiiv API), the new key was confirmed active (`200` on `GET /v2/publications/{id}`), pushed to Vercel `BEEHIIV_API_KEY` (prod+dev), and redeployed (`dpl_HkLwQpixoGgqkEy4pd3EVeoFoLea`). Re-ran end-to-end on finbrief.space — `{"ok":true}` on valid email, throwaway test subscriber was created and immediately deleted (HTTP 204). **Note:** the new key is also in this session's transcript — rotate again only if that transcript is shared more widely; otherwise it's now living only in Vercel's encrypted env.
+2. ✅ **Test subscribers removed.** Both `jahanzebnawaz856+finbrieftest@gmail.com` (original e2e test, sub `sub_e5745e35-...`) and `jahanzebnawaz856+finbriefrot@gmail.com` (post-rotation smoke test, sub `sub_ac3183a0-...`) deleted via `DELETE /v2/publications/{id}/subscriptions/{sub_id}`. Audience now clean.
 
 ### Updated open issues (post-session)
 1. **Real affiliate URLs** — still only Wise + SoFi pay; rest are placeholder homepages.
@@ -547,4 +547,4 @@ Standard startup checklist passed: `layout.tsx` 1343 bytes (healthy), git clean 
 6. **401(k) 50+ catch-up ($8,000, 2026)** — COLA-projected; verify on IRS.gov before promotion.
 7. **Analytics on Vercel Pro** — custom `affiliate_click` events only surface on a Pro plan.
 
-*Last updated: 2026-05-21 (beehiiv newsletter ACTIVATED — creds on Vercel prod+dev, end-to-end verified `{"ok":true}` on finbrief.space. Deploy `dpl_6t6WqoDsW5L2FVSZcREAg6rBvhgM`. Follow-ups: rotate the in-chat key, remove the test subscriber.)*
+*Last updated: 2026-05-23 (beehiiv newsletter ACTIVATED and follow-ups closed — API key rotated [old key revoked, new key live on Vercel prod+dev], audience cleaned, end-to-end re-verified on `dpl_HkLwQpixoGgqkEy4pd3EVeoFoLea`.)*
