@@ -842,3 +842,75 @@ Every article now emits:
 5. Real-blocker work: apply to Bankrate CC / Impact / Fintel Connect / CJ for actual tracked affiliate URLs.
 
 *Last updated: 2026-05-31 (named-author refactor — Jahanzeb Nawaz as author across 27 articles, FinBrief Editorial Team as reviewer, /author/jahanzeb-nawaz + /editorial-standards pages live, structured Person + reviewedBy schema shipped. Commit `e82c427`. 45 routes prerendered.)*
+
+---
+
+---
+
+## Session 2026-05-31 (continued) — Rich Results validation + GSC quota stop
+
+Right after the named-author refactor went live, validated the new schema via Google's Rich Results Test and started a second GSC indexing batch. Quota stopped the GSC half.
+
+### Rich Results Test — PASS
+
+Ran the test on `https://finbrief.space/learn/best-hysa-2026` (representative cornerstone). Result: **2 valid items detected** (Articles ✅, FAQ ✅). Google parsed:
+- `author` → Person / Jahanzeb Nawaz / `https://finbrief.space/author/jahanzeb-nawaz` / jobTitle "Founder, FinBrief" / image
+- `reviewedBy` → Organization / FinBrief Editorial Team / `https://finbrief.space/editorial-standards`
+- `publisher` → Organization / Finbrief / with ImageObject logo
+
+5 **non-critical** issues flagged on the Article item:
+1. `datePublished` "Invalid datetime value" + "missing timezone" — values were `YYYY-MM-DD`; schema.org expects ISO 8601 with timezone.
+2. Same for `dateModified`.
+3. Missing `image` field on Article (optional).
+4. (5.) two duplicates of the above wording.
+
+### Schema fixes (commit `ce20c45`)
+
+Patched `src/components/seo/JsonLd.tsx`:
+- Added a `toIsoDateTime` helper that appends `T00:00:00+00:00` when the input lacks a `T` separator. Wraps `datePublished` and `dateModified`.
+- Added `image: [\`${siteConfig.url}/opengraph-image\`]` to the Article shape — uses the existing site-wide OG image as a fallback so the Article schema is rich-result-eligible. (Per-article hero images are still a future polish.)
+
+Build clean, pushed `bcb1fa4..ce20c45` to `origin/main` over SSH. Auto-deploy live. **All 27 articles now ship clean Article schema with author + reviewedBy + valid datetimes + image.**
+
+### GSC indexing — daily quota exceeded after 0 new submissions
+
+Goal: request indexing for the 14 newer articles (14–27) per the prior session's TODO. Used URL-prefix property `https://finbrief.space/` (signed in as `jahanzebnawaz856@gmail.com`).
+
+First URL submitted: `https://finbrief.space/learn/best-cashback-credit-cards-2026`. Status pre-request was "URL is not on Google / unknown to Google" (expected — sitemap discovery is still rolling out for the newer articles). Clicked **Request Indexing** → "Testing if live URL can be indexed" → Google returned **"Quota Exceeded — try submitting this again tomorrow."**
+
+Implications:
+- GSC's request-indexing quota is **per-property per-day**, ~10–12 URLs. Quota was likely exhausted by other activity today (or the rolling 24h window from last session's batch hasn't reset yet).
+- **The 14 article URLs (14–27) still need indexing requests submitted.** Tomorrow's quota allows ~10; the full 14 will take 2 sittings spread across at least 2 days.
+- This does not block Google from indexing the pages eventually — the submitted sitemap (`Success`, 22 pages) covers them, and crawl will happen on Google's own schedule. Request-indexing only accelerates the queue.
+
+### Where to start next session
+
+1. Standard checklist (read SESSION_LOG + CLAUDE.md, sanity-check `layout.tsx`, `npm run build`).
+2. **GSC indexing — 14 URLs remaining:**
+   - `learn/best-cashback-credit-cards-2026`
+   - `learn/how-much-life-insurance-do-i-need`
+   - `learn/best-brokerage-accounts-beginners`
+   - `learn/backdoor-roth-ira-guide`
+   - `learn/how-much-to-contribute-to-401k`
+   - `learn/debt-snowball-vs-avalanche`
+   - `learn/tax-brackets-2026`
+   - `learn/best-tax-software-2026`
+   - `learn/how-to-file-taxes-for-free`
+   - `learn/turbotax-vs-taxact`
+   - `learn/freetaxusa-review`
+   - `learn/hsa-vs-fsa`
+   - `learn/hsa-as-retirement-account`
+   - `learn/best-hsa-providers`
+   - Plus the new pages: `/author/jahanzeb-nawaz`, `/editorial-standards`. Worth requesting indexing on these so the Person/Organization entities are discovered.
+3. Content backlog: next priority block from `Phase_2_Content_SEO_Workbook.xlsx` (Calendar) — P0 candidates with partners already live: `spoke-robinhood-review`, `spoke-cc-beginners`, `spoke-csp`, `spoke-pay-cc-debt`, `spoke-cap-gains`, `spoke-retire-needs`, `spoke-credit-factors`.
+4. Real-blocker work: apply to Bankrate CC / Impact / Fintel Connect / CJ for actual tracked affiliate URLs.
+
+### Updated open issues
+1. **Real affiliate URLs** — unchanged; only Wise + SoFi pay.
+2. ~~**Reviewer/author identity**~~ ✅ resolved 2026-05-31 (Jahanzeb as author, Editorial Team as reviewer, schema validated by Google).
+3. **GSC indexing** — articles 14–27 (14 URLs) + 2 new pages (author, editorial-standards) still need indexing requested. Quota-limited; spread across 2 sittings starting tomorrow.
+4. **Per-article hero images** — Article schema currently falls back to the single site-wide OG image. For rich-result eligibility with strong CTR, eventually want per-article hero images (3 sizes per Google's spec: 1x1, 4x3, 16x9 at 1200px+).
+5. **FSA 2026 contribution limit** — still TBA in `hsa-vs-fsa` until IRS publishes.
+6. **Analytics on Vercel Pro** — unchanged.
+
+*Last updated: 2026-05-31 (Rich Results Test passed cleanly; schema datetime + image fixes shipped in `ce20c45`; GSC indexing for articles 14–27 deferred to tomorrow's quota window.)*
