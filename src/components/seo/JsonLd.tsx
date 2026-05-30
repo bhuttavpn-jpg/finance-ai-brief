@@ -2,6 +2,7 @@
 // or pass a custom object.
 
 import { siteConfig } from "@/lib/site-config";
+import { getAuthorByName, getAuthor, DEFAULT_AUTHOR, REVIEWER } from "@/lib/authors";
 
 export function JsonLd({ data }: { data: object }) {
   return (
@@ -21,6 +22,7 @@ export function articleJsonLd(args: {
   updatedAt: string;
   author: string;
 }) {
+  const author = getAuthorByName(args.author) ?? getAuthor(DEFAULT_AUTHOR);
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -29,11 +31,26 @@ export function articleJsonLd(args: {
     mainEntityOfPage: { "@type": "WebPage", "@id": args.url },
     datePublished: args.publishedAt,
     dateModified: args.updatedAt,
-    author: { "@type": "Person", name: args.author },
+    author: {
+      "@type": "Person",
+      name: author.name,
+      url: `${siteConfig.url}${author.url}`,
+      jobTitle: author.title,
+      image: `${siteConfig.url}${author.photoUrl}`,
+    },
+    reviewedBy: {
+      "@type": "Organization",
+      name: REVIEWER.displayName,
+      url: `${siteConfig.url}${REVIEWER.url}`,
+    },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/icon`,
+      },
     },
   };
 }

@@ -66,7 +66,7 @@ export default function Page() {
           description,
           publishedAt: PUBLISHED,
           updatedAt: PUBLISHED,
-          author: "Finbrief Editorial Team",
+          author: "Jahanzeb Nawaz",
         })}
       />
       <JsonLd data={faqJsonLd(FAQS)} />
@@ -84,8 +84,8 @@ export default function Page() {
           pillar="Save tax"
           publishedAt={PUBLISHED}
           updatedAt={PUBLISHED}
-          author="Finbrief Editorial Team"
-          reviewer="a Certified Financial Planner (CFP®)"
+          author="Jahanzeb Nawaz"
+          reviewer="the FinBrief Editorial Team"
           readingTime="12 min read"
         />
 

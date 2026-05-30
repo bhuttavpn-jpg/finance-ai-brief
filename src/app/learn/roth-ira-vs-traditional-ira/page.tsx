@@ -52,7 +52,7 @@ export default function Page() {
       <JsonLd data={articleJsonLd({
         url, title, description,
         publishedAt: "2026-05-17", updatedAt: "2026-05-17",
-        author: "Finbrief Editor",
+        author: "Jahanzeb Nawaz",
       })} />
       <JsonLd data={faqJsonLd(FAQS)} />
 
@@ -63,8 +63,8 @@ export default function Page() {
           pillar="Invest"
           publishedAt="2026-05-17"
           updatedAt="2026-05-17"
-          author="Finbrief Editor"
-          reviewer="a Certified Financial Planner (CFP®)"
+          author="Jahanzeb Nawaz"
+          reviewer="the FinBrief Editorial Team"
           readingTime="10 min read"
         />
 

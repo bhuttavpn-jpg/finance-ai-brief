@@ -62,7 +62,7 @@ export default function Page() {
           description,
           publishedAt: PUBLISHED,
           updatedAt: PUBLISHED,
-          author: "Finbrief Editorial Team",
+          author: "Jahanzeb Nawaz",
         })}
       />
       <JsonLd data={faqJsonLd(FAQS)} />
@@ -74,8 +74,8 @@ export default function Page() {
           pillar="Protect"
           publishedAt={PUBLISHED}
           updatedAt={PUBLISHED}
-          author="Finbrief Editorial Team"
-          reviewer="a licensed life insurance professional"
+          author="Jahanzeb Nawaz"
+          reviewer="the FinBrief Editorial Team"
           readingTime="9 min read"
         />
 

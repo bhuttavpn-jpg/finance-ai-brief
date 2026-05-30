@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/learn`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${base}/editorial-standards`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${base}/author/jahanzeb-nawaz`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
   ];
   for (const t of siteConfig.tools) {
     entries.push({

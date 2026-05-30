@@ -64,7 +64,7 @@ export default function Page() {
           description,
           publishedAt: "2026-05-17",
           updatedAt: "2026-05-17",
-          author: "Finbrief Editor",
+          author: "Jahanzeb Nawaz",
         })}
       />
       <JsonLd data={howToJsonLd({ name: title, steps: HOWTO_STEPS })} />
@@ -77,8 +77,8 @@ export default function Page() {
           pillar="Budget"
           publishedAt="2026-05-17"
           updatedAt="2026-05-17"
-          author="Finbrief Editor"
-          reviewer="a Certified Financial Planner (CFP®)"
+          author="Jahanzeb Nawaz"
+          reviewer="the FinBrief Editorial Team"
           readingTime="9 min read"
         />
 
