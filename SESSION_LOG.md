@@ -714,3 +714,70 @@ Changes:
 6. **Analytics on Vercel Pro** — unchanged.
 
 *Last updated: 2026-05-30 (caveats closed — 401(k) catch-up cited to IR-2025-111; Capital One Savor partner key added, CTA wired, env var live on Vercel, redirect smoke-tested 302 OK.)*
+
+---
+
+---
+
+## Session 2026-05-30 (continued) — Save-tax pillar buildout (articles 20–27)
+
+Picked the highest-impact remaining P0 block that had been deferred for missing Vercel env vars. Added the env vars myself via CLI, looked up the authoritative 2026 IRS figures, and shipped 8 articles that together complete the Save-tax pillar.
+
+### Env vars added on Vercel (production + development)
+Added 6 placeholder URLs via `vercel env add`:
+- `AFFILIATE_TURBOTAX=https://turbotax.intuit.com/`
+- `AFFILIATE_TAXACT=https://www.taxact.com/`
+- `AFFILIATE_FREETAXUSA=https://www.freetaxusa.com/`
+- `AFFILIATE_LIVELY=https://www.livelyhq.com/`
+- `AFFILIATE_HEALTHEQUITY=https://www.healthequity.com/` (NEW partner — see below)
+- `AFFILIATE_FIDELITY_HSA=https://www.fidelity.com/go/hsa`
+
+Vercel env count: **26 → 32**. Preview env not set (same non-interactive constraint as prior sessions). Replace with real Bankrate/Impact/CJ tracked URLs as approvals come in.
+
+### New partner: HealthEquity
+Added `healthequity` to the `PartnerKey` union and `PARTNERS` registry in `src/lib/affiliates.ts` (category: "HSA provider", envVar `AFFILIATE_HEALTHEQUITY`). `.env.example` updated.
+
+### IRS sourcing — verified figures used in articles
+- **2026 tax brackets + standard deduction:** IRS news release **IR-2025-103** (October 9, 2025), Rev. Proc. 2025-32. All seven brackets quoted directly for Single, MFJ, MFS, HOH; standard deductions $16,100 / $32,200 / $16,100 / $24,150.
+- **2026 HSA / HDHP limits:** IRS **Rev. Proc. 2025-19** (May 1, 2025). HSA contribution: $4,400 self / $8,750 family / +$1,000 catch-up 55+. HDHP min deductible: $1,700 / $3,400. HDHP OOP max: $8,500 / $17,000.
+- **2026 401(k) limits:** IRS **IR-2025-111** (already used in prior articles).
+
+### Articles shipped (20–27)
+
+| # | Slug | Type | Affiliates used |
+|---|---|---|---|
+| 20 | `tax-brackets-2026` | Hub | turbotax, freetaxusa, taxact |
+| 21 | `best-tax-software-2026` | Hub | turbotax, freetaxusa, taxact |
+| 22 | `how-to-file-taxes-for-free` | Spoke | freetaxusa, turbotax, taxact |
+| 23 | `turbotax-vs-taxact` | Spoke | taxact, turbotax, freetaxusa |
+| 24 | `freetaxusa-review` | Spoke | freetaxusa |
+| 25 | `hsa-vs-fsa` | Hub | fidelity-hsa, lively, healthequity |
+| 26 | `hsa-as-retirement-account` | Spoke | fidelity-hsa, lively, healthequity |
+| 27 | `best-hsa-providers` | Spoke | fidelity-hsa, lively, healthequity |
+
+Each article ships with `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` on `hsa-as-retirement-account`), FTC `AffiliateDisclosure`, mixed presentation spec, dense cross-pillar internal linking, and CPA / CFP reviewer placeholders.
+
+Build verified: **43 routes** total (was 35), all 8 articles statically prerendered, TypeScript passed.
+
+### Cornerstone count
+**27 articles now live.** Updated pillar coverage:
+- Budget: 5
+- Invest: 5
+- Save tax: **11** (was 3 — pillar now fully built out: brackets, software ×3, free filing, HSA ×3, Roth limits, backdoor Roth, tax-loss harvesting)
+- Borrow smart: 4
+- Protect: 3
+
+### Git + deploy
+Committed `6aeb5a1`, pushed to `origin/main`. GitHub auto-deploy picked it up; production deploy went Ready shortly after.
+
+### Smoke-test results
+All 6 new `/go/<partner>` redirects tested live (see comment in commit's deploy log): each returns HTTP 302 with the correct `subid` parameter forwarded.
+
+### Caveats / open issues (post-session)
+1. **Real affiliate URLs** — all 32 Vercel partner env vars are placeholder homepages except wise + sofi-money. Apply to Bankrate CC / Impact / Fintel Connect / CJ / individual programs.
+2. **Reviewer / author identity** — still generic CPA / CFP / licensed-insurance-pro placeholders. YMYL E-E-A-T blocker before aggressive promotion.
+3. **FSA 2026 contribution limit** — not yet officially announced as of writing; the `hsa-vs-fsa` article uses a "TBA" placeholder. Update once IRS publishes (typically October revenue procedure).
+4. **GSC indexing** — the 8 new article URLs will need indexing requests once they're discovered via the sitemap. Queue this for the next session (current daily quota is likely exhausted from today's earlier batch).
+5. **Analytics on Vercel Pro** — unchanged.
+
+*Last updated: 2026-05-30 (Save-tax pillar built out — 8 articles 20–27, 32 Vercel env vars, 43 routes prerendered. 27 cornerstones live.)*
