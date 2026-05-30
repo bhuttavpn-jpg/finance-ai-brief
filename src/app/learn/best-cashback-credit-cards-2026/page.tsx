@@ -238,6 +238,31 @@ export default function Page() {
 
           <hr className="my-10 border-brand-100" />
 
+          <h2>The tiered-category winner: Capital One Savor</h2>
+
+          <p>
+            <strong>If you spend heavily on dining, groceries, and entertainment</strong>, a tiered
+            card can quietly out-earn the flat-rate 2%. The Capital One Savor (cash version) pays
+            <strong> 3% on dining, groceries, entertainment, and streaming</strong>, plus 1% on
+            everything else — with a $0 annual fee.
+          </p>
+
+          <ul>
+            <li><strong>Rate:</strong> 3% on dining, groceries, entertainment, popular streaming services; 1% on everything else.</li>
+            <li><strong>Annual fee:</strong> $0.</li>
+            <li><strong>Foreign transaction fee:</strong> none.</li>
+            <li><strong>Best for:</strong> households where dining + grocery spending is a big share of the budget.</li>
+            <li><strong>Math check:</strong> if your dining + grocery + entertainment spend is over ~$12,000 a year, the Savor&apos;s 3% on those categories beats putting them on a flat 2% card.</li>
+          </ul>
+
+          <p>
+            <AffiliateButton partner="capital-one-savor" source={slug}>
+              Apply for the Capital One Savor →
+            </AffiliateButton>
+          </p>
+
+          <hr className="my-10 border-brand-100" />
+
           <h2>The rotating-category winner: Discover it Cash Back</h2>
 
           <p>

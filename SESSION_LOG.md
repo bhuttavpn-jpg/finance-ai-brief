@@ -667,3 +667,50 @@ Committed as a single commit; pushed to `origin/main` over SSH. GitHub auto-depl
 4. **Analytics on Vercel Pro** — affiliate-click events need Pro.
 
 *Last updated: 2026-05-30 (P0 batch from Calendar — 6 articles: cashback cards, life-insurance need, best brokerages, backdoor Roth, 401(k) contribution rate, snowball-vs-avalanche. 19 cornerstones now live. 35 routes prerendered.)*
+
+---
+
+---
+
+## Session 2026-05-30 (continued) — IRS-figure citation + Capital One Savor
+
+Closed two caveats flagged at the end of the prior P0 batch.
+
+### 1. ✅ 401(k) 50+ catch-up — confirmed against IRS, hint removed
+
+Authoritative source: **IRS news release IR-2025-111** (November 13, 2025), retrieved via irs.gov. Confirmed figures for 2026:
+- **Employee 401(k) elective deferral: $24,500**
+- **Catch-up (age 50+): $8,000** → total $32,500
+- **SECURE 2.0 enhanced catch-up (ages 60–63): $11,250** (replaces the standard $8,000 catch-up for that age band, per SECURE 2.0)
+- IRA contribution limit: $7,500; IRA catch-up at 50+: $1,100 (already verified prior session)
+
+Updated articles:
+- `401k-vs-ira-which-first` — FAQ answer and table footnote now cite **IR-2025-111** with the November 13, 2025 date; added the 60–63 SECURE 2.0 enhanced catch-up note.
+- `how-much-to-contribute-to-401k` — both FAQ answers that previously said "COLA-projected — verify on IRS.gov" replaced with the IR-2025-111 citation; added the 60–63 super catch-up.
+
+The article-level "open issue" around the COLA-projected $8,000 is now **closed across the codebase**. Future articles can cite IR-2025-111 directly.
+
+### 2. ✅ Capital One Savor — partner key added, CTA wired
+
+The prior batch's `best-cashback-credit-cards-2026` article referenced the Savor as the example tiered card but had no `capital-one-savor` partner key, so the line was informational-only.
+
+Changes:
+- `src/lib/affiliates.ts` — added `capital-one-savor` to the `PartnerKey` union and the `PARTNERS` registry (category: "Cashback credit card", envVar `AFFILIATE_CAPITAL_ONE_SAVOR`).
+- `.env.example` — added `AFFILIATE_CAPITAL_ONE_SAVOR=https://www.capitalone.com/credit-cards/savor-cash/` (placeholder homepage URL until a real Bankrate CC / Capital One affiliate link is approved).
+- `best-cashback-credit-cards-2026/page.tsx` — replaced the informational tiered-card mention with a proper **"The tiered-category winner: Capital One Savor"** section: rate breakdown, $0 fee callout, "when this beats 2%" math check, and an `<AffiliateButton partner="capital-one-savor">`.
+
+⚠️ **New env var NOT yet on Vercel.** `AFFILIATE_CAPITAL_ONE_SAVOR` is in `.env.example` but not yet added to the production environment. Until it's set, `/go/capital-one-savor` will fail-safe to the homepage (same pattern as other unset partners — the redirect route returns null and falls through). Add to Vercel (production + preview + dev) before relying on this CTA. Vercel env count will go to **26** after adding.
+
+### Build / git
+- `npm run build` — clean (35 routes, all 19 articles prerendered).
+- Single commit covering both fixes; pushed to `origin/main` over SSH.
+
+### Updated open issues (post-session)
+1. **Real affiliate URLs** — unchanged; only Wise + SoFi pay.
+2. **Reviewer/author identity** — unchanged; YMYL E-E-A-T blocker.
+3. ~~**401(k) 50+ catch-up COLA-projected hint**~~ ✅ **RESOLVED** — cited to IR-2025-111 across both articles.
+4. ~~**Capital One Savor informational-only**~~ ✅ **RESOLVED** — partner key + env var + button now wired.
+5. **Add `AFFILIATE_CAPITAL_ONE_SAVOR` to Vercel** — new follow-up; do this before promotion. After adding, redeploy.
+6. **Analytics on Vercel Pro** — unchanged.
+
+*Last updated: 2026-05-30 (caveats closed — 401(k) catch-up cited to IR-2025-111; Capital One Savor partner key added and CTA wired; Vercel env var pending.)*

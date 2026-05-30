@@ -28,7 +28,7 @@ const FAQS: QA[] = [
   },
   {
     q: "Should I max out my 401(k)?",
-    a: "If you can afford it and have already filled higher-priority buckets (employer match, Roth IRA), maxing the 401(k) is one of the highest-leverage moves in personal finance. The 2026 limit is $24,500 employee deferral ($8,000 additional catch-up at 50+, COLA-projected — verify on IRS.gov). At a 24% marginal bracket, maxing a Traditional 401(k) cuts your federal tax by ~$5,880 in year one.",
+    a: "If you can afford it and have already filled higher-priority buckets (employer match, Roth IRA), maxing the 401(k) is one of the highest-leverage moves in personal finance. The 2026 limit is $24,500 employee deferral, plus an $8,000 catch-up at 50+ (IRS news release IR-2025-111). At a 24% marginal bracket, maxing a Traditional 401(k) cuts your federal tax by ~$5,880 in year one.",
   },
   {
     q: "Is 6% enough for retirement?",
@@ -40,7 +40,7 @@ const FAQS: QA[] = [
   },
   {
     q: "What's the 401(k) limit for 2026?",
-    a: "$24,500 employee elective deferral, plus an $8,000 catch-up contribution if you're 50 or older (the catch-up figure is COLA-projected for 2026 and should be verified on IRS.gov before you push to the limit). Combined employee + employer contributions cap at the lesser of 100% of your salary or roughly $74,500 (also COLA-adjusted). The IRA limit is separately $7,500.",
+    a: "$24,500 employee elective deferral, plus an $8,000 catch-up contribution if you're 50 or older (per IRS news release IR-2025-111). Total for 50+: $32,500. Ages 60–63 get an enhanced SECURE 2.0 catch-up of $11,250 instead of $8,000. Combined employee + employer contributions cap at the lesser of 100% of your salary or roughly $74,500 (also COLA-adjusted). The IRA limit is separately $7,500.",
   },
   {
     q: "When should I prioritize my IRA over my 401(k)?",

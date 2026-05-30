@@ -32,7 +32,7 @@ const FAQS: QA[] = [
   },
   {
     q: "What are the 2026 contribution limits?",
-    a: "For 2026, the employee 401(k) deferral limit is $24,500, with an $8,000 catch-up if you're 50 or older. The IRA limit is $7,500, with a $1,100 catch-up at 50+. These are IRS cost-of-living-adjusted figures (IRS news release IR-2025); always confirm the current numbers on IRS.gov before contributing.",
+    a: "For 2026, the employee 401(k) deferral limit is $24,500, with an $8,000 catch-up if you're 50 or older (total $32,500). Ages 60–63 get an enhanced SECURE 2.0 catch-up of $11,250 instead of $8,000. The IRA limit is $7,500, with a $1,100 catch-up at 50+. Source: IRS news release IR-2025-111 (November 2025).",
   },
   {
     q: "What if my employer doesn't offer a 401(k) match?",
@@ -159,7 +159,7 @@ export default function Page() {
                 </tr>
               </tbody>
             </table>
-            <p className="hint mt-2">Source: IRS 2026 cost-of-living adjustment news release (IR-2025, November 2025). The 401(k) 50+ catch-up is $8,000; the IRA catch-up is $1,100. Confirm current figures at IRS.gov.</p>
+            <p className="hint mt-2">Source: IRS news release <strong>IR-2025-111</strong> (November 13, 2025). 401(k) catch-up at 50+ is $8,000; ages 60–63 get an enhanced SECURE 2.0 catch-up of $11,250 instead. IRA catch-up at 50+ is $1,100.</p>
           </div>
 
           <p>
