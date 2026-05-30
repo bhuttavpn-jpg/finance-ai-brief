@@ -699,7 +699,7 @@ Changes:
 - `.env.example` — added `AFFILIATE_CAPITAL_ONE_SAVOR=https://www.capitalone.com/credit-cards/savor-cash/` (placeholder homepage URL until a real Bankrate CC / Capital One affiliate link is approved).
 - `best-cashback-credit-cards-2026/page.tsx` — replaced the informational tiered-card mention with a proper **"The tiered-category winner: Capital One Savor"** section: rate breakdown, $0 fee callout, "when this beats 2%" math check, and an `<AffiliateButton partner="capital-one-savor">`.
 
-⚠️ **New env var NOT yet on Vercel.** `AFFILIATE_CAPITAL_ONE_SAVOR` is in `.env.example` but not yet added to the production environment. Until it's set, `/go/capital-one-savor` will fail-safe to the homepage (same pattern as other unset partners — the redirect route returns null and falls through). Add to Vercel (production + preview + dev) before relying on this CTA. Vercel env count will go to **26** after adding.
+✅ **`AFFILIATE_CAPITAL_ONE_SAVOR` added to Vercel (production + development)** via `vercel env add` (preview skipped — same non-interactive constraint as before). Triggered a production redeploy with `vercel deploy --prod`; latest deployment Ready. **Vercel env count is now 26.** Smoke-tested: `/go/capital-one-savor?s=test` → HTTP 302 → `https://www.capitalone.com/credit-cards/savor-cash/?subid=test` ✅.
 
 ### Build / git
 - `npm run build` — clean (35 routes, all 19 articles prerendered).
@@ -710,7 +710,7 @@ Changes:
 2. **Reviewer/author identity** — unchanged; YMYL E-E-A-T blocker.
 3. ~~**401(k) 50+ catch-up COLA-projected hint**~~ ✅ **RESOLVED** — cited to IR-2025-111 across both articles.
 4. ~~**Capital One Savor informational-only**~~ ✅ **RESOLVED** — partner key + env var + button now wired.
-5. **Add `AFFILIATE_CAPITAL_ONE_SAVOR` to Vercel** — new follow-up; do this before promotion. After adding, redeploy.
+5. ~~**Add `AFFILIATE_CAPITAL_ONE_SAVOR` to Vercel**~~ ✅ **RESOLVED** — added to prod + dev, redeployed, smoke-tested 302 ✅. Vercel env count now 26.
 6. **Analytics on Vercel Pro** — unchanged.
 
-*Last updated: 2026-05-30 (caveats closed — 401(k) catch-up cited to IR-2025-111; Capital One Savor partner key added and CTA wired; Vercel env var pending.)*
+*Last updated: 2026-05-30 (caveats closed — 401(k) catch-up cited to IR-2025-111; Capital One Savor partner key added, CTA wired, env var live on Vercel, redirect smoke-tested 302 OK.)*
