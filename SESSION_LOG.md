@@ -548,3 +548,51 @@ Standard startup checklist passed: `layout.tsx` 1343 bytes (healthy), git clean 
 7. **Analytics on Vercel Pro** — custom `affiliate_click` events only surface on a Pro plan.
 
 *Last updated: 2026-05-23 (beehiiv newsletter ACTIVATED and follow-ups closed — API key rotated [old key revoked, new key live on Vercel prod+dev], audience cleaned, end-to-end re-verified on `dpl_HkLwQpixoGgqkEy4pd3EVeoFoLea`.)*
+
+---
+
+---
+
+## Session 2026-05-30 — GSC sitemap confirmed + indexing requests cleared
+
+Standard startup checklist passed: `layout.tsx` 1343 bytes (healthy), `npm run build` clean (29 routes, all 13 articles prerendered).
+
+### Sitemap status
+
+Re-checked GSC Sitemaps for `https://finbrief.space/` (signed in as **jahanzebnawaz856@gmail.com**). The previously "Couldn't fetch" entry has flipped to **Status: Success**, **Last read: May 29, 2026**, **22 pages discovered**. No action needed.
+
+### Indexing requests — remaining 9 articles cleared
+
+Worked through the 9 outstanding URLs via URL Inspection → Request indexing. Daily quota held this time — all submitted in one sitting.
+
+| # | URL | Pre-request state | Result |
+|---|---|---|---|
+| 1 | `/learn/roth-ira-contribution-limits-2026` | Discovered — not indexed | ✅ Indexing requested |
+| 2 | `/learn/tax-loss-harvesting-guide` | URL unknown to Google | ✅ Indexing requested |
+| 3 | `/learn/best-travel-credit-cards-2026` | Discovered — not indexed | ✅ Indexing requested |
+| 4 | `/learn/how-to-build-credit-from-scratch` | URL unknown to Google | ✅ Indexing requested |
+| 5 | `/learn/best-term-life-insurance-young-professionals` | Discovered — not indexed | ✅ Indexing requested |
+| 6 | `/learn/how-to-invest-1000-beginners` | URL unknown to Google | ✅ Indexing requested |
+| 7 | `/learn/best-hysa-2026` | Discovered — not indexed | ✅ Indexing requested |
+| 8 | `/learn/roth-ira-vs-traditional-ira` | **URL is on Google** (already indexed) | ✅ Re-requested |
+| 9 | `/learn/how-to-budget-50-30-20` | Discovered — not indexed | ✅ Indexing requested |
+
+Combined with the 4 requested in the prior infra session (`401k-vs-ira-which-first`, `term-vs-whole-life-insurance`, `how-to-build-emergency-fund`, `couples-budgeting-guide`), **all 13 articles have now had indexing requested**. One — `roth-ira-vs-traditional-ira` — is already confirmed indexed (has FAQ rich result enhancement detected).
+
+Observation: ~half the URLs returned "URL unknown to Google" despite being in the submitted sitemap. This is normal for a freshly-discovered sitemap (Google fetches it, then queues URLs over days/weeks). The explicit indexing requests should accelerate crawl.
+
+### Updated open issues (post-session)
+1. **Real affiliate URLs** — unchanged; only Wise + SoFi pay.
+2. **Reviewer/author identity** — unchanged; YMYL E-E-A-T blocker.
+3. ~~**GSC sitemap "Couldn't fetch"**~~ ✅ **RESOLVED** — Success, 22 pages discovered.
+4. ~~**GSC request-indexing 9 remaining**~~ ✅ **RESOLVED** — all 13 articles have indexing requested. Crawl is now Google's job.
+5. **401(k) 50+ catch-up ($8,000, 2026)** — unchanged; verify on IRS.gov before promotion.
+6. **Analytics on Vercel Pro** — unchanged; affiliate-click events need Pro.
+
+### Where to start next session
+1. All original infra + indexing items are now resolved. The two real blockers to revenue/scale are unchanged: **real affiliate URLs** and **reviewer/author identity**.
+2. **Content:** original P0/P1/P2 cornerstones (13) are done; next content comes from `Phase_2_Content_SEO_Workbook.xlsx` (sheet: Calendar) in the parent outputs dir. The next priority block of spokes should be pulled and presented to the user.
+
+---
+
+*Last updated: 2026-05-30 (GSC sitemap confirmed Success / 22 pages; all 13 articles have indexing requested; `roth-ira-vs-traditional-ira` already indexed with FAQ enhancement.)*
