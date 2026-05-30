@@ -129,9 +129,23 @@ Do NOT tick: **Paid search / PPC** (most programs ban paid search on the adverti
 
 The biggest US affiliate network for finance. Hosts Fidelity, Schwab, Marcus, Policygenius, Bestow, and many others.
 
-1. Sign up as a Publisher (Media Partner) at https://app.impact.com/secure/registration/publisher-registration.ihtml — requires legal name, address, tax form (W-8BEN for Italy), payment method.
-2. Once your publisher account is approved (usually 1–2 days), you apply to individual brand programs from within the dashboard.
-3. For each brand: open their listing, click "Apply" → fill out a short pitch (use building block C for the long site profile) → submit. Brand decision typically 3–14 days.
+**CURRENT STATUS (2026-05-31): Publisher account active, Marketplace application DECLINED.**
+
+The decline notice explicitly says: *"This does not affect any of your existing or pending brand program relationships. Your impact.com account can continue to be used when partnering directly with brands via their unique sign-up links and when accepting invitations to brand programs."*
+
+Translation:
+- ❌ Cannot browse Impact's Marketplace catalog and self-apply.
+- ✅ CAN partner with Impact-hosted brands by going to the **brand's own affiliate page** and signing up directly. Approved brands then appear in the Impact dashboard for tracking, reporting, and payment as normal.
+- ✅ CAN accept brand invitations sent to the Impact account if a brand finds and invites FinBrief.
+
+**Workflow for each Impact-hosted brand on the priority list (Fidelity, Schwab, Marcus, Policygenius, Bestow, Ladder, Ethos):**
+
+1. Search "[Brand name] affiliate program" — find the brand's own affiliate signup page (usually `brand.com/affiliates`, `brand.com/partners`, `brand.com/affiliate-program`, or linked from the site footer).
+2. Complete the brand's own application form using the building blocks above.
+3. Once the brand approves, the partnership appears in your Impact dashboard. Pull tracking links from there.
+4. If a brand has no public affiliate page, email `partnerships@brand.com` or `affiliates@brand.com` directly. Some brands (especially the institutional brokerages) may be invitation-only — defer those until traffic is built.
+
+**Reapply to Marketplace on or after 2026-08-31** (90 days from decline). By then FinBrief will have more indexed articles, beginning organic traffic, and ideally a few approved direct-brand partnerships — all of which strengthen the reapplication. Reapply via the same Impact dashboard at app.impact.com.
 
 ### CJ Affiliate (formerly Commission Junction, cj.com)
 
@@ -161,17 +175,20 @@ Each direct program has its own application form on its own site. These tend to 
 
 ### 1. Fidelity Investments — 7 articles already CTA
 
-- **Apply via:** Impact Radius
-- **Listing URL:** https://app.impact.com/campaign-promo-signup/Fidelity-Brokerage.brand
-  (Or search "Fidelity" inside Impact after sign-up)
+- **Apply via:** Impact (DIRECT-BRAND path — Marketplace is blocked)
+- **How to apply:** Fidelity's retail brokerage affiliate program is invitation-only via Impact for most publishers. Two options:
+  1. Try the direct invitation URL: search "Fidelity Investments affiliate program" — if a public signup exists, apply there.
+  2. Email `affiliate-program@fmr.com` (Fidelity's affiliate inbox; alternatively `affiliates@fidelity.com`) with the long site profile from building block C plus the brokerage content samples.
+- **Realistic expectation:** Fidelity is one of the harder approvals; expect to defer until ~5K monthly visitors. Worth applying now anyway — leave the application in their queue.
 - **Best content samples to cite:** the Brokerage list (see block I)
 - **Per-program pitch (paste in the "How will you promote us?" field):**
   > FinBrief recommends Fidelity as a top brokerage in our hub article *"Best brokerage accounts for beginners (2026)"* and four pillar articles on Roth/Traditional IRA strategy, 401(k) contributions, and HSA-as-retirement-account. Fidelity's $0-minimum, zero-expense-ratio index funds (FZROX, FZILX) and HSA platform make it a natural top recommendation for the beginner-to-mid-tier audience we serve. Our editorial standards prevent us from accepting payout-driven rankings; Fidelity earns its placement on product merit.
 
 ### 2. Charles Schwab — 5 articles
 
-- **Apply via:** Impact Radius
-- **Search "Schwab" inside Impact after sign-up.**
+- **Apply via:** Impact (DIRECT-BRAND path)
+- **How to apply:** Schwab's affiliate program is also invitation-only via Impact. Email `affiliate@schwab.com` (or check https://www.schwab.com/affiliate-program if it exists) with the long site profile and brokerage content samples. Mention you're already an Impact publisher.
+- **Realistic expectation:** Same as Fidelity — likely deferred until traffic. Apply anyway.
 - **Per-program pitch:**
   > Schwab is recommended in our beginner-brokerage hub, our backdoor Roth guide, our 401(k) contribution guide, our Roth contribution limits 2026 article, and our HSA strategy content. Schwab's $0-commission stock/ETF trading, Schwab Intelligent Portfolios for robo customers, and full-service brokerage breadth make it our top-tier recommendation for readers who want one institution for the full investment lifecycle.
 
@@ -200,7 +217,8 @@ Each direct program has its own application form on its own site. These tend to 
 
 ### 7. Marcus by Goldman Sachs — 4 articles
 
-- **Apply via:** Impact Radius (search "Marcus")
+- **Apply via:** Impact (DIRECT-BRAND path)
+- **How to apply:** Marcus runs its affiliate program through Impact. Find their public signup page (search "Marcus by Goldman Sachs affiliate program" or "Marcus affiliate signup") or email `affiliates@marcus.com`. Apply via the brand's link and the partnership routes to your existing Impact account.
 - **Per-program pitch:**
   > Marcus is the lead HYSA recommendation in our hub *"Best high-yield savings accounts 2026"* and is referenced in our emergency-fund, couples-budgeting, and debt-payoff guides. We highlight Marcus's competitive APY, no-fee structure, and Goldman Sachs deposit-banking pedigree. Our reader audience — early-career professionals building their first emergency fund — maps directly to Marcus's product-market fit.
 
@@ -212,25 +230,27 @@ Each direct program has its own application form on its own site. These tend to 
 
 ### 9. Policygenius — 3 articles
 
-- **Apply via:** Impact Radius (search "Policygenius")
+- **Apply via:** Impact (DIRECT-BRAND path)
+- **How to apply:** Policygenius has a public affiliate page — try https://www.policygenius.com/affiliate-program/ or the link in the footer of policygenius.com. Apply there; once approved, the partnership routes to your existing Impact account. If no public page, email `affiliates@policygenius.com`.
+- **Realistic expectation:** Easier approval than the brokerages. Likely yes within 1–2 weeks.
 - **Per-program pitch:**
   > Policygenius is our top-of-funnel recommendation for life insurance shoppers in three pillar articles: *"Best term life insurance for young professionals,"* *"How much life insurance do I need?"*, and *"Term vs. whole life insurance."* We recommend Policygenius as the marketplace-first option for readers who haven't yet narrowed to a single carrier and want competing quotes. Our DIME-method life-insurance calculator at /tools/life-insurance produces a needed-coverage number that funnels directly into Policygenius's quote flow.
 
 ### 10. Bestow — 3 articles
 
-- **Apply via:** Direct — Bestow's affiliate program runs through Impact. Search "Bestow" in Impact.
+- **Apply via:** Impact (DIRECT-BRAND path) — search "Bestow affiliate program" for the signup URL, or email `affiliates@bestow.com`.
 - **Per-program pitch:**
   > Bestow is recommended in our life-insurance content for readers who want fully-online underwriting with no medical exam. We highlight Bestow's instant-decision technology, term lengths, and price-competitiveness in the under-$1M coverage band — which fits the majority of our 22–34 reader segment.
 
 ### 11. Ladder — 3 articles
 
-- **Apply via:** Direct — https://www.ladderlife.com/affiliates or through Impact (search "Ladder").
+- **Apply via:** Direct — https://www.ladderlife.com/affiliates (Ladder runs through Impact for tracking; apply via Ladder's own page). If unreachable, email `partnerships@ladderlife.com`.
 - **Per-program pitch:**
   > Ladder is recommended alongside Bestow in our life-insurance content for digitally-native shoppers. We highlight Ladder's "laddering" feature (reducing coverage over time as needs decrease, which lowers lifetime premium cost) as a unique differentiator for readers thinking about life insurance across a 20- to 30-year window.
 
 ### 12. Ethos — 3 articles
 
-- **Apply via:** Direct — https://www.ethoslife.com/affiliate-program/ or via Impact (search "Ethos").
+- **Apply via:** Direct — https://www.ethoslife.com/affiliate-program/ (uses Impact for tracking; apply on Ethos's own page).
 - **Per-program pitch:**
   > Ethos is included in our life-insurance pillar as the option for readers who want simple online application + no-medical-exam underwriting at scale. We highlight Ethos's clean UX and competitive pricing for the 25–45 age band — which is the heart of our audience.
 
@@ -260,7 +280,7 @@ These programs typically reject new low-traffic applicants. Re-apply after the t
 Update the date / status as you go.
 
 ### Networks to join first
-- [ ] Impact Radius — signed up: ____  W-8BEN filed: ____
+- [x] Impact Radius — signed up: (existing account, Jahanzeb Nawaz)  W-8BEN filed: (verify on file)  ⚠️ Marketplace declined 2026 — reapply on/after **2026-08-31**. Use direct-brand path until then.
 - [ ] CJ Affiliate — signed up: ____  W-8BEN filed: ____
 - [ ] Awin — signed up: ____  ($5 verification paid: ____)
 
@@ -285,6 +305,9 @@ Update the date / status as you go.
 - [ ] Robinhood / Webull
 - [ ] Wealthfront / Betterment (CJ)
 - [ ] Direct issuer programs for individual credit cards
+
+### Reminders / future actions
+- [ ] **2026-08-31** — Reapply to Impact Marketplace (90 days post-decline). Submit via existing publisher dashboard at app.impact.com.
 
 ---
 
