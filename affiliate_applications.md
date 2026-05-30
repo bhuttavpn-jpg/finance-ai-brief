@@ -12,12 +12,13 @@
 4. Tick the program in the **Tracking checklist** at the end once submitted.
 5. When a decision comes back, log it next to the program with the date.
 
-⚠️ **Before the first application — fill in these placeholders:**
-- `{LEGAL_ENTITY_NAME}` — sole proprietor, LLC, or "Jahanzeb Nawaz (sole proprietor)" if no LLC yet
-- `{LEGAL_ENTITY_ADDRESS}` — registered business address (Italy)
-- `{VAT_OR_TAX_ID}` — Italian VAT / Codice Fiscale, or `N/A` if applying as individual
-- `{CONTACT_EMAIL}` — recommend `editorial@finbrief.space` (set this up as an alias if it doesn't exist; you can forward to your real inbox)
-- `{PAYPAL_OR_WISE_EMAIL}` — for payout (most US affiliate programs pay via Wise, PayPal, or direct deposit; non-US payees usually use Wise or PayPal)
+**Identity defaults locked in 2026-05-31:**
+- **Legal name / entity**: Jahanzeb Nawaz, individual sole proprietor (no LLC)
+- **Tax ID**: Italian Codice Fiscale (have ready when filling W-8BEN)
+- **Address**: Italian residential address (have ready)
+- **Contact email**: admin@finbrief.space
+- **Payment method**: Wise → EUR
+- **Tax form**: W-8BEN (Individual). Country of tax residence: Italy. Treaty article for affiliate royalties/business income: Article 7 (Business Profits) → claim 0% US withholding.
 
 ⚠️ **International (Italy) payee specifics:**
 - Most US affiliate networks (Impact, CJ, Awin) require a **W-8BEN** form before they release payment. This is the IRS form that declares you're a non-US person and claim treaty benefits to reduce/eliminate US withholding tax. Italy has a US tax treaty so this is straightforward.
@@ -294,9 +295,9 @@ Update the date / status as you go.
 - [ ] Marcus (Impact) — applied: ____  decision: ____
 - [ ] Ally (CJ) — applied: ____  decision: ____
 - [ ] Policygenius (Impact) — applied: ____  decision: ____
-- [ ] Bestow (Impact) — applied: ____  decision: ____
-- [ ] Ladder (direct / Impact) — applied: ____  decision: ____
-- [ ] Ethos (direct / Impact) — applied: ____  decision: ____
+- [ ] Bestow (Impact) — applied: ____  decision: ____  ⚠️ **bestow.com/affiliates 404 — Bestow now redirects to Lantern Insurance (acquired/rebranded). Need to find Lantern's affiliate page or email `partnerships@bestow.com`.**
+- [ ] Ladder (direct / Impact) — applied: ____  decision: ____  ⚠️ **ladderlife.com/affiliates redirects to Impact `Ladder.brand` URL but mis-renders Ethos content. Try emailing `partnerships@ladderlife.com` or use Impact's search if it becomes accessible later.**
+- [x] Ethos — applied: **2026-05-31** via ethos.com/affiliate-program/ → Impact `campaign-promo-signup/Ethos-Life.brand`. Confirmed by Impact notification: *"Your application to join Ethos Life was sent"* at 01:53. Contract terms: **$55/lead** for standard underwriters (LGA, Protective), $0 for Cuna Mutual / Ameritas / NY customers / age 60+.
 - [ ] Lively (direct) — applied: ____  decision: ____
 
 ### Deferred — apply at ~5K monthly visitors
@@ -308,6 +309,7 @@ Update the date / status as you go.
 
 ### Reminders / future actions
 - [ ] **2026-08-31** — Reapply to Impact Marketplace (90 days post-decline). Submit via existing publisher dashboard at app.impact.com.
+- [ ] **Tomorrow** — Google-search and bookmark working affiliate-signup URLs for: Bestow/Lantern, Ladder, Policygenius, Marcus, Lively, FreeTaxUSA. Then run a second application sitting. Each brand should take 5–8 min when the URL is right.
 
 ---
 

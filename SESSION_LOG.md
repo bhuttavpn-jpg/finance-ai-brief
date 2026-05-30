@@ -914,3 +914,59 @@ Implications:
 6. **Analytics on Vercel Pro** — unchanged.
 
 *Last updated: 2026-05-31 (Rich Results Test passed cleanly; schema datetime + image fixes shipped in `ce20c45`; GSC indexing for articles 14–27 deferred to tomorrow's quota window.)*
+
+---
+
+---
+
+## Session 2026-05-31 (continued, late night) — first affiliate applications
+
+Started the affiliate-application push. Honest result: **1 application through cleanly, 2 brand pages broken**, called it after the first sitting.
+
+### Decisions locked in
+- **Legal identity:** Jahanzeb Nawaz, individual sole proprietor (no LLC). Italian Codice Fiscale on W-8BEN.
+- **Contact email:** `admin@finbrief.space` (already exists in Hostinger; no editorial@ forwarder set up — admin@ is fine for application contact).
+- **Payout:** Wise → EUR. Treaty claim Article 7 (Business Profits) for 0% US withholding.
+
+### Impact account status — clarified
+The Impact "decline" the user mentioned turned out to be a **Marketplace-only** decline — the impact.com publisher account is otherwise active. The Marketplace decline notice itself says: *"Your impact.com account can continue to be used when partnering directly with brands via their unique sign-up links and when accepting invitations to brand programs."*
+
+Translation: cannot browse Impact's marketplace and self-apply, but CAN partner with Impact-hosted brands by going to each brand's own affiliate page (which routes through Impact's `campaign-promo-signup` URL pattern). Approved partnerships then show up under the existing publisher account for tracking/payment.
+
+### Applications attempted
+| Brand | Result |
+|---|---|
+| ✅ **Ethos Life** | Applied via `ethos.com/affiliate-program/` → Impact brand-direct → contract reviewed → submitted. Impact notification confirmed: *"Your application to join Ethos Life was sent"* at 01:53. Contract: **$55/qualified lead** for standard underwriters (LGA, Protective), $0 for Cuna Mutual / Ameritas / NY customers / age 60+ band. |
+| ⚠️ Ladder | `ladderlife.com/affiliates` → "Become an affiliate" routes to Impact `campaign-promo-signup/Ladder.brand` but the page mis-renders Ethos branding/content. Either an Impact bug or Ladder's brand slug is misconfigured. Skipped to avoid accidentally re-submitting Ethos. Try emailing `partnerships@ladderlife.com` instead. |
+| ⚠️ Bestow | `bestow.com/affiliates` 301-redirects to `lanterninsurance.com/affiliates` (Bestow was acquired/rebranded to Lantern). The Lantern URL 404s. Affiliate program may have moved or paused. Email `partnerships@bestow.com` or research Lantern's program. |
+| ⏭️ Remaining 10 | Not attempted tonight. |
+
+### Key learning
+Most "direct affiliate" pages route through Impact's `campaign-promo-signup/<Brand>.brand` URL pattern — they're not Impact-marketplace-gated, they go straight to the brand for review. So the user's Marketplace decline doesn't actually block these brands; they work via the existing publisher account just fine.
+
+What's brittle: finding each brand's *working* affiliate landing-page URL. Hitting common patterns (`/affiliates`, `/affiliate-program/`, `/partners`) gave 404s or wrong-brand renders ~3 of 4 times. Next session needs 20 min of upfront Google research to bookmark the correct URLs before driving applications.
+
+### Identity / payment defaults to use across all future applications
+- Legal: Jahanzeb Nawaz, individual (sole prop)
+- Address: Italian residential address (user enters at form time)
+- Tax: Italian Codice Fiscale → W-8BEN Individual, treaty Article 7 → 0% US withholding
+- Email: admin@finbrief.space
+- Payout: Wise EUR
+- Promotion methods to check: Website/Blog, Email/Newsletter, SEO (organic only), Social media (organic)
+- Promotion methods to NEVER check: Paid search/PPC, Coupons/Cashback, Adware, Email blasts to purchased lists
+
+### Next session game plan
+1. **20 min: bookmark working affiliate URLs** for: Bestow/Lantern, Ladder, Policygenius, Marcus by Goldman Sachs, Lively HSA, FreeTaxUSA, Wealthfront, Webull, Betterment.
+2. **Drive 5–7 applications** in one sitting via the same Impact brand-direct or direct-program flow.
+3. Sign up for CJ Affiliate (Ally, TaxAct) separately — distinct from Impact, requires fresh publisher signup.
+4. Skip Awin until the priority programs are exhausted.
+
+### Updated open issues
+1. **Real affiliate URLs** — 1 of 13 priority programs now applied (Ethos). 12 remaining.
+2. ~~**Reviewer/author identity**~~ ✅ resolved earlier today.
+3. **GSC indexing** — articles 14–27 still need indexing requests (quota-limited; resume next session).
+4. **Per-article hero images** — still using fallback to /opengraph-image.
+5. **FSA 2026 contribution limit** — unchanged.
+6. **Analytics on Vercel Pro** — unchanged.
+
+*Last updated: 2026-05-31, 02:00 (1st affiliate application through: Ethos Life via Impact brand-direct, $55/lead. Ladder and Bestow blocked by broken brand pages; logged for follow-up. Affiliate kit updated.)*
