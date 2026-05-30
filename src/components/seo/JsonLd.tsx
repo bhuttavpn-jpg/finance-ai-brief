@@ -4,6 +4,13 @@
 import { siteConfig } from "@/lib/site-config";
 import { getAuthorByName, getAuthor, DEFAULT_AUTHOR, REVIEWER } from "@/lib/authors";
 
+// Schema.org expects ISO 8601 datetimes with a timezone. Articles store dates
+// as YYYY-MM-DD; append midnight UTC so Google's parser is happy.
+function toIsoDateTime(date: string): string {
+  if (date.includes("T")) return date;
+  return `${date}T00:00:00+00:00`;
+}
+
 export function JsonLd({ data }: { data: object }) {
   return (
     <script
@@ -29,8 +36,9 @@ export function articleJsonLd(args: {
     headline: args.title,
     description: args.description,
     mainEntityOfPage: { "@type": "WebPage", "@id": args.url },
-    datePublished: args.publishedAt,
-    dateModified: args.updatedAt,
+    datePublished: toIsoDateTime(args.publishedAt),
+    dateModified: toIsoDateTime(args.updatedAt),
+    image: [`${siteConfig.url}/opengraph-image`],
     author: {
       "@type": "Person",
       name: author.name,
