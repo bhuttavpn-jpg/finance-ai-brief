@@ -596,3 +596,74 @@ Observation: ~half the URLs returned "URL unknown to Google" despite being in th
 ---
 
 *Last updated: 2026-05-30 (GSC sitemap confirmed Success / 22 pages; all 13 articles have indexing requested; `roth-ira-vs-traditional-ira` already indexed with FAQ enhancement.)*
+
+---
+
+---
+
+## Session 2026-05-30 (continued) — P0 spoke batch from Phase 2 Calendar (articles 14–19)
+
+After clearing the GSC backlog, pulled the next priority block from `Phase_2_Content_SEO_Workbook.xlsx` (Calendar sheet). Picked 6 P0 items deliberately weighted toward articles whose CTAs already resolve to **live Vercel env vars** — so every affiliate link `/go/<partner>` works on day one. Deferred any P0s gated on missing env vars (TurboTax/TaxAct/FreeTaxUSA/Lively/HealthEquity/Experian/MyFICO).
+
+**Written this session:**
+
+| # | Slug | Pillar | Reference in calendar | Words | Affiliates used |
+|---|---|---|---|---|---|
+| 14 | `best-cashback-credit-cards-2026` | Borrow smart | `hub-cc-cashback` (wk 4 P0) | ~1,900 | `citi-double-cash`, `discover-it`, `capital-one` |
+| 15 | `how-much-life-insurance-do-i-need` | Protect | `hub-life-insurance` (wk 1 P0) | ~2,100 | `policygenius`, `bestow`, `ladder`, `ethos` |
+| 16 | `best-brokerage-accounts-beginners` | Invest | `hub-best-brokerage` (wk 3 P0) | ~2,000 | `fidelity`, `schwab`, `vanguard`, `robinhood`, `webull` |
+| 17 | `backdoor-roth-ira-guide` | Save tax | `hub-backdoor-roth` (wk 5 P0) | ~2,200 | `fidelity`, `vanguard`, `schwab` |
+| 18 | `how-much-to-contribute-to-401k` | Invest | `spoke-401k-contribute` (wk 9 P0) | ~1,800 | `fidelity`, `schwab`, `vanguard` |
+| 19 | `debt-snowball-vs-avalanche` | Budget | `spoke-snowball-avalanche` (wk 6 P0) | ~1,950 | `credit-karma`, `marcus`, `ally`, `sofi-money` |
+
+Each article ships with:
+- `articleJsonLd` + `faqJsonLd` (and `howToJsonLd` on the life-insurance, backdoor-Roth, and debt-payoff pieces)
+- FTC `AffiliateDisclosure` above the fold
+- Generic reviewer byline (CFP® or licensed insurance pro) — same E-E-A-T placeholder as the others
+- Mixed presentation: comparison tables + bullets + inline Q&A + `<hr>` separators between H2s + strategic bold on numbers
+- Internal links to relevant existing articles and the hero tools (`/tools/life-insurance`, `/tools/401k-match`, `/tools/budget-50-30-20`)
+- Cross-pillar internal linking (e.g., backdoor-Roth ↔ 401(k)-vs-IRA ↔ Roth limits ↔ tax-loss harvesting)
+
+**`site-config.ts` updated** — 6 new entries appended (also flows into `sitemap.xml`). `affiliates.ts` and `.env.example` untouched — every CTA reuses partner keys + env vars already in the 25-var Vercel set.
+
+Build verified: **35 routes** total (was 29), all 6 new articles statically prerendered, TypeScript passed.
+
+### Caveats flagged this session
+- **401(k) 50+ catch-up ($8,000, 2026)** is still a COLA-projected figure — repeated the IRS-confirm hint in `how-much-to-contribute-to-401k`'s FAQ. Same as `401k-vs-ira-which-first`. Verify before aggressive promotion.
+- **Reviewer/author identity** — same generic CFP / licensed insurance pro placeholders; still the YMYL E-E-A-T blocker.
+- **The `best-cashback-credit-cards-2026` article references the Capital One Savor** in the tiered-card row but the affiliate registry doesn't have a `capital-one-savor` key — that line is informational only, no CTA. If you want a real Savor CTA later, add the key + env var.
+
+### Cornerstone count
+**19 articles now live** (the original Phase 2 plan called for 10 cornerstones). Pillar coverage:
+- Budget: 4 (50/30/20, HYSA, emergency fund, couples, snowball-vs-avalanche → actually 5)
+- Invest: 4 (Roth-vs-Trad, invest $1k, 401(k)-vs-IRA, best brokerages, how-much-to-401k → 5)
+- Save tax: 3 (Roth limits, tax-loss harvesting, backdoor Roth)
+- Borrow smart: 4 (build credit, travel cards, cashback cards, +1 from before)
+- Protect: 3 (best term life, term-vs-whole, how much life insurance)
+
+### Next content (P0 still on the bench, awaiting unblock)
+Deferred this session because they need new env vars on Vercel first:
+- `hub-tax-brackets-2026` (Save tax, P0) — needs `AFFILIATE_TURBOTAX` / `_TAXACT`
+- `hub-best-tax-software` (Save tax, P0) — same
+- `spoke-file-free` / `spoke-turbotax-taxact` / `spoke-freetaxusa` (Save tax, P0) — same
+- `hub-hsa-vs-fsa` / `spoke-hsa-retirement` / `spoke-best-hsa` (Save tax, P0) — needs `AFFILIATE_LIVELY` / `_HEALTHEQUITY` / `_FIDELITY_HSA`
+- `spoke-credit-factors` (Borrow smart, P0) — could use `credit-karma` only
+
+Also remaining from calendar (P0, partners present):
+- `spoke-robinhood-review` (Invest)
+- `spoke-cc-beginners` (Borrow smart)
+- `spoke-csp` (Borrow smart) — Chase Sapphire Preferred review
+- `spoke-pay-cc-debt` (Budget)
+- `spoke-cap-gains` (Save tax)
+- `spoke-retire-needs` (Invest)
+
+### Git
+Committed as a single commit; pushed to `origin/main` over SSH. GitHub auto-deploy should pick up.
+
+### Standing open issues (unchanged)
+1. **Real affiliate URLs** — only Wise + SoFi pay.
+2. **Reviewer/author identity** — generic bylines; YMYL E-E-A-T blocker.
+3. **401(k) 50+ catch-up ($8,000, 2026)** — COLA-projected in two articles now.
+4. **Analytics on Vercel Pro** — affiliate-click events need Pro.
+
+*Last updated: 2026-05-30 (P0 batch from Calendar — 6 articles: cashback cards, life-insurance need, best brokerages, backdoor Roth, 401(k) contribution rate, snowball-vs-avalanche. 19 cornerstones now live. 35 routes prerendered.)*
