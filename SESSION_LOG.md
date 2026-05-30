@@ -781,3 +781,64 @@ All 6 new `/go/<partner>` redirects tested live (see comment in commit's deploy 
 5. **Analytics on Vercel Pro** — unchanged.
 
 *Last updated: 2026-05-30 (Save-tax pillar built out — 8 articles 20–27, 32 Vercel env vars, 43 routes prerendered. 27 cornerstones live.)*
+
+---
+
+---
+
+## Session 2026-05-31 — named author + editorial standards (E-E-A-T)
+
+Picked up after the Save-tax pillar buildout. The original brief asked for a fabricated CFA-Level-II author ("James Hartley") with a stock-photo byline plus a $2/article credential-rental hire for "compliance review." Pushed back on both as professional-ethics and Google-policy landmines (site reputation abuse, stock-license violation, CPA/CFP/CFA board rules, Italian/EU consumer-protection rules, affiliate-TOS exposure). The user agreed to pivot to themselves as the named author with the FinBrief Editorial Team as the named reviewer — the honest version that actually moves the YMYL needle.
+
+### What shipped (commit `e82c427`, pushed to origin/main)
+
+**New files:**
+- `src/lib/authors.ts` — author registry. Single source of truth for `{ slug, name, title, shortBio, longBio[], expertise[], photoUrl, url }`. Adding a future author is one entry, no other code changes. Exports `DEFAULT_AUTHOR`, `getAuthor`, `getAuthorByName`, and a `REVIEWER` constant for the FinBrief Editorial Team.
+- `src/components/content/AuthorBox.tsx` — circular avatar + "Written by / role / Reviewed by Editorial Team" block. Two variants (`header` inline, `card` standalone).
+- `src/app/author/[slug]/page.tsx` — dynamic author page. Currently generates `/author/jahanzeb-nawaz` (statically prerendered via `generateStaticParams`). Renders full bio paragraphs, expertise grid, and a list of all 27 articles. Ships structured `Person` JSON-LD with `worksFor` and `knowsAbout`.
+- `src/app/editorial-standards/page.tsx` — describes the actual review process (source check / clarity check / affiliate-independence check), fact-check rules (two-source for current rates, IRS-direct for tax figures, SEC/FINRA filings for funds), refresh cadence, corrections policy, editorial independence, and a contact at `editorial@finbrief.space`.
+- `public/authors/jahanzeb-nawaz.jpg` — 800px JPEG, 122 KB. Sourced from the user's Desktop (`Gemini_Generated_Image_6i1uqv6i1uqv6i1u.png`, 1770×1838) and resampled via `sips`. The user confirmed it's a real photo with lighting adjusted via an AI editor; the original Gemini watermark sparkle was cropped out before saving.
+- `public/authors/README.txt` — notes on requirements for future author photos.
+
+**Modified:**
+- `src/components/content/ArticleHeader.tsx` — now renders `AuthorBox` inline (resolves the author by name string against the registry; falls back to `DEFAULT_AUTHOR`).
+- `src/components/seo/JsonLd.tsx` — `articleJsonLd` now emits structured `Person` author (`name`, `url`, `jobTitle`, `image`) + `reviewedBy` Organization (FinBrief Editorial Team → `/editorial-standards`) + richer `publisher` block with logo (`/icon`). **This is the E-E-A-T schema upgrade.**
+- `src/app/about/page.tsx` — rewritten with the founder bio (philosophy, background, why-trust, what-I-cover, etc.) and the founder photo card at the top.
+- `src/components/layout/Footer.tsx` — adds links to Editorial standards and the author page.
+- `src/app/sitemap.ts` — adds `/editorial-standards` and `/author/jahanzeb-nawaz`.
+- **All 27 articles in `src/app/learn/*/page.tsx`** — bulk `sed` replace: `author` → `"Jahanzeb Nawaz"`, `reviewer` → `"the FinBrief Editorial Team"` (was a mix of `Finbrief Editor`, `Finbrief Editorial Team`, CFP/CPA/insurance-pro placeholders).
+
+### Build / deploy
+- `npm run build` clean. **45 routes** total (was 43), all 27 articles + `/author/jahanzeb-nawaz` + `/editorial-standards` prerendered. One TypeScript fix mid-build (narrowing `author?: string` for the registry lookup).
+- Commit `e82c427`, pushed `651273a..e82c427` to `origin/main` over SSH. Vercel auto-deploy picked it up.
+
+### Schema markup confirmation
+Every article now emits:
+```json
+"author": { "@type": "Person", "name": "Jahanzeb Nawaz",
+            "url": "https://finbrief.space/author/jahanzeb-nawaz",
+            "jobTitle": "Founder, FinBrief",
+            "image": "https://finbrief.space/authors/jahanzeb-nawaz.jpg" },
+"reviewedBy": { "@type": "Organization", "name": "FinBrief Editorial Team",
+                "url": "https://finbrief.space/editorial-standards" },
+"publisher": { "@type": "Organization", "name": "Finbrief", "url": "...",
+               "logo": { "@type": "ImageObject", "url": ".../icon" } }
+```
+`/author/jahanzeb-nawaz` also emits its own `Person` JSON-LD.
+
+### Open issues — updated
+1. **Real affiliate URLs** — unchanged; only Wise + SoFi pay.
+2. ~~**Reviewer / author identity**~~ ✅ **RESOLVED** — Jahanzeb Nawaz is the named author across all 27 articles, FinBrief Editorial Team is the named reviewer (with a real `/editorial-standards` page describing the process). Structured `Person` + `reviewedBy` schema in place. The next E-E-A-T upgrade if/when budget allows: add a real credentialed reviewer (CFP/CPA) by name on YMYL-sensitive articles — registry supports it via a future `reviewer` registry entry.
+3. **FSA 2026 contribution limit** — unchanged; still "TBA" in `hsa-vs-fsa` until IRS publishes.
+4. **GSC indexing** — 14 newer articles (14–27) still need indexing requests submitted. Spread across days due to daily quota.
+5. **Analytics on Vercel Pro** — unchanged.
+6. **Validate new schema** — after Vercel deploy goes live, drop any article URL into Google's Rich Results Test to confirm the new `author` + `reviewedBy` schema is read cleanly. Then re-request indexing on a sample article so Google re-crawls with the new schema.
+
+### Where to start next session
+1. Standard checklist (read SESSION_LOG + CLAUDE.md, sanity-check `layout.tsx`, `npm run build`).
+2. Quick: run Rich Results Test on `https://finbrief.space/learn/best-hysa-2026` and confirm author + reviewedBy show. If anything's malformed, fix `JsonLd.tsx`.
+3. GSC: request indexing on articles 14–27 (14 URLs, will need 2–3 sessions due to quota).
+4. Content: pull next priority block from `Phase_2_Content_SEO_Workbook.xlsx` (Calendar sheet). P0 candidates with partners already live: `spoke-robinhood-review`, `spoke-cc-beginners`, `spoke-csp`, `spoke-pay-cc-debt`, `spoke-cap-gains`, `spoke-retire-needs`, `spoke-credit-factors`.
+5. Real-blocker work: apply to Bankrate CC / Impact / Fintel Connect / CJ for actual tracked affiliate URLs.
+
+*Last updated: 2026-05-31 (named-author refactor — Jahanzeb Nawaz as author across 27 articles, FinBrief Editorial Team as reviewer, /author/jahanzeb-nawaz + /editorial-standards pages live, structured Person + reviewedBy schema shipped. Commit `e82c427`. 45 routes prerendered.)*
