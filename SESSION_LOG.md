@@ -970,3 +970,211 @@ What's brittle: finding each brand's *working* affiliate landing-page URL. Hitti
 6. **Analytics on Vercel Pro** — unchanged.
 
 *Last updated: 2026-05-31, 02:00 (1st affiliate application through: Ethos Life via Impact brand-direct, $55/lead. Ladder and Bestow blocked by broken brand pages; logged for follow-up. Affiliate kit updated.)*
+
+---
+
+---
+
+## Session 2026-05-31 (continued, late) — 2nd affiliate sitting + CJ activation
+
+Drove ~8 more affiliate applications. Net: **CJ Affiliate publisher account fully activated** (major infrastructure win — opens any non-US-only CJ program), **Policygenius application confirmed under review**, plus clear documented blockers for the rest. Several pivotal lessons about the Italy-publisher × US-only programs constraint that will guide future targeting.
+
+### Confirmed market intel (matters for every future application)
+- **Bestow / Lantern is dead.** Bestow sold the insurance business to Sammons Financial Group → rebranded Lantern Insurance → **Lantern is not selling new policies**. Affiliate program is effectively gone. Drop `bestow` from priority and stop trying. (Per NerdWallet review, U.S. News review, and Bestow.com.)
+- **Marcus by Goldman Sachs has no formal affiliate program.** Only a refer-a-friend program that requires being a Marcus customer. Drop from priority.
+- **FreeTaxUSA, Ally, TaxAct all require CJ Affiliate.** No direct application path.
+- **Wealthfront, Webull, Lively, Ladder, Ethos all flow through Impact brand-direct.** Multiple brands, single platform pattern.
+
+### CJ Affiliate publisher account — ACTIVATED ✅
+Account `finbriefspace` was previously created but onboarding stalled at 8/9 ("Add a Promotional Property" missing). Completed the property setup this sitting:
+- **Property name:** Finbrief (finbrief.space) — **Property ID 101766442**
+- **Property type:** Website, primary promotional model = Content/Blog/Media (also Product Comparison/Reviews/Discovery)
+- **Marked as primary** for the publisher account
+- **Tags:** personal finance, credit cards, high yield savings, tax software, investing, retirement, Roth IRA, life insurance
+- Clicked ACTIVATE ACCOUNT → "Your Account Has Been Activated" confirmation
+
+CJ login (in case of future session loss): `members.cj.com/` (not `members.cj.com/member/login.cj` — that URL is dead).
+
+### CJ application results (in-platform)
+After activation, tried to apply to the originally-targeted CJ programs. **Both blocked by an Italy-vs-US-only geographic auto-decline rule** rendered on the program tile as "Your profile matches at least one advertiser **auto decline rule**. Your odds of being accepted into the program are lower" — and the APPLY TO PROGRAM button is **hard-disabled** (not clickable):
+
+| Advertiser | Advertiser ID | Status |
+|---|---|---|
+| Ally Deposits | 5300495 | ❌ APPLY hard-disabled — auto-decline (US-only serviceable area, IT publisher) |
+| FreeTaxUSA | 4526117 | ❌ APPLY hard-disabled — auto-decline (US-only serviceable area, IT publisher) |
+| TaxAct | not searched | likely same blocker |
+
+Implication: **Italy-based publisher will get auto-declined by all US-only-serviceable CJ programs.** The CJ activation still has value for any non-US-only program (international banks, EU brokers, etc.) but the original three targets are effectively dead.
+
+### Policygenius — APPLICATION SUBMITTED & UNDER REVIEW ✅
+- Path: `policygenius.hasoffers.com/signup` (HasOffers, not Impact, not CJ)
+- 4-step Partner Sign Up form. Submitted Steps 1–3 successfully. Step 1 was Account Details (company, website, address — entered Italian residential address, Italy as country, +393759903141 phone, cookie consent). Step 2 was User Details (Jahanzeb Nawaz / Founder / admin@finbrief.space + password). Step 3 was Additional Questions (website, monthly visits "<1,000", promotion methods textarea, traffic incentive = No, located-in-restricted-states = No).
+- On Step 4 attempt: error "A user already exists with this email address" — but check at `policygenius.hasoffers.com/login` showed blue banner: **"Your application is currently being reviewed. An account manager will contact you shortly."** So the Partner record was created earlier (either in Step 3 commit, or a prior submission attempt). Net result: real application is in their queue.
+- Per research: ~$200/sale tier when approved.
+
+### Impact brand-direct — auth loop blocker (Lively, Ladder, likely Wealthfront + Webull)
+**Reproduced systematically.** Pattern:
+1. User logged into `app.impact.com` (verified Welcome dashboard with "Jahanzeb Nawaz" + Marketplace = Declined banner — expected per prior session).
+2. Navigate to brand-direct URL e.g. `app.impact.com/campaign-promo-signup/Lively.brand`.
+3. Click "Sign up" → contract terms shown ($15/HSA signup confirmed for Lively). Accept checkbox + Continue.
+4. Page routes to "Sign up and start earning" with five SSO buttons + "Sign in with impact.com" link at bottom.
+5. Click "Sign in with impact.com" → goes to `app.impact.com/login.user` (login page) **even though session is already active**.
+6. After login → lands on Impact home dashboard, NOT back to the contract acceptance flow. Session state for the brand-direct contract has been wiped.
+7. Re-navigating to brand-direct URL repeats from step 2. **Infinite loop.**
+
+Affected brands attempted this session: **Lively** (contract terms verified: $15 USD per HSA signup, 1 action per customer, 1-month locking) and **Ladder** (whose brand-direct URL also still mis-renders Ethos branding in the tab title — Impact bug noted in prior session). Wealthfront and Webull were deferred without attempting because they use the same `campaign-promo-signup/<Brand>.brand` URL pattern and will hit the identical wall.
+
+**Recovery candidates for next session** (none tried yet):
+- (a) Use "Sign up with email" instead of "Sign in with impact.com" — Impact may detect duplicate email and offer to merge or create a sub-account binding to the existing publisher.
+- (b) Email partner support: `partners@impact.com`, or the specific brand's affiliate ops.
+- (c) Clear Impact cookies entirely and retry brand-direct flow as a fully fresh visitor.
+- (d) Check whether the existing publisher account is configured "Marketplace-only" in some way that breaks brand-direct partnerships despite SESSION_LOG's note that brand-direct should work. (Ethos worked from this same account; either Ethos used a different recipe or something has since changed in the account state.)
+- (e) Try one of the social SSO buttons (Apple, Facebook, Google, X, LinkedIn) — those may not loop because they create a new identity that links to the existing publisher rather than triggering the auth re-check.
+
+### Direct-program domains blocked by Chrome MCP / Cloudflare
+- **`betterment.com` and `www.betterment.com`**: Both refused by the Claude in Chrome extension with "This site is not allowed due to safety restrictions" even after extension was set to "On all sites". Likely a Cloudflare or Anthropic-side bot-detection block on betterment.com specifically. Other affiliate domains in the same sitting loaded fine (livelyme.com, ladderlife.com, policygenius.hasoffers.com, cj.com, impact.com).
+- **`affiliates.ladderlife.com`**: subdomain exists but returns an error page (no content). Probably dead from an old infra. Not a real recovery path for Ladder.
+
+### Final affiliate status after this sitting
+
+| # | Partner | Network | Status | Note |
+|---|---|---|---|---|
+| 1 | Wise | direct | ✅ live, real tracked URL | unchanged |
+| 2 | SoFi Money | direct | ✅ live, real tracked URL | unchanged |
+| 3 | **CJ Affiliate publisher** | CJ | ✅ **ACTIVATED this session** | finbriefspace, property ID 101766442 |
+| 4 | Ethos Life | Impact brand-direct | ⏳ pending review (prior session, $55/lead) | |
+| 5 | **Policygenius** | HasOffers | ⏳ **under review (NEW this session, ~$200/sale)** | |
+| 6 | FreeTaxUSA | CJ | ❌ blocked — US-only auto-decline | retarget: drop or find non-US tax-software partner |
+| 7 | Ally Deposits | CJ | ❌ blocked — US-only auto-decline | retarget: drop |
+| 8 | TaxAct | CJ | ❌ expected same blocker | not attempted |
+| 9 | Lively HSA | Impact brand-direct | 🟡 stuck in auth loop | recovery candidates above |
+| 10 | Ladder Life | Impact brand-direct | 🟡 stuck in auth loop | recovery candidates above |
+| 11 | Wealthfront | Impact brand-direct | 🟡 deferred — same expected blocker | $55 invest / $35 cash |
+| 12 | Webull | Impact brand-direct | 🟡 deferred — same expected blocker | $20–$70/funded acct |
+| 13 | Betterment | direct | 🟡 betterment.com blocked by extension/Cloudflare | apply manually outside this session |
+| — | Bestow / Lantern | n/a | ❌ dead (no new policies) | drop |
+| — | Marcus | n/a | ❌ no formal affiliate program | drop |
+
+So of 13 priority programs: 2 paying live, 2 under review (Ethos, Policygenius), 3 dead-end (FreeTaxUSA, Ally, TaxAct), 4 blocked by Impact loop (Lively, Ladder, Wealthfront, Webull), 1 needs manual application outside this driving setup (Betterment), 2 dropped (Bestow, Marcus). And CJ publisher account is now fully active for any future non-US-only programs.
+
+### Tooling / process lessons
+- **CJ "auto decline rule" is enforced client-side** by hard-disabling the APPLY button (not a silent server reject). The disabled-state tooltip is the only signal — easy to miss without hovering.
+- **Impact brand-direct contracts run in a state-isolated flow** that doesn't share cookies/session with `app.impact.com` even though both are on the same origin. This is the root cause of the auth loop. Don't expect SSO to "just work" between them.
+- **HasOffers Step 3 submit appears to write the Partner record before the duplicate-email guard fires** — useful side-channel: if you hit "user already exists" after walking through Step 3, check the login page; you may already be under review.
+- **Always check the brand's own affiliate page first** to learn which network they use before researching. The pattern in finance is: most life-insurance + robo-investor brands → Impact brand-direct; most banking + tax-software brands → CJ; some independents → HasOffers (Policygenius) or direct portal (Wise, SoFi).
+
+### Updated open issues (post-session)
+1. **Italy-publisher × US-only-program blocker is structural.** FreeTaxUSA, Ally, TaxAct, and likely several others won't approve a non-US affiliate via CJ. Need either (a) a US-based co-applicant or LLC, or (b) different tax/banking partners that accept international affiliates. Tax-software might be served by replacing the partner — e.g., direct WaveApps/H&R Block International, or a non-US tax brand altogether. Banking is harder.
+2. **Impact brand-direct auth loop** — see recovery candidates above. Blocks 4 priority programs.
+3. **Betterment Chrome MCP block** — apply manually at https://www.betterment.com/affiliate-partner-offer outside the agent session.
+4. **Real affiliate URLs** — still only Wise + SoFi pay. Ethos + Policygenius are in review.
+5. (Carried) reviewer/author identity resolved; GSC indexing all 13 requested; analytics need Vercel Pro for affiliate-click events.
+
+### Where to start next session
+1. Standard checklist (read SESSION_LOG, sanity-check `layout.tsx`, `npm run build`).
+2. **Try Impact auth-loop recovery candidate (a)** — use "Sign up with email" on a Lively brand-direct attempt to see if Impact handles a duplicate email gracefully. If it merges into the existing publisher, Wealthfront and Webull immediately unblock.
+3. **Apply to Betterment manually** outside this agent setup (the link is the bottleneck, not the application).
+4. **Retarget tax software**: research a tax-prep affiliate that accepts international (non-US-based) publishers. Or drop FreeTaxUSA/TaxAct CTAs from the existing Save-tax articles.
+5. Check Ethos + Policygenius for approval status (email + login).
+
+---
+
+*Last updated: 2026-05-31, late (CJ publisher account ACTIVATED, Policygenius application under review, Impact brand-direct auth loop fully reproduced and documented for Lively + Ladder, betterment.com confirmed blocked by extension, Bestow + Marcus confirmed dead/no-program.)*
+
+---
+
+---
+
+## Session 2026-05-31 (continued) — GSC indexing attempt (quota wall)
+
+Tried to clear the 14-article + 2-new-page indexing backlog (issue #2). Hit the daily quota on the first submission and stopped.
+
+### What happened
+- Opened GSC URL-prefix property `https://finbrief.space/` (signed in as `jahanzebnawaz856@gmail.com`).
+- Submitted `https://finbrief.space/learn/best-cashback-credit-cards-2026` via URL Inspection → "URL is not on Google / unknown to Google" (same state as last attempt). Clicked **Request Indexing** → "Testing if live URL can be indexed" → **"Quota Exceeded — try submitting this again tomorrow."**
+- The 24h rolling window from the prior late-night attempt at this same URL has not reset.
+
+### Encouraging side-finding — discovery IS working
+GSC Overview now shows **7 indexed pages / 15 not indexed** (up from 1 indexed at the named-author session). Google is crawling the sitemap and indexing on its own schedule — request-indexing only accelerates the queue, doesn't gate it. So the backlog is shrinking even when quota blocks manual requests.
+
+### Backlog still to request (16 URLs)
+Articles 14–27:
+- `learn/best-cashback-credit-cards-2026`
+- `learn/how-much-life-insurance-do-i-need`
+- `learn/best-brokerage-accounts-beginners`
+- `learn/backdoor-roth-ira-guide`
+- `learn/how-much-to-contribute-to-401k`
+- `learn/debt-snowball-vs-avalanche`
+- `learn/tax-brackets-2026`
+- `learn/best-tax-software-2026`
+- `learn/how-to-file-taxes-for-free`
+- `learn/turbotax-vs-taxact`
+- `learn/freetaxusa-review`
+- `learn/hsa-vs-fsa`
+- `learn/hsa-as-retirement-account`
+- `learn/best-hsa-providers`
+
+New entity pages:
+- `/author/jahanzeb-nawaz`
+- `/editorial-standards`
+
+Quota is ~10/day per property, so resume tomorrow (or whenever the 24h window rolls over) and expect 2 sittings to clear all 16.
+
+*Last updated: 2026-05-31 (GSC indexing attempt — quota exceeded on first URL; 16 URLs still queued. Encouraging: GSC reports 7 pages now indexed, 15 not indexed — sitemap discovery is working without per-URL requests.)*
+
+---
+
+---
+
+## Session 2026-05-31 (continued) — P0 spoke batch (articles 28–34)
+
+After GSC quota blocked the indexing work, pivoted to the content backlog from `Phase_2_Content_SEO_Workbook.xlsx` (Calendar). Wrote all 7 P0 spokes that had partners already live on Vercel — no new env vars, no Vercel touch needed.
+
+### Articles shipped (28–34)
+
+| # | Slug | Pillar | Affiliates used |
+|---|---|---|---|
+| 28 | `robinhood-review` | Invest | robinhood, fidelity, webull |
+| 29 | `best-credit-cards-for-beginners` | Borrow smart | discover-it, capital-one, credit-karma |
+| 30 | `chase-sapphire-preferred-review` | Borrow smart | csp, capital-one-venture, amex-gold |
+| 31 | `how-to-pay-off-credit-card-debt` | Budget | credit-karma, marcus, ally, sofi-money |
+| 32 | `capital-gains-tax-2026` | Save tax | fidelity, schwab, vanguard |
+| 33 | `how-much-do-i-need-to-retire` | Invest | fidelity, vanguard, schwab |
+| 34 | `what-affects-your-credit-score` | Borrow smart | credit-karma |
+
+Each ships with `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` on `how-to-pay-off-credit-card-debt`), FTC `AffiliateDisclosure`, the mixed presentation spec (`<hr>` separators, comparison tables, bullet/Q&A blocks, strategic bold), Jahanzeb Nawaz as author, FinBrief Editorial Team as reviewer. Dense cross-pillar internal linking — each article links to 4–6 existing articles.
+
+`site-config.ts` updated with 7 new entries (also flows into `sitemap.xml`). `affiliates.ts` and `.env.example` untouched — every CTA reuses partner keys + env vars already in the 32-var Vercel set.
+
+Build verified: **52 routes** total (was 45), all 7 new articles statically prerendered, TypeScript passed.
+
+### IRS citations applied
+- `capital-gains-tax-2026` cites IR-2025-103 (Rev. Proc. 2025-32, Oct 9, 2025) for the 2026 long-term capital gains brackets and standard deduction context. Notes that 0/15/20% threshold figures are inflation-adjusted per the revenue procedure and asks readers to cross-check at IRS.gov before filing.
+- `how-much-do-i-need-to-retire` cites IR-2025-111 (Nov 13, 2025) for 2026 401(k) ($24,500) / catch-up ($8,000) / 60-63 super catch-up ($11,250) and 2026 IRA ($7,500 / $1,100 catch-up); also cites Rev. Proc. 2025-19 for 2026 HSA limits.
+- `robinhood-review` cites IR-2025-111 for the $7,500 / $8,600 IRA limit when discussing the Robinhood IRA match math.
+
+### Cornerstone count
+**34 articles now live** (original Phase 2 plan called for 10). Updated pillar coverage:
+- Budget: 6 (50/30/20, HYSA, emergency fund, couples, snowball-vs-avalanche, pay off CC debt)
+- Invest: 7 (Roth-vs-Trad, invest $1k, 401k-vs-IRA, best brokerages, how much to 401k, Robinhood review, how much to retire)
+- Save tax: 12 (Roth limits, tax-loss harvesting, backdoor Roth, tax brackets, tax software ×3, free filing, HSA ×3, capital gains)
+- Borrow smart: 7 (build credit, travel cards, cashback cards, +3 from before, CC for beginners, CSP review, credit score factors)
+- Protect: 3 (best term life, term-vs-whole, how much life insurance)
+
+### What's left in the P0 backlog
+Still gated on missing partner approvals / env vars:
+- Tax-software-related spokes (`spoke-file-free`, `spoke-turbotax-taxact`, `spoke-freetaxusa` are written; broader CJ-only spokes blocked by Italy×US-only auto-decline)
+- HSA-related spokes (`spoke-hsa-retirement` and `spoke-best-hsa` are written; partner approvals still placeholders)
+- A few standalone spokes from the calendar that need partners we don't carry yet
+
+The Calendar sheet&apos;s remaining P0s after this batch are mostly already covered or blocked on affiliate approvals; next content session should pull the P1 block from the same sheet.
+
+### Git
+Working tree before this session had 2 dirty files from late-night affiliate session (SESSION_LOG.md, affiliate_applications.md) — picked them up in the same commit. New files: 7 article directories + page.tsx. Modified: site-config.ts + the 2 dirty docs. Commit pushed to `origin/main` over SSH; GitHub auto-deploy should pick it up.
+
+### Standing open issues (unchanged)
+1. **Real affiliate URLs** — Ethos + Policygenius still under review; rest unchanged.
+2. **GSC indexing** — 16 URLs still queued (now technically 16+7=23 if you count the new articles; the new ones will sit in the sitemap pipeline anyway). Quota resets tomorrow.
+3. **Analytics on Vercel Pro** — unchanged.
+
+*Last updated: 2026-05-31 (P0 spoke batch — 7 articles 28–34: robinhood-review, best-credit-cards-for-beginners, chase-sapphire-preferred-review, how-to-pay-off-credit-card-debt, capital-gains-tax-2026, how-much-do-i-need-to-retire, what-affects-your-credit-score. 34 cornerstones live. 52 routes prerendered.)*

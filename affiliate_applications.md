@@ -281,24 +281,24 @@ These programs typically reject new low-traffic applicants. Re-apply after the t
 Update the date / status as you go.
 
 ### Networks to join first
-- [x] Impact Radius — signed up: (existing account, Jahanzeb Nawaz)  W-8BEN filed: (verify on file)  ⚠️ Marketplace declined 2026 — reapply on/after **2026-08-31**. Use direct-brand path until then.
-- [ ] CJ Affiliate — signed up: ____  W-8BEN filed: ____
+- [x] Impact Radius — signed up: (existing account, Jahanzeb Nawaz)  W-8BEN filed: (verify on file)  ⚠️ Marketplace declined 2026 — reapply on/after **2026-08-31**. Use direct-brand path until then. ⚠️ **Brand-direct signup flow has a verified auth-loop bug for this account — see SESSION_LOG 2026-05-31 (late) for the full repro and recovery candidates.**
+- [x] CJ Affiliate — signed up: **2026-05-31 (account ACTIVATED)**. Publisher: `finbriefspace`, Property ID 101766442 (Finbrief, Website, Content/Blog/Media, primary). W-8BEN filed: yes (during onboarding). ⚠️ US-only-serviceable programs auto-decline the Italy-based publisher (verified on Ally + FreeTaxUSA — APPLY buttons hard-disabled with "auto decline rule" tooltip).
 - [ ] Awin — signed up: ____  ($5 verification paid: ____)
 
 ### Tier-1 applications (revenue on existing CTAs)
 - [ ] Fidelity (Impact) — applied: ____  decision: ____
 - [ ] Schwab (Impact) — applied: ____  decision: ____
-- [ ] FreeTaxUSA (direct) — applied: ____  decision: ____
+- [x] FreeTaxUSA (CJ) — applied: **2026-05-31** — **❌ BLOCKED — auto-decline rule in CJ (US-only serviceable area; Italy publisher). APPLY button hard-disabled inside CJ. No direct path exists. Retarget or drop.**
 - [ ] Vanguard — applied: ____  decision: ____  (program may not exist publicly — confirm)
-- [ ] TaxAct (CJ) — applied: ____  decision: ____
+- [ ] TaxAct (CJ) — applied: ____  decision: ____ (expected same Italy auto-decline as FreeTaxUSA/Ally)
 - [ ] TurboTax (Awin / Impact / CJ) — applied: ____  decision: ____
-- [ ] Marcus (Impact) — applied: ____  decision: ____
-- [ ] Ally (CJ) — applied: ____  decision: ____
-- [ ] Policygenius (Impact) — applied: ____  decision: ____
-- [ ] Bestow (Impact) — applied: ____  decision: ____  ⚠️ **bestow.com/affiliates 404 — Bestow now redirects to Lantern Insurance (acquired/rebranded). Need to find Lantern's affiliate page or email `partnerships@bestow.com`.**
-- [ ] Ladder (direct / Impact) — applied: ____  decision: ____  ⚠️ **ladderlife.com/affiliates redirects to Impact `Ladder.brand` URL but mis-renders Ethos content. Try emailing `partnerships@ladderlife.com` or use Impact's search if it becomes accessible later.**
+- [x] Marcus — ❌ **DROPPED: no formal affiliate program exists. Only customer refer-a-friend (requires being a Marcus customer).**
+- [x] Ally Deposits (CJ #5300495) — applied: **2026-05-31** — **❌ BLOCKED — auto-decline rule (US-only serviceable area; Italy publisher). APPLY button hard-disabled. Retarget or drop.**
+- [x] Policygenius (HasOffers, NOT Impact) — applied: **2026-05-31** via `policygenius.hasoffers.com/signup`. ⏳ **Under review** — confirmed by blue banner on the login page: *"Your application is currently being reviewed. An account manager will contact you shortly."* Per research: ~$200/sale tier.
+- [x] Bestow / Lantern — ❌ **DROPPED: Bestow sold to Sammons → rebranded Lantern → Lantern is not selling new policies (per NerdWallet, U.S. News). Affiliate program effectively dead.**
+- [ ] Ladder (Impact brand-direct) — applied: ____  decision: ____  ⚠️ **2026-05-31: Reached the Impact contract page but got stuck in the Impact brand-direct auth loop (see SESSION_LOG). Tab title still mis-renders as "Ethos Life" on `Ladder.brand`. Direct subdomain `affiliates.ladderlife.com` is a dead page. Try recovery candidates on next sitting.**
 - [x] Ethos — applied: **2026-05-31** via ethos.com/affiliate-program/ → Impact `campaign-promo-signup/Ethos-Life.brand`. Confirmed by Impact notification: *"Your application to join Ethos Life was sent"* at 01:53. Contract terms: **$55/lead** for standard underwriters (LGA, Protective), $0 for Cuna Mutual / Ameritas / NY customers / age 60+.
-- [ ] Lively (direct) — applied: ____  decision: ____
+- [ ] Lively (Impact brand-direct) — applied: ____  decision: ____  ⚠️ **2026-05-31: Reached the Lively contract preview (confirmed terms: $15 USD per HSA Account Signup, 1 action per customer, 1-month action locking) but got stuck in the same Impact brand-direct auth loop. Try recovery candidates on next sitting.**
 
 ### Deferred — apply at ~5K monthly visitors
 - [ ] Bankrate CC Network
@@ -309,7 +309,10 @@ Update the date / status as you go.
 
 ### Reminders / future actions
 - [ ] **2026-08-31** — Reapply to Impact Marketplace (90 days post-decline). Submit via existing publisher dashboard at app.impact.com.
-- [ ] **Tomorrow** — Google-search and bookmark working affiliate-signup URLs for: Bestow/Lantern, Ladder, Policygenius, Marcus, Lively, FreeTaxUSA. Then run a second application sitting. Each brand should take 5–8 min when the URL is right.
+- [ ] **Next session** — Diagnose Impact brand-direct auth loop. The single highest-leverage fix: solving this unblocks Lively, Ladder, Wealthfront, Webull in one go. First candidate to try: use "Sign up with email" instead of "Sign in with impact.com" on a brand-direct contract — Impact may detect the duplicate admin@finbrief.space email and offer to merge into the existing publisher. See SESSION_LOG 2026-05-31 (late) for full candidate list.
+- [ ] **Next session** — Apply to Betterment manually outside the agent setup. betterment.com is blocked by the Claude in Chrome extension's safety filter ("This site is not allowed due to safety restrictions") even after granting "On all sites" permission — open the URL in a normal browser tab and apply: https://www.betterment.com/affiliate-partner-offer
+- [ ] **Next week** — Check Ethos + Policygenius for approval decisions (Ethos email + login to impact.com; Policygenius email + login to policygenius.hasoffers.com).
+- [ ] **Retarget tax software**: FreeTaxUSA and TaxAct will auto-decline an Italy-based publisher via CJ. Research a tax-prep affiliate that accepts international publishers, or drop the FreeTaxUSA/TaxAct CTAs from existing Save-tax articles.
 
 ---
 
@@ -326,4 +329,4 @@ For each approved program:
 
 ---
 
-*Last updated: 2026-05-31.*
+*Last updated: 2026-05-31 (late session — CJ Affiliate publisher ACTIVATED, Policygenius application submitted/under review, FreeTaxUSA + Ally CJ-blocked by Italy-vs-US-only auto-decline, Bestow + Marcus dropped, Impact brand-direct auth loop documented for Lively + Ladder.)*
