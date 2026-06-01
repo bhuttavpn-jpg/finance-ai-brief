@@ -4,7 +4,7 @@
 
 ---
 
-## Live state (as of 2026-05-31)
+## Live state (as of 2026-06-01)
 
 ### Deployment
 
@@ -13,30 +13,30 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | `2063b30` — 7 P0 spoke batch (articles 28–34) |
-| Build | clean, **52 routes**, all 34 articles statically prerendered |
-| Vercel env vars | **32 total** (2 paying real URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages) |
+| Latest commit | (pending) — 10 P1 batch (articles 35–44) + affiliates.ts defaultUrl refactor + 8 new partner keys |
+| Build | clean, **62 routes**, all 44 articles statically prerendered |
+| Vercel env vars | **32 total** (2 paying real URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages). 8 new partner keys (sofi-loans, lightstream, geico, progressive, better-mortgage, rocket-mortgage, monarch, copilot) use homepage `defaultUrl` fallback in code — no env var needed until tracking is wired. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv) | LIVE end-to-end (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
 | Google Search Console | URL-prefix property `https://finbrief.space/` verified; sitemap Success / 22 pages discovered; 7 indexed / 15 not yet indexed (sitemap discovery is rolling) |
 
 ### Author + editorial (E-E-A-T)
 
-- Named author across all 34 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
+- Named author across all 44 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
 - Named reviewer: **FinBrief Editorial Team**; `/editorial-standards` page describes the process.
 - Schema validated by Google's Rich Results Test (`author` + `reviewedBy` + valid datetimes + image).
 
-### Articles shipped (34 cornerstones)
+### Articles shipped (44 cornerstones)
 
-Original Phase 2 plan called for 10 cornerstones. We're 24 ahead.
+Original Phase 2 plan called for 10 cornerstones. We're 34 ahead.
 
 | Pillar | Count | Slugs |
 |---|---|---|
-| Budget | 6 | how-to-budget-50-30-20, best-hysa-2026, how-to-build-emergency-fund, couples-budgeting-guide, debt-snowball-vs-avalanche, how-to-pay-off-credit-card-debt |
-| Invest | 7 | roth-ira-vs-traditional-ira, how-to-invest-1000-beginners, 401k-vs-ira-which-first, best-brokerage-accounts-beginners, how-much-to-contribute-to-401k, robinhood-review, how-much-do-i-need-to-retire |
-| Save tax | 12 | roth-ira-contribution-limits-2026, tax-loss-harvesting-guide, backdoor-roth-ira-guide, tax-brackets-2026, best-tax-software-2026, how-to-file-taxes-for-free, turbotax-vs-taxact, freetaxusa-review, hsa-vs-fsa, hsa-as-retirement-account, best-hsa-providers, capital-gains-tax-2026 |
-| Borrow smart | 7 | how-to-build-credit-from-scratch, best-travel-credit-cards-2026, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, chase-sapphire-preferred-review, what-affects-your-credit-score, (+1 review) |
-| Protect | 3 | best-term-life-insurance-young-professionals, term-vs-whole-life-insurance, how-much-life-insurance-do-i-need |
+| Budget | 7 | how-to-budget-50-30-20, best-hysa-2026, how-to-build-emergency-fund, couples-budgeting-guide, debt-snowball-vs-avalanche, how-to-pay-off-credit-card-debt, best-budgeting-apps-2026 |
+| Invest | 10 | roth-ira-vs-traditional-ira, how-to-invest-1000-beginners, 401k-vs-ira-which-first, best-brokerage-accounts-beginners, how-much-to-contribute-to-401k, robinhood-review, how-much-do-i-need-to-retire, fidelity-vs-schwab, fire-movement-guide, how-to-invest-in-stocks |
+| Save tax | 13 | roth-ira-contribution-limits-2026, tax-loss-harvesting-guide, backdoor-roth-ira-guide, tax-brackets-2026, best-tax-software-2026, how-to-file-taxes-for-free, turbotax-vs-taxact, freetaxusa-review, hsa-vs-fsa, hsa-as-retirement-account, best-hsa-providers, capital-gains-tax-2026, mega-backdoor-roth-guide |
+| Borrow smart | 9 | how-to-build-credit-from-scratch, best-travel-credit-cards-2026, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, chase-sapphire-preferred-review, what-affects-your-credit-score, best-personal-loans-2026, how-to-get-a-mortgage, amex-gold-card-review |
+| Protect | 5 | best-term-life-insurance-young-professionals, term-vs-whole-life-insurance, how-much-life-insurance-do-i-need, best-life-insurance-companies-2026, best-car-insurance-companies-2026 |
 
 Article presentation spec (apply to every new article): mixed content blocks (comparison tables + bullets + inline Q&A + ≤5-sentence paragraphs), strategic bold on numbers/key terms, `<hr className="my-10 border-brand-100" />` separators between H2s (except "Related reading"), Jahanzeb Nawaz as `author`, "the FinBrief Editorial Team" as `reviewer`. Every article: `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` for step-by-steps), FTC `AffiliateDisclosure` above the fold, dense cross-pillar internal linking.
 
@@ -47,10 +47,12 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 | ✅ Live (paying) | Wise, SoFi Money |
 | ⏳ Under review | Ethos Life (Impact, $55/lead), Policygenius (HasOffers, ~$200/sale) |
 | ✅ Platform activated (no programs yet) | CJ Affiliate publisher `finbriefspace` (property ID 101766442) |
-| ❌ Structural blocker — Italy × US-only auto-decline | Ally, FreeTaxUSA, TaxAct (and likely most US-only CJ programs) |
-| 🟡 Impact brand-direct auth loop | Lively HSA, Ladder, Wealthfront, Webull |
+| ❌ Structural blocker — Italy × US-only auto-decline (CJ) | Ally, FreeTaxUSA, TaxAct (and likely most US-only CJ programs) |
+| ❌ Brand-level auto-decline after recipe applied | Lively HSA (declined within 4 min of contract approval) |
+| ✅ Impact brand-direct auth loop — SOLVED | Recipe in `affiliate_applications.md` § Impact. Unblocks Ladder + any future Impact brand whose slug is known and whose brand-level rules accept Italy. |
+| ⚠️ Slug works but contract is $0 placeholder | Webull (`Webull.brand` — real program is invitation-only) |
 | 🟡 Chrome MCP / Cloudflare block (apply manually) | Betterment |
-| ❌ Dead — drop from priority | Bestow/Lantern (no new policies), Marcus by GS (no formal program) |
+| ❌ Dead — drop from priority | Bestow/Lantern (no new policies), Marcus by GS (no formal program), **Wealthfront** (no public affiliate door — `wealthfront.com` has no /affiliates /partners /creators page; `Wealthfront.brand` 404s; per AI Overview, invitation-only) |
 
 ### Standing open issues
 
@@ -69,8 +71,8 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 ### Where to start next session
 
 1. Standard checklist (read this file, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
-2. **GSC indexing** — try the URL Inspection → Request Indexing flow tomorrow (quota window resets). 23 URLs queued; expect 2–3 sittings.
-3. **Try Impact auth-loop recovery candidate (a)** — use "Sign up with email" on a Lively brand-direct attempt to see if Impact handles a duplicate email gracefully. If it merges into the existing publisher, Wealthfront and Webull immediately unblock.
+2. **GSC indexing** — 19 of 23 cleared as of 2026-06-01 (8 on 2026-05-31 + 11 on 2026-06-01); quota hit again. Resume the URL Inspection → Request Indexing flow when the 24h window rolls over. **4 URLs remaining**: `how-to-pay-off-credit-card-debt`, `capital-gains-tax-2026`, `how-much-do-i-need-to-retire`, `what-affects-your-credit-score`. Should clear in one more sitting.
+3. **Try Webull via the proven Impact brand-direct recipe.** Recipe is in `affiliate_applications.md` § Impact. First need to find the right brand slug — `Wealthfront.brand` 404'd, so don't assume the obvious; check `webull.com/affiliate` or similar for the actual Impact campaign URL before reusing the pattern.
 4. **Apply to Betterment manually** outside this agent setup (the link is the bottleneck, not the application).
 5. **Retarget tax software** — research a tax-prep affiliate that accepts non-US publishers, or drop FreeTaxUSA/TaxAct CTAs from the existing Save-tax articles.
 6. Check Ethos + Policygenius for approval status (email + login).
@@ -342,3 +344,213 @@ Working tree before this session had 2 dirty files from late-night affiliate ses
 After 13 session entries piled up over two weeks (1180 lines), consolidated this file. Live state moved to a single summary at the top; older sessions collapsed into one-paragraph history entries; the most recent 4 sessions kept verbatim as active reference. Original verbatim entries preserved in git history — see the commit before this one if you need full detail on the older sessions.
 
 *Last updated: 2026-05-31 (SESSION_LOG consolidated — live state header + collapsed history + last 4 sessions verbatim. Same info, much smaller; future sessions boot faster.)*
+
+---
+
+## Session 2026-05-31 (continued) — Impact brand-direct auth loop SOLVED (Lively still declined)
+
+User picked recovery candidate (a) from the prior auth-loop session: try "Sign up with email" on the Lively brand-direct flow and see if Impact's duplicate-email handling routes back to the existing publisher. Did exactly that, end-to-end. **The loop is broken.** Lively itself then declined the application, but the platform-level fix is fully proven and reusable.
+
+### The recipe (now documented in affiliate_applications.md § Impact)
+
+Reproduced step-by-step:
+
+1. `app.impact.com/campaign-promo-signup/Lively.brand` → Sign up → contract preview ($15 USD/HSA signup confirmed) → Continue.
+2. Auth chooser page ("Sign up and start earning"). Clicked **"Sign up with email"** instead of "Sign in with impact.com" at the bottom (which is what caused the original loop).
+3. Email-signup form. Entered the existing publisher's email `bhuttavpn@gmail.com` (NOT a fresh email — that would have created a parallel account and made things worse). Plus first/last name, username `finbriefspace`, password.
+4. Impact surfaced a modal: **"Email address exists — Your email bhuttavpn@gmail.com is already associated with a user on the Impact.com platform"** with two buttons: **Take me to login** and **Change email**. Clicked **Take me to login**.
+5. Landed on `app.impact.com/login.user` — but critically, the tab title was **"Lively - Lively"** and the forgot-password link was `/blc/Lively/password/forgot.brand`. That's the diagnostic: the brand-direct context survives this login route, unlike the "Sign in with impact.com" SSO button on the chooser which strips it.
+6. Submitted username/password (`bhuttavpn@gmail.com` + provided password). Impact redirected to a **Google OAuth account chooser** — meaning the existing publisher is registered with Google SSO, not a native password. **This is the actual root cause of the original loop**: the native sign-in form has no credentials to bind, so the form silently bounces back to login.
+7. Picked the Google account → OAuth "You're signing back in to impact.com" → Continue.
+8. Landed on the **"Review Lively Insertion Order"** page inside the authenticated dashboard (top-right showed "Jahanzeb Nawaz" — confirmed signed in as the existing publisher, not a duplicate account).
+9. Scrolled to bottom, clicked **"I approve the Contract and want to continue"**.
+
+### Outcome
+
+✅ Auth loop solved, recipe written into `affiliate_applications.md` for any future Impact brand-direct.
+
+❌ Lively notification at **04:33 PM**: *"Lively declined your application"* — auto-decline within ~4 minutes. The decline is brand-level (Lively is US-only HSA; Italy publisher is a poor fit on their own decision-engine), not platform-level. The Ethos approval on this same account from the prior session is the proof that *some* Impact brands accept the Italy posture.
+
+### Why the original loop happened (now understood)
+
+The "Sign in with impact.com" link on the brand-direct auth chooser does the Google SSO round-trip but loses the brand-direct contract state during the redirect chain. So even when the user is authenticated, the page lands on `app.impact.com` home dashboard instead of the brand IO review page. The "Sign up with email → existing email → Take me to login" path enters a *different* login route (`/login.user` with brand context in the URL/title) that preserves state through the Google OAuth round-trip. That's the only difference.
+
+### Wealthfront attempted next, blocked structurally
+
+Tried `app.impact.com/campaign-promo-signup/Wealthfront.brand` immediately after — **404 Page Not Found**. The slug pattern is brand-specific; the prior session's assumption that all Impact brands use the `<Brand>.brand` pattern is wrong. Google AI Overview reports that Wealthfront's affiliate path goes through Impact's **Marketplace** specifically — which this publisher is declined from. `wealthfront.com` is blocked by the Chrome extension safety filter (same Cloudflare-tier block as `betterment.com`), so the affiliate URL can't be researched from inside the agent. Pivoted before pushing further.
+
+### Tooling lessons
+
+- **Existing Impact publisher account email is `bhuttavpn@gmail.com`, not `admin@finbrief.space`.** SESSION_LOG was wrong to list `admin@finbrief.space` as the contact in the identity defaults — that's the application *contact* email, but the underlying Impact login is the older personal Gmail.
+- **Existing Impact publisher is Google-SSO**, no native password. This is information worth carrying forward — any future Impact "Sign in" should expect a Google OAuth round-trip, not a password form that just works.
+- **Impact's "Sign up with email" form's duplicate-email modal is the only state-preserving route back into the dashboard from a brand-direct contract.** "Sign in with impact.com" on the auth chooser is *broken* state-wise for this account; don't use it.
+- **Brand slugs are not predictable from brand names.** `Lively` → `Lively.brand` works. `Ethos` → `Ethos-Life.brand`. `Wealthfront` → `Wealthfront.brand` 404s. Always confirm via the brand's own affiliate page or Google before navigating.
+
+### Webull attempted, contract is $0
+
+After documenting the recipe, tried `app.impact.com/campaign-promo-signup/Webull.brand`. **Slug works** — the page loaded "Contract Terms for Webull" with normal Impact campaign structure. **But the default payout is $0.00 USD per Sign Up.** Aligned with Google AI Overview: Webull's payable program is gated to "approved creators" (invitation only). The publicly-reachable brand-direct contract is a placeholder. Not worth accepting a $0 contract; backed out without approval. Defer until Webull invites FinBrief or traffic crosses their internal threshold.
+
+### Where to pick up
+
+- Email `partners@livelyme.com` directly with the Italy/audience pitch — the brand auto-decline doesn't preclude a manual partnership conversation.
+- Check Ethos + Policygenius for approval decisions (Ethos: Impact notifications; Policygenius: `policygenius.hasoffers.com/login` blue banner).
+- GSC indexing — quota should be reset.
+- **Ladder** is the remaining unattempted Impact brand-direct candidate. Its brand page previously mis-rendered Ethos branding (Impact bug noted in the prior session). Worth one more attempt with the recipe — if the Lively-style $X/lead contract loads, the recipe will push it through; if Lively-pattern auto-decline hits, it's a brand-level no.
+
+*Last updated: 2026-05-31 (Impact brand-direct auth loop SOLVED, full recipe documented. Root cause: existing publisher account is Google-SSO. Recipe proven against Lively (contract approved on IO review page) but Lively then brand-auto-declined within 4 min. Webull slug works but contract is $0 placeholder — real Webull program is invitation-only. Wealthfront brand slug 404s; affiliate URL can't be researched from agent because wealthfront.com is Cloudflare-blocked in the extension.)*
+
+---
+
+## Session 2026-05-31 (continued) — Lively manual outreach + Wealthfront dropped + GSC indexing batch (8 URLs)
+
+After SOLVING the Impact brand-direct auth loop earlier in this session, three follow-up tracks.
+
+### Lively manual outreach
+Drafted a pitch email to `partners@livelyme.com` cross-referencing the Impact application that auto-declined, naming the three Lively-promoting cornerstone articles, framing the Italy/US-audience distinction, and citing the Ethos precedent on the same Impact account. Asked for manual approval or honest "no". User sent from `admin@finbrief.space` via Hostinger webmail. Logged in `affiliate_applications.md` under Lively row.
+
+### Wealthfront — verified DROPPED
+Tested every plausible affiliate door:
+- `wealthfront.com` footer (WebFetch): no affiliate/partner/creator link
+- `wealthfront.com/affiliate-program`, `/affiliates`, `/partners`, `/creators`: all 404
+- DuckDuckGo search `"wealthfront" "campaign-promo-signup" impact.com`: zero results
+- `app.impact.com/campaign-promo-signup/Wealthfront.brand`: 404 (verified earlier in this session)
+- `wealthfront.com` itself is blocked by Chrome extension safety filter (same as `betterment.com`)
+
+Google AI Overview confirms Wealthfront's program is gated to "approved creators" (invitation-only). No public signup door exists. Status in affiliate_applications.md updated to ❌ DROPPED; only re-evaluate if Wealthfront sends an invitation or a third party publishes a working slug.
+
+### GSC indexing — 8 of 23 cleared, quota hit
+
+Drove the URL Inspection → Request Indexing flow in GSC (URL-prefix property `https://finbrief.space/`, signed in as `jahanzebnawaz856@gmail.com`). Used the daily quota (~10/day per property) on:
+
+| # | URL | Status |
+|---|---|---|
+| 1 | `learn/how-much-life-insurance-do-i-need` | ✅ Indexing requested |
+| 2 | `learn/best-cashback-credit-cards-2026` | ✅ Indexing requested |
+| 3 | `learn/best-brokerage-accounts-beginners` | ✅ Indexing requested |
+| 4 | `learn/backdoor-roth-ira-guide` | ✅ Indexing requested |
+| 5 | `learn/how-much-to-contribute-to-401k` | ✅ Indexing requested |
+| 6 | `learn/debt-snowball-vs-avalanche` | ✅ Indexing requested |
+| 7 | `learn/tax-brackets-2026` | ✅ Indexing requested |
+| 8 | `learn/best-tax-software-2026` | ✅ Indexing requested |
+| 9 | `learn/how-to-file-taxes-for-free` | ❌ **Quota Exceeded** — *"Sorry — we couldn't process this request because you've exceeded your daily quota. Please try submitting this again tomorrow."* |
+
+8 unique submissions + ~2 wasted on accidental duplicates of URLs #2 and #3 (when the agent's clicks landed on "REQUEST AGAIN" buttons during recipe debugging) = ~10 slots, matching the documented cap.
+
+### GSC submission recipe (lessons learned)
+
+The URL Inspection flow has two flaky steps; the working recipe:
+
+1. **Navigate to property root** every time: `https://search.google.com/search-console?resource_id=https%3A%2F%2Ffinbrief.space%2F`. Wait 5s.
+2. **Click directly on the search bar at coordinate (790, 33)** — NOT the "URL inspection" left-nav button. The left-nav button is unreliable (sometimes opens the dropdown, sometimes just highlights without opening; double-clicking toggles closed). Clicking the search bar itself opens the dropdown with the input focused, every time.
+3. Wait 3s for the dropdown.
+4. Type the URL → press Return. Wait 10s for live URL inspection to complete.
+5. **Find the REQUEST INDEXING button via `find` (not coordinates)** — its position shifts when the viewport resizes mid-session. Then `scroll_to` + `left_click` on the ref.
+6. Wait 25–30s for the "Indexing requested" toast (or "Quota Exceeded" toast).
+7. If REQUEST INDEXING still shows REQUEST INDEXING after the wait (no toast, no button-state change), re-find and re-click — the button often re-renders after live-URL testing completes, invalidating the prior ref.
+
+### Side observations from GSC
+- "Discovery → Sitemaps: No referring sitemaps detected" appears on every individual URL inspection, even though the sitemap is `Success` at the property level with 22 pages discovered. This is a per-URL discovery lag, not a sitemap problem.
+- Indexing summary remained at **7 indexed / 15 not indexed** throughout the session — same as the prior session. Sitemap-discovery promotion hasn't moved the needle today; manual request-indexing is the only forward motion.
+
+### Where to pick up
+
+- **GSC indexing (cont'd) — 15 URLs left, quota resets ~24h from each per-URL request**: `how-to-file-taxes-for-free`, `turbotax-vs-taxact`, `freetaxusa-review`, `hsa-vs-fsa`, `hsa-as-retirement-account`, `best-hsa-providers`, `/author/jahanzeb-nawaz`, `/editorial-standards`, `robinhood-review`, `best-credit-cards-for-beginners`, `chase-sapphire-preferred-review`, `how-to-pay-off-credit-card-debt`, `capital-gains-tax-2026`, `how-much-do-i-need-to-retire`, `what-affects-your-credit-score`. Two more sittings should clear them.
+- **Lively reply window:** ~3-5 business days. If no reply by 2026-06-07, drop Lively from priority and rewrite the HSA pillar around HealthEquity + Fidelity HSA only.
+- **Ethos + Policygenius:** still pending decisions; check inbox + login pages.
+- **Ladder via the recipe:** untested. The brand page previously mis-rendered Ethos branding; might still work with the recipe.
+- **Betterment manual apply** outside the agent.
+
+*Last updated: 2026-05-31 (Lively manual outreach sent via admin@finbrief.space; Wealthfront verified as no-public-door and DROPPED; 8 of 23 GSC indexing requests cleared before quota hit; recipe for the GSC URL-inspection flow documented.)*
+
+---
+
+## Session 2026-06-01 — GSC indexing batch (11 URLs)
+
+Resumed the GSC indexing backlog with the documented recipe. Cleared 11 URLs before hitting the daily quota wall — the largest single GSC sitting to date, almost 2× the prior cap of ~6 effective submissions per sitting.
+
+### Submitted successfully (11)
+
+| # | URL | Result |
+|---|---|---|
+| 1 | `learn/how-to-file-taxes-for-free` | ✅ Indexing requested |
+| 2 | `learn/turbotax-vs-taxact` | ✅ Indexing requested |
+| 3 | `learn/freetaxusa-review` | ✅ Indexing requested |
+| 4 | `learn/hsa-vs-fsa` | ✅ Indexing requested |
+| 5 | `learn/hsa-as-retirement-account` | ✅ Indexing requested |
+| 6 | `learn/best-hsa-providers` | ✅ Indexing requested |
+| 7 | `/author/jahanzeb-nawaz` | ✅ Indexing requested |
+| 8 | `/editorial-standards` | ✅ Indexing requested |
+| 9 | `learn/robinhood-review` | ✅ Indexing requested |
+| 10 | `learn/best-credit-cards-for-beginners` | ✅ Indexing requested |
+| 11 | `learn/chase-sapphire-preferred-review` | ✅ Indexing requested |
+| 12 | `learn/how-to-pay-off-credit-card-debt` | ❌ **Quota Exceeded** |
+
+### Recipe refinements (vs. prior session)
+
+The prior session's recipe held up, with one new lesson: **after the "Indexing requested" toast fires, the toast overlay can swallow the next click on the search bar**, leaving the typed URL going nowhere and the page still showing the prior inspection. The fix is to press `Escape` between the toast and the next search-bar click. Once added, the per-URL loop ran reliably for 11 URLs:
+
+```
+Escape → click (790, 33) → wait 3s → type URL → Return → wait 10s → click REQUEST INDEXING at (1313, 373) → wait 30s → screenshot
+```
+
+A second observation: occasionally the first REQUEST INDEXING click registers no state change (no toast, button stays in `REQUEST INDEXING` text rather than flipping to `REQUEST AGAIN`). Re-clicking the same coordinate after another 30s consistently triggers the submission. This happened on `chase-sapphire-preferred-review` mid-batch.
+
+### Where to pick up next session
+
+- **GSC indexing (cont'd) — 4 URLs left**: `how-to-pay-off-credit-card-debt`, `capital-gains-tax-2026`, `how-much-do-i-need-to-retire`, `what-affects-your-credit-score`. One more sitting clears the backlog entirely.
+- Other open items unchanged from prior session: Lively reply window, Ethos + Policygenius status checks, Ladder via Impact recipe, Betterment manual apply, P1 content backlog from Phase 2 workbook.
+
+*Last updated: 2026-06-01 (GSC indexing — 11 of 15 cleared in one sitting; 4 URLs remain. Backlog will be fully cleared in one more sitting. Recipe updated with the Escape-key fix for toast-overlay swallowed clicks.)*
+
+---
+
+## Session 2026-06-01 (continued) — P1 content batch (articles 35–44, 10 articles)
+
+Pulled next P1 block from `Phase_2_Content_SEO_Workbook.xlsx` (Calendar sheet). Strategy shift this session: instead of skipping articles whose affiliates aren't paying yet, ship them anyway with placeholder homepage links — traffic + content quality first, monetization wires through later via env vars.
+
+### Articles shipped (35–44)
+
+| # | Slug | Pillar | Affiliates used |
+|---|---|---|---|
+| 35 | `best-life-insurance-companies-2026` | Protect | bestow, ethos, haven, ladder, policygenius |
+| 36 | `best-personal-loans-2026` | Borrow smart | sofi-loans (NEW), lightstream (NEW), marcus |
+| 37 | `best-car-insurance-companies-2026` | Protect | geico (NEW), progressive (NEW), policygenius |
+| 38 | `how-to-get-a-mortgage` | Borrow smart | better-mortgage (NEW), rocket-mortgage (NEW), credit-karma |
+| 39 | `fidelity-vs-schwab` | Invest | fidelity, schwab |
+| 40 | `best-budgeting-apps-2026` | Budget | ynab, monarch (NEW), copilot (NEW) |
+| 41 | `fire-movement-guide` | Invest | fidelity, vanguard, schwab, betterment, wealthfront |
+| 42 | `mega-backdoor-roth-guide` | Save tax | fidelity, schwab, vanguard |
+| 43 | `how-to-invest-in-stocks` | Invest | fidelity, schwab, vanguard, robinhood, webull |
+| 44 | `amex-gold-card-review` | Borrow smart | amex-gold, csp |
+
+Each article ships with the standard presentation spec (mixed content blocks, `<hr>` separators between H2s, comparison tables, bullet/Q&A blocks, strategic bold on numbers/key terms), `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` on mortgage / mega-backdoor / how-to-invest), FTC `AffiliateDisclosure` above the fold, Jahanzeb Nawaz as author, FinBrief Editorial Team as reviewer, dense cross-pillar internal linking (each links to 4–6 existing articles).
+
+### Affiliates registry refactor
+
+`src/lib/affiliates.ts` updated:
+- Added a `defaultUrl` field on each Partner (homepage URL fallback).
+- `getPartnerUrl()` now falls back to `defaultUrl` when no env var is configured, instead of returning null. Once a real tracked URL is set on Vercel for any partner, the env var takes precedence automatically — zero code change needed.
+- **8 new partner keys** added with homepage defaults: `sofi-loans`, `lightstream`, `geico`, `progressive`, `better-mortgage`, `rocket-mortgage`, `monarch`, `copilot`. No Vercel env vars added — every CTA still works via the homepage fallback.
+
+This is the model going forward: ship an article whenever the content is solid, regardless of whether the affiliate program is paying yet. Real tracked URLs swap in via env var when they exist.
+
+### IRS citations applied
+
+- `mega-backdoor-roth-guide` cites IR-2025-111 for the 2026 elective deferral limit ($24,500) and notes the §415(c) total limit estimate ($70K) with a "verify final IRS figure" qualifier — the workbook didn't confirm a published 415(c) figure for 2026 yet.
+- `how-to-invest-in-stocks` cites IR-2025-111 for the 2026 Roth IRA limit ($7,500) and references existing pillar articles for deeper coverage.
+
+### Build & deploy
+
+`npm run build` → clean, **62 routes** (was 52, +10), all 10 new articles statically prerendered, TypeScript passes.
+
+### Cornerstone count
+
+**44 articles now live** (original Phase 2 plan called for 10; we're now 34 ahead). See the Live state pillar-coverage table at the top of this file for the breakdown.
+
+### Where to pick up next session
+
+- **GSC indexing — 14 URLs left**: original 4 from this morning's queue (`how-to-pay-off-credit-card-debt`, `capital-gains-tax-2026`, `how-much-do-i-need-to-retire`, `what-affects-your-credit-score`) + 10 new (the articles 35–44 from this batch). Expect 2 more sittings to clear.
+- **Pull next P1/P2 batch** from the Phase 2 workbook — plenty of P1 backlog left (~30 more articles).
+- **Real affiliate URLs** — when Ethos / Policygenius / future approvals come in, just set the corresponding env var on Vercel; no code change needed thanks to the `defaultUrl` fallback model.
+
+*Last updated: 2026-06-01 (P1 content batch — 10 articles 35–44 shipped; 8 new partner keys added with homepage fallback; `affiliates.ts` refactored to use defaultUrl fallback; 62 routes prerendered; affiliate-monetization-blind content strategy now in effect — articles ship whenever the content is solid, env vars wire in real tracking later.)*

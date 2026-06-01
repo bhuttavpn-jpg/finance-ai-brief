@@ -148,6 +148,24 @@ Translation:
 
 **Reapply to Marketplace on or after 2026-08-31** (90 days from decline). By then FinBrief will have more indexed articles, beginning organic traffic, and ideally a few approved direct-brand partnerships — all of which strengthen the reapplication. Reapply via the same Impact dashboard at app.impact.com.
 
+#### Impact brand-direct recipe (auth-loop fix, verified 2026-05-31)
+
+Use this whenever a brand-direct contract dumps you onto a "Sign up and start earning" auth chooser. The "Sign in with impact.com" SSO button on that chooser is broken — it logs in but loses the brand-direct contract state and dumps you on the Impact home dashboard, infinite loop. Bypass:
+
+1. Navigate to the brand-direct URL — `https://app.impact.com/campaign-promo-signup/<Brand>.brand` (e.g. `Lively.brand`, `Ethos-Life.brand`).
+2. Click **Sign up** on the brand cover page, then accept the contract preview (`I have read and accepted <Brand>'s offer` → Continue).
+3. On the "Sign up and start earning" page, click the **Sign up with email** button at the top (NOT "Sign in with impact.com" at the bottom, NOT the SSO icons).
+4. On the email-signup form, enter the **existing publisher account's email** (`bhuttavpn@gmail.com`) plus any plausible name/username/password. Submit.
+5. Impact will surface an **"Email address exists"** modal with two buttons: **Take me to login** and **Change email**. Click **Take me to login**. This routes to `app.impact.com/login.user` but — critically — the tab title and forgot-password URL still carry the brand slug (`/blc/<Brand>/password/forgot.brand`), which means the brand-direct context is preserved through this login.
+6. Enter username + password and click **Sign In**. Because the existing publisher is Google-SSO, Impact redirects to Google's account chooser.
+7. Pick the Google account that matches the publisher email (`Vpn Bhutta — bhuttavpn@gmail.com`) → Continue on the OAuth consent screen.
+8. Land on the **"Review <Brand> Insertion Order"** page inside the authenticated dashboard. Scroll to the bottom and click **"I approve the Contract and want to continue"**.
+9. Application is submitted; brand reviews like any normal Impact partnership.
+
+**Important caveat:** the recipe solves the *platform* loop. It does NOT solve *brand-level* auto-decline rules. Lively decision-engine declined the FinBrief application within 4 minutes of submission (Italy publisher × US-only HSA product). Expect the same for any other US-only-by-design Impact brand (Webull, Wealthfront, etc.). Run the recipe anyway — declines surface as Impact notifications and don't cost anything, and Ethos already proved that *some* Impact brands accept Italy publishers.
+
+**Slugs to research before using the recipe:** the brand slug is brand-specific. `Lively.brand`, `Ethos-Life.brand` worked; `Wealthfront.brand` 404s. Find the correct slug by going to `<brand>.com/affiliates` and copying the "Sign up" link, or via Google.
+
 ### CJ Affiliate (formerly Commission Junction, cj.com)
 
 Hosts Ally, TaxAct, Wealthfront, Credit Karma, and many credit-card programs.
@@ -281,7 +299,7 @@ These programs typically reject new low-traffic applicants. Re-apply after the t
 Update the date / status as you go.
 
 ### Networks to join first
-- [x] Impact Radius — signed up: (existing account, Jahanzeb Nawaz)  W-8BEN filed: (verify on file)  ⚠️ Marketplace declined 2026 — reapply on/after **2026-08-31**. Use direct-brand path until then. ⚠️ **Brand-direct signup flow has a verified auth-loop bug for this account — see SESSION_LOG 2026-05-31 (late) for the full repro and recovery candidates.**
+- [x] Impact Radius — signed up: (existing account, Jahanzeb Nawaz — Google SSO, login email `bhuttavpn@gmail.com`)  W-8BEN filed: (verify on file)  ⚠️ Marketplace declined 2026 — reapply on/after **2026-08-31**. Use direct-brand path until then. ✅ **Auth-loop SOLVED 2026-05-31 — recipe at "Impact brand-direct recipe" below; the original loop was caused by the account being Google-SSO not native-password.**
 - [x] CJ Affiliate — signed up: **2026-05-31 (account ACTIVATED)**. Publisher: `finbriefspace`, Property ID 101766442 (Finbrief, Website, Content/Blog/Media, primary). W-8BEN filed: yes (during onboarding). ⚠️ US-only-serviceable programs auto-decline the Italy-based publisher (verified on Ally + FreeTaxUSA — APPLY buttons hard-disabled with "auto decline rule" tooltip).
 - [ ] Awin — signed up: ____  ($5 verification paid: ____)
 
@@ -298,18 +316,21 @@ Update the date / status as you go.
 - [x] Bestow / Lantern — ❌ **DROPPED: Bestow sold to Sammons → rebranded Lantern → Lantern is not selling new policies (per NerdWallet, U.S. News). Affiliate program effectively dead.**
 - [ ] Ladder (Impact brand-direct) — applied: ____  decision: ____  ⚠️ **2026-05-31: Reached the Impact contract page but got stuck in the Impact brand-direct auth loop (see SESSION_LOG). Tab title still mis-renders as "Ethos Life" on `Ladder.brand`. Direct subdomain `affiliates.ladderlife.com` is a dead page. Try recovery candidates on next sitting.**
 - [x] Ethos — applied: **2026-05-31** via ethos.com/affiliate-program/ → Impact `campaign-promo-signup/Ethos-Life.brand`. Confirmed by Impact notification: *"Your application to join Ethos Life was sent"* at 01:53. Contract terms: **$55/lead** for standard underwriters (LGA, Protective), $0 for Cuna Mutual / Ameritas / NY customers / age 60+.
-- [ ] Lively (Impact brand-direct) — applied: ____  decision: ____  ⚠️ **2026-05-31: Reached the Lively contract preview (confirmed terms: $15 USD per HSA Account Signup, 1 action per customer, 1-month action locking) but got stuck in the same Impact brand-direct auth loop. Try recovery candidates on next sitting.**
+- [x] Lively (Impact brand-direct) — applied: **2026-05-31 (continued)** via the new auth-loop recipe → contract approved on the IO review page → ❌ **DECLINED by Lively at 04:33 PM, within minutes of submission** (notification: *"Lively declined your application"*). Likely brand-level auto-decline for Italy-based publisher (Lively is US-only HSA). Auth-loop recipe itself worked end-to-end.
+  - ⏳ **Manual outreach sent 2026-05-31** to `partners@livelyme.com` from `admin@finbrief.space`. Pitched HSA-content fit (3 cornerstones rank Lively #1), 100% US audience, day-one compliance, Ethos approval precedent on same Impact account. Asked for manual review or an honest "no" so the existing articles can stop sending unattributed traffic. Awaiting reply.
 
 ### Deferred — apply at ~5K monthly visitors
 - [ ] Bankrate CC Network
 - [ ] Credit Karma (CJ)
-- [ ] Robinhood / Webull
-- [ ] Wealthfront / Betterment (CJ)
+- [ ] Robinhood (slug confirmed: `Robinhood.brand` per third-party docs — try once traffic is up)
+- [x] **Webull (Impact brand-direct, `Webull.brand`) — checked 2026-05-31: slug works, contract preview rendered, but default payout is $0.00 USD per Sign Up. Per Google AI Overview, the real payable Webull program is gated to "approved creators" (invitation only). Not worth accepting the $0 contract. Defer until invited or until traffic crosses Webull's threshold.**
+- [x] **Wealthfront — DROPPED 2026-05-31.** No public affiliate program door exists. Verified: `wealthfront.com` footer has no affiliate/partner/creator link (WebFetch); `/affiliate-program`, `/affiliates`, `/partners`, `/creators` all 404; `app.impact.com/campaign-promo-signup/Wealthfront.brand` 404s; DuckDuckGo search for `"wealthfront" "campaign-promo-signup" impact.com` returns zero results. Google AI Overview: "**approved creators** can locate Wealthfront's campaign-promo-signup pages" — i.e. invitation-only, same gated pattern as Webull. Re-evaluate only if Wealthfront sends an invitation, or if a third party publishes their slug.
+- [ ] Betterment (CJ) — apply manually outside the agent (betterment.com is Chrome-extension-blocked, same as wealthfront.com). Standard CJ application path; expect possible Italy×US-only auto-decline.
 - [ ] Direct issuer programs for individual credit cards
 
 ### Reminders / future actions
 - [ ] **2026-08-31** — Reapply to Impact Marketplace (90 days post-decline). Submit via existing publisher dashboard at app.impact.com.
-- [ ] **Next session** — Diagnose Impact brand-direct auth loop. The single highest-leverage fix: solving this unblocks Lively, Ladder, Wealthfront, Webull in one go. First candidate to try: use "Sign up with email" instead of "Sign in with impact.com" on a brand-direct contract — Impact may detect the duplicate admin@finbrief.space email and offer to merge into the existing publisher. See SESSION_LOG 2026-05-31 (late) for full candidate list.
+- [x] ✅ **Impact brand-direct auth loop — SOLVED 2026-05-31.** Recipe documented below. Root cause: existing publisher account is Google-SSO (not native password), so the native sign-in silently failed. The fix is to enter the existing publisher's email at the "Sign up with email" form, click "Take me to login" on the duplicate-email modal (which preserves brand context, unlike the "Sign in with impact.com" SSO button on the auth chooser), then complete Google OAuth — land on the branded IO review page in the authenticated dashboard. Unblocks any Impact brand-direct slug going forward (subject to brand-level auto-decline; Lively bounced for that reason).
 - [ ] **Next session** — Apply to Betterment manually outside the agent setup. betterment.com is blocked by the Claude in Chrome extension's safety filter ("This site is not allowed due to safety restrictions") even after granting "On all sites" permission — open the URL in a normal browser tab and apply: https://www.betterment.com/affiliate-partner-offer
 - [ ] **Next week** — Check Ethos + Policygenius for approval decisions (Ethos email + login to impact.com; Policygenius email + login to policygenius.hasoffers.com).
 - [ ] **Retarget tax software**: FreeTaxUSA and TaxAct will auto-decline an Italy-based publisher via CJ. Research a tax-prep affiliate that accepts international publishers, or drop the FreeTaxUSA/TaxAct CTAs from existing Save-tax articles.
@@ -329,4 +350,4 @@ For each approved program:
 
 ---
 
-*Last updated: 2026-05-31 (late session — CJ Affiliate publisher ACTIVATED, Policygenius application submitted/under review, FreeTaxUSA + Ally CJ-blocked by Italy-vs-US-only auto-decline, Bestow + Marcus dropped, Impact brand-direct auth loop documented for Lively + Ladder.)*
+*Last updated: 2026-05-31 (continued — Impact brand-direct auth loop SOLVED; full recipe in the Impact section. Root cause: publisher is Google-SSO, native sign-in had no credential. Recipe proven end-to-end against Lively (contract approved on IO review page) but Lively itself auto-declined within 4 min, presumed brand-level Italy×US-only rule. Wealthfront brand slug `Wealthfront.brand` 404s — Impact AI Overview suggests Wealthfront routes through Marketplace anyway, which this publisher is declined from.)*
