@@ -735,3 +735,38 @@ One gotcha: perl interpolates `$` in the replacement string by default, so the f
 Social cards (Twitter, LinkedIn, Facebook, Slack unfurls) will now show the per-article branded image instead of the site-wide one.
 
 *Last updated: 2026-06-02 (Per-article hero images shipped end-to-end — Article schema (3 ratios) + `openGraph.images` (16x9) on all 74 article pages. Issue #3 fully closed.)*
+
+---
+
+## Session 2026-06-02 (continued) — Affiliate status sweep (Ethos / Policygenius / CJ / Webull)
+
+User flagged a "CJ Network!" email visible in Gmail and asked to verify whether CJ approved a commission, plus check Ethos + Policygenius and retry Webull. Net result this sitting: **no new approvals; no new partner programs unlocked.**
+
+### Findings
+
+| Track | Status | Detail |
+|---|---|---|
+| Ethos Life (Impact) | ⏳ Still pending | Gmail search at bhuttavpn@gmail.com shows only the original 31 May "Contract Application" submission email. No subsequent approval or decline. Application still under review per Impact dashboard convention. |
+| Policygenius (HasOffers) | ⚠️ Manual check required | Application was registered against `admin@finbrief.space`, so any decision emails land in Hostinger webmail (nothing in bhuttavpn@gmail.com confirms that). The `policygenius.hasoffers.com/login` page requires a password — I can't enter credentials, so user must log in themselves and check the banner. |
+| CJ "Welcome to the CJ Network!" email | ❌ Not an approval | Arrived in Gmail today 12:01 from `WelcometoCJ@cj.com`. Contents are the **generic platform-activation welcome** — "Now you have full access to our robust platform... Log into your account to begin your partnership journey with CJ." This is a delayed automated welcome tied to the publisher-account activation from session 2026-05-31, not an advertiser approval. No CJ advertiser has approved finbriefspace yet (Ally + FreeTaxUSA were hard-disabled by Italy×US auto-decline last session). |
+| Webull (Impact brand-direct) | ❌ Still $0 placeholder | Navigated `app.impact.com/campaign-promo-signup/Webull.brand`, clicked Sign up → Contract Terms for Webull loaded. **Default Payout: $0.00 USD per order**, 27-day action locking, Last Click credit policy. Identical to last session — Webull's real payable program is invitation-only. Backed out without accepting. No change. |
+| Betterment direct | ⚠️ Manual apply required | `betterment.com` is still blocked by Chrome MCP safety filter (Cloudflare-tier block, same as before). User must apply outside the agent. |
+
+### Capability lessons reaffirmed
+
+- **Password entry is out of scope for the agent.** Anything gated by a native password form (Policygenius HasOffers, any new HasOffers brand, future direct-program logins) requires the user to log in manually and report what they see — or to be already logged in before the agent drives the session. Impact's Google-SSO is the exception: if the existing Google session is live, the OAuth round-trip works without typing credentials.
+- **`betterment.com` (and likely `wealthfront.com`) cannot be reached via the Chrome MCP extension at all** due to a safety-filter block. These are user-manual-only.
+- **CJ "platform welcome" ≠ commission approval.** Anyone reading the inbox should ignore the celebratory "Welcome to the CJ Network!" mail as marketing — actual advertiser approvals come from per-program emails referencing the specific advertiser name.
+
+### Action items for the user (offline)
+
+1. **Log in at `policygenius.hasoffers.com/login`** and report whether the blue "Your application is currently being reviewed…" banner is still up or has been replaced (approval / decline).
+2. **Apply to Betterment manually** outside this agent.
+3. **Wait on Ethos** — typical Impact contract review is 3–7 business days; we're at day 2.
+
+### Backlog unchanged
+
+- Real affiliate URLs still limited to Wise + SoFi Money (paying) + 2 under review (Ethos, Policygenius).
+- GSC indexing — quota still locked until tomorrow.
+
+*Last updated: 2026-06-02 (Affiliate status sweep — no new approvals. CJ "welcome" email is platform welcome not advertiser approval; Webull still $0; Policygenius login needs user; Betterment still extension-blocked. Ethos still pending.)*
