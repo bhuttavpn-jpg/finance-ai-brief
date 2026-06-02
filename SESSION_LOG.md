@@ -13,8 +13,8 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | (pending) — third P1 batch (articles 55–64), no new partners or env vars |
-| Build | clean, **82 routes**, all 64 articles statically prerendered |
+| Latest commit | (pending) — fourth P1+extension batch (articles 65–74), no new partners or env vars |
+| Build | clean, **92 routes**, all 74 articles statically prerendered |
 | Vercel env vars | **32 total** (2 paying real URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages). 8 new partner keys (sofi-loans, lightstream, geico, progressive, better-mortgage, rocket-mortgage, monarch, copilot) use homepage `defaultUrl` fallback in code — no env var needed until tracking is wired. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv) | LIVE end-to-end (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
@@ -22,21 +22,21 @@
 
 ### Author + editorial (E-E-A-T)
 
-- Named author across all 64 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
+- Named author across all 74 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
 - Named reviewer: **FinBrief Editorial Team**; `/editorial-standards` page describes the process.
 - Schema validated by Google's Rich Results Test (`author` + `reviewedBy` + valid datetimes + image).
 
-### Articles shipped (64 cornerstones)
+### Articles shipped (74 cornerstones)
 
-Original Phase 2 plan called for 10 cornerstones. We're 54 ahead.
+Original Phase 2 plan called for 10 cornerstones. We're 64 ahead. The workbook calendar (71 article slots) is now fully exhausted minus a handful of dupes; this batch went 6 from workbook + 4 logical extensions.
 
 | Pillar | Count | Slugs |
 |---|---|---|
-| Budget | 10 | how-to-budget-50-30-20, best-hysa-2026, how-to-build-emergency-fund, couples-budgeting-guide, debt-snowball-vs-avalanche, how-to-pay-off-credit-card-debt, best-budgeting-apps-2026, how-to-budget, **how-to-pay-off-debt**, **how-to-stop-living-paycheck-to-paycheck** |
-| Invest | 12 | roth-ira-vs-traditional-ira, how-to-invest-1000-beginners, 401k-vs-ira-which-first, best-brokerage-accounts-beginners, how-much-to-contribute-to-401k, robinhood-review, how-much-do-i-need-to-retire, fidelity-vs-schwab, fire-movement-guide, how-to-invest-in-stocks, vanguard-vs-fidelity, webull-review |
-| Save tax | 16 | roth-ira-contribution-limits-2026, tax-loss-harvesting-guide, backdoor-roth-ira-guide, tax-brackets-2026, best-tax-software-2026, how-to-file-taxes-for-free, turbotax-vs-taxact, freetaxusa-review, hsa-vs-fsa, hsa-as-retirement-account, best-hsa-providers, capital-gains-tax-2026, mega-backdoor-roth-guide, standard-vs-itemized-deduction, **tax-loss-harvesting-wash-sale-rule**, **tax-deductions-checklist** |
-| Borrow smart | 18 | how-to-build-credit-from-scratch, best-travel-credit-cards-2026, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, chase-sapphire-preferred-review, what-affects-your-credit-score, best-personal-loans-2026, how-to-get-a-mortgage, amex-gold-card-review, credit-utilization-ratio, when-to-refinance-mortgage, personal-loan-vs-credit-card, best-business-credit-cards, how-credit-cards-work, **best-credit-cards-for-fair-credit**, **student-loan-refinance**, **best-student-credit-cards**, **how-to-check-credit-score-for-free** |
-| Protect | 8 | best-term-life-insurance-young-professionals, term-vs-whole-life-insurance, how-much-life-insurance-do-i-need, best-life-insurance-companies-2026, best-car-insurance-companies-2026, hmo-vs-ppo-vs-hdhp, **how-to-lower-car-insurance**, **how-much-car-insurance-do-i-need** |
+| Budget | 12 | how-to-budget-50-30-20, best-hysa-2026, how-to-build-emergency-fund, couples-budgeting-guide, debt-snowball-vs-avalanche, how-to-pay-off-credit-card-debt, best-budgeting-apps-2026, how-to-budget, how-to-pay-off-debt, how-to-stop-living-paycheck-to-paycheck, **how-much-should-emergency-fund-be**, **how-to-save-money-fast** |
+| Invest | 14 | roth-ira-vs-traditional-ira, how-to-invest-1000-beginners, 401k-vs-ira-which-first, best-brokerage-accounts-beginners, how-much-to-contribute-to-401k, robinhood-review, how-much-do-i-need-to-retire, fidelity-vs-schwab, fire-movement-guide, how-to-invest-in-stocks, vanguard-vs-fidelity, webull-review, **dollar-cost-averaging-vs-lump-sum**, **how-to-choose-a-financial-advisor** |
+| Save tax | 19 | roth-ira-contribution-limits-2026, tax-loss-harvesting-guide, backdoor-roth-ira-guide, tax-brackets-2026, best-tax-software-2026, how-to-file-taxes-for-free, turbotax-vs-taxact, freetaxusa-review, hsa-vs-fsa, hsa-as-retirement-account, best-hsa-providers, capital-gains-tax-2026, mega-backdoor-roth-guide, standard-vs-itemized-deduction, tax-loss-harvesting-wash-sale-rule, tax-deductions-checklist, **short-vs-long-term-capital-gains**, **when-to-hire-a-cpa**, **roth-conversion-ladder** |
+| Borrow smart | 20 | how-to-build-credit-from-scratch, best-travel-credit-cards-2026, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, chase-sapphire-preferred-review, what-affects-your-credit-score, best-personal-loans-2026, how-to-get-a-mortgage, amex-gold-card-review, credit-utilization-ratio, when-to-refinance-mortgage, personal-loan-vs-credit-card, best-business-credit-cards, how-credit-cards-work, best-credit-cards-for-fair-credit, student-loan-refinance, best-student-credit-cards, how-to-check-credit-score-for-free, **sofi-personal-loan-review**, **debt-consolidation-loan** |
+| Protect | 9 | best-term-life-insurance-young-professionals, term-vs-whole-life-insurance, how-much-life-insurance-do-i-need, best-life-insurance-companies-2026, best-car-insurance-companies-2026, hmo-vs-ppo-vs-hdhp, how-to-lower-car-insurance, how-much-car-insurance-do-i-need, **renters-vs-homeowners-insurance** |
 
 Article presentation spec (apply to every new article): mixed content blocks (comparison tables + bullets + inline Q&A + ≤5-sentence paragraphs), strategic bold on numbers/key terms, `<hr className="my-10 border-brand-100" />` separators between H2s (except "Related reading"), Jahanzeb Nawaz as `author`, "the FinBrief Editorial Team" as `reviewer`. Every article: `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` for step-by-steps), FTC `AffiliateDisclosure` above the fold, dense cross-pillar internal linking.
 
@@ -71,12 +71,12 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 ### Where to start next session
 
 1. Standard checklist (read this file, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
-2. **GSC indexing** — backlog is now 34 URLs (4 from original P0/spoke queue + 10 from articles 35–44 + 10 from articles 45–54 + 10 from articles 55–64). Quota ~10/day; should clear in 3–4 sittings.
+2. **GSC indexing** — backlog is now 44 URLs (4 from original queue + 40 from batches 1–4 of 10-article shipments). Quota ~10/day; 4–5 sittings to clear.
 3. **Try Webull via the proven Impact brand-direct recipe.** Recipe is in `affiliate_applications.md` § Impact. First need to find the right brand slug — `Wealthfront.brand` 404'd, so don't assume the obvious; check `webull.com/affiliate` or similar for the actual Impact campaign URL before reusing the pattern.
 4. **Apply to Betterment manually** outside this agent setup (the link is the bottleneck, not the application).
 5. **Retarget tax software** — research a tax-prep affiliate that accepts non-US publishers, or drop FreeTaxUSA/TaxAct CTAs from the existing Save-tax articles.
 6. Check Ethos + Policygenius for approval status (email + login).
-7. **Content:** ~20 P1/P2 articles remain in `Phase_2_Content_SEO_Workbook.xlsx` Calendar (weeks 18–26). Next likely batch: how to lower car insurance, best business credit cards (done), best student credit cards, debt consolidation loan, how to stop living paycheck to paycheck, how to save money fast, when to hire a CPA (P2), how to check credit score free, how much car insurance do I need.
+7. **Content:** Phase 2 workbook calendar (71 article slots, weeks 1–26) is now fully exhausted (we've shipped all unique slugs from it). Future batches need fresh topic selection — strong candidates include: HSA hub for parents (kids+HSA), step-up in basis explainer, asset allocation by age, qualified vs. ordinary dividends, mutual funds vs. ETFs, IRA RMD rules, SECURE 2.0 changes, Roth IRA 5-year rules deep-dive, when to take Social Security, Medicare basics, long-term care insurance, identity theft protection.
 
 ### Recovery notes
 
@@ -644,3 +644,53 @@ Standard presentation spec (mixed content blocks, `<hr>` separators, comparison 
 - **Per-article hero images** (open issue #3) — eventually.
 
 *Last updated: 2026-06-02 (Third P1 batch — 10 articles 55–64 shipped: how-to-lower-car-insurance, tax-loss-harvesting-wash-sale-rule, best-credit-cards-for-fair-credit, student-loan-refinance, how-to-pay-off-debt, tax-deductions-checklist, best-student-credit-cards, how-to-stop-living-paycheck-to-paycheck, how-much-car-insurance-do-i-need, how-to-check-credit-score-for-free. 64 cornerstones live; 82 routes prerendered. No new partner keys or env vars.)*
+
+---
+
+## Session 2026-06-02 (continued) — Fourth content batch (articles 65–74)
+
+Final pull from `Phase_2_Content_SEO_Workbook.xlsx` (6 articles) + 4 logical extensions to round out pillars where coverage was thin. Invest pillar particularly needed broadening; protect needed one more. Workbook calendar is now fully exhausted — future batches need fresh topic selection.
+
+### Articles shipped (65–74)
+
+| # | Slug | Pillar | Source | Affiliates used |
+|---|---|---|---|---|
+| 65 | `sofi-personal-loan-review` | Borrow smart | Workbook W22 | sofi-loans, lightstream, credit-karma |
+| 66 | `short-vs-long-term-capital-gains` | Save tax | Workbook W23 | fidelity, schwab, vanguard |
+| 67 | `how-much-should-emergency-fund-be` | Budget | Workbook W25 | sofi-money, marcus, ally |
+| 68 | `how-to-save-money-fast` | Budget | Workbook W25 | policygenius, sofi-loans, lightstream, sofi-money, marcus, ally, fidelity-hsa, freetaxusa, ynab, monarch, credit-karma |
+| 69 | `debt-consolidation-loan` | Borrow smart | Workbook W26 | sofi-loans, lightstream, credit-karma, ynab, monarch, sofi-money |
+| 70 | `when-to-hire-a-cpa` | Save tax | Workbook W15 (P2) | freetaxusa, turbotax, taxact |
+| 71 | `dollar-cost-averaging-vs-lump-sum` | Invest | Extension | sofi-money, fidelity, schwab, vanguard |
+| 72 | `roth-conversion-ladder` | Save tax | Extension (FIRE-adjacent) | fidelity, schwab, vanguard |
+| 73 | `how-to-choose-a-financial-advisor` | Invest | Extension | betterment, wealthfront, fidelity |
+| 74 | `renters-vs-homeowners-insurance` | Protect | Extension | policygenius, geico, progressive |
+
+Standard presentation spec on every article. `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` on `roth-conversion-ladder`), FTC `AffiliateDisclosure` above the fold, Jahanzeb Nawaz as author, FinBrief Editorial Team as reviewer, dense cross-pillar internal linking.
+
+### IRS citations applied
+
+- `short-vs-long-term-capital-gains` cites IR-2025-103 / Rev. Proc. 2025-32 for 2026 LTCG brackets and ordinary income brackets.
+- `roth-conversion-ladder` cites Rev. Proc. 2025-32 for the 2026 standard deduction and 12% bracket thresholds that drive conversion sizing.
+- `when-to-hire-a-cpa` references the general 2026 standard deduction.
+
+### Build & deploy
+
+`npm run build` → clean, **92 routes** (was 82, +10), all 10 new articles statically prerendered, TypeScript passes.
+
+### Cornerstone count
+
+**74 articles now live.** Pillar distribution: Borrow smart 20 (the biggest), Save tax 19, Invest 14, Budget 12, Protect 9. The full $/year-spent-on-personal-finance keyword surface is now well covered.
+
+### Workbook exhaustion
+
+Phase 2 workbook calendar has 71 article slots. After this batch, every unique slug from it has been shipped (a few dupes — credit utilization appeared twice as hub-improve-credit and spoke-utilization; how to get a mortgage appeared as both hub-get-mortgage and how-to-get-a-mortgage). **Future content batches need fresh topic selection** — see the updated "Where to start next session" section above for candidate ideas.
+
+### Where to pick up next session
+
+- **GSC indexing** — backlog is now 44 URLs. Quota ~10/day; 4–5 sittings to clear.
+- **Fresh content topics** — workbook exhausted; need to ideate next batch. Strong candidates: SECURE 2.0 rule changes, when to take Social Security, Medicare basics, mutual funds vs. ETFs, asset allocation by age, IRA RMD rules, identity theft protection, long-term care insurance.
+- **Real affiliate URLs** — Ethos/Policygenius status check; set env vars when approvals come in.
+- **Per-article hero images** (open issue #3) — eventually.
+
+*Last updated: 2026-06-02 (Fourth content batch — 10 articles 65–74 shipped. Workbook calendar fully exhausted. 74 cornerstones live; 92 routes prerendered. No new partner keys or env vars.)*
