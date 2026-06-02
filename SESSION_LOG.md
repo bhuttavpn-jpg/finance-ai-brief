@@ -45,7 +45,8 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 | Status | Partners |
 |---|---|
 | ✅ Live (paying) | Wise, SoFi Money |
-| ⏳ Under review | Ethos Life (Impact, $55/lead), Policygenius (HasOffers, ~$200/sale) |
+| ⏳ Under review | Ethos Life (Impact, $55/lead) |
+| ❌ Rejected (confirmed 2026-06-02) | Policygenius (HasOffers) — likely Italy×US-only mismatch |
 | ✅ Platform activated (no programs yet) | CJ Affiliate publisher `finbriefspace` (property ID 101766442) |
 | ❌ Structural blocker — Italy × US-only auto-decline (CJ) | Ally, FreeTaxUSA, TaxAct (and likely most US-only CJ programs) |
 | ❌ Brand-level auto-decline after recipe applied | Lively HSA (declined within 4 min of contract approval) |
@@ -747,7 +748,7 @@ User flagged a "CJ Network!" email visible in Gmail and asked to verify whether 
 | Track | Status | Detail |
 |---|---|---|
 | Ethos Life (Impact) | ⏳ Still pending | Gmail search at bhuttavpn@gmail.com shows only the original 31 May "Contract Application" submission email. No subsequent approval or decline. Application still under review per Impact dashboard convention. |
-| Policygenius (HasOffers) | ⚠️ Manual check required | Application was registered against `admin@finbrief.space`, so any decision emails land in Hostinger webmail (nothing in bhuttavpn@gmail.com confirms that). The `policygenius.hasoffers.com/login` page requires a password — I can't enter credentials, so user must log in themselves and check the banner. |
+| Policygenius (HasOffers) | ❌ **REJECTED** (confirmed by user) | User attempted login at `policygenius.hasoffers.com/login` and reports "Cannot login. Account rejected." Application declined — drop Policygenius from the active queue. Most likely cause: Italy publisher × US-only insurance-marketplace traffic mismatch (same structural blocker as the CJ Italy×US auto-decline pattern). |
 | CJ "Welcome to the CJ Network!" email | ❌ Not an approval | Arrived in Gmail today 12:01 from `WelcometoCJ@cj.com`. Contents are the **generic platform-activation welcome** — "Now you have full access to our robust platform... Log into your account to begin your partnership journey with CJ." This is a delayed automated welcome tied to the publisher-account activation from session 2026-05-31, not an advertiser approval. No CJ advertiser has approved finbriefspace yet (Ally + FreeTaxUSA were hard-disabled by Italy×US auto-decline last session). |
 | Webull (Impact brand-direct) | ❌ Still $0 placeholder | Navigated `app.impact.com/campaign-promo-signup/Webull.brand`, clicked Sign up → Contract Terms for Webull loaded. **Default Payout: $0.00 USD per order**, 27-day action locking, Last Click credit policy. Identical to last session — Webull's real payable program is invitation-only. Backed out without accepting. No change. |
 | Betterment direct | ⚠️ Manual apply required | `betterment.com` is still blocked by Chrome MCP safety filter (Cloudflare-tier block, same as before). User must apply outside the agent. |
@@ -760,8 +761,8 @@ User flagged a "CJ Network!" email visible in Gmail and asked to verify whether 
 
 ### Action items for the user (offline)
 
-1. **Log in at `policygenius.hasoffers.com/login`** and report whether the blue "Your application is currently being reviewed…" banner is still up or has been replaced (approval / decline).
-2. **Apply to Betterment manually** outside this agent.
+1. ~~Log in at Policygenius.~~ Confirmed REJECTED. Dead.
+2. **Apply to Betterment manually** outside this agent. The Chrome MCP extension has an Anthropic-side safety-filter block on `betterment.com` and `wealthfront.com` specifically — no user-side toggle can lift it, the agent literally cannot reach those domains. Open `betterment.com` in a regular Chrome window (not via the extension), find the footer Affiliates/Partners link. If it routes through Impact (`Betterment.brand`), use the proven recipe (Sign up with email → existing `bhuttavpn@gmail.com` → "Take me to login" → Google SSO) to bind to the existing publisher account.
 3. **Wait on Ethos** — typical Impact contract review is 3–7 business days; we're at day 2.
 
 ### Backlog unchanged
