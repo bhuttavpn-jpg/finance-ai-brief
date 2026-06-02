@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: url },
-  openGraph: { title, description, url, type: "article" },
+  openGraph: { title, description, url, type: "article", images: [`${siteConfig.url}/og/${slug}/16x9`] },
 };
 
 const FAQS: QA[] = [

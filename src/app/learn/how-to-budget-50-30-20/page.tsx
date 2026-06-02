@@ -12,7 +12,8 @@ import {
 } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
-const url = `${siteConfig.url}/learn/how-to-budget-50-30-20`;
+const slug = "how-to-budget-50-30-20";
+const url = `${siteConfig.url}/learn/${slug}`;
 const title = "How to Budget Using the 50/30/20 Rule";
 const description =
   "A simple framework that splits your take-home pay into 50% needs, 30% wants, and 20% savings. With a free calculator and the savings account we recommend.";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: url },
-  openGraph: { title, description, url, type: "article" },
+  openGraph: { title, description, url, type: "article", images: [`${siteConfig.url}/og/${slug}/16x9`] },
 };
 
 const FAQS: QA[] = [

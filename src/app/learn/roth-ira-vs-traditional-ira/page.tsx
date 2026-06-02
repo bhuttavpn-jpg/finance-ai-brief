@@ -11,7 +11,8 @@ import {
 } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
-const url = `${siteConfig.url}/learn/roth-ira-vs-traditional-ira`;
+const slug = "roth-ira-vs-traditional-ira";
+const url = `${siteConfig.url}/learn/${slug}`;
 const title = "Roth IRA vs. Traditional IRA: Which Should You Choose?";
 const description =
   "A clear framework for picking between Roth and Traditional. With a side-by-side calculator that runs the math on your own bracket.";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: url },
-  openGraph: { title, description, url, type: "article" },
+  openGraph: { title, description, url, type: "article", images: [`${siteConfig.url}/og/${slug}/16x9`] },
 };
 
 const FAQS: QA[] = [

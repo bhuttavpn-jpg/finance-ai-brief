@@ -58,7 +58,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 
 1. **Real affiliate URLs.** Only Wise + SoFi pay. Two more under review (Ethos, Policygenius). Structural Italy×US blocker on CJ programs.
 2. **GSC indexing.** 23 URLs still need explicit request-indexing (16 from articles 14–27 + 2 new entity pages + 7 from this session). Quota ~10/day, hit today. Sitemap discovery is working in parallel.
-3. ~~**Per-article hero images.** Article schema falls back to single site-wide OG image. For rich-result CTR, eventually want per-article 1x1/4x3/16x9 1200px+.~~ ✅ Done 2026-06-02 — dynamic `src/app/og/[slug]/[ratio]/route.tsx` renders branded PNG at 16x9/4x3/1x1; `articleJsonLd` now emits all three URLs per article. **Open follow-up:** per-article `openGraph.images` metadata on the 74 article pages (currently still uses site-wide OG via Next fallback chain).
+3. ~~**Per-article hero images.** Article schema falls back to single site-wide OG image. For rich-result CTR, eventually want per-article 1x1/4x3/16x9 1200px+.~~ ✅ Done 2026-06-02 — dynamic `src/app/og/[slug]/[ratio]/route.tsx` renders branded PNG at 16x9/4x3/1x1; `articleJsonLd` emits all three URLs per article; `metadata.openGraph.images` on all 74 article pages points at `/og/<slug>/16x9`. Issue fully closed.
 4. **FSA 2026 contribution limit.** Still "TBA" in `hsa-vs-fsa` until IRS publishes.
 5. **Analytics on Vercel Pro.** Custom `affiliate_click` events only surface on Pro plan; the `track()` call is harmless on lower tiers.
 
@@ -726,8 +726,12 @@ Build verified clean (93 routes; the new `/og/[slug]/[ratio]` is a `ƒ` dynamic 
 
 Visual preview of the 16x9 render: branded navy radial-gradient background, FB logo + Finbrief wordmark top-left, pillar eyebrow ("BUDGET"), article title at 68px, `finbrief.space` footer.
 
-### Open follow-up
+### Follow-up shipped same session — per-article `openGraph.images` on all 74 pages
 
-Per-article `openGraph.images` metadata on the 74 article pages is still using the site-wide `/opengraph-image` (via Next's metadata-inheritance chain from `layout.tsx`). For social-card CTR, eventually want each article's `metadata.openGraph.images` to point at its own `/og/<slug>/16x9`. That's 74 mechanical edits — left for a future batch.
+Augmented each article's `metadata.openGraph` with `images: [\`${siteConfig.url}/og/${slug}/16x9\`]`. The two original launch articles (`how-to-budget-50-30-20`, `roth-ira-vs-traditional-ira`) didn't have a `const slug` declaration so they were updated first, then a perl substitution swept the uniform `openGraph: { title, description, url, type: "article" },` line across all 74 files.
 
-*Last updated: 2026-06-02 (Per-article hero images shipped — `/og/[slug]/[ratio]` route + `articleJsonLd` upgrade. Issue #3 closed for Article schema; OG-meta upgrade across 74 pages remains as follow-up.)*
+One gotcha: perl interpolates `$` in the replacement string by default, so the first sweep produced broken `images: [\`/og//16x9\`]` (empty interpolations). Fixed by escaping `\$` in the perl replacement. Verified the rendered HTML on `learn/best-hysa-2026` now carries `<meta property="og:image" content="https://finbrief.space/og/best-hysa-2026/16x9">`. Build still clean at 93 routes.
+
+Social cards (Twitter, LinkedIn, Facebook, Slack unfurls) will now show the per-article branded image instead of the site-wide one.
+
+*Last updated: 2026-06-02 (Per-article hero images shipped end-to-end — Article schema (3 ratios) + `openGraph.images` (16x9) on all 74 article pages. Issue #3 fully closed.)*
