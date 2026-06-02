@@ -52,7 +52,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 | ❌ Brand-level auto-decline after recipe applied | Lively HSA (declined within 4 min of contract approval) |
 | ✅ Impact brand-direct auth loop — SOLVED | Recipe in `affiliate_applications.md` § Impact. Unblocks Ladder + any future Impact brand whose slug is known and whose brand-level rules accept Italy. |
 | ⚠️ Slug works but contract is $0 placeholder | Webull (`Webull.brand` — real program is invitation-only) |
-| 🟡 Chrome MCP / Cloudflare block (apply manually) | Betterment |
+| 🟢 Contract previewed via Impact brand-direct (tiered $100–$500 per funded referral); awaiting user approval click | Betterment |
 | ❌ Dead — drop from priority | Bestow/Lantern (no new policies), Marcus by GS (no formal program), **Wealthfront** (no public affiliate door — `wealthfront.com` has no /affiliates /partners /creators page; `Wealthfront.brand` 404s; per AI Overview, invitation-only) |
 
 ### Standing open issues
@@ -751,7 +751,7 @@ User flagged a "CJ Network!" email visible in Gmail and asked to verify whether 
 | Policygenius (HasOffers) | ❌ **REJECTED** (confirmed by user) | User attempted login at `policygenius.hasoffers.com/login` and reports "Cannot login. Account rejected." Application declined — drop Policygenius from the active queue. Most likely cause: Italy publisher × US-only insurance-marketplace traffic mismatch (same structural blocker as the CJ Italy×US auto-decline pattern). |
 | CJ "Welcome to the CJ Network!" email | ❌ Not an approval | Arrived in Gmail today 12:01 from `WelcometoCJ@cj.com`. Contents are the **generic platform-activation welcome** — "Now you have full access to our robust platform... Log into your account to begin your partnership journey with CJ." This is a delayed automated welcome tied to the publisher-account activation from session 2026-05-31, not an advertiser approval. No CJ advertiser has approved finbriefspace yet (Ally + FreeTaxUSA were hard-disabled by Italy×US auto-decline last session). |
 | Webull (Impact brand-direct) | ❌ Still $0 placeholder | Navigated `app.impact.com/campaign-promo-signup/Webull.brand`, clicked Sign up → Contract Terms for Webull loaded. **Default Payout: $0.00 USD per order**, 27-day action locking, Last Click credit policy. Identical to last session — Webull's real payable program is invitation-only. Backed out without accepting. No change. |
-| Betterment direct | ⚠️ Manual apply required | `betterment.com` is still blocked by Chrome MCP safety filter (Cloudflare-tier block, same as before). User must apply outside the agent. |
+| Betterment direct | 🟢 **Real contract found** — pending user approval | User opened `app.impact.com/campaign-promo-signup/Betterment.brand` (not the blocked `betterment.com`) and the contract preview loaded with a tiered payout: $0 default but **Payout Adjustments** populate the real commission by funded amount — $100 for $0–$5K funding, $150 for $5K–$10K, $300 for $10K–$25K, $350 for $25K–$100K, **$500 for $100K+**. Materially different from Webull's $0 placeholder (Webull had no adjustments table at all). User can approve via the proven Impact recipe. Logging this correction: **the extension's safety block only applies to public `betterment.com`, not the Impact brand-direct URL** — so Betterment via Impact is reachable from the agent. |
 
 ### Capability lessons reaffirmed
 
