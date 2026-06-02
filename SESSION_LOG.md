@@ -58,7 +58,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 
 1. **Real affiliate URLs.** Only Wise + SoFi pay. Two more under review (Ethos, Policygenius). Structural Italy×US blocker on CJ programs.
 2. **GSC indexing.** 23 URLs still need explicit request-indexing (16 from articles 14–27 + 2 new entity pages + 7 from this session). Quota ~10/day, hit today. Sitemap discovery is working in parallel.
-3. **Per-article hero images.** Article schema falls back to single site-wide OG image. For rich-result CTR, eventually want per-article 1x1/4x3/16x9 1200px+.
+3. ~~**Per-article hero images.** Article schema falls back to single site-wide OG image. For rich-result CTR, eventually want per-article 1x1/4x3/16x9 1200px+.~~ ✅ Done 2026-06-02 — dynamic `src/app/og/[slug]/[ratio]/route.tsx` renders branded PNG at 16x9/4x3/1x1; `articleJsonLd` now emits all three URLs per article. **Open follow-up:** per-article `openGraph.images` metadata on the 74 article pages (currently still uses site-wide OG via Next fallback chain).
 4. **FSA 2026 contribution limit.** Still "TBA" in `hsa-vs-fsa` until IRS publishes.
 5. **Analytics on Vercel Pro.** Custom `affiliate_click` events only surface on Pro plan; the `track()` call is harmless on lower tiers.
 
@@ -694,3 +694,40 @@ Phase 2 workbook calendar has 71 article slots. After this batch, every unique s
 - **Per-article hero images** (open issue #3) — eventually.
 
 *Last updated: 2026-06-02 (Fourth content batch — 10 articles 65–74 shipped. Workbook calendar fully exhausted. 74 cornerstones live; 92 routes prerendered. No new partner keys or env vars.)*
+
+---
+
+## Session 2026-06-02 (continued) — GSC indexing attempt (quota wall on first URL)
+
+Opened GSC, navigated URL Inspection for `learn/how-to-pay-off-credit-card-debt`, clicked REQUEST INDEXING. Toast came back **Quota Exceeded — try submitting this again tomorrow** within ~30s. The 24h rolling window from yesterday's 11-URL batch hasn't reset. Property-wide quota, not per-URL, so no point continuing today.
+
+Backlog unchanged at 44 URLs. Try again in a fresh session tomorrow.
+
+*Last updated: 2026-06-02 (GSC indexing — quota exceeded on first submission; backlog still 44 URLs. Window from yesterday's 11-URL batch not yet reset. Retry tomorrow.)*
+
+---
+
+## Session 2026-06-02 (continued) — Per-article hero images (open issue #3 ✅)
+
+Closed open issue #3. Article schema now emits per-article hero images at all three aspect ratios Google's Article rich result documentation recommends (16x9, 4x3, 1x1), each ≥1200px wide, all dynamically rendered at request time.
+
+### Implementation
+
+Two small changes, no per-article churn:
+
+1. **`src/app/og/[slug]/[ratio]/route.tsx`** — new dynamic route handler. Looks up `{title, pillar}` from `siteConfig.articles` by slug; renders a branded `@vercel/og` PNG. Ratios `16x9` (1200×630), `4x3` (1200×900), `1x1` (1200×1200). Title size + padding scale per ratio so the typography reads cleanly on each canvas. Invalid ratios → 404. Unknown slug → falls back to site tagline + brand name (so the route never errors).
+2. **`src/components/seo/JsonLd.tsx`** — `articleJsonLd` now parses the slug out of `args.url` (every article passes `${siteConfig.url}/learn/${slug}`) and emits `image: [16x9, 4x3, 1x1]` URLs. Non-article URLs fall back to the existing site-wide `/opengraph-image`. No changes required to any of the 74 article pages — `articleJsonLd`'s call signature is unchanged.
+
+Build verified clean (93 routes; the new `/og/[slug]/[ratio]` is a `ƒ` dynamic route). Smoke test against `next start`:
+- `GET /og/best-hysa-2026/16x9` → 200, `image/png`, 1200×630 ✅
+- `GET /og/best-hysa-2026/1x1`  → 200, `image/png`, 1200×1200 ✅
+- `GET /og/best-hysa-2026/9x16` → 404 ✅
+- Rendered HTML for `/learn/best-hysa-2026` now contains `"image":["https://finbrief.space/og/best-hysa-2026/16x9","…/4x3","…/1x1"]` in the Article JSON-LD ✅
+
+Visual preview of the 16x9 render: branded navy radial-gradient background, FB logo + Finbrief wordmark top-left, pillar eyebrow ("BUDGET"), article title at 68px, `finbrief.space` footer.
+
+### Open follow-up
+
+Per-article `openGraph.images` metadata on the 74 article pages is still using the site-wide `/opengraph-image` (via Next's metadata-inheritance chain from `layout.tsx`). For social-card CTR, eventually want each article's `metadata.openGraph.images` to point at its own `/og/<slug>/16x9`. That's 74 mechanical edits — left for a future batch.
+
+*Last updated: 2026-06-02 (Per-article hero images shipped — `/og/[slug]/[ratio]` route + `articleJsonLd` upgrade. Issue #3 closed for Article schema; OG-meta upgrade across 74 pages remains as follow-up.)*

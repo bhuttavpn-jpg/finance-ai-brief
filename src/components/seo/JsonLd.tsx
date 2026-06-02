@@ -21,6 +21,21 @@ export function JsonLd({ data }: { data: object }) {
   );
 }
 
+// Google's Article rich result prefers multiple aspect ratios at >=1200px wide.
+// For /learn/<slug> URLs we emit 16x9, 4x3, and 1x1 — all rendered dynamically
+// by src/app/og/[slug]/[ratio]/route.tsx. For non-article URLs (or if no slug
+// can be parsed) we fall back to the site-wide opengraph-image.
+function articleImageUrls(url: string): string[] {
+  const match = url.match(/\/learn\/([^/?#]+)/);
+  if (!match) return [`${siteConfig.url}/opengraph-image`];
+  const slug = match[1];
+  return [
+    `${siteConfig.url}/og/${slug}/16x9`,
+    `${siteConfig.url}/og/${slug}/4x3`,
+    `${siteConfig.url}/og/${slug}/1x1`,
+  ];
+}
+
 export function articleJsonLd(args: {
   url: string;
   title: string;
@@ -38,7 +53,7 @@ export function articleJsonLd(args: {
     mainEntityOfPage: { "@type": "WebPage", "@id": args.url },
     datePublished: toIsoDateTime(args.publishedAt),
     dateModified: toIsoDateTime(args.updatedAt),
-    image: [`${siteConfig.url}/opengraph-image`],
+    image: articleImageUrls(args.url),
     author: {
       "@type": "Person",
       name: author.name,
