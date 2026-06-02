@@ -45,14 +45,14 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 | Status | Partners |
 |---|---|
 | ✅ Live (paying) | Wise, SoFi Money |
-| ⏳ Under review | Ethos Life (Impact, $55/lead) |
+| ⏳ Under review | Ethos Life (Impact, $55/lead), Betterment (Impact, tiered $100–$500/funded ref) |
 | ❌ Rejected (confirmed 2026-06-02) | Policygenius (HasOffers) — likely Italy×US-only mismatch |
 | ✅ Platform activated (no programs yet) | CJ Affiliate publisher `finbriefspace` (property ID 101766442) |
 | ❌ Structural blocker — Italy × US-only auto-decline (CJ) | Ally, FreeTaxUSA, TaxAct (and likely most US-only CJ programs) |
 | ❌ Brand-level auto-decline after recipe applied | Lively HSA (declined within 4 min of contract approval) |
 | ✅ Impact brand-direct auth loop — SOLVED | Recipe in `affiliate_applications.md` § Impact. Unblocks Ladder + any future Impact brand whose slug is known and whose brand-level rules accept Italy. |
 | ⚠️ Slug works but contract is $0 placeholder | Webull (`Webull.brand` — real program is invitation-only) |
-| 🟢 Contract previewed via Impact brand-direct (tiered $100–$500 per funded referral); awaiting user approval click | Betterment |
+| ⏳ Under review (application submitted 2026-06-02 via Impact brand-direct, tiered $100–$500 per funded referral) | Betterment |
 | ❌ Dead — drop from priority | Bestow/Lantern (no new policies), Marcus by GS (no formal program), **Wealthfront** (no public affiliate door — `wealthfront.com` has no /affiliates /partners /creators page; `Wealthfront.brand` 404s; per AI Overview, invitation-only) |
 
 ### Standing open issues
