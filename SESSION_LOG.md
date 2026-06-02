@@ -13,8 +13,8 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | (pending) — fourth P1+extension batch (articles 65–74), no new partners or env vars |
-| Build | clean, **92 routes**, all 74 articles statically prerendered |
+| Latest commit | `3501c8d` — fifth content batch (articles 75–84) covering SECURE 2.0, Social Security, Medicare, MF vs ETF, asset allocation, RMDs, dividends, identity theft, LTC insurance, Roth 5-year rules |
+| Build | clean, **102 routes**, all 84 articles statically prerendered |
 | Vercel env vars | **32 total** (2 paying real URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages). 8 new partner keys (sofi-loans, lightstream, geico, progressive, better-mortgage, rocket-mortgage, monarch, copilot) use homepage `defaultUrl` fallback in code — no env var needed until tracking is wired. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv) | LIVE end-to-end (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
@@ -771,3 +771,53 @@ User flagged a "CJ Network!" email visible in Gmail and asked to verify whether 
 - GSC indexing — quota still locked until tomorrow.
 
 *Last updated: 2026-06-02 (Affiliate status sweep — no new approvals. CJ "welcome" email is platform welcome not advertiser approval; Webull still $0; Policygenius login needs user; Betterment still extension-blocked. Ethos still pending.)*
+
+---
+
+## Session 2026-06-02 (continued) — Fifth content batch (articles 75–84)
+
+Workbook calendar was exhausted last batch; this batch was the first fresh-ideation run. Topic selection optimized for filling thin pillars (Protect at 9, Invest at 14) and covering high-search-volume / high-CPC categories the site didn't address.
+
+### Articles shipped (75–84)
+
+| # | Slug | Pillar | Affiliates used |
+|---|---|---|---|
+| 75 | `secure-2-0-changes-2026` | Save tax | sofi-money, marcus, ally, fidelity, schwab, vanguard |
+| 76 | `when-to-take-social-security` | Invest | fidelity, schwab, vanguard |
+| 77 | `medicare-basics-2026` | Protect | policygenius |
+| 78 | `mutual-funds-vs-etfs` | Invest | fidelity, schwab, vanguard, robinhood, sofi-invest |
+| 79 | `asset-allocation-by-age` | Invest | betterment, wealthfront, fidelity, vanguard, schwab |
+| 80 | `ira-rmd-rules` | Save tax | fidelity, schwab, vanguard |
+| 81 | `qualified-vs-ordinary-dividends` | Save tax | fidelity, schwab, vanguard |
+| 82 | `identity-theft-protection` | Protect | credit-karma |
+| 83 | `long-term-care-insurance` | Protect | policygenius, ethos, haven, ladder |
+| 84 | `roth-ira-5-year-rules` | Save tax | fidelity, schwab, vanguard |
+
+Standard presentation spec on every article. `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` on `identity-theft-protection`), FTC `AffiliateDisclosure` above the fold, Jahanzeb Nawaz as author, FinBrief Editorial Team as reviewer, dense cross-pillar internal linking.
+
+### IRS / authoritative citations applied
+
+- `secure-2-0-changes-2026` cites SECURE 2.0 §§101, 107, 109, 126, 127, 305, 325, 603 and IR-2025-111.
+- `when-to-take-social-security` cites SSA reduction/credit factors and 2024 Trustees Report on Trust Fund depletion (2033–2035).
+- `medicare-basics-2026` cites CMS 2025 Part B premium / IRMAA brackets with explicit "2026 TBA" disclaimers.
+- `ira-rmd-rules` cites SECURE 2.0 §§107, 302, 325 and IRS Pub 590-B Uniform Lifetime Table factors.
+- `qualified-vs-ordinary-dividends` cites IR-2025-103 / Rev. Proc. 2025-32 for 2026 brackets + IRS Pub 550 for holding-period rules.
+- `long-term-care-insurance` cites Genworth Cost of Care Survey 2023 + HHS LTC needs statistics + AALTCI 2024 premium data.
+- `roth-ira-5-year-rules` cites IRS ordering rules and SECURE 2.0 §325 (Roth 401(k) RMD elimination).
+
+### Build & deploy
+
+`npm run build` → clean, **102 routes** (was 92, +10), all 10 new articles statically prerendered, TypeScript passes. Spot-checked `learn/medicare-basics-2026` rendered HTML — Article schema emits 3-ratio image array, `og:image` meta tag emits per-article 16x9 URL. Both wired correctly through the issue #3 infrastructure.
+
+### Cornerstone count + pillar distribution
+
+**84 articles now live.** Pillar distribution: Borrow smart 20, **Save tax 23**, **Invest 17**, Budget 12, **Protect 12**. Save tax took the lead. Protect went from thinnest (9) to mid-pack (12).
+
+### Where to pick up next session
+
+- **GSC indexing** — backlog is now 54 URLs (44 existing + 10 new). Quota ~10/day; 5–6 sittings to clear.
+- **Pull next fresh content batch** — strong remaining candidates: HSA hub for parents, sequence-of-returns risk explainer, 529 plan deep-dive, FSA explainer, disability insurance, umbrella insurance, taxes on Social Security benefits, estate-planning basics, ESPP guide.
+- **Real affiliate URLs** — Ethos + Betterment pending; check Impact dashboard for approvals.
+- **Newsletter cadence** — beehiiv is wired but no sends scheduled. Worth setting up a weekly cron once article count crosses 100.
+
+*Last updated: 2026-06-02 (Fifth content batch — 10 articles 75–84 shipped covering SECURE 2.0, Social Security timing, Medicare, mutual funds vs ETFs, asset allocation, RMDs, qualified dividends, identity theft, LTC insurance, Roth 5-year rules. 84 cornerstones live; 102 routes prerendered. No new partner keys or env vars. Save tax now leads at 23 articles; Protect rebalanced to 12.)*
