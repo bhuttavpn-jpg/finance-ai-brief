@@ -821,3 +821,80 @@ Standard presentation spec on every article. `articleJsonLd` + `faqJsonLd` (+ `h
 - **Newsletter cadence** — beehiiv is wired but no sends scheduled. Worth setting up a weekly cron once article count crosses 100.
 
 *Last updated: 2026-06-02 (Fifth content batch — 10 articles 75–84 shipped covering SECURE 2.0, Social Security timing, Medicare, mutual funds vs ETFs, asset allocation, RMDs, qualified dividends, identity theft, LTC insurance, Roth 5-year rules. 84 cornerstones live; 102 routes prerendered. No new partner keys or env vars. Save tax now leads at 23 articles; Protect rebalanced to 12.)*
+
+---
+
+## Session 2026-06-04 — GSC indexing batch (blind) + Newsletter cron shipped
+
+Two tracks this sitting.
+
+### GSC indexing — 10 URLs blind-submitted
+
+Browser tools timed out on `document_idle` for the entire GSC session — screenshots, `read_page`, and `find` all failed with the 45-second executeScript wait. Clicks via `computer.left_click` still executed, so per user direction proceeded blind with the documented recipe coordinates: search bar (790, 33) → type URL → Return → wait 30s → REQUEST INDEXING (1313, 373) → wait 30s → Escape.
+
+Submitted (unverified — user to confirm via GSC URL Inspection on URL #1):
+
+1. `learn/how-to-pay-off-credit-card-debt`
+2. `learn/capital-gains-tax-2026`
+3. `learn/how-much-do-i-need-to-retire`
+4. `learn/what-affects-your-credit-score`
+5. `learn/best-life-insurance-companies-2026`
+6. `learn/best-personal-loans-2026`
+7. `learn/best-car-insurance-companies-2026`
+8. `learn/how-to-get-a-mortgage`
+9. `learn/fidelity-vs-schwab`
+10. `learn/best-budgeting-apps-2026`
+
+Backlog now nominally 44 URLs (was 54). **Verify the first URL on next visit** — if it shows a recent indexing request, the rest likely landed too; if not, the recipe coords drifted and the batch needs to be redone.
+
+### Affiliate sweep — blocked
+
+- **Impact dashboard** stuck on Cloudflare "Just a moment..." challenge (bot-detection); can't proceed.
+- **Gmail web** also failed `document_idle`.
+- **Gmail MCP** returned "This connector requires additional permissions. The user needs to reconnect."
+
+User confirmed no new Ethos / Betterment approvals via their own check. No action this sitting.
+
+### Newsletter cadence — cron + Haiku + Resend ✅
+
+Open issue closed (was: "beehiiv wired but no sends scheduled").
+
+Honest constraint: **beehiiv's `POST /v2/publications/{pubId}/posts` endpoint is Enterprise-only beta** — we can't programmatically create or schedule a beehiiv post on the current tier. So scheduling the actual send stays manual; what we automate is everything *before* the send.
+
+Shipped:
+
+- **`src/lib/newsletter.ts`** — picks a lead article from `siteConfig.articles` by deterministic ISO-week rotation across all 84 (so every week is a different article, no storage), then calls Claude Haiku 4.5 (`claude-haiku-4-5-20251001`) with the house-voice system prompt to write a 180–220-word intro.
+- **`src/app/api/cron/newsletter/route.ts`** — `GET` handler, auths via `Authorization: Bearer ${CRON_SECRET}` or `?secret=` query param, generates the draft, posts the formatted HTML to Resend (`POST https://api.resend.com/emails`) so it lands in `admin@finbrief.space` Monday morning as `[Finbrief draft, wk N] <title>`, logs the intro to Vercel function logs, returns the draft as JSON.
+- **`vercel.json`** — cron schedule `0 14 * * 1` (Mondays 14:00 UTC = 9am ET).
+- **`package.json`** — added `@anthropic-ai/sdk ^0.40.1`. Resend uses raw `fetch`, no dep.
+- **`.env.example`** — added `ANTHROPIC_API_KEY`, `CRON_SECRET`, `RESEND_API_KEY`, `NEWSLETTER_FROM`, `NEWSLETTER_DRAFT_TO`. If `RESEND_API_KEY` is unset, the cron silently skips the email and still logs + returns the draft (so the route is safe to test before Resend is wired up).
+
+Weekly user flow once env vars are set:
+
+1. Email arrives Monday 9am ET.
+2. User opens beehiiv, creates a new post, pastes subject + intro, attaches lead-story block, clicks Send.
+3. ~30 seconds of manual work per week.
+
+**Setup still needed on Vercel side (user to do):**
+
+| Env var | Source |
+|---|---|
+| `ANTHROPIC_API_KEY` | console.anthropic.com → API Keys (Haiku call ~$0.005/run) |
+| `CRON_SECRET` | `openssl rand -hex 32` |
+| `RESEND_API_KEY` | resend.com → API Keys (free tier 3K/mo is plenty) |
+| `NEWSLETTER_FROM` | `Finbrief <newsletter@finbrief.space>` — must verify finbrief.space in Resend (DKIM/SPF via Hostinger DNS) |
+| `NEWSLETTER_DRAFT_TO` | `admin@finbrief.space` |
+
+Smoke test: `curl "https://finbrief.space/api/cron/newsletter?secret=<CRON_SECRET>"` should return JSON `{ ok: true, draft: {…}, delivery: { sent: true, id: "…" } }` and an email should arrive.
+
+Build clean, 102 routes, new dynamic route `ƒ /api/cron/newsletter`.
+
+### Where to pick up next session
+
+- **Verify the 10 GSC submissions** went through (URL Inspection → look for "Last crawl" or recent indexing-request timestamp on `how-to-pay-off-credit-card-debt`).
+- **GSC indexing (cont'd)** — 44 URLs left in backlog.
+- **Provision the 5 env vars on Vercel** so the newsletter cron actually fires Monday.
+- **Sixth content batch** — fresh-ideation candidates: HSA hub for parents, 529 deep-dive, sequence-of-returns risk, FSA explainer, disability insurance, umbrella insurance, taxes on Social Security benefits, estate-planning basics, ESPP guide.
+- **Affiliate sweep** — retry once Impact's Cloudflare clears, or have the user reconnect the Gmail MCP so we can check approval emails from the agent.
+
+*Last updated: 2026-06-04 (GSC blind batch of 10 URLs submitted, recipe coords reused; Newsletter cron + Haiku + Resend pipeline shipped — open issue closed. End-to-end weekly flow is 30 seconds of manual beehiiv paste-and-send once 5 env vars are set on Vercel.)*
