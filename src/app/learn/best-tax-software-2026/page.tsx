@@ -258,6 +258,24 @@ export default function Page() {
             doesn&apos;t care which program you used.
           </p>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>Where to park your refund</h2>
+
+          <p>
+            <strong>The average federal refund is around $3,000.</strong> Left in
+            checking, it earns nothing. A{" "}
+            <Link href="/learn/best-hysa-2026">high-yield savings account</Link>{" "}
+            pays meaningful APY in the meantime — useful as the holding pen before
+            the refund goes to an emergency fund, IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/tax-brackets-2026">2026 federal tax brackets</Link> — the rates the software applies.</li>

@@ -282,6 +282,24 @@ export default function Page() {
             filers, the QBI deduction alone often beats both.
           </p>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>Where to park what you save</h2>
+
+          <p>
+            <strong>The deductions are only half the equation — what you do with
+            the saved tax is the other half.</strong> A{" "}
+            <Link href="/learn/best-hysa-2026">high-yield savings account</Link>{" "}
+            pays meaningful APY while you decide whether the savings go to an
+            emergency fund, IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/standard-vs-itemized-deduction">Standard vs. itemized deduction</Link></li>

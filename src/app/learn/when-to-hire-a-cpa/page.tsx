@@ -300,6 +300,23 @@ export default function Page() {
             middle path. Best ROI for many households.
           </p>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>Where to park your refund</h2>
+
+          <p>
+            <strong>Whether you DIY or hire out, the refund still needs a home.</strong>{" "}
+            A <Link href="/learn/best-hysa-2026">high-yield savings account</Link>{" "}
+            pays meaningful APY while you decide whether the money goes to an
+            emergency fund, IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/best-tax-software-2026">Best tax software 2026</Link></li>

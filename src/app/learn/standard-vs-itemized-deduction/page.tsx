@@ -306,6 +306,24 @@ export default function Page() {
             total runs consistently within $5K of the standard.
           </p>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>Where to park what you save</h2>
+
+          <p>
+            <strong>A higher deduction means a bigger refund or a smaller bill —
+            either way, that cash needs a home.</strong> A{" "}
+            <Link href="/learn/best-hysa-2026">high-yield savings account</Link>{" "}
+            pays meaningful APY while you decide whether it goes to an emergency
+            fund, IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/tax-brackets-2026">2026 federal income tax brackets</Link></li>

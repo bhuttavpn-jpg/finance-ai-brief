@@ -213,6 +213,24 @@ export default function Page() {
             <li><AffiliateButton partner="freetaxusa" source={slug} variant="secondary">FreeTaxUSA — best value</AffiliateButton></li>
           </ul>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>Where to park your refund while you decide what to do with it</h2>
+
+          <p>
+            <strong>The average federal refund is around $3,000.</strong> Left in
+            checking, it earns roughly nothing. A{" "}
+            <Link href="/learn/best-hysa-2026">high-yield savings account</Link>{" "}
+            pays meaningful APY in the meantime — useful as the holding pen before
+            the refund goes to an emergency fund, IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/best-tax-software-2026">Best tax software 2026</Link> — full three-way comparison.</li>

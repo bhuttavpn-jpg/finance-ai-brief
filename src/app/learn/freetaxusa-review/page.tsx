@@ -265,6 +265,24 @@ export default function Page() {
             test.
           </p>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>Where to park what you saved on software (and your refund)</h2>
+
+          <p>
+            <strong>Skip a $100 TurboTax bill, get a refund — the cash flow needs
+            somewhere to live.</strong> A{" "}
+            <Link href="/learn/best-hysa-2026">high-yield savings account</Link>{" "}
+            pays meaningful APY while you decide whether the money goes to an
+            emergency fund, IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/best-tax-software-2026">Best tax software 2026</Link> — full TurboTax / TaxAct / FreeTaxUSA comparison.</li>

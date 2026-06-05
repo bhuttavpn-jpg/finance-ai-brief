@@ -322,6 +322,23 @@ export default function Page() {
             total tax.
           </p>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>Where to put what&apos;s left after taxes</h2>
+
+          <p>
+            <strong>Knowing your bracket only matters if you do something with what
+            you keep.</strong> A <Link href="/learn/best-hysa-2026">high-yield
+            savings account</Link> pays meaningful APY on the cash you set aside for
+            an emergency fund, next year&apos;s IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/roth-ira-contribution-limits-2026">Roth IRA contribution limits 2026</Link> — and Roth vs. Traditional bracket math.</li>

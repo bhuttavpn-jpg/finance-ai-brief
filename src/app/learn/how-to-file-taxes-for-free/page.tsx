@@ -249,6 +249,23 @@ export default function Page() {
             filing with the same program, the whole process gets faster every year.
           </p>
 
+          <hr className="my-10 border-brand-100" />
+
+          <h2>What to do with the refund</h2>
+
+          <p>
+            <strong>If you&apos;re getting money back, don&apos;t let it sit in checking.</strong>{" "}
+            A <Link href="/learn/best-hysa-2026">high-yield savings account</Link>{" "}
+            pays meaningful APY while you decide whether the refund goes to an
+            emergency fund, IRA contribution, or HSA top-up.
+          </p>
+
+          <p>
+            <AffiliateButton partner="sofi-money" source={slug}>
+              Open SoFi Money →
+            </AffiliateButton>
+          </p>
+
           <h2>Related reading</h2>
           <ul>
             <li><Link href="/learn/best-tax-software-2026">Best tax software 2026</Link> — full software comparison.</li>
