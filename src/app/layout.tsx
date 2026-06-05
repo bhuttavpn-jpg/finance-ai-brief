@@ -29,6 +29,10 @@ export const metadata: Metadata = {
     // Google Search Console URL-prefix property (https://finbrief.space).
     // Public verification token — safe to commit. Don't remove after verifying.
     google: "O4v6KR8AAC0U9Tpf3ctYx-uzFvO73VvX19EL99KErB8",
+    // FlexOffers publisher application — verify-ownership meta. Public token.
+    other: {
+      "fo-verify": "83143839-f2d5-43c3-b39a-1e7cec99ce20",
+    },
   },
 };
 
