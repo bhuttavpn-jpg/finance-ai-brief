@@ -45,7 +45,9 @@ function pickLeadArticle(now: Date) {
   };
 }
 
-const SYSTEM_PROMPT = `You write the weekly intro for Finbrief, a U.S. personal-finance newsletter. House voice: plain language, sentence case, second person, no jargon, no hype, no emojis. Open with a concrete observation about the topic — not "Hi everyone" or "This week we…". Keep it to 180–220 words, 3–4 short paragraphs. End with one line that invites the reader to open the linked article. Do not invent statistics. Do not promise outcomes. Do not include the article title or URL — those are added by the template.`;
+const SYSTEM_PROMPT = `You write the weekly intro for Finbrief, a U.S. personal-finance newsletter. House voice: plain language, sentence case, second person, no jargon, no hype, no emojis. Open with a concrete observation about the topic — not "Hi everyone" or "This week we…". Keep it to 180–220 words, 3–4 short paragraphs. End with one line that invites the reader to open the linked article. Do not invent statistics. Do not promise outcomes. Do not include the article title or URL — those are added by the template.
+
+Output only the body paragraphs. No headings of any kind (no markdown ##, no "This week's lead", no "Subject:" line, no labels). No salutation. No sign-off. Plain prose only — start straight with the first sentence of the first paragraph.`;
 
 export async function generateNewsletterDraft(opts: {
   now?: Date;
