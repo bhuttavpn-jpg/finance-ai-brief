@@ -4,7 +4,7 @@
 
 ---
 
-## Live state (as of 2026-06-02)
+## Live state (as of 2026-06-05)
 
 ### Deployment
 
@@ -13,12 +13,13 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | `3501c8d` — fifth content batch (articles 75–84) covering SECURE 2.0, Social Security, Medicare, MF vs ETF, asset allocation, RMDs, dividends, identity theft, LTC insurance, Roth 5-year rules |
-| Build | clean, **102 routes**, all 84 articles statically prerendered |
-| Vercel env vars | **32 total** (2 paying real URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages). 8 new partner keys (sofi-loans, lightstream, geico, progressive, better-mortgage, rocket-mortgage, monarch, copilot) use homepage `defaultUrl` fallback in code — no env var needed until tracking is wired. |
+| Latest commit | `fcbb7db` — FlexOffers `fo-verify` meta tag on root layout (preceded by `681dd46` SoFi Money CTAs across 8 Save-tax articles; `b9056fc` newsletter prompt tightening; `f8bb0de` newsletter cron + Haiku + Resend pipeline) |
+| Build | clean, **102 routes**, all 84 articles statically prerendered, `ƒ /api/cron/newsletter` dynamic route added |
+| Vercel env vars | **37 total** (32 affiliate + 5 newsletter: `CRON_SECRET`, `ANTHROPIC_API_KEY`, `RESEND_API_KEY`, `NEWSLETTER_FROM`, `NEWSLETTER_DRAFT_TO`). 2 paying real affiliate URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages with `defaultUrl` fallback. |
 | Vercel Analytics | enabled and verified |
-| Newsletter (beehiiv) | LIVE end-to-end (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
-| Google Search Console | URL-prefix property `https://finbrief.space/` verified; sitemap Success / 22 pages discovered; 7 indexed / 15 not yet indexed (sitemap discovery is rolling) |
+| Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
+| Newsletter weekly cron | ✅ **LIVE end-to-end** — `/api/cron/newsletter` fires Mondays 14:00 UTC (vercel.json), Claude Haiku 4.5 writes a 180–220-word intro, Resend emails it to `admin@finbrief.space`. Manual paste-and-send into beehiiv = ~30 sec/week. Resend domain `finbrief.space` verified via Hostinger DNS (DKIM/SPF/MX on `send.finbrief.space`). Smoke-tested 2026-06-05 with real Resend message id. |
+| Google Search Console | URL-prefix property `https://finbrief.space/` verified; sitemap Success / 22 pages discovered; sitemap discovery rolling. Manual indexing requests submitted in user's own browser (blind-coordinate recipe via Chrome MCP definitively failed on 2026-06-04 — `document_idle` wall on GSC means no visual feedback). |
 
 ### Author + editorial (E-E-A-T)
 
@@ -45,7 +46,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 | Status | Partners |
 |---|---|
 | ✅ Live (paying) | Wise, SoFi Money |
-| ⏳ Under review | Ethos Life (Impact, $55/lead), Betterment (Impact, tiered $100–$500/funded ref) |
+| ⏳ Under review | Ethos Life (Impact, $55/lead), Betterment (Impact, tiered $100–$500/funded ref — but unclear if final "I approve" was clicked on IO review page on 2026-06-02; user to confirm), **FlexOffers (publisher application submitted 2026-06-05, 5-day review window — gateway to H&R Block + other tax-software brands CJ won't approve)** |
 | ❌ Rejected (confirmed 2026-06-02) | Policygenius (HasOffers) — likely Italy×US-only mismatch |
 | ✅ Platform activated (no programs yet) | CJ Affiliate publisher `finbriefspace` (property ID 101766442) |
 | ❌ Structural blocker — Italy × US-only auto-decline (CJ) | Ally, FreeTaxUSA, TaxAct (and likely most US-only CJ programs) |
@@ -57,11 +58,12 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 
 ### Standing open issues
 
-1. **Real affiliate URLs.** Only Wise + SoFi pay. Two more under review (Ethos, Policygenius). Structural Italy×US blocker on CJ programs.
-2. **GSC indexing.** 23 URLs still need explicit request-indexing (16 from articles 14–27 + 2 new entity pages + 7 from this session). Quota ~10/day, hit today. Sitemap discovery is working in parallel.
+1. **Real affiliate URLs.** Only Wise + SoFi Money pay. Three under review (Ethos, Betterment, FlexOffers publisher). Structural Italy×US blocker on most US-only CJ programs. SoFi Money CTAs added across 8 Save-tax articles 2026-06-05 to monetize CJ-blocked tax-software gap (commit `681dd46`).
+2. **GSC indexing.** Backlog now 46 URLs after 8 manual user submissions on 2026-06-05. Daily quota ~10/property. **Blind-coordinate recipe via Chrome MCP is dead** — `document_idle` wall on GSC means no visual feedback, recipe coords drift silently. User does manual submissions in their own browser (~5 sec per URL). Sitemap discovery rolling in parallel.
 3. ~~**Per-article hero images.** Article schema falls back to single site-wide OG image. For rich-result CTR, eventually want per-article 1x1/4x3/16x9 1200px+.~~ ✅ Done 2026-06-02 — dynamic `src/app/og/[slug]/[ratio]/route.tsx` renders branded PNG at 16x9/4x3/1x1; `articleJsonLd` emits all three URLs per article; `metadata.openGraph.images` on all 74 article pages points at `/og/<slug>/16x9`. Issue fully closed.
-4. **FSA 2026 contribution limit.** Still "TBA" in `hsa-vs-fsa` until IRS publishes.
-5. **Analytics on Vercel Pro.** Custom `affiliate_click` events only surface on Pro plan; the `track()` call is harmless on lower tiers.
+4. ~~**Newsletter cadence.** beehiiv wired but no sends scheduled.~~ ✅ Done 2026-06-05 — `/api/cron/newsletter` Mondays 14:00 UTC, Haiku-written intro emailed via Resend to `admin@finbrief.space`. ~30 sec manual paste-and-send into beehiiv per week. Issue fully closed.
+5. **FSA 2026 contribution limit.** Still "TBA" in `hsa-vs-fsa` until IRS publishes.
+6. **Analytics on Vercel Pro.** Custom `affiliate_click` events only surface on Pro plan; the `track()` call is harmless on lower tiers.
 
 ### Verified IRS 2026 figures (cite these in any new article)
 
@@ -72,12 +74,13 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 ### Where to start next session
 
 1. Standard checklist (read this file, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
-2. **GSC indexing** — backlog is now 44 URLs (4 from original queue + 40 from batches 1–4 of 10-article shipments). Quota ~10/day; 4–5 sittings to clear.
-3. **Try Webull via the proven Impact brand-direct recipe.** Recipe is in `affiliate_applications.md` § Impact. First need to find the right brand slug — `Wealthfront.brand` 404'd, so don't assume the obvious; check `webull.com/affiliate` or similar for the actual Impact campaign URL before reusing the pattern.
-4. **Apply to Betterment manually** outside this agent setup (the link is the bottleneck, not the application).
-5. **Retarget tax software** — research a tax-prep affiliate that accepts non-US publishers, or drop FreeTaxUSA/TaxAct CTAs from the existing Save-tax articles.
-6. Check Ethos + Policygenius for approval status (email + login).
-7. **Content:** Phase 2 workbook calendar (71 article slots, weeks 1–26) is now fully exhausted (we've shipped all unique slugs from it). Future batches need fresh topic selection — strong candidates include: HSA hub for parents (kids+HSA), step-up in basis explainer, asset allocation by age, qualified vs. ordinary dividends, mutual funds vs. ETFs, IRA RMD rules, SECURE 2.0 changes, Roth IRA 5-year rules deep-dive, when to take Social Security, Medicare basics, long-term care insurance, identity theft protection.
+2. **FlexOffers approval check** — 5-day review started 2026-06-05. Expect decision by ~2026-06-10. If approved, apply to H&R Block program inside FlexOffers as first.
+3. **Newsletter Monday auto-fire verification** — first scheduled run is Monday 2026-06-08 14:00 UTC. Confirm email lands in `admin@finbrief.space`.
+4. **Betterment IO status check** — session log is ambiguous about whether the 2026-06-02 "I approve the Contract" click on the IO review page actually happened. User should log into Impact and confirm Betterment shows "pending" or further along.
+5. **GSC indexing (manual)** — 46 URLs left in backlog. User does ~10/day in their own browser (the Chrome MCP blind-coordinate approach is dead).
+6. **Article-refresh cron (Phase 4 Tier 2)** — same architecture as the newsletter cron. Weekly Haiku job scans articles for stale rates/dates, emails proposed diff. Worth building before article count crosses 100.
+7. **Sixth content batch** — fresh-ideation candidates: HSA hub for parents (kids+HSA), step-up in basis explainer, 529 plan deep-dive, FSA explainer, sequence-of-returns risk, disability insurance, umbrella insurance, taxes on Social Security benefits, estate-planning basics, ESPP guide.
+8. **Per-article Haiku output refinement** — once real Monday emails arrive, tweak the system prompt in `src/lib/newsletter.ts` based on what comes through.
 
 ### Recovery notes
 
@@ -889,12 +892,70 @@ Smoke test: `curl "https://finbrief.space/api/cron/newsletter?secret=<CRON_SECRE
 
 Build clean, 102 routes, new dynamic route `ƒ /api/cron/newsletter`.
 
+### Env vars provisioned via Vercel CLI (same sitting)
+
+All 5 cron env vars set on Production + Development via `vercel env add` (CLI was still authenticated as `bhuttavpn-1595`):
+
+- `CRON_SECRET = 22658110731c1f57b8a2d05a8a620eacf2e144790556ccad4a33a9eb394d0c85` (also saved at `/tmp/cron-secret.txt`)
+- `NEWSLETTER_FROM = Finbrief <newsletter@finbrief.space>`
+- `NEWSLETTER_DRAFT_TO = admin@finbrief.space`
+- `ANTHROPIC_API_KEY` (user-provided)
+- `RESEND_API_KEY` (user-provided send-only key)
+
+First smoke test failed on Anthropic credit ($0 balance); user topped up. Second smoke test then failed at Resend domain-not-verified (domain `finbrief.space` not yet added to Resend).
+
+### Resend domain setup — finbrief.space added + DNS records on Hostinger
+
+- Added `finbrief.space` to Resend via `POST /v2/domains` (required a Full Access Resend API key; user provided a fresh one, used once, then asked to delete). Resend returned domain id `7233bd07-27c1-4356-8322-d1e9fec379fd` and the 3 required DNS records.
+- **Hostinger DNS** — drove the user's open hPanel tab via Chrome MCP (this worked despite the GSC/Impact `document_idle` wall — Hostinger DNS panel is screenshot-friendly). Added all 3 records to `finbrief.space`:
+  - TXT `resend._domainkey` → Resend DKIM public key
+  - MX `send` (priority 10) → `feedback-smtp.us-east-1.amazonses.com`
+  - TXT `send` → `v=spf1 include:amazonses.com ~all`
+- Verified live via `dig @1.1.1.1` immediately. Resend's verifier took ~30 min more to flip the domain to `verified`.
+- Commit `b9056fc` followed up to forbid headings in Haiku output after first run produced "# This week's lead" markdown heading despite the prompt forbidding titles.
+- **Final end-to-end smoke test passed**: `delivery: { sent: True, id: '0bc6c4fc-fdb5-4780-825f-59fa00e730a3' }`. Real email landed in `admin@finbrief.space`. **Monday's auto-fire will work.** Open issue fully closed.
+
+### GSC blind batch — verified FAILED via user manual check
+
+After SESSION_LOG initially recorded the 10 blind URLs as "submitted (unverified)", user opened GSC URL Inspection in their own browser on `learn/how-to-pay-off-credit-card-debt` and clicked REQUEST INDEXING. Toast said **"Indexing requested"** — not **"Quota Exceeded"** — which is the definitive tell that **my morning batch never consumed any quota**. The recipe coordinates (search bar at 790,33, REQUEST INDEXING at 1313,373) **drifted** and all 10 blind submissions silently no-op'd.
+
+**Don't reuse the blind-coordinate recipe.** The MCP extension's `document_idle` wall on GSC is total — screenshots, `read_page`, `find` all timeout at 45s, so there's no way to verify each click landed. Future GSC indexing should be done by the user manually in their own browser (5 sec per URL).
+
+User then did 9 manual submissions in their own browser this sitting. 7 went through; the last 2 (`best-budgeting-apps-2026`, `fidelity-vs-schwab`) hit `Quota Exceeded` — confirming the ~10/day per-property cap. Net for the day: **8 GSC submissions** (1 from the manual test + 7 from the batch). Backlog now genuinely 46 URLs.
+
+### Save-tax pillar — SoFi Money CTAs added across 8 articles (commit `681dd46`)
+
+Research confirmed CJ blanket-blocks Italy publishers on US-only tax-software programs (TaxAct, FreeTaxUSA confirmed earlier; TaxSlayer also CJ-gated). Rather than strip the existing `turbotax/taxact/freetaxusa` CTAs (they still inform readers picking a filer), added a complementary "Where to park your refund" / "Where to park what you save" section before the "Related reading" footer in each of:
+
+- `turbotax-vs-taxact`
+- `how-to-file-taxes-for-free`
+- `tax-brackets-2026`
+- `tax-deductions-checklist`
+- `when-to-hire-a-cpa`
+- `best-tax-software-2026`
+- `freetaxusa-review`
+- `standard-vs-itemized-deduction`
+
+Each new block points at SoFi Money (one of the two paying partners; the other is Wise) framed around "refund destination / cash holding pen for emergency fund, IRA contribution, or HSA top-up". No new partner keys; no env vars. Build clean at 102 routes.
+
+### FlexOffers publisher application — submitted, under review (commit `fcbb7db`)
+
+Applied to FlexOffers as an alternative network path to tax-software brands (H&R Block in particular) that CJ blocks for Italy publishers. Approach:
+
+1. Drafted copy-paste-ready answers for all 3 application steps (identity, traffic source, verification) tailored to Finbrief × Italy publisher × US audience × W-8BEN with Codice Fiscale.
+2. User filled the form in their own browser (FlexOffers also hit the `document_idle` wall in Chrome MCP so couldn't drive it from here).
+3. Site ownership verified via `<meta name="fo-verify" content="83143839-f2d5-43c3-b39a-1e7cec99ce20" />` added to `src/app/layout.tsx`'s `metadata.verification.other`. Commit `fcbb7db` shipped; meta tag confirmed live on `https://finbrief.space/` before user clicked **Verify Website**.
+
+FlexOffers: **"we will review in 5 days"**. Once approved, apply to H&R Block program inside the FlexOffers advertiser directory.
+
 ### Where to pick up next session
 
-- **Verify the 10 GSC submissions** went through (URL Inspection → look for "Last crawl" or recent indexing-request timestamp on `how-to-pay-off-credit-card-debt`).
-- **GSC indexing (cont'd)** — 44 URLs left in backlog.
-- **Provision the 5 env vars on Vercel** so the newsletter cron actually fires Monday.
-- **Sixth content batch** — fresh-ideation candidates: HSA hub for parents, 529 deep-dive, sequence-of-returns risk, FSA explainer, disability insurance, umbrella insurance, taxes on Social Security benefits, estate-planning basics, ESPP guide.
-- **Affiliate sweep** — retry once Impact's Cloudflare clears, or have the user reconnect the Gmail MCP so we can check approval emails from the agent.
+- **FlexOffers approval check** — 5-day review window started 2026-06-05. Check publisher account around 2026-06-10. If approved, apply to H&R Block first.
+- **Newsletter Monday auto-fire** — first scheduled run is Monday 2026-06-08 14:00 UTC. Watch for the email in `admin@finbrief.space`.
+- **Betterment IO approval** — session log is ambiguous about whether the "I approve the Contract" button was actually clicked on the IO review page on 2026-06-02. User should log into Impact dashboard and confirm Betterment's status; if it shows "pending publisher signature" or similar, complete the approval.
+- **GSC indexing** — manual flow proven; user does 10/day. Remaining 46 URLs = ~5 sittings.
+- **Article-refresh cron** (Phase 4 Tier 2) — same architecture as the newsletter cron; weekly Haiku job emails proposed rate/date diffs. Worth building before article count crosses 100.
+- **Sixth content batch** — fresh-ideation candidates unchanged: HSA hub for parents, 529 deep-dive, sequence-of-returns risk, FSA explainer, disability insurance, umbrella insurance, taxes on Social Security benefits, estate-planning basics, ESPP guide.
+- **Per-article Haiku output refinement** — once real Monday emails arrive, tweak the system prompt based on what comes through.
 
-*Last updated: 2026-06-04 (GSC blind batch of 10 URLs submitted, recipe coords reused; Newsletter cron + Haiku + Resend pipeline shipped — open issue closed. End-to-end weekly flow is 30 seconds of manual beehiiv paste-and-send once 5 env vars are set on Vercel.)*
+*Last updated: 2026-06-04/05 (Newsletter cron + Haiku + Resend pipeline shipped end-to-end and verified working; SoFi Money CTAs added across 8 Save-tax articles to monetize the CJ-blocked tax-software gap; FlexOffers publisher application submitted under 5-day review; GSC blind-coordinate recipe definitively failed — switched to user-manual flow; 8 GSC URLs submitted manually today, backlog 46. Commits: `f8bb0de` newsletter cron, `b9056fc` forbid headings, `681dd46` SoFi CTAs, `fcbb7db` fo-verify meta tag.)*
