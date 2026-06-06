@@ -1037,3 +1037,57 @@ should return JSON `{ ok: true, report: {…}, delivery: { sent: true, id: "…"
 - Other open items unchanged.
 
 *Last updated: 2026-06-07 (Article-refresh cron shipped — Haiku-powered weekly staleness scanner, 6 articles/week, Tuesday 14:00 UTC, mirrors newsletter cron architecture, reuses all 5 existing env vars. Build clean at 103 routes.)*
+
+---
+
+## Session 2026-06-07 (continued) — Sixth content batch (8 articles)
+
+Pulled the eight remaining fresh-ideation candidates from the SESSION_LOG queue. Strategy: cover the gaps that complement existing cornerstones — disability/umbrella round out the Protect pillar, 529/FSA/SS-tax fill out Save tax, ESPP and sequence-of-returns close out high-value Invest topics, estate planning anchors the Protect end-of-life cluster.
+
+### Articles shipped (75–82 by count; total now 91 in `src/app/learn/`)
+
+| # | Slug | Pillar | Affiliates used |
+|---|---|---|---|
+| 75 | `529-plan-guide` | Save tax | fidelity, schwab, vanguard |
+| 76 | `fsa-explainer` | Save tax | lively, fidelity-hsa, healthequity |
+| 77 | `taxes-on-social-security-benefits` | Save tax | fidelity, schwab, vanguard |
+| 78 | `disability-insurance-guide` | Protect | policygenius |
+| 79 | `umbrella-insurance-guide` | Protect | geico, progressive, policygenius |
+| 80 | `estate-planning-basics` | Protect | policygenius, ethos, haven |
+| 81 | `espp-guide` | Invest | fidelity, schwab, vanguard |
+| 82 | `sequence-of-returns-risk` | Invest | fidelity, vanguard, schwab |
+
+Each article ships the full presentation spec (mixed content blocks, `<hr>` separators between H2s, comparison tables, bullet lists, strategic bold on numbers/key terms), `articleJsonLd` + `faqJsonLd`, FTC `AffiliateDisclosure` above the fold, Jahanzeb Nawaz as `author`, FinBrief Editorial Team as `reviewer`, dense cross-pillar internal linking (each links to 4–5 existing articles, including the newest cornerstones like `when-to-take-social-security`, `roth-conversion-ladder`, `asset-allocation-by-age`).
+
+### Affiliate registry
+
+No new partner keys; every CTA reuses existing keys (`fidelity`, `schwab`, `vanguard`, `policygenius`, `geico`, `progressive`, `lively`, `fidelity-hsa`, `healthequity`, `ethos`, `haven`). No `.env.example` changes, no Vercel env vars added.
+
+### Notable content choices
+
+- **529 article** leads with the SECURE 2.0 Roth rollover ($35K lifetime cap, 15-year-old-account requirement) since that's the biggest "what if my kid doesn't go to college?" objection-handler and a unique 2024+ angle.
+- **FSA article** is positioned as the "you should have an HSA instead, here's the fallback" piece — links heavily to existing HSA cornerstones rather than competing with them.
+- **Taxes on SS** highlights that the 1984/1993 thresholds were never indexed to inflation — the most underappreciated fact in retirement tax planning.
+- **Disability** leads with the SSA 1-in-4 stat to break through the "I don't need this" objection; positions employer LTD as inadequate for high earners (bonus/commission gap).
+- **Umbrella** frames it as "$1M for $300/year" — the highest dollar-per-coverage value in personal insurance.
+- **Estate planning** uses a 5-document table at the top; covers the federal exemption sunset risk (TCJA expiry end of 2025) honestly with a "verify before relying" caveat.
+- **ESPP** leads with the lookback math (15% discount + lookback = 17.6% minimum, can exceed 75% in rising markets); takes a clear "sell on purchase day, almost always" stance based on concentration risk.
+- **Sequence-of-returns** uses the dual-retiree worked example to make the math concrete; emphasizes the red-zone framing and the 5 defensive levers.
+
+### Build
+
+Clean compile, **110 routes** total (was 102 → +8 article pages). All 8 new articles statically prerendered.
+
+### Pillar table count
+
+Including the 10 newer articles flagged this morning (`asset-allocation-by-age`, `identity-theft-protection`, `ira-rmd-rules`, `long-term-care-insurance`, `medicare-basics-2026`, `mutual-funds-vs-etfs`, `qualified-vs-ordinary-dividends`, `roth-ira-5-year-rules`, `secure-2-0-changes-2026`, `when-to-take-social-security`) plus today's 8, the live count is **92 article files** in `src/app/learn/` (subtract `page.tsx` = 91 article pages + the index). The 74-article pillar table at the top of this file is now significantly out of sync. Worth a dedicated reconciliation pass before the count crosses 100.
+
+### Where to pick up
+
+- **Pillar table reconciliation** — bump the live-state pillar table to 91 articles with correct counts per pillar.
+- **GSC indexing for today's 8 + the prior 10** — quota resets daily; user does ~10/day in their own browser. Today's 8 are highest-confidence "not yet submitted" alongside any older URLs still in the 46-URL backlog.
+- **Newsletter Monday auto-fire** — first scheduled run still Monday 2026-06-08 14:00 UTC.
+- **Article-refresh Tuesday auto-fire** — first scheduled run Tuesday 2026-06-09 14:00 UTC.
+- All other open items unchanged.
+
+*Last updated: 2026-06-07 (Sixth content batch — 8 articles: 529-plan-guide, fsa-explainer, taxes-on-social-security-benefits, disability-insurance-guide, umbrella-insurance-guide, estate-planning-basics, espp-guide, sequence-of-returns-risk. 110 routes total. No new affiliates. Pillar table reconciliation pending — 91 articles live vs. 74 in table.)*
