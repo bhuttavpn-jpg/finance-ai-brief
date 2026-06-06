@@ -959,3 +959,81 @@ FlexOffers: **"we will review in 5 days"**. Once approved, apply to H&R Block pr
 - **Per-article Haiku output refinement** — once real Monday emails arrive, tweak the system prompt based on what comes through.
 
 *Last updated: 2026-06-04/05 (Newsletter cron + Haiku + Resend pipeline shipped end-to-end and verified working; SoFi Money CTAs added across 8 Save-tax articles to monetize the CJ-blocked tax-software gap; FlexOffers publisher application submitted under 5-day review; GSC blind-coordinate recipe definitively failed — switched to user-manual flow; 8 GSC URLs submitted manually today, backlog 46. Commits: `f8bb0de` newsletter cron, `b9056fc` forbid headings, `681dd46` SoFi CTAs, `fcbb7db` fo-verify meta tag.)*
+
+---
+
+## Session 2026-06-07 — GSC indexing batch (10 URLs, newest articles)
+
+User did 10 manual GSC submissions in their own browser. All 10 landed (no "Quota Exceeded" hit; daily cap unused for any prior URL this window). Batch targeted the 10 articles that had been added since the SESSION_LOG was last reconciled (article count is 83 in `src/app/learn/`, but the live-state pillar table still lists 74). These are the newest cornerstones, least likely to have been previously submitted:
+
+| # | URL | Result |
+|---|---|---|
+| 1 | `learn/asset-allocation-by-age` | ✅ Indexing requested |
+| 2 | `learn/identity-theft-protection` | ✅ Indexing requested |
+| 3 | `learn/ira-rmd-rules` | ✅ Indexing requested |
+| 4 | `learn/long-term-care-insurance` | ✅ Indexing requested |
+| 5 | `learn/medicare-basics-2026` | ✅ Indexing requested |
+| 6 | `learn/mutual-funds-vs-etfs` | ✅ Indexing requested |
+| 7 | `learn/qualified-vs-ordinary-dividends` | ✅ Indexing requested |
+| 8 | `learn/roth-ira-5-year-rules` | ✅ Indexing requested |
+| 9 | `learn/secure-2-0-changes-2026` | ✅ Indexing requested |
+| 10 | `learn/when-to-take-social-security` | ✅ Indexing requested |
+
+### Backlog reconciliation owed
+
+- Pillar table at top of file still says 74 articles; actual is 83. Needs a pass to slot the 10 newly-submitted articles into their correct pillars and bump counts.
+- Prior backlog was tracked as 46 URLs as of 2026-06-05. The 10 submitted today were *additions* on top of that backlog (newer articles), so the running backlog is now ~46 still — none of today's 10 were on the 46-URL list. Future batches should chip into the original 46.
+
+### Where to pick up next session
+
+- **GSC indexing (cont'd)** — ~46 older URLs still in the original backlog. Next batch should pull from articles 35–74 in the pillar table that haven't been submitted yet (sessions 2026-06-01 → 2026-06-04 logged 10–11/day submissions but the per-URL ledger is incomplete; safe approach is to pick 10 newer ones the user knows weren't done).
+- **Pillar-table reconciliation** — quick pass to add the 10 newer articles into the count.
+- All other open items unchanged from prior session.
+
+*Last updated: 2026-06-07 (GSC indexing batch — 10 newest articles submitted manually, all landed; backlog of older URLs still ~46. Pillar table reconciliation pending.)*
+
+---
+
+## Session 2026-06-07 (continued) — Article-refresh cron shipped
+
+Closes Phase 4 Tier 2 item from the next-steps list. Mirrors the newsletter cron architecture: same `CRON_SECRET` auth, same Anthropic SDK (Haiku 4.5), same Resend pipeline, same `NEWSLETTER_FROM` / `NEWSLETTER_DRAFT_TO` envs — zero new env vars.
+
+### What shipped
+
+- **`src/lib/article-refresh.ts`** — picks 6 articles/week from `siteConfig.articles` via deterministic ISO-week rotation (catalog sweep ≈ every 14 weeks at 83 articles). Reads each article's `.tsx` source from disk via `fs.readFile(process.cwd()/src/app/learn/<slug>/page.tsx)` — files ship with the Vercel deployment so this just works at runtime. Sends each article to Haiku with a system prompt that asks for a JSON array of `{ category, severity, excerpt, issue, suggestion }` findings, restricted to staleness-relevant categories (stale-rate, stale-date, stale-limit, stale-claim, other). Strict JSON parsing with code-fence stripping and per-article error capture so a single bad model response doesn't kill the batch.
+- **`src/app/api/cron/article-refresh/route.ts`** — `GET` handler with the same Bearer/`?secret=` auth as newsletter. Generates the report, console.logs structured summary, emails an HTML digest via Resend, returns JSON. `maxDuration = 300` (6 sequential Haiku calls × ~5–15s each, with headroom). HTML digest groups findings by article, color-codes by severity, links each title back to the live URL so the editor can click → review → patch.
+- **`vercel.json`** — added cron `0 14 * * 2` (Tuesdays 14:00 UTC = 9am ET, day after newsletter).
+
+### Why these defaults
+
+- **6 articles/week × 14 weeks ≈ full sweep** matches the "evergreen explainers annually, rate-sensitive content quarterly" cadence from CLAUDE.md house style. Tune via `ARTICLES_PER_WEEK` constant.
+- **Sequential, not parallel.** 6 Haiku calls is cheap (~$0.03/week total). Parallelizing would risk rate limits and complicate the per-article error rollup.
+- **Diff-proposer, not diff-applier.** Editor reviews and patches in code. We don't ever write to article TSX from the cron — too easy to silently corrupt YMYL content.
+- **No new env vars.** Reuses `ANTHROPIC_API_KEY`, `CRON_SECRET`, `RESEND_API_KEY`, `NEWSLETTER_FROM`, `NEWSLETTER_DRAFT_TO` already on Vercel. Subject line prefix differentiates: `[Finbrief refresh, wk N] N flags across 6 articles`.
+
+### Build
+
+Clean. New dynamic route `ƒ /api/cron/article-refresh` registered. 103 routes total (was 102).
+
+### Smoke test
+
+Local route hasn't been hit — needs `ANTHROPIC_API_KEY` and runs against the deployed environment. After commit + Vercel deploy:
+
+```
+curl "https://finbrief.space/api/cron/article-refresh?secret=$CRON_SECRET"
+```
+
+should return JSON `{ ok: true, report: {…}, delivery: { sent: true, id: "…" } }` and email an HTML digest to `admin@finbrief.space`. First scheduled auto-fire: **Tuesday 2026-06-09 14:00 UTC**.
+
+### Tuning notes for after the first run
+
+- If Haiku is over-eager (false-flagging evergreen content), tighten the "Do NOT flag" list in `SYSTEM_PROMPT`.
+- If it's under-eager (missing real staleness), add concrete IRS-figure references inline to the system prompt so it has anchor numbers to compare against.
+- If 6/week feels like too much email noise, drop to 4. If too slow to surface real issues, bump to 8.
+
+### Where to pick up
+
+- **Watch Tuesday 2026-06-09 14:00 UTC** for first auto-fire email. Triage findings, decide on prompt tuning.
+- Other open items unchanged.
+
+*Last updated: 2026-06-07 (Article-refresh cron shipped — Haiku-powered weekly staleness scanner, 6 articles/week, Tuesday 14:00 UTC, mirrors newsletter cron architecture, reuses all 5 existing env vars. Build clean at 103 routes.)*
