@@ -4,7 +4,7 @@
 
 ---
 
-## Live state (as of 2026-06-05)
+## Live state (as of 2026-06-07)
 
 ### Deployment
 
@@ -14,7 +14,7 @@
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
 | Latest commit | `fcbb7db` — FlexOffers `fo-verify` meta tag on root layout (preceded by `681dd46` SoFi Money CTAs across 8 Save-tax articles; `b9056fc` newsletter prompt tightening; `f8bb0de` newsletter cron + Haiku + Resend pipeline) |
-| Build | clean, **102 routes**, all 84 articles statically prerendered, `ƒ /api/cron/newsletter` dynamic route added |
+| Build | clean, **110 routes**, all 92 articles statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
 | Vercel env vars | **37 total** (32 affiliate + 5 newsletter: `CRON_SECRET`, `ANTHROPIC_API_KEY`, `RESEND_API_KEY`, `NEWSLETTER_FROM`, `NEWSLETTER_DRAFT_TO`). 2 paying real affiliate URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages with `defaultUrl` fallback. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
@@ -23,21 +23,21 @@
 
 ### Author + editorial (E-E-A-T)
 
-- Named author across all 74 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
+- Named author across all 92 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
 - Named reviewer: **FinBrief Editorial Team**; `/editorial-standards` page describes the process.
 - Schema validated by Google's Rich Results Test (`author` + `reviewedBy` + valid datetimes + image).
 
-### Articles shipped (74 cornerstones)
+### Articles shipped (92 cornerstones)
 
-Original Phase 2 plan called for 10 cornerstones. We're 64 ahead. The workbook calendar (71 article slots) is now fully exhausted minus a handful of dupes; this batch went 6 from workbook + 4 logical extensions.
+Original Phase 2 plan called for 10. We're 82 ahead. The workbook calendar (71 article slots) is fully exhausted; everything past that is fresh ideation. Reconciled 2026-06-07 — pillar counts derived directly from `siteConfig.articles`. **Bold** entries are the newest additions (2026-06-02 → 2026-06-07 sessions: 10 mid-batch articles + the 2026-06-07 sixth content batch of 8).
 
 | Pillar | Count | Slugs |
 |---|---|---|
-| Budget | 12 | how-to-budget-50-30-20, best-hysa-2026, how-to-build-emergency-fund, couples-budgeting-guide, debt-snowball-vs-avalanche, how-to-pay-off-credit-card-debt, best-budgeting-apps-2026, how-to-budget, how-to-pay-off-debt, how-to-stop-living-paycheck-to-paycheck, **how-much-should-emergency-fund-be**, **how-to-save-money-fast** |
-| Invest | 14 | roth-ira-vs-traditional-ira, how-to-invest-1000-beginners, 401k-vs-ira-which-first, best-brokerage-accounts-beginners, how-much-to-contribute-to-401k, robinhood-review, how-much-do-i-need-to-retire, fidelity-vs-schwab, fire-movement-guide, how-to-invest-in-stocks, vanguard-vs-fidelity, webull-review, **dollar-cost-averaging-vs-lump-sum**, **how-to-choose-a-financial-advisor** |
-| Save tax | 19 | roth-ira-contribution-limits-2026, tax-loss-harvesting-guide, backdoor-roth-ira-guide, tax-brackets-2026, best-tax-software-2026, how-to-file-taxes-for-free, turbotax-vs-taxact, freetaxusa-review, hsa-vs-fsa, hsa-as-retirement-account, best-hsa-providers, capital-gains-tax-2026, mega-backdoor-roth-guide, standard-vs-itemized-deduction, tax-loss-harvesting-wash-sale-rule, tax-deductions-checklist, **short-vs-long-term-capital-gains**, **when-to-hire-a-cpa**, **roth-conversion-ladder** |
-| Borrow smart | 20 | how-to-build-credit-from-scratch, best-travel-credit-cards-2026, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, chase-sapphire-preferred-review, what-affects-your-credit-score, best-personal-loans-2026, how-to-get-a-mortgage, amex-gold-card-review, credit-utilization-ratio, when-to-refinance-mortgage, personal-loan-vs-credit-card, best-business-credit-cards, how-credit-cards-work, best-credit-cards-for-fair-credit, student-loan-refinance, best-student-credit-cards, how-to-check-credit-score-for-free, **sofi-personal-loan-review**, **debt-consolidation-loan** |
-| Protect | 9 | best-term-life-insurance-young-professionals, term-vs-whole-life-insurance, how-much-life-insurance-do-i-need, best-life-insurance-companies-2026, best-car-insurance-companies-2026, hmo-vs-ppo-vs-hdhp, how-to-lower-car-insurance, how-much-car-insurance-do-i-need, **renters-vs-homeowners-insurance** |
+| Budget | 12 | best-budgeting-apps-2026, best-hysa-2026, couples-budgeting-guide, debt-snowball-vs-avalanche, how-much-should-emergency-fund-be, how-to-budget, how-to-budget-50-30-20, how-to-build-emergency-fund, how-to-pay-off-credit-card-debt, how-to-pay-off-debt, how-to-save-money-fast, how-to-stop-living-paycheck-to-paycheck |
+| Invest | 19 | 401k-vs-ira-which-first, **asset-allocation-by-age**, best-brokerage-accounts-beginners, dollar-cost-averaging-vs-lump-sum, **espp-guide**, fidelity-vs-schwab, fire-movement-guide, how-much-do-i-need-to-retire, how-much-to-contribute-to-401k, how-to-choose-a-financial-advisor, how-to-invest-1000-beginners, how-to-invest-in-stocks, **mutual-funds-vs-etfs**, robinhood-review, roth-ira-vs-traditional-ira, **sequence-of-returns-risk**, vanguard-vs-fidelity, webull-review, **when-to-take-social-security** |
+| Save tax | 26 | **529-plan-guide**, backdoor-roth-ira-guide, best-hsa-providers, best-tax-software-2026, capital-gains-tax-2026, freetaxusa-review, **fsa-explainer**, how-to-file-taxes-for-free, hsa-as-retirement-account, hsa-vs-fsa, **ira-rmd-rules**, mega-backdoor-roth-guide, **qualified-vs-ordinary-dividends**, roth-conversion-ladder, **roth-ira-5-year-rules**, roth-ira-contribution-limits-2026, **secure-2-0-changes-2026**, short-vs-long-term-capital-gains, standard-vs-itemized-deduction, tax-brackets-2026, tax-deductions-checklist, tax-loss-harvesting-guide, tax-loss-harvesting-wash-sale-rule, **taxes-on-social-security-benefits**, turbotax-vs-taxact, when-to-hire-a-cpa |
+| Borrow smart | 20 | amex-gold-card-review, best-business-credit-cards, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, best-credit-cards-for-fair-credit, best-personal-loans-2026, best-student-credit-cards, best-travel-credit-cards-2026, chase-sapphire-preferred-review, credit-utilization-ratio, debt-consolidation-loan, how-credit-cards-work, how-to-build-credit-from-scratch, how-to-check-credit-score-for-free, how-to-get-a-mortgage, personal-loan-vs-credit-card, sofi-personal-loan-review, student-loan-refinance, what-affects-your-credit-score, when-to-refinance-mortgage |
+| Protect | 15 | best-car-insurance-companies-2026, best-life-insurance-companies-2026, best-term-life-insurance-young-professionals, **disability-insurance-guide**, **estate-planning-basics**, hmo-vs-ppo-vs-hdhp, how-much-car-insurance-do-i-need, how-much-life-insurance-do-i-need, how-to-lower-car-insurance, **identity-theft-protection**, **long-term-care-insurance**, **medicare-basics-2026**, renters-vs-homeowners-insurance, term-vs-whole-life-insurance, **umbrella-insurance-guide** |
 
 Article presentation spec (apply to every new article): mixed content blocks (comparison tables + bullets + inline Q&A + ≤5-sentence paragraphs), strategic bold on numbers/key terms, `<hr className="my-10 border-brand-100" />` separators between H2s (except "Related reading"), Jahanzeb Nawaz as `author`, "the FinBrief Editorial Team" as `reviewer`. Every article: `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` for step-by-steps), FTC `AffiliateDisclosure` above the fold, dense cross-pillar internal linking.
 
@@ -1091,3 +1091,39 @@ Including the 10 newer articles flagged this morning (`asset-allocation-by-age`,
 - All other open items unchanged.
 
 *Last updated: 2026-06-07 (Sixth content batch — 8 articles: 529-plan-guide, fsa-explainer, taxes-on-social-security-benefits, disability-insurance-guide, umbrella-insurance-guide, estate-planning-basics, espp-guide, sequence-of-returns-risk. 110 routes total. No new affiliates. Pillar table reconciliation pending — 91 articles live vs. 74 in table.)*
+
+---
+
+## Session 2026-06-07 (continued) — Pillar-table reconciliation
+
+Closed the standing "pillar table out of sync" item. Pulled fresh slug+pillar pairs directly from `siteConfig.articles` to rebuild the Articles-shipped table in the Live state header.
+
+### Final counts (derived from `src/lib/site-config.ts`)
+
+| Pillar | Count |
+|---|---|
+| Budget | 12 |
+| Invest | 19 |
+| Save tax | 26 |
+| Borrow smart | 20 |
+| Protect | 15 |
+| **Total** | **92** |
+
+Matches `ls src/app/learn/ \| grep -v page.tsx \| wc -l` = 92. Build still clean at 110 routes (added cron route + 92 articles + tools + ancillary pages).
+
+### What also updated
+
+- Live-state header date: 2026-06-05 → 2026-06-07.
+- Build row: "102 routes / 84 articles" → "110 routes / 92 articles" + added the article-refresh cron route to the dynamic-routes mention.
+- E-E-A-T line: "Named author across all 74 articles" → "all 92 articles".
+- Articles-shipped table rebuilt with new entries bolded so the diff over the prior ~74-article table is visible at a glance.
+
+### Where to pick up
+
+- **GSC indexing for today's 8 + any of yesterday's 10 not yet picked up.** Same daily ~10 manual flow.
+- **Newsletter Monday 2026-06-08 14:00 UTC auto-fire** — first scheduled run; watch admin@finbrief.space.
+- **Article-refresh Tuesday 2026-06-09 14:00 UTC auto-fire** — first scheduled run; expect a digest with 6 articles' staleness flags.
+- **FlexOffers approval check** — 5-day window from 2026-06-05, decision expected ~2026-06-10.
+- Other open items unchanged.
+
+*Last updated: 2026-06-07 (Pillar table reconciled — 92 articles across 5 pillars, derived directly from siteConfig.articles. Live state header dates + counts refreshed to match. SESSION_LOG and reality back in sync.)*
