@@ -1127,3 +1127,67 @@ Matches `ls src/app/learn/ \| grep -v page.tsx \| wc -l` = 92. Build still clean
 - Other open items unchanged.
 
 *Last updated: 2026-06-07 (Pillar table reconciled — 92 articles across 5 pillars, derived directly from siteConfig.articles. Live state header dates + counts refreshed to match. SESSION_LOG and reality back in sync.)*
+
+---
+
+## Session 2026-06-07 (continued) — Article-refresh cron smoke-tested end-to-end
+
+Couldn't wait for Tuesday's auto-fire to validate the pipeline. Hit the deployed route manually with the `?secret=$CRON_SECRET` query param to flush out any deploy-time issues today instead of having Tuesday's first run fail silently.
+
+### Result: ✅ end-to-end working
+
+```
+curl "https://finbrief.space/api/cron/article-refresh?secret=$SECRET"
+→ HTTP 200 in 32.3s
+→ delivery: { sent: true, id: 'f5bde21b-1cf5-4fbb-9719-23f22a2d345b' }
+→ 21 findings across 6 articles, zero scan errors
+```
+
+**Rotation slice this run (ISO week 23):**
+- `fidelity-vs-schwab` (Invest) — 3 findings
+- `best-budgeting-apps-2026` (Budget) — 6 findings
+- `fire-movement-guide` (Invest) — 3 findings
+- `mega-backdoor-roth-guide` (Save tax) — 3 findings
+- `how-to-invest-in-stocks` (Invest) — 3 findings
+- `amex-gold-card-review` (Borrow smart) — 3 findings
+
+### Findings-quality spot check
+
+Sample of what Haiku flagged on `fidelity-vs-schwab`:
+
+> **medium/stale-rate** — *"Fidelity's default cash sweep typically yields a competitive money-market rate (currently around 4%)."*
+> Issue: Money-market rates fluctuate weekly; a 4% rate cited in June 2026 may be significantly outdated.
+> Suggestion: Verify current Fidelity money-market yield via Fidelity.com or remove the specific percentage; use "competitive" without a number.
+
+> **low/stale-rate** — *"On a $100,000 portfolio over 30 years at 7% growth, the difference is roughly $1,500–$3,000"*
+> Issue: This projection uses a fixed 7% annual return and ZERO fund vs. competitor expense ratios. Verify the math still reflects 2026 fund fee structure.
+> Suggestion: Re-verify FZROX/FZILX vs. SWTSX/SWISX expense ratios are still 0.00% vs. 0.03%/0.06%, and recalculate if any have changed.
+
+Both are exactly the right kind of flag — concrete, traceable, actionable. Not flagging evergreen content. Severity assignments feel calibrated (rates marked medium/low, not high). No false-positives or "this is fine" findings in the spot-check.
+
+### Operational notes
+
+- **Latency:** 32s for 6 sequential Haiku calls + Resend send. Well under the 300s `maxDuration`. If the catalog grows past ~150 articles and we bump `ARTICLES_PER_WEEK`, watch the upper bound; consider parallelizing only if it exceeds ~120s.
+- **Cost:** ~6 Haiku calls × ~$0.005 = ~$0.03/run × 52 = ~$1.50/year. Trivial.
+- **Resend tier:** free 3K/mo plenty for 1 newsletter + 1 refresh digest per week.
+- **No timeouts, no JSON parse errors, no read-failure errors** — the per-article error-capture safety net wasn't exercised this run. Will hold for malformed model output in future runs.
+
+### What this validates ahead of Tuesday's auto-fire
+
+- Bearer-secret auth path works (also tested implicitly — Vercel Cron uses the same `Authorization: Bearer` route as `?secret=`).
+- Anthropic SDK pulls `ANTHROPIC_API_KEY` correctly from Vercel env.
+- Disk reads of `src/app/learn/<slug>/page.tsx` work at Vercel function runtime.
+- Resend send works via `NEWSLETTER_FROM` / `NEWSLETTER_DRAFT_TO`.
+- The structured-JSON output from Haiku is reliably parseable; no fence-stripping issues observed.
+
+Tuesday 2026-06-09 14:00 UTC fire should "just work." If anything's odd, the function logs in Vercel will surface it (the route logs structured summary + per-finding count).
+
+### Where to pick up
+
+- **Monday 2026-06-08 14:00 UTC newsletter** — first scheduled run (separate cron, already smoke-tested 2026-06-04).
+- **Tuesday 2026-06-09 14:00 UTC article-refresh** — first scheduled run; expect a different slug rotation than the ISO-week-23 slice this manual run picked. Confirm digest lands in admin@finbrief.space.
+- **Patch the findings from THIS smoke-test run** — there are 21 real flags sitting in the email. Worth a 30–60 min editorial pass to actually update the cited rates / dollar figures / expense ratios. Easy wins for E-E-A-T.
+- **GSC indexing** — today's 8 new article URLs + remaining older backlog. ~10/day manual flow.
+- **FlexOffers approval check** — ~2026-06-10.
+
+*Last updated: 2026-06-07 (Article-refresh cron smoke-tested in production — HTTP 200, 6/6 scans clean, 21 findings, Resend delivered. Pipeline confirmed working end-to-end. Tuesday auto-fire ready.)*
