@@ -12,6 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/editorial-standards`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${base}/author/jahanzeb-nawaz`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
   ];
+  // Pillar hub pages — high priority; they're the topic-cluster homes.
+  for (const p of siteConfig.pillars) {
+    entries.push({
+      url: `${base}/learn/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
+  }
   for (const t of siteConfig.tools) {
     entries.push({
       url: `${base}/tools/${t.slug}`,
