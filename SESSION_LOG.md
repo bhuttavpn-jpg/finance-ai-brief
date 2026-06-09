@@ -46,7 +46,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 | Status | Partners |
 |---|---|
 | ✅ Live (paying) | Wise, SoFi Money |
-| ⏳ Under review | Ethos Life (Impact, $55/lead), Betterment (Impact, tiered $100–$500/funded ref — but unclear if final "I approve" was clicked on IO review page on 2026-06-02; user to confirm), **FlexOffers (publisher application submitted 2026-06-05, 5-day review window — gateway to H&R Block + other tax-software brands CJ won't approve)** |
+| ⏳ Under review | Ethos Life (Impact, $55/lead), Betterment (Impact, tiered $100–$500/funded ref — **confirmed 2026-06-08 via Impact notification "Your Betterment application was sent" dated 2026-06-02; not yet in My Partnerships because still pending Betterment review**), **FlexOffers (publisher application submitted 2026-06-05, 5-day review window — gateway to H&R Block + other tax-software brands CJ won't approve)** |
 | ❌ Rejected (confirmed 2026-06-02) | Policygenius (HasOffers) — likely Italy×US-only mismatch |
 | ✅ Platform activated (no programs yet) | CJ Affiliate publisher `finbriefspace` (property ID 101766442) |
 | ❌ Structural blocker — Italy × US-only auto-decline (CJ) | Ally, FreeTaxUSA, TaxAct (and likely most US-only CJ programs) |
@@ -76,7 +76,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 1. Standard checklist (read this file, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
 2. **FlexOffers approval check** — 5-day review started 2026-06-05. Expect decision by ~2026-06-10. If approved, apply to H&R Block program inside FlexOffers as first.
 3. **Newsletter Monday auto-fire verification** — first scheduled run is Monday 2026-06-08 14:00 UTC. Confirm email lands in `admin@finbrief.space`.
-4. **Betterment IO status check** — session log is ambiguous about whether the 2026-06-02 "I approve the Contract" click on the IO review page actually happened. User should log into Impact and confirm Betterment shows "pending" or further along.
+4. ~~**Betterment IO status check** — session log is ambiguous about whether the 2026-06-02 "I approve the Contract" click on the IO review page actually happened.~~ ✅ Resolved 2026-06-08 — Impact notification confirms "Your Betterment application was sent" on 2026-06-02. Brand not yet in My Partnerships search (no results) because Impact's Partnerships surface only lists approved/active brands, not pending. Application is sitting in Betterment's queue. No action needed; wait for decision.
 5. **GSC indexing (manual)** — 46 URLs left in backlog. User does ~10/day in their own browser (the Chrome MCP blind-coordinate approach is dead).
 6. **Article-refresh cron (Phase 4 Tier 2)** — same architecture as the newsletter cron. Weekly Haiku job scans articles for stale rates/dates, emails proposed diff. Worth building before article count crosses 100.
 7. **Sixth content batch** — fresh-ideation candidates: HSA hub for parents (kids+HSA), step-up in basis explainer, 529 plan deep-dive, FSA explainer, sequence-of-returns risk, disability insurance, umbrella insurance, taxes on Social Security benefits, estate-planning basics, ESPP guide.
