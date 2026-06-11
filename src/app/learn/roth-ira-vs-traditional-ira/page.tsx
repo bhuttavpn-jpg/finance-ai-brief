@@ -70,6 +70,11 @@ export default function Page() {
         <AffiliateDisclosure className="mb-8" />
 
         <div className="prose prose-lg max-w-none">
+          <p className="lead">
+            <strong>Choose a Roth IRA if you expect to be in a higher tax bracket in retirement; choose a Traditional IRA if you expect a lower one.</strong>{" "}
+            For most workers under 35, that means Roth — and the math works out within ~10% either way for the typical mid-career earner, so don&apos;t agonize.
+          </p>
+
           <h2>The 30-second answer</h2>
           <ul>
             <li>If you expect a <strong>higher tax bracket in retirement</strong>, go Roth. Pay tax now at today&apos;s lower rate, withdraw tax-free later.</li>

@@ -83,6 +83,11 @@ export default function Page() {
         <AffiliateDisclosure className="mb-8" />
 
         <div className="prose prose-lg max-w-none">
+          <p className="lead">
+            <strong>The 50/30/20 rule says spend 50% of your take-home pay on needs, 30% on wants, and save 20%.</strong>{" "}
+            It&apos;s the simplest workable budget for most American households earning $40K–$200K — and the calculator below applies it to your real numbers in under a minute.
+          </p>
+
           <h2>The rule in one sentence</h2>
           <p>
             Split every dollar of take-home pay into three buckets: <strong>50% for needs</strong>{" "}
