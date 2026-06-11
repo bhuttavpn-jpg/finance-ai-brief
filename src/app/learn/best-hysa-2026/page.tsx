@@ -6,6 +6,7 @@ import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { AffiliateButton } from "@/components/content/AffiliateButton";
 import { FAQ, type QA } from "@/components/content/FAQ";
 import { JsonLd, articleJsonLd, faqJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { HysaLeaderboard } from "@/components/content/HysaLeaderboard";
 import { siteConfig } from "@/lib/site-config";
 
 const slug = "best-hysa-2026";
@@ -86,6 +87,8 @@ export default function Page() {
         />
 
         <AffiliateDisclosure className="mb-8" />
+
+        <HysaLeaderboard />
 
         <div className="prose prose-lg max-w-none">
           <p className="lead">
