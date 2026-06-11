@@ -90,6 +90,30 @@ export function faqJsonLd(items: Array<{ q: string; a: string }>) {
   };
 }
 
+// BreadcrumbList for article pages. Mirrors the visible breadcrumb on a
+// hub page (Home → Learn → Pillar → Article) so Google can resolve the
+// hub-and-spoke topology even without crawling the hub. The pillar slug
+// is resolved from siteConfig.pillars by label match — pass the same
+// label string ("Save tax", "Borrow smart", etc.) you pass to
+// ArticleHeader's `pillar` prop.
+export function breadcrumbJsonLd(args: { url: string; title: string; pillar: string }) {
+  const pillarEntry = siteConfig.pillars.find((p) => p.label === args.pillar);
+  const pillarSlug = pillarEntry?.slug ?? "learn";
+  const pillarUrl = pillarEntry
+    ? `${siteConfig.url}/learn/${pillarSlug}`
+    : `${siteConfig.url}/learn`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Learn", item: `${siteConfig.url}/learn` },
+      { "@type": "ListItem", position: 3, name: args.pillar, item: pillarUrl },
+      { "@type": "ListItem", position: 4, name: args.title, item: args.url },
+    ],
+  };
+}
+
 export function howToJsonLd(args: { name: string; steps: Array<{ name: string; text: string }> }) {
   return {
     "@context": "https://schema.org",

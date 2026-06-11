@@ -4,11 +4,7 @@ import { ArticleHeader } from "@/components/content/ArticleHeader";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { FAQ, type QA } from "@/components/content/FAQ";
 import { RothComparator } from "@/components/tools/RothComparator";
-import {
-  JsonLd,
-  articleJsonLd,
-  faqJsonLd,
-} from "@/components/seo/JsonLd";
+import { JsonLd, articleJsonLd, faqJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
 const slug = "roth-ira-vs-traditional-ira";
@@ -55,6 +51,7 @@ export default function Page() {
         publishedAt: "2026-05-17", updatedAt: "2026-05-17",
         author: "Jahanzeb Nawaz",
       })} />
+      <JsonLd data={breadcrumbJsonLd({ url, title, pillar: "Invest" })} />
       <JsonLd data={faqJsonLd(FAQS)} />
 
       <article className="container-prose py-16">

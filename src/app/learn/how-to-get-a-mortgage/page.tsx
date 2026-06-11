@@ -4,7 +4,7 @@ import { ArticleHeader } from "@/components/content/ArticleHeader";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { AffiliateButton } from "@/components/content/AffiliateButton";
 import { FAQ, type QA } from "@/components/content/FAQ";
-import { JsonLd, articleJsonLd, faqJsonLd, howToJsonLd } from "@/components/seo/JsonLd";
+import { JsonLd, articleJsonLd, faqJsonLd, howToJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-get-a-mortgage";
@@ -73,6 +73,7 @@ export default function Page() {
           author: "Jahanzeb Nawaz",
         })}
       />
+      <JsonLd data={breadcrumbJsonLd({ url, title, pillar: "Borrow smart" })} />
       <JsonLd data={faqJsonLd(FAQS)} />
       <JsonLd data={howToJsonLd({ name: "How to get a mortgage", steps: STEPS })} />
 

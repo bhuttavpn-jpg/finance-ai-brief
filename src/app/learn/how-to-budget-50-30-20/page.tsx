@@ -4,12 +4,7 @@ import { ArticleHeader } from "@/components/content/ArticleHeader";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { FAQ, type QA } from "@/components/content/FAQ";
 import { BudgetCalculator } from "@/components/tools/BudgetCalculator";
-import {
-  JsonLd,
-  articleJsonLd,
-  faqJsonLd,
-  howToJsonLd,
-} from "@/components/seo/JsonLd";
+import { JsonLd, articleJsonLd, faqJsonLd, howToJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-budget-50-30-20";
@@ -68,6 +63,7 @@ export default function Page() {
           author: "Jahanzeb Nawaz",
         })}
       />
+      <JsonLd data={breadcrumbJsonLd({ url, title, pillar: "Budget" })} />
       <JsonLd data={howToJsonLd({ name: title, steps: HOWTO_STEPS })} />
       <JsonLd data={faqJsonLd(FAQS)} />
 

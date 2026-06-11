@@ -4,7 +4,7 @@ import { ArticleHeader } from "@/components/content/ArticleHeader";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { AffiliateButton } from "@/components/content/AffiliateButton";
 import { FAQ, type QA } from "@/components/content/FAQ";
-import { JsonLd, articleJsonLd, faqJsonLd } from "@/components/seo/JsonLd";
+import { JsonLd, articleJsonLd, faqJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
 const slug = "estate-planning-basics";
@@ -57,6 +57,7 @@ export default function Page() {
           author: "Jahanzeb Nawaz",
         })}
       />
+      <JsonLd data={breadcrumbJsonLd({ url, title, pillar: "Protect" })} />
       <JsonLd data={faqJsonLd(FAQS)} />
 
       <article className="container-prose py-16">

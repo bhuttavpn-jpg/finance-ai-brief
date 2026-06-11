@@ -4,12 +4,7 @@ import { ArticleHeader } from "@/components/content/ArticleHeader";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { AffiliateButton } from "@/components/content/AffiliateButton";
 import { FAQ, type QA } from "@/components/content/FAQ";
-import {
-  JsonLd,
-  articleJsonLd,
-  faqJsonLd,
-  howToJsonLd,
-} from "@/components/seo/JsonLd";
+import { JsonLd, articleJsonLd, faqJsonLd, howToJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-invest-1000-beginners";
@@ -77,6 +72,7 @@ export default function Page() {
           author: "Jahanzeb Nawaz",
         })}
       />
+      <JsonLd data={breadcrumbJsonLd({ url, title, pillar: "Invest" })} />
       <JsonLd data={howToJsonLd({ name: title, steps: HOWTO_STEPS })} />
       <JsonLd data={faqJsonLd(FAQS)} />
 

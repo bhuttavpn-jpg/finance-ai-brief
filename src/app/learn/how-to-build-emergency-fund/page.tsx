@@ -4,7 +4,7 @@ import { ArticleHeader } from "@/components/content/ArticleHeader";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { AffiliateButton } from "@/components/content/AffiliateButton";
 import { FAQ, type QA } from "@/components/content/FAQ";
-import { JsonLd, articleJsonLd, faqJsonLd, howToJsonLd } from "@/components/seo/JsonLd";
+import { JsonLd, articleJsonLd, faqJsonLd, howToJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-build-emergency-fund";
@@ -61,6 +61,7 @@ export default function Page() {
           author: "Jahanzeb Nawaz",
         })}
       />
+      <JsonLd data={breadcrumbJsonLd({ url, title, pillar: "Budget" })} />
       <JsonLd data={faqJsonLd(FAQS)} />
       <JsonLd
         data={howToJsonLd({
