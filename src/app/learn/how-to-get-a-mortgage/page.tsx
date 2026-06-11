@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-get-a-mortgage";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "How to get a mortgage (2026 step-by-step guide)";
+const title = "How to get a mortgage in 2026: a step-by-step buyer's checklist";
 const description =
   "A practical 2026 guide to getting a mortgage: credit score and DTI targets, the exact paperwork lenders want, pre-approval vs. pre-qualification, and how to shop rates without tanking your credit score.";
 const PUBLISHED = "2026-06-01";

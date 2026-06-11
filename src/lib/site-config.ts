@@ -23,7 +23,7 @@ export const siteConfig = {
   articles: [
     {
       slug: "how-to-budget-50-30-20",
-      title: "How to Budget Using the 50/30/20 Rule",
+      title: "50/30/20 budget rule: a realistic example with calculator",
       pillar: "Budget",
       tool: "budget-50-30-20",
       keyword: "50/30/20 budget",
@@ -32,7 +32,7 @@ export const siteConfig = {
     },
     {
       slug: "roth-ira-vs-traditional-ira",
-      title: "Roth IRA vs. Traditional IRA: Which Should You Choose?",
+      title: "Roth IRA vs traditional IRA: which should you choose in 2026?",
       pillar: "Invest",
       tool: "roth-vs-traditional",
       keyword: "roth ira vs traditional ira",
@@ -41,7 +41,7 @@ export const siteConfig = {
     },
     {
       slug: "best-hysa-2026",
-      title: "Best high-yield savings accounts 2026",
+      title: "Best high-yield savings accounts (2026): top 10 APYs compared",
       pillar: "Budget",
       tool: "budget-50-30-20",
       keyword: "best HYSA",
@@ -50,7 +50,7 @@ export const siteConfig = {
     },
     {
       slug: "how-to-invest-1000-beginners",
-      title: "How to invest $1,000 for beginners",
+      title: "How to invest $1,000 for beginners: a 4-step starter plan",
       pillar: "Invest",
       tool: "401k-match",
       keyword: "how to invest $1,000",
@@ -68,7 +68,7 @@ export const siteConfig = {
     },
     {
       slug: "how-to-build-credit-from-scratch",
-      title: "How to build credit from scratch",
+      title: "How to build credit from scratch: a 12-month plan that actually works",
       pillar: "Borrow smart",
       tool: "tax-bracket",
       keyword: "how to build credit",
@@ -77,7 +77,7 @@ export const siteConfig = {
     },
     {
       slug: "best-travel-credit-cards-2026",
-      title: "Best travel credit cards 2026",
+      title: "Best travel credit cards 2026: points, miles, and lounge access",
       pillar: "Borrow smart",
       tool: "tax-bracket",
       keyword: "best travel credit cards",
@@ -86,7 +86,7 @@ export const siteConfig = {
     },
     {
       slug: "roth-ira-contribution-limits-2026",
-      title: "Roth IRA contribution limits 2026",
+      title: "Roth IRA contribution limits 2026: Income rules and how much you can contribute",
       pillar: "Save tax",
       tool: "roth-vs-traditional",
       keyword: "roth ira contribution limits 2026",
@@ -104,7 +104,7 @@ export const siteConfig = {
     },
     {
       slug: "401k-vs-ira-which-first",
-      title: "401(k) vs. IRA: Which should you fund first?",
+      title: "401(k) or IRA: which should you fund first in 2026?",
       pillar: "Invest",
       tool: "401k-match",
       keyword: "401k vs ira which first",
@@ -140,7 +140,7 @@ export const siteConfig = {
     },
     {
       slug: "best-cashback-credit-cards-2026",
-      title: "Best cashback credit cards 2026",
+      title: "Best cashback credit cards 2026: 2%, 5%, and category-bonus picks",
       pillar: "Borrow smart",
       tool: "tax-bracket",
       keyword: "best cashback credit cards",
@@ -149,7 +149,7 @@ export const siteConfig = {
     },
     {
       slug: "how-much-life-insurance-do-i-need",
-      title: "How much life insurance do I need?",
+      title: "How much life insurance do I need? DIME formula + calculator",
       pillar: "Protect",
       tool: "life-insurance",
       keyword: "how much life insurance do i need",
@@ -158,7 +158,7 @@ export const siteConfig = {
     },
     {
       slug: "best-brokerage-accounts-beginners",
-      title: "Best brokerage accounts for beginners (2026)",
+      title: "Best brokerage accounts for beginners (2026): Fidelity, Schwab, Vanguard compared",
       pillar: "Invest",
       tool: "401k-match",
       keyword: "best brokerage accounts for beginners",
@@ -194,7 +194,7 @@ export const siteConfig = {
     },
     {
       slug: "tax-brackets-2026",
-      title: "Federal income tax brackets 2026: Complete IRS tables",
+      title: "2026 federal income tax brackets (for returns filed in 2027)",
       pillar: "Save tax",
       tool: "tax-bracket",
       keyword: "federal income tax brackets 2026",
@@ -275,7 +275,7 @@ export const siteConfig = {
     },
     {
       slug: "best-credit-cards-for-beginners",
-      title: "Best credit cards for beginners (2026)",
+      title: "Best credit cards for beginners (2026): build credit without an annual fee",
       pillar: "Borrow smart",
       tool: "tax-bracket",
       keyword: "best credit cards for beginners",
@@ -311,7 +311,7 @@ export const siteConfig = {
     },
     {
       slug: "how-much-do-i-need-to-retire",
-      title: "How much do I need to retire? (2026)",
+      title: "How much do I need to retire? The 25× rule with a real example",
       pillar: "Invest",
       tool: "401k-match",
       keyword: "how much do i need to retire",
@@ -329,7 +329,7 @@ export const siteConfig = {
     },
     {
       slug: "best-life-insurance-companies-2026",
-      title: "Best life insurance companies 2026",
+      title: "Best life insurance companies 2026: term, whole, and no-exam picks",
       pillar: "Protect",
       tool: "life-insurance",
       keyword: "best life insurance companies",
@@ -338,7 +338,7 @@ export const siteConfig = {
     },
     {
       slug: "best-personal-loans-2026",
-      title: "Best personal loans 2026: Lowest rates and who they fit",
+      title: "Best personal loans 2026: Lowest rates, fastest funding",
       pillar: "Borrow smart",
       tool: "tax-bracket",
       keyword: "best personal loans",
@@ -347,7 +347,7 @@ export const siteConfig = {
     },
     {
       slug: "best-car-insurance-companies-2026",
-      title: "Best car insurance companies 2026",
+      title: "Best car insurance companies 2026: An honest ranking",
       pillar: "Protect",
       tool: "life-insurance",
       keyword: "best car insurance companies",
@@ -356,7 +356,7 @@ export const siteConfig = {
     },
     {
       slug: "how-to-get-a-mortgage",
-      title: "How to get a mortgage (2026 step-by-step guide)",
+      title: "How to get a mortgage in 2026: a step-by-step buyer's checklist",
       pillar: "Borrow smart",
       tool: "tax-bracket",
       keyword: "how to get a mortgage",
@@ -374,7 +374,7 @@ export const siteConfig = {
     },
     {
       slug: "best-budgeting-apps-2026",
-      title: "Best budgeting apps 2026: YNAB, Monarch, Copilot, and more",
+      title: "Best budgeting apps 2026: YNAB, Monarch, Copilot compared",
       pillar: "Budget",
       tool: "budget-50-30-20",
       keyword: "best budgeting apps",
@@ -383,7 +383,7 @@ export const siteConfig = {
     },
     {
       slug: "fire-movement-guide",
-      title: "The FIRE movement explained: Financial independence, retire early",
+      title: "FIRE movement guide: how to retire by 45 (and the math behind it)",
       pillar: "Invest",
       tool: "401k-match",
       keyword: "fire movement",
@@ -392,7 +392,7 @@ export const siteConfig = {
     },
     {
       slug: "mega-backdoor-roth-guide",
-      title: "Mega backdoor Roth: The high-earner's $70K loophole (2026)",
+      title: "Mega backdoor Roth: The high-earner's $46K loophole (2026)",
       pillar: "Save tax",
       tool: "roth-vs-traditional",
       keyword: "mega backdoor roth",

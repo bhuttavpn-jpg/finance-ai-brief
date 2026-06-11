@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "401k-vs-ira-which-first";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "401(k) vs. IRA: Which should you fund first?";
+const title = "401(k) or IRA: which should you fund first in 2026?";
 const description =
   "A clear order of operations for funding a 401(k) and an IRA in 2026: capture the employer match first, then weigh fees, investment choice, and tax treatment to decide where the rest of your money goes.";
 const PUBLISHED = "2026-05-21";

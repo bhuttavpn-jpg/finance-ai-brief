@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-much-do-i-need-to-retire";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "How much do I need to retire? (2026)";
+const title = "How much do I need to retire? The 25× rule with a real example";
 const description =
   "The 25x rule, the 4% rule, and where they break down. A simple way to estimate your retirement number from current spending — plus how to back into a monthly savings rate that gets you there from any starting age.";
 const PUBLISHED = "2026-05-31";

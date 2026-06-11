@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "best-travel-credit-cards-2026";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Best travel credit cards 2026";
+const title = "Best travel credit cards 2026: points, miles, and lounge access";
 const description =
   "The best travel credit cards in 2026, ranked by who they're actually for. Compare sign-up bonuses, point values, annual fees, and credits across the Chase Sapphire Preferred, Amex Gold, Capital One Venture, and Sapphire Reserve.";
 const PUBLISHED = "2026-05-20";

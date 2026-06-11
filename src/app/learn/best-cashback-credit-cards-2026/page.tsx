@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "best-cashback-credit-cards-2026";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Best cashback credit cards 2026";
+const title = "Best cashback credit cards 2026: 2%, 5%, and category-bonus picks";
 const description =
   "A practical pick list of the best cashback credit cards for 2026 — flat-rate, rotating-category, and tiered cards — with the math on which one earns you the most based on how you actually spend.";
 const PUBLISHED = "2026-05-30";

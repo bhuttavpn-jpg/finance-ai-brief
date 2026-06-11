@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "fire-movement-guide";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "The FIRE movement explained: How early retirement actually works";
+const title = "FIRE movement guide: how to retire by 45 (and the math behind it)";
 const description =
   "An honest 2026 guide to the FIRE movement (Financial Independence, Retire Early). The math, the variants (Lean / Coast / Fat / Barista FIRE), the 4% rule, and the real psychological challenges most guides skip.";
 const PUBLISHED = "2026-06-01";

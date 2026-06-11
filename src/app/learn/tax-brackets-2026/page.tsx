@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "tax-brackets-2026";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Federal income tax brackets 2026: Complete IRS tables";
+const title = "2026 federal income tax brackets (for returns filed in 2027)";
 const description =
   "The 2026 IRS tax brackets and standard deduction for every filing status, sourced from Rev. Proc. 2025-32 / IR-2025-103. Plus a worked example of how marginal rates actually apply to your taxable income.";
 const PUBLISHED = "2026-05-30";

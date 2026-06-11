@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "best-hysa-2026";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Best high-yield savings accounts 2026";
+const title = "Best high-yield savings accounts (2026): top 10 APYs compared";
 const description =
   "We compared 14 high-yield savings accounts on APY, fees, and access. Here are the three best HYSAs of 2026, plus the right pick for emergency funds, joint savings, and global earners.";
 const PUBLISHED = "2026-05-19";

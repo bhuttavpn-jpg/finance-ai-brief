@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-much-life-insurance-do-i-need";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "How much life insurance do I need?";
+const title = "How much life insurance do I need? DIME formula + calculator";
 const description =
   "Two ways to calculate your coverage — the income-multiple rule and the more precise DIME method — with worked examples for a single earner, a dual-income couple, and a single parent.";
 const PUBLISHED = "2026-05-30";

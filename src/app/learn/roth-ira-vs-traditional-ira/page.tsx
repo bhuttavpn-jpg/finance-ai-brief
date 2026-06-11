@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "roth-ira-vs-traditional-ira";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Roth IRA vs. Traditional IRA: Which Should You Choose?";
+const title = "Roth IRA vs traditional IRA: which should you choose in 2026?";
 const description =
   "A clear framework for picking between Roth and Traditional. With a side-by-side calculator that runs the math on your own bracket.";
 

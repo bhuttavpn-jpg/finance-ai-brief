@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-build-credit-from-scratch";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "How to build credit from scratch";
+const title = "How to build credit from scratch: a 12-month plan that actually works";
 const description =
   "A step-by-step playbook to go from no credit history to a 700+ FICO score in 12–18 months. Covers secured cards, authorized user strategies, and what to never do.";
 const PUBLISHED = "2026-05-19";

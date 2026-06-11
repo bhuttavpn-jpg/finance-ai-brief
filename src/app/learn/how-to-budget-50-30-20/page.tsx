@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-budget-50-30-20";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "How to Budget Using the 50/30/20 Rule";
+const title = "50/30/20 budget rule: a realistic example with calculator";
 const description =
   "A simple framework that splits your take-home pay into 50% needs, 30% wants, and 20% savings. With a free calculator and the savings account we recommend.";
 

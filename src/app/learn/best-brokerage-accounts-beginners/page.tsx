@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "best-brokerage-accounts-beginners";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Best brokerage accounts for beginners (2026)";
+const title = "Best brokerage accounts for beginners (2026): Fidelity, Schwab, Vanguard compared";
 const description =
   "A practical comparison of the top brokerages for new investors — Fidelity, Schwab, Vanguard, Robinhood, and Webull — covering fees, fractional shares, retirement accounts, and which one fits the way you'll actually use it.";
 const PUBLISHED = "2026-05-30";

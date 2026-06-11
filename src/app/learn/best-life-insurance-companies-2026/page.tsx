@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "best-life-insurance-companies-2026";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Best life insurance companies 2026: Honest comparison";
+const title = "Best life insurance companies 2026: term, whole, and no-exam picks";
 const description =
   "An honest 2026 ranking of the best term life insurance companies: Bestow, Ethos, Haven Life, Ladder, and Policygenius. Who they fit, who they don't, and how to pick a policy in under 30 minutes.";
 const PUBLISHED = "2026-06-01";

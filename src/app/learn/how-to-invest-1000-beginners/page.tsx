@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "how-to-invest-1000-beginners";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "How to invest $1,000 for beginners";
+const title = "How to invest $1,000 for beginners: a 4-step starter plan";
 const description =
   "A step-by-step guide to investing your first $1,000 in 15 minutes. We cover picking a brokerage, opening an account, and which two ETFs make a complete starter portfolio.";
 const PUBLISHED = "2026-05-19";

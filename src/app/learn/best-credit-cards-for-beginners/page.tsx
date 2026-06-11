@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const slug = "best-credit-cards-for-beginners";
 const url = `${siteConfig.url}/learn/${slug}`;
-const title = "Best credit cards for beginners (2026)";
+const title = "Best credit cards for beginners (2026): build credit without an annual fee";
 const description =
   "A short list of credit cards that approve thin files, report to all three bureaus, and won't trip you up with fees. The best secured card, the best starter unsecured card, and how to graduate to a real rewards card in 12–18 months.";
 const PUBLISHED = "2026-05-31";
