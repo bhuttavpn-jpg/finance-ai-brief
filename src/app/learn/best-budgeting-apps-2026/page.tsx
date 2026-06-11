@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleHeader } from "@/components/content/ArticleHeader";
+import { RelatedByPillar } from "@/components/content/RelatedByPillar";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { AffiliateButton } from "@/components/content/AffiliateButton";
 import { FAQ, type QA } from "@/components/content/FAQ";
@@ -259,6 +260,7 @@ export default function Page() {
         </div>
 
         <FAQ items={FAQS} />
+      <RelatedByPillar pillar="Budget" currentSlug="best-budgeting-apps-2026" />
       </article>
     </>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleHeader } from "@/components/content/ArticleHeader";
+import { RelatedByPillar } from "@/components/content/RelatedByPillar";
 import { AffiliateDisclosure } from "@/components/content/AffiliateDisclosure";
 import { FAQ, type QA } from "@/components/content/FAQ";
 import { BudgetCalculator } from "@/components/tools/BudgetCalculator";
@@ -165,6 +166,7 @@ export default function Page() {
         </div>
 
         <FAQ items={FAQS} />
+      <RelatedByPillar pillar="Budget" currentSlug="how-to-budget-50-30-20" />
       </article>
     </>
   );
