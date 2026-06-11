@@ -4,7 +4,7 @@
 
 ---
 
-## Live state (as of 2026-06-07)
+## Live state (as of 2026-06-11)
 
 ### Deployment
 
@@ -13,13 +13,14 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | `fcbb7db` — FlexOffers `fo-verify` meta tag on root layout (preceded by `681dd46` SoFi Money CTAs across 8 Save-tax articles; `b9056fc` newsletter prompt tightening; `f8bb0de` newsletter cron + Haiku + Resend pipeline) |
-| Build | clean, **110 routes**, all 92 articles statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
-| Vercel env vars | **37 total** (32 affiliate + 5 newsletter: `CRON_SECRET`, `ANTHROPIC_API_KEY`, `RESEND_API_KEY`, `NEWSLETTER_FROM`, `NEWSLETTER_DRAFT_TO`). 2 paying real affiliate URLs: `WISE`, `SOFI_MONEY`; rest placeholder homepages with `defaultUrl` fallback. |
+| Latest commit | `8a97c26` — Lead-paragraph audit + 2 missing leads fixed. Preceded by today's 6 SEO commits: `ae0e0c5` calculator anchor pages, `74983ef` 16 priority title rewrites + site-config sync, `308a66a` RelatedByPillar footer on 92 articles, `0756297` BreadcrumbList JSON-LD on 92 articles, `241674c` 5 pillar hub pages, `9ba9e9a` FINBRIEF_SEO_PLAYBOOK.md + Betterment status resolved. |
+| Build | clean, **115 routes** (was 110 at session start; +5 pillar hubs), all 92 articles + 5 hubs statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
+| Vercel env vars | **37 total** (32 affiliate + 5 newsletter). Unchanged today. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
-| Newsletter weekly cron | ✅ **LIVE end-to-end** — `/api/cron/newsletter` fires Mondays 14:00 UTC (vercel.json), Claude Haiku 4.5 writes a 180–220-word intro, Resend emails it to `admin@finbrief.space`. Manual paste-and-send into beehiiv = ~30 sec/week. Resend domain `finbrief.space` verified via Hostinger DNS (DKIM/SPF/MX on `send.finbrief.space`). Smoke-tested 2026-06-05 with real Resend message id. |
-| Google Search Console | URL-prefix property `https://finbrief.space/` verified; sitemap Success / 22 pages discovered; sitemap discovery rolling. Manual indexing requests submitted in user's own browser (blind-coordinate recipe via Chrome MCP definitively failed on 2026-06-04 — `document_idle` wall on GSC means no visual feedback). |
+| Newsletter weekly cron | ✅ LIVE end-to-end — Mondays 14:00 UTC. First auto-fire was 2026-06-08. |
+| Article-refresh cron | ✅ LIVE end-to-end — Tuesdays 14:00 UTC. Already built (route + lib) in a prior session — discovered today. Same auth + Resend pipeline as newsletter cron; 6 articles/week via deterministic ISO-week rotation; ~13-week catalog sweep. Auto-fired 2026-06-09 for the first time (unobserved this session). |
+| Google Search Console | URL-prefix property `https://finbrief.space/` verified. **Sitemap re-submitted 2026-06-11** after discovering "Last read" was stale at May 29 (Google hadn't re-fetched in 13 days). Removed + re-added `sitemap.xml`; new submission timestamp 2026-06-11 11:25 PT. Live sitemap now serves **108 URLs** (was 22 discovered pre-resubmit). Manual URL Inspection submissions continue at ~10/day in user's browser. |
 
 ### Author + editorial (E-E-A-T)
 
@@ -59,7 +60,9 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 ### Standing open issues
 
 1. **Real affiliate URLs.** Only Wise + SoFi Money pay. Three under review (Ethos, Betterment, FlexOffers publisher). Structural Italy×US blocker on most US-only CJ programs. SoFi Money CTAs added across 8 Save-tax articles 2026-06-05 to monetize CJ-blocked tax-software gap (commit `681dd46`).
-2. **GSC indexing.** Backlog now 46 URLs after 8 manual user submissions on 2026-06-05. Daily quota ~10/property. **Blind-coordinate recipe via Chrome MCP is dead** — `document_idle` wall on GSC means no visual feedback, recipe coords drift silently. User does manual submissions in their own browser (~5 sec per URL). Sitemap discovery rolling in parallel.
+2. **GSC indexing.** As of 2026-06-11 end-of-day: 8 URLs submitted 2026-06-08 + 10 URLs submitted 2026-06-11 (5 new pillar hubs + 5 articles: `qualified-vs-ordinary-dividends`, `roth-ira-5-year-rules`, `secure-2-0-changes-2026`, `taxes-on-social-security-benefits`, `disability-insurance-guide`). All 10 cleared today before quota — better than usual hit rate. Sitemap re-submitted today after 13-day staleness; "Discovered pages" expected to jump 22 → ~108 within 24h. Daily quota ~10/property; Chrome MCP recipe still dead, user submits in own browser. Tomorrow's queue (Wed 2026-06-12): `estate-planning-basics`, `identity-theft-protection`, `long-term-care-insurance`, `medicare-basics-2026`, `umbrella-insurance-guide`, `529-plan-guide`, `fsa-explainer`, `ira-rmd-rules`, `asset-allocation-by-age`, `espp-guide`.
+3. **Pre-existing content drift — `mega-backdoor-roth-guide`.** Article title says "$46K loophole" but body math points to ~$40.5K after-tax room (and config previously said "$70K"). Caught during 2026-06-11 site-config sync. Flagged for the next article-refresh cron Tuesday digest (or fix manually).
+4. **Lead-paragraph audit deferred items.** `LEAD_AUDIT.md` at repo root flags 7 articles with 4–5 sentence leads. All open with a strong first-sentence claim + number, so featured-snippet eligibility is intact. Decision: defer rewrites and re-evaluate based on actual GSC snippet impressions over the next month.
 3. ~~**Per-article hero images.** Article schema falls back to single site-wide OG image. For rich-result CTR, eventually want per-article 1x1/4x3/16x9 1200px+.~~ ✅ Done 2026-06-02 — dynamic `src/app/og/[slug]/[ratio]/route.tsx` renders branded PNG at 16x9/4x3/1x1; `articleJsonLd` emits all three URLs per article; `metadata.openGraph.images` on all 74 article pages points at `/og/<slug>/16x9`. Issue fully closed.
 4. ~~**Newsletter cadence.** beehiiv wired but no sends scheduled.~~ ✅ Done 2026-06-05 — `/api/cron/newsletter` Mondays 14:00 UTC, Haiku-written intro emailed via Resend to `admin@finbrief.space`. ~30 sec manual paste-and-send into beehiiv per week. Issue fully closed.
 5. **FSA 2026 contribution limit.** Still "TBA" in `hsa-vs-fsa` until IRS publishes.
@@ -73,14 +76,14 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 
 ### Where to start next session
 
-1. Standard checklist (read this file, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
-2. **FlexOffers approval check** — 5-day review started 2026-06-05. Expect decision by ~2026-06-10. If approved, apply to H&R Block program inside FlexOffers as first.
-3. **Newsletter Monday auto-fire verification** — first scheduled run is Monday 2026-06-08 14:00 UTC. Confirm email lands in `admin@finbrief.space`.
-4. ~~**Betterment IO status check** — session log is ambiguous about whether the 2026-06-02 "I approve the Contract" click on the IO review page actually happened.~~ ✅ Resolved 2026-06-08 — Impact notification confirms "Your Betterment application was sent" on 2026-06-02. Brand not yet in My Partnerships search (no results) because Impact's Partnerships surface only lists approved/active brands, not pending. Application is sitting in Betterment's queue. No action needed; wait for decision.
-5. **GSC indexing (manual)** — 46 URLs left in backlog. User does ~10/day in their own browser (the Chrome MCP blind-coordinate approach is dead).
-6. **Article-refresh cron (Phase 4 Tier 2)** — same architecture as the newsletter cron. Weekly Haiku job scans articles for stale rates/dates, emails proposed diff. Worth building before article count crosses 100.
-7. **Sixth content batch** — fresh-ideation candidates: HSA hub for parents (kids+HSA), step-up in basis explainer, 529 plan deep-dive, FSA explainer, sequence-of-returns risk, disability insurance, umbrella insurance, taxes on Social Security benefits, estate-planning basics, ESPP guide.
-8. **Per-article Haiku output refinement** — once real Monday emails arrive, tweak the system prompt in `src/lib/newsletter.ts` based on what comes through.
+1. Standard checklist (read this file, then `FINBRIEF_SEO_PLAYBOOK.md`, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
+2. **GSC re-fetch verification (do first thing).** Check GSC → Sitemaps. "Last read" should now be 2026-06-11 or later, "Discovered pages" climbing toward 108. If still stuck at May 29 / 22, something's wrong upstream.
+3. **GSC daily URL submissions** — Wednesday 2026-06-12 batch ready in Standing Open Issues #2 above (10 URLs, ~5 minutes in browser).
+4. **FlexOffers status check** — 5-day review windowed closed 2026-06-10. If approved, apply to H&R Block immediately.
+5. **Article-refresh cron Tuesday digest** — first auto-fire was 2026-06-09 (unobserved). Check `admin@finbrief.space` inbox for `[Finbrief refresh, wk N]` subject. Will likely flag the `mega-backdoor-roth-guide` $46K vs $40.5K mismatch.
+6. **`FINBRIEF_SEO_PLAYBOOK.md` is the source of truth for the next 90 days.** Today closed Critical #1 (pillar hubs), Critical #2 (calculator anchor pages), 4 supporting items. **Critical #3** is manual (HARO/Connectively/Featured.com signups for inbound link bootstrap) — user must do in own browser. Next code priorities per playbook: Net Worth Percentile tool (link-magnet), 50-state paycheck calculator scaffold, Glossary v1.
+7. **Pre-existing content drifts** — `mega-backdoor-roth-guide` ($46K title vs $40.5K body math), 7 long-lead articles in `LEAD_AUDIT.md`. Both deferred to the article-refresh cron's natural workflow.
+8. **Per-article Haiku output refinement** — once real Monday newsletter and Tuesday article-refresh emails accumulate, tweak system prompts in `src/lib/newsletter.ts` and `src/lib/article-refresh.ts` based on observed output quality.
 
 ### Recovery notes
 
@@ -1191,3 +1194,69 @@ Tuesday 2026-06-09 14:00 UTC fire should "just work." If anything's odd, the fun
 - **FlexOffers approval check** — ~2026-06-10.
 
 *Last updated: 2026-06-07 (Article-refresh cron smoke-tested in production — HTTP 200, 6/6 scans clean, 21 findings, Resend delivered. Pipeline confirmed working end-to-end. Tuesday auto-fire ready.)*
+
+---
+
+## Session 2026-06-11 — SEO architecture overhaul + GSC re-anchor
+
+Single longest code session to date. Closed two CRITICAL items from `FINBRIEF_SEO_PLAYBOOK.md` and re-anchored the GSC indexation pipeline. **8 commits, +5 new routes (115 total), ~1,800 net new lines of code/content/schema, ~1,290 internal links after the dust settled (≈2.8× prior).**
+
+### What happened, in order
+
+1. **Resolved Betterment IO ambiguity.** Per prior SESSION_LOG: unclear if the 2026-06-02 "I approve the Contract" click registered. User logged into Impact this session; My Partnerships search returned no Betterment. Initially read as "didn't register" — then user found a notification in Impact's bell that said "Your Betterment application was sent" dated 2026-06-02. Resolved: application IS in queue; Impact's Partnerships surface only lists *approved/active* brands, not pending. No further action.
+
+2. **Article-refresh cron** — initially treated as "still to build" per playbook. Discovered both `route.ts` and `lib/article-refresh.ts` already exist from a prior session; cron is wired in `vercel.json`. First Tuesday auto-fire was 2026-06-09 (unobserved this session).
+
+3. **Conducted comprehensive SEO audit** in-session at user's request. Framed core finding correctly: the sub-10-visitors/day floor is an *indexation* problem (GSC reported 7–15 indexed of 92 articles), not a content-volume problem. Pushed back on user's "James Hartley pen name" framing — preserved Jahanzeb Nawaz E-E-A-T continuity.
+
+4. **`FINBRIEF_SEO_PLAYBOOK.md` saved at repo root** — 131 trackable action items across 11 sections, including top-3 critical priorities, 25 keyword targets, 90-day publishing roadmap, 10 tools to build, backlink strategy, GSC + GA4 setup checklist, 30-day quick-wins sprint, and uncategorized/needs-review section flagging the pen-name decision. Commit `9ba9e9a`.
+
+5. **Critical #1 — 5 pillar hub pages shipped.** Commit `241674c`. Routes: `/learn/budget`, `/learn/invest`, `/learn/save-tax`, `/learn/borrow-smart`, `/learn/protect`. Shared `src/components/content/PillarHub.tsx` Server Component takes a config with H1, lede, intro, anchor tool slug, 3–6 named clusters of spoke slugs, and FAQ items. Each hub emits BreadcrumbList + ItemList + FAQPage JSON-LD. 92 articles now grouped into named clusters per pillar (e.g. Save tax → 6 clusters: "2026 brackets and deductions", "Tax software and filing", "Roth IRA and conversion strategies", "HSA, FSA, 529", "Retirement tax rules and SECURE 2.0", "Tax-loss harvesting"). Created **460+ new internal links overnight** (hub→spoke).
+
+6. **BreadcrumbList JSON-LD on all 92 articles.** Commit `0756297`. Added `breadcrumbJsonLd()` helper to `src/components/seo/JsonLd.tsx`; resolves pillar slug from `siteConfig.pillars` by label match. Idempotent codemod `scripts/add-breadcrumb-jsonld.mjs` parsed the existing `pillar="..."` literal from each article's `<ArticleHeader>` and inserted `<JsonLd data={breadcrumbJsonLd({ url, title, pillar: "..." })} />` right after the articleJsonLd block, plus extended the import. 92/92 succeeded; 5 "failures" were the new pillar hubs themselves (correctly skipped — they emit BreadcrumbList from `PillarHub`).
+
+7. **RelatedByPillar footer on all 92 articles.** Commit `308a66a`. New `src/components/content/RelatedByPillar.tsx` Server Component takes `pillar` + `currentSlug` + optional `count` (default 3); reads `siteConfig.articles` deterministically, filters by matching pillar label, excludes current article. Renders 3 spoke cards + "See all <Pillar> guides →" link to the hub. Idempotent codemod `scripts/add-related-by-pillar.mjs` inserted just before each `</article>` tag. Net: 92 × 4 = **368 new internal links** (3 spoke + 1 hub per article), on top of hub→spoke links.
+
+8. **Critical #2 — 16 priority title rewrites + site-config sync.** Commit `74983ef`. Applied the playbook's CTR pattern (primary keyword + year + specific hook/number/benefit, sentence case). Examples: `best-hysa-2026` → "Best high-yield savings accounts (2026): top 10 APYs compared"; `fire-movement-guide` → "FIRE movement guide: how to retire by 45 (and the math behind it)". 4 already-strong titles skipped. Changing the `const title` at module scope updates H1, SERP title, JSON-LD headline, AND BreadcrumbList leaf simultaneously. **Subtle bug fixed mid-flight**: companion `scripts/sync-siteconfig-titles.mjs` initially used `String.prototype.replace` with template-string replacement, which corrupted the `how-to-invest-1000-beginners` entry because `"$1,000"` contained `$1` which `replace()` interpreted as the first capture group. Fixed by switching to function-form replace. Also caught 5 pre-existing drifts between page.tsx and site-config: notably `mega-backdoor-roth-guide` title says "$46K loophole" while body math points to ~$40.5K (prior config claimed "$70K"). Flagged in Standing Open Issues #3.
+
+9. **Critical #2 (continued) — 3 calculator/comparison anchor pages.** Commit `ae0e0c5`. (a) `HysaLeaderboard` Server Component at top of `/learn/best-hysa-2026`: static 10-row APY table sorted desc, "Updated June 9, 2026" stamp, methodology footnote. Designed for one-line swap once the Phase 4 Tier 1 rate scraper ships (replace `RATES` const with JSON file read). (b) Existing `TaxBracketCalculator` embedded at top of `/learn/tax-brackets-2026` — calculator-first pages outrank table-only pages. (c) **New `RothContributionCalculator` client component** at top of `/learn/roth-ira-contribution-limits-2026`: takes filing status + MAGI + age, returns max contribution with 2026 phase-out math from IR-2025-111 ($150K–$165K single/HoH, $236K–$246K MFJ, $0–$10K MFS w/ spouse), pro-rata rounded down to nearest $10 with $200 minimum per Pub 590-A. Three verdicts (full / partial / blocked) with contextual cross-links to backdoor + mega-backdoor guides.
+
+10. **Universal first-paragraph audit.** Commit `8a97c26`. New heuristic auditor `scripts/audit-leads.mjs` scores every article's lead paragraph against: ≤2 sentences, ≤350 chars, contains number OR strong claim verb, no preamble phrases. Initial run: 9 hard fails / 49 minor / 34 clean. **2 launch articles (`how-to-budget-50-30-20` and `roth-ira-vs-traditional-ira`) had NO lead paragraph at all** — they jumped straight into an H2 like "The rule in one sentence" / "The 30-second answer". Both fixed in-commit with proper 2-sentence verdict leads. Other 7 hard-fails are well-written 4–5 sentence leads whose first sentence already answers the title with a number/verb — featured-snippet eligibility intact. Decision logged at top of `LEAD_AUDIT.md` (saved at repo root): defer rewrites, re-evaluate based on actual GSC snippet impressions over the next month.
+
+11. **GSC re-anchor — sitemap stale and 10 high-priority URLs submitted.** User opened GSC Sitemaps and revealed "Last read" was stuck at **May 29, 2026** — Google hadn't re-fetched in 13 days, which fully explains why post-May-29 articles were never discovered. Removed the existing sitemap.xml entry, re-submitted from scratch. Sitemap submission now timestamped 2026-06-11. Live sitemap serves **108 URLs** (verified via `curl`). Then submitted 10 URLs through URL Inspection → Request Indexing, in priority order: **5 new pillar hubs first** (`/learn/budget`, `/learn/invest`, `/learn/save-tax`, `/learn/borrow-smart`, `/learn/protect`) followed by 5 articles from prior backlog. **All 10 cleared before quota** — better hit rate than usual. User asked about "URL is on Google" vs "URL is not on Google" results — explained: "on Google" = already indexed (request triggers re-crawl), "not on Google" = either uncrawled OR crawled-but-not-indexed (request adds to priority queue).
+
+### Internal-link math, before vs. after
+
+- Before today: ~4–6 manually curated cross-links per article ≈ 460 internal links total.
+- After today: existing links **+** 460 hub→spoke (from pillar hubs linking to all spokes) **+** ~368 spoke→spoke/hub (from RelatedByPillar footer) = **~1,290 internal links** (≈2.8× prior).
+- BreadcrumbList JSON-LD on 92 articles **+** ItemList JSON-LD on 5 hubs = 97 new explicit hub/spoke topology signals for Google.
+
+### What this session did NOT do (intentional)
+
+- **Critical #3** (HARO/Connectively/Featured.com signups for inbound link bootstrap) — manual outreach work; user must do in own browser.
+- **Net Worth Percentile tool, 50-state paycheck calculator, Glossary v1** — playbook items deferred to next code session.
+- **Sub-hubs within pillars** (e.g. `/learn/save-tax/iras-and-roth`) — playbook says yes eventually, not today.
+- **Rewriting the 7 long-lead articles** — content quality is fine; defer until GSC shows snippet underperformance.
+- **Patching the `mega-backdoor-roth-guide` $46K vs $40.5K mismatch** — let the article-refresh Tuesday cron's natural workflow surface it.
+- **Verifying today's newsletter cron auto-fire (2026-06-08) and article-refresh auto-fire (2026-06-09)** — both windows passed before session start; deferred to user to check `admin@finbrief.space`.
+
+### Files added this session
+
+- `FINBRIEF_SEO_PLAYBOOK.md` — 131-item structured playbook (~14KB)
+- `LEAD_AUDIT.md` — heuristic audit output + triage note
+- `src/components/content/PillarHub.tsx` — shared hub Server Component
+- `src/components/content/RelatedByPillar.tsx` — auto-generated article footer
+- `src/components/content/HysaLeaderboard.tsx` — static HYSA rate table
+- `src/components/tools/RothContributionCalculator.tsx` — 2026 phase-out calculator
+- `src/app/learn/{budget,invest,save-tax,borrow-smart,protect}/page.tsx` — 5 pillar hubs
+- `scripts/add-breadcrumb-jsonld.mjs`, `add-related-by-pillar.mjs`, `rewrite-titles.mjs`, `sync-siteconfig-titles.mjs`, `audit-leads.mjs` — 5 idempotent codemods
+
+### Where to pick up tomorrow (2026-06-12)
+
+1. **First action**: check GSC → Sitemaps. "Last read" should now be 2026-06-11 or later; "Discovered pages" climbing from 22 toward 108. If still stuck, something is wrong upstream.
+2. **GSC daily 10 URLs**: `estate-planning-basics`, `identity-theft-protection`, `long-term-care-insurance`, `medicare-basics-2026`, `umbrella-insurance-guide`, `529-plan-guide`, `fsa-explainer`, `ira-rmd-rules`, `asset-allocation-by-age`, `espp-guide`. Then continue down older articles.
+3. **FlexOffers status check** — 5-day review window closed 2026-06-10.
+4. **Check `admin@finbrief.space`** for Monday newsletter (2026-06-08) and Tuesday article-refresh digest (2026-06-09).
+5. **Per `FINBRIEF_SEO_PLAYBOOK.md`**: Critical #3 (HARO signup, ~3h in own browser) is the only remaining critical-priority item. After that, next-highest-leverage code work is the Net Worth Percentile tool (link-magnet, 1 day build) and 50-state paycheck calculator scaffold (3 days). Glossary v1 is parallel work.
+
+*Last updated: 2026-06-11 (SEO architecture overhaul session — 8 commits, 5 pillar hubs, BreadcrumbList + RelatedByPillar across 92 articles, 16 title rewrites, 3 calculator anchor pages, lead audit + 2 leads fixed. GSC sitemap re-anchored after 13-day stale fetch. Internal links 2.8×. All Critical #1 + #2 playbook items closed; Critical #3 is manual outreach.)*

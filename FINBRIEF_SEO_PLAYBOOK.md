@@ -1,6 +1,22 @@
 # FinBrief SEO & Traffic Playbook
-Last updated: 2026-06-09
+Last updated: 2026-06-11
 Status tracking: [ ] = not started | [~] = in progress | [x] = done
+
+## Progress as of 2026-06-11
+
+Closed in the 2026-06-11 session (8 commits, 5 new routes):
+- [x] Critical #1 — 5 pillar hub pages
+- [x] Critical #2 — 3 calculator/comparison anchor pages (HYSA leaderboard, tax-bracket calc embed, new Roth contribution calc)
+- [x] Tech SEO — BreadcrumbList JSON-LD on all 92 articles
+- [x] Content & Architecture — RelatedByPillar footer on all 92 articles
+- [x] Tech SEO — top-20 title rewrites (16 done; 4 already-strong skipped)
+- [x] Tech SEO — universal first-paragraph audit + 2 missing leads fixed (7 long-lead flags intentionally deferred per `LEAD_AUDIT.md`)
+- [x] GSC — sitemap re-anchored (was 13-day stale); 10 high-priority URLs submitted (5 new hubs first)
+
+Open critical/high-priority items remaining:
+- [ ] Critical #3 — bootstrap 5 inbound links (HARO/Connectively/Featured.com signups; r/personalfinance wiki; Bogleheads) — manual outreach in user's own browser, ~3h/week ongoing
+- [ ] Tech SEO — universal first-paragraph rewrite for the 7 long-lead deferrals (only if GSC shows snippet underperformance after a month)
+- [ ] All items below this header in this file remain valid; this header is just a progress marker
 
 > Derived from the comprehensive SEO/traffic audit conducted 2026-06-09. Reflects actual repo state: 92 articles shipped, 5 tools, JSON-LD already present, named author Jahanzeb Nawaz, GSC verified. Companion to `SESSION_LOG.md` and `CLAUDE.md`.
 
