@@ -1,8 +1,8 @@
 # FinBrief SEO & Traffic Playbook
-Last updated: 2026-06-11
+Last updated: 2026-06-15
 Status tracking: [ ] = not started | [~] = in progress | [x] = done
 
-## Progress as of 2026-06-11
+## Progress as of 2026-06-15
 
 Closed in the 2026-06-11 session (8 commits, 5 new routes):
 - [x] Critical #1 — 5 pillar hub pages
@@ -11,10 +11,18 @@ Closed in the 2026-06-11 session (8 commits, 5 new routes):
 - [x] Content & Architecture — RelatedByPillar footer on all 92 articles
 - [x] Tech SEO — top-20 title rewrites (16 done; 4 already-strong skipped)
 - [x] Tech SEO — universal first-paragraph audit + 2 missing leads fixed (7 long-lead flags intentionally deferred per `LEAD_AUDIT.md`)
-- [x] GSC — sitemap re-anchored (was 13-day stale); 10 high-priority URLs submitted (5 new hubs first)
+
+Confirmed in the 2026-06-15 session (no code commits):
+- [x] GSC — sitemap re-anchor worked: **discovered pages 22 → 108 ✅**
+- [x] GSC — 20 high-priority URLs submitted (10 on 2026-06-11, 10 on 2026-06-12)
+- [x] Newsletter cron — auto-fires confirmed clean Mon 2026-06-08 + Mon 2026-06-15
+- [x] Article-refresh cron — first auto-fire confirmed Tue 2026-06-09 (11 flags / 6 articles, good signal-to-noise)
+- [x] First manual newsletter publish to beehiiv (1 subscriber, expected for week 1)
 
 Open critical/high-priority items remaining:
-- [ ] Critical #3 — bootstrap 5 inbound links (HARO/Connectively/Featured.com signups; r/personalfinance wiki; Bogleheads) — manual outreach in user's own browser, ~3h/week ongoing
+- [ ] **Critical #3 — bootstrap 5 inbound links** (HARO/Connectively/Featured.com signups; r/personalfinance wiki; Bogleheads). Highest-leverage remaining move on the playbook. ~3h in user's own browser. **Recommended for next session.**
+- [ ] Editorial pass on 11 article-refresh flags from 2026-06-09 digest (~45 min)
+- [ ] FlexOffers status check (review window closed 2026-06-10)
 - [ ] Tech SEO — universal first-paragraph rewrite for the 7 long-lead deferrals (only if GSC shows snippet underperformance after a month)
 - [ ] All items below this header in this file remain valid; this header is just a progress marker
 

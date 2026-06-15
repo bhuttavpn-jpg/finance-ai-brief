@@ -4,7 +4,7 @@
 
 ---
 
-## Live state (as of 2026-06-11)
+## Live state (as of 2026-06-15)
 
 ### Deployment
 
@@ -18,9 +18,10 @@
 | Vercel env vars | **37 total** (32 affiliate + 5 newsletter). Unchanged today. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
-| Newsletter weekly cron | ✅ LIVE end-to-end — Mondays 14:00 UTC. First auto-fire was 2026-06-08. |
-| Article-refresh cron | ✅ LIVE end-to-end — Tuesdays 14:00 UTC. Already built (route + lib) in a prior session — discovered today. Same auth + Resend pipeline as newsletter cron; 6 articles/week via deterministic ISO-week rotation; ~13-week catalog sweep. Auto-fired 2026-06-09 for the first time (unobserved this session). |
-| Google Search Console | URL-prefix property `https://finbrief.space/` verified. **Sitemap re-submitted 2026-06-11** after discovering "Last read" was stale at May 29 (Google hadn't re-fetched in 13 days). Removed + re-added `sitemap.xml`; new submission timestamp 2026-06-11 11:25 PT. Live sitemap now serves **108 URLs** (was 22 discovered pre-resubmit). Manual URL Inspection submissions continue at ~10/day in user's browser. |
+| Newsletter weekly cron | ✅ LIVE end-to-end. Auto-fired clean Mondays 2026-06-08 (`Fidelity vs. Charles Schwab: Which brokerage wins in 2026?`) + 2026-06-15 (`Best budgeting apps 2026: YNAB, Monarch, Copilot compared`). Both Haiku-written intros read naturally — well-paced, no jargon, strong CTA. Quality bar met without prompt tuning. |
+| Article-refresh cron | ✅ LIVE end-to-end. First auto-fire confirmed Tuesday 2026-06-09: **11 potential staleness flags across 6 articles**. First visible finding (HIGH stale-rate on `how-to-budget` HYSA citation: 4–4.5% APY) is a legitimate catch — that article does need updating now that HysaLeaderboard shows the actual range is 4.2%–4.6%. Cron is genuinely useful, signal-to-noise good. **Mega-backdoor-roth-guide $46K vs $40.5K mismatch was NOT in this week's slice** (article rotation is 6/week, 13-week sweep) — will surface in a future Tuesday digest. |
+| Beehiiv | ✅ Newsletter manually published 2026-06-15 from `finbrief@gmail.com` beehiiv account. 1 recipient (expected for week 1 of a new newsletter on a new domain). Subscriber count tracks SEO progress, not newsletter quality. |
+| Google Search Console | URL-prefix property `https://finbrief.space/` verified. **Sitemap re-submitted 2026-06-11** after discovering "Last read" was stale at May 29 (Google hadn't re-fetched in 13 days). Removed + re-added `sitemap.xml`. **By 2026-06-12: discovered pages jumped 22 → 108 ✅** — full live URL footprint now visible to Google. Manual URL Inspection submissions: 10 cleared 2026-06-11 (5 pillar hubs + 5 articles), 10 cleared 2026-06-12 (`estate-planning-basics`, `identity-theft-protection`, `long-term-care-insurance`, `medicare-basics-2026`, `umbrella-insurance-guide`, `529-plan-guide`, `fsa-explainer`, `ira-rmd-rules`, `asset-allocation-by-age`, `espp-guide`). Backlog continues at ~10/day quota. |
 
 ### Author + editorial (E-E-A-T)
 
@@ -77,13 +78,14 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 ### Where to start next session
 
 1. Standard checklist (read this file, then `FINBRIEF_SEO_PLAYBOOK.md`, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
-2. **GSC re-fetch verification (do first thing).** Check GSC → Sitemaps. "Last read" should now be 2026-06-11 or later, "Discovered pages" climbing toward 108. If still stuck at May 29 / 22, something's wrong upstream.
-3. **GSC daily URL submissions** — Wednesday 2026-06-12 batch ready in Standing Open Issues #2 above (10 URLs, ~5 minutes in browser).
-4. **FlexOffers status check** — 5-day review windowed closed 2026-06-10. If approved, apply to H&R Block immediately.
-5. **Article-refresh cron Tuesday digest** — first auto-fire was 2026-06-09 (unobserved). Check `admin@finbrief.space` inbox for `[Finbrief refresh, wk N]` subject. Will likely flag the `mega-backdoor-roth-guide` $46K vs $40.5K mismatch.
-6. **`FINBRIEF_SEO_PLAYBOOK.md` is the source of truth for the next 90 days.** Today closed Critical #1 (pillar hubs), Critical #2 (calculator anchor pages), 4 supporting items. **Critical #3** is manual (HARO/Connectively/Featured.com signups for inbound link bootstrap) — user must do in own browser. Next code priorities per playbook: Net Worth Percentile tool (link-magnet), 50-state paycheck calculator scaffold, Glossary v1.
-7. **Pre-existing content drifts** — `mega-backdoor-roth-guide` ($46K title vs $40.5K body math), 7 long-lead articles in `LEAD_AUDIT.md`. Both deferred to the article-refresh cron's natural workflow.
-8. **Per-article Haiku output refinement** — once real Monday newsletter and Tuesday article-refresh emails accumulate, tweak system prompts in `src/lib/newsletter.ts` and `src/lib/article-refresh.ts` based on observed output quality.
+2. **GSC indexation funnel check.** Discovered = 108 ✅. Next number to watch: GSC → Pages → "Crawled — currently indexed". This is the only state that actually drives traffic. If still very low (single digits) after a week, the lever is content quality + backlinks, not more on-page work.
+3. **GSC daily URL submissions continue** — next batch from the older-article backlog. Aim ~10/day quota.
+4. **FlexOffers status check** — 5-day review window closed 2026-06-10. If approved, apply to H&R Block immediately. If still pending or declined, log in `affiliate_applications.md`.
+5. **Critical #3 — HARO/Connectively/Featured.com signups.** This is the highest-leverage move remaining on the playbook. ~3h in user's own browser, sets up the inbound-link bootstrap. **Recommended for next session.**
+6. **Editorial pass on article-refresh digest findings.** 11 flags from the 2026-06-09 digest sitting in `admin@finbrief.space` inbox. ~45-min pass to patch the legitimate ones — first one alone (HYSA rate in `how-to-budget`) is a real catch.
+7. **Beehiiv weekly publish.** ~30-sec recurring task each Monday: paste the cron-generated draft from `admin@finbrief.space` into beehiiv (login = `finbrief@gmail.com`, NOT `admin@finbrief.space` as prior SESSION_LOG implied). Posts section → + New post → paste subject + body + add CTA link → Send.
+8. **Next code priorities per playbook:** Net Worth Percentile tool (link-magnet, 1 day), 50-state paycheck calculator scaffold (3 days), Glossary v1 (1 day). Critical #1 and #2 already shipped 2026-06-11.
+9. **Pre-existing content drifts** — `mega-backdoor-roth-guide` $46K vs $40.5K body math + 7 long-lead articles in `LEAD_AUDIT.md`. Both deferred to the article-refresh cron's natural workflow (mega-backdoor will surface in a future Tuesday digest when its rotation comes up).
 
 ### Recovery notes
 
@@ -1260,3 +1262,54 @@ Single longest code session to date. Closed two CRITICAL items from `FINBRIEF_SE
 5. **Per `FINBRIEF_SEO_PLAYBOOK.md`**: Critical #3 (HARO signup, ~3h in own browser) is the only remaining critical-priority item. After that, next-highest-leverage code work is the Net Worth Percentile tool (link-magnet, 1 day build) and 50-state paycheck calculator scaffold (3 days). Glossary v1 is parallel work.
 
 *Last updated: 2026-06-11 (SEO architecture overhaul session — 8 commits, 5 pillar hubs, BreadcrumbList + RelatedByPillar across 92 articles, 16 title rewrites, 3 calculator anchor pages, lead audit + 2 leads fixed. GSC sitemap re-anchored after 13-day stale fetch. Internal links 2.8×. All Critical #1 + #2 playbook items closed; Critical #3 is manual outreach.)*
+
+---
+
+## Session 2026-06-15 — pipeline verification + first manual newsletter
+
+Light-touch session. No code commits. Verified that everything we built across the prior weeks is firing as designed, executed the human-in-the-loop step (manual beehiiv publish), and surfaced one important correction to SESSION_LOG (beehiiv login email).
+
+### Cron + email pipeline — all three legs confirmed firing
+
+1. **Newsletter cron, Mon 2026-06-08** → subject `Fidelity vs. Charles Schwab: Which brokerage wins in 2026?` landed in `admin@finbrief.space`. Haiku correctly picked `fidelity-vs-schwab` as the week's lead. 3-paragraph intro, natural voice, clean CTA. No prompt tuning needed.
+
+2. **Article-refresh cron, Tue 2026-06-09** → subject `[Finbrief refresh, wk 24] 11 potential staleness flags across 6 articles` landed same inbox. First visible finding: HIGH stale-rate on `how-to-budget` citing "4–4.5% APY" — this is a legitimate catch since `HysaLeaderboard` (built 2026-06-11) shows the real current range is 4.2%–4.6%. Signal-to-noise good. **Note: `mega-backdoor-roth-guide` was NOT in this week's 6-article rotation slice**, so the $46K vs $40.5K body-math mismatch wasn't surfaced this week — will appear when the rotation reaches it.
+
+3. **Newsletter cron, Mon 2026-06-15** → subject `Best budgeting apps 2026: YNAB, Monarch, Copilot compared` landed in `admin@finbrief.space`. Another strong topic pick. Intro voice ("knowing what matters to you first") is the kind of editorial line that converts.
+
+### First manual beehiiv publish
+
+User executed the human-in-the-loop step for the first time: pasted the 2026-06-15 newsletter draft from `admin@finbrief.space` into beehiiv (Posts → + New Post → subject + body + CTA link → Send). 1 subscriber received it — expected for week 1 of a new newsletter on a new domain. Pipeline now confirmed end-to-end live: Vercel cron → Haiku → Resend → inbox → beehiiv → subscriber.
+
+### Important correction to prior SESSION_LOG
+
+**Beehiiv login email is `finbrief@gmail.com`**, NOT `admin@finbrief.space` as earlier sessions implied. The user has three distinct email addresses serving three distinct roles:
+- `admin@finbrief.space` — inbox where Haiku-generated drafts land via Resend
+- `finbrief@gmail.com` — beehiiv account login (the publication "finbriefSpace" lives here)
+- `bhuttavpn@gmail.com` — separate beehiiv account, empty, ignore (also: Impact publisher login per 2026-05-31 session)
+
+Future-you: when looking for the beehiiv draft publish flow, use `finbrief@gmail.com` for sign-in. The "Welcome to the Inner Circle" auto-email visible in beehiiv Automations is a beehiiv-default new-subscriber welcome — NOT something we built; leave it alone.
+
+### GSC indexation funnel — first concrete win
+
+- **Pre-2026-06-11**: 22 pages discovered (sitemap stale since May 29).
+- **Post-sitemap re-anchor (2026-06-11)**: 108 pages discovered ✅ — full live URL footprint now visible to Google.
+- **2026-06-11 URL submissions**: 10 cleared (5 pillar hubs first, then 5 articles from backlog).
+- **2026-06-12 URL submissions**: 10 more cleared (`estate-planning-basics`, `identity-theft-protection`, `long-term-care-insurance`, `medicare-basics-2026`, `umbrella-insurance-guide`, `529-plan-guide`, `fsa-explainer`, `ira-rmd-rules`, `asset-allocation-by-age`, `espp-guide`).
+- User clarified GSC vocabulary: "URL is on Google" = indexed; "URL is not on Google" = either uncrawled OR crawled-but-not-indexed. New-domain reality: many submissions sit in "Crawled but not indexed" for weeks before Google's quality bar lets them in. The lever from here is content quality + backlinks (Critical #3), not more sitemap/URL-Inspection work.
+
+### What did NOT happen this session
+
+- **Critical #3 (HARO/Featured.com/Connectively signups)** — still deferred. This is the highest-leverage remaining move from `FINBRIEF_SEO_PLAYBOOK.md`. ~3h of work in user's own browser. Strong recommendation: do this next session.
+- **FlexOffers status check** — 5-day review window closed 2026-06-10, status not checked this session.
+- **Editorial pass on article-refresh findings** — 11 flags sitting unactioned in admin@finbrief.space inbox. ~45 min to patch the legitimate ones.
+
+### Where to pick up
+
+1. **First action**: Critical #3 HARO/Featured.com/Connectively signups. Pure outreach setup, no code. Sets up months of inbound-link capture from one afternoon's work.
+2. **GSC daily 10 URLs** continues — older article backlog.
+3. **FlexOffers check** — login + screenshot status.
+4. **45-min editorial pass** on the 11 article-refresh flags (or wait one more Tuesday digest to batch).
+5. **Watch GSC "Crawled — currently indexed" number**. If still single-digits after another week, the next lever is content quality + backlinks (Critical #3), not more on-page changes.
+
+*Last updated: 2026-06-15 (Pipeline-verification session — all three crons confirmed firing clean, first manual newsletter published to beehiiv 1 subscriber, GSC discovered pages 22→108, beehiiv login email correction logged. No code commits; SESSION_LOG-only.)*
