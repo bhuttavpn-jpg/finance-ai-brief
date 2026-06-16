@@ -12,8 +12,9 @@ const slug = "personal-loan-vs-credit-card";
 const url = `${siteConfig.url}/learn/${slug}`;
 const title = "Personal loan vs. credit card: Which should you use?";
 const description =
-  "Personal loans typically run 10–18% APR with a fixed payment over 2–7 years. Credit cards run 22–28% APR with revolving terms. For a one-time large expense or to consolidate high-rate debt, a personal loan almost always wins. For ongoing small spend, the card is right. Here's the decision framework.";
+  "Personal loans typically run 11–20% APR with a fixed payment over 2–7 years. Credit cards run 22–26% APR with revolving terms. For a one-time large expense or to consolidate high-rate debt, a personal loan almost always wins. For ongoing small spend, the card is right. Here's the decision framework.";
 const PUBLISHED = "2026-06-01";
+const UPDATED = "2026-06-16";
 
 export const metadata: Metadata = {
   title,
@@ -45,7 +46,7 @@ const FAQS: QA[] = [
   },
   {
     q: "What about a 0% intro APR credit card instead of a personal loan?",
-    a: "Genuinely competitive for under $5K of debt you can clear inside the intro window (12–21 months). Two big risks: (1) if you don't pay it off in the window, the back rate is typically 22–28%; (2) balance transfer fees of 3–5% effectively give the card a ~3–5% APR for the intro period. Run both math options.",
+    a: "Genuinely competitive for under $5K of debt you can clear inside the intro window (12–21 months). Two big risks: (1) if you don't pay it off in the window, the back rate is typically 22–26%; (2) balance transfer fees of 3–5% effectively give the card a ~3–5% APR for the intro period. Run both math options.",
   },
 ];
 
@@ -58,7 +59,7 @@ export default function Page() {
           title,
           description,
           publishedAt: PUBLISHED,
-          updatedAt: PUBLISHED,
+          updatedAt: UPDATED,
           author: "Jahanzeb Nawaz",
         })}
       />
@@ -71,7 +72,7 @@ export default function Page() {
           subtitle="The decision is mostly about timing — paid-off-this-month belongs on a card; paid-off-over-years belongs in a loan."
           pillar="Borrow smart"
           publishedAt={PUBLISHED}
-          updatedAt={PUBLISHED}
+          updatedAt={UPDATED}
           author="Jahanzeb Nawaz"
           reviewer="the FinBrief Editorial Team"
           readingTime="9 min read"
@@ -105,7 +106,7 @@ export default function Page() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-100">
-                <tr><td className="py-3 pr-4 font-semibold">APR (2026)</td><td className="py-3 pr-4">10–18% (good credit)</td><td className="py-3 pr-4">22–28%</td></tr>
+                <tr><td className="py-3 pr-4 font-semibold">APR (2026)</td><td className="py-3 pr-4">11–20% (good credit)</td><td className="py-3 pr-4">22–26%</td></tr>
                 <tr><td className="py-3 pr-4 font-semibold">Rate type</td><td className="py-3 pr-4">Fixed</td><td className="py-3 pr-4">Variable</td></tr>
                 <tr><td className="py-3 pr-4 font-semibold">Term</td><td className="py-3 pr-4">2–7 years, fixed</td><td className="py-3 pr-4">Revolving, no end date</td></tr>
                 <tr><td className="py-3 pr-4 font-semibold">Loan amount</td><td className="py-3 pr-4">$1K–$100K</td><td className="py-3 pr-4">Up to credit limit</td></tr>
@@ -176,7 +177,7 @@ export default function Page() {
           <ol>
             <li><strong>Drops your interest cost by half</strong> in dollar terms.</li>
             <li><strong>Forces a payoff date</strong> instead of indefinite minimum-payment grind.</li>
-            <li><strong>Lifts your FICO score 20–40 points</strong> as revolving utilization plummets (installment debt is weighted much more gently).</li>
+            <li><strong>Typically lifts your FICO score 10–40 points</strong> as revolving utilization plummets (installment debt is weighted much more gently). Experian and FICO both note that the exact lift depends on starting utilization and credit mix, but a swing of this size is common when utilization drops from above 30% to near 0%.</li>
           </ol>
 
           <p>
@@ -216,7 +217,7 @@ export default function Page() {
 
           <p>
             <strong>Risk:</strong> if you don't pay the card off inside the intro window, the back
-            rate is typically 22–28%. Many people who choose this route end up worse off because
+            rate is typically 22–26%. Many people who choose this route end up worse off because
             they let the timer expire. The personal loan removes that risk in exchange for a known
             higher cost.
           </p>

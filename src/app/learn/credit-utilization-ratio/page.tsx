@@ -14,6 +14,7 @@ const title = "Credit utilization ratio: What it is and how to lower it";
 const description =
   "Credit utilization is the second-biggest factor in your FICO score (30% of the weight). Under 30% is the rule of thumb; under 10% is the optimization. Here's how to calculate it, lower it fast, and avoid the timing mistakes that cost people 20–60 points.";
 const PUBLISHED = "2026-06-01";
+const UPDATED = "2026-06-16";
 
 export const metadata: Metadata = {
   title,
@@ -58,7 +59,7 @@ export default function Page() {
           title,
           description,
           publishedAt: PUBLISHED,
-          updatedAt: PUBLISHED,
+          updatedAt: UPDATED,
           author: "Jahanzeb Nawaz",
         })}
       />
@@ -71,7 +72,7 @@ export default function Page() {
           subtitle="The single fastest score lever you can pull — utilization has no memory, so the next reported balance fully overwrites the prior one."
           pillar="Borrow smart"
           publishedAt={PUBLISHED}
-          updatedAt={PUBLISHED}
+          updatedAt={UPDATED}
           author="Jahanzeb Nawaz"
           reviewer="the FinBrief Editorial Team"
           readingTime="9 min read"
@@ -186,7 +187,7 @@ export default function Page() {
             <strong>Moving $10,000 of credit card debt to a personal loan can lift FICO scores
             20–40 points</strong> almost overnight. Why: revolving utilization drops to ~0%, while
             installment debt is weighted much more gently. You don't need a lower rate (though you
-            usually get one — personal loans run 10–18% vs. card APR 22–28%); the score effect
+            usually get one — personal loans run 11–20% vs. card APR 22–26%); the score effect
             alone often justifies the move for someone planning to apply for a mortgage soon.
           </p>
 

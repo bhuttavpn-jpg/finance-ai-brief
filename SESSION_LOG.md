@@ -48,8 +48,9 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 | Status | Partners |
 |---|---|
 | ✅ Live (paying) | Wise, SoFi Money |
-| ⏳ Under review | Ethos Life (Impact, $55/lead), Betterment (Impact, tiered $100–$500/funded ref — **confirmed 2026-06-08 via Impact notification "Your Betterment application was sent" dated 2026-06-02; not yet in My Partnerships because still pending Betterment review**), **FlexOffers (publisher application submitted 2026-06-05, 5-day review window — gateway to H&R Block + other tax-software brands CJ won't approve)** |
+| ⏳ Under review | Ethos Life (Impact, $55/lead), Betterment (Impact, tiered $100–$500/funded ref — **confirmed 2026-06-08 via Impact notification "Your Betterment application was sent" dated 2026-06-02; not yet in My Partnerships because still pending Betterment review**) |
 | ❌ Rejected (confirmed 2026-06-02) | Policygenius (HasOffers) — likely Italy×US-only mismatch |
+| ❌ Rejected (confirmed 2026-06-16) | **FlexOffers** — Two decline emails received: (1) `finbrief.space` traffic source declined under user's mindlessincome.it publisher umbrella, (2) the parent publisher account #1544885 itself declined ("does not meet our current needs or is in conflict with a current policy"). Account-level decline = structural, same Italy×US-audience pattern as CJ. H&R Block (FlexOffers gateway) now blocked. A fresh re-application from `admin@finbrief.space` would technically not be a duplicate (parent account is dead) but would almost certainly hit the same structural decline. Marked dead — do not chase. |
 | ✅ Platform activated (no programs yet) | CJ Affiliate publisher `finbriefspace` (property ID 101766442) |
 | ❌ Structural blocker — Italy × US-only auto-decline (CJ) | Ally, FreeTaxUSA, TaxAct (and likely most US-only CJ programs) |
 | ❌ Brand-level auto-decline after recipe applied | Lively HSA (declined within 4 min of contract approval) |
@@ -62,7 +63,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 
 1. **Real affiliate URLs.** Only Wise + SoFi Money pay. Three under review (Ethos, Betterment, FlexOffers publisher). Structural Italy×US blocker on most US-only CJ programs. SoFi Money CTAs added across 8 Save-tax articles 2026-06-05 to monetize CJ-blocked tax-software gap (commit `681dd46`).
 2. **GSC indexing.** As of 2026-06-11 end-of-day: 8 URLs submitted 2026-06-08 + 10 URLs submitted 2026-06-11 (5 new pillar hubs + 5 articles: `qualified-vs-ordinary-dividends`, `roth-ira-5-year-rules`, `secure-2-0-changes-2026`, `taxes-on-social-security-benefits`, `disability-insurance-guide`). All 10 cleared today before quota — better than usual hit rate. Sitemap re-submitted today after 13-day staleness; "Discovered pages" expected to jump 22 → ~108 within 24h. Daily quota ~10/property; Chrome MCP recipe still dead, user submits in own browser. Tomorrow's queue (Wed 2026-06-12): `estate-planning-basics`, `identity-theft-protection`, `long-term-care-insurance`, `medicare-basics-2026`, `umbrella-insurance-guide`, `529-plan-guide`, `fsa-explainer`, `ira-rmd-rules`, `asset-allocation-by-age`, `espp-guide`.
-3. **Pre-existing content drift — `mega-backdoor-roth-guide`.** Article title says "$46K loophole" but body math points to ~$40.5K after-tax room (and config previously said "$70K"). Caught during 2026-06-11 site-config sync. Flagged for the next article-refresh cron Tuesday digest (or fix manually).
+3. ~~**Pre-existing content drift — `mega-backdoor-roth-guide`.**~~ ✅ Resolved 2026-06-16. Title's "$46K loophole" now matches body math throughout, using verified IR-2025-111 415(c) cap of $74,500 minus $24,500 employee minus $4,000 typical match = $46,000. Six occurrences updated (STEPS, FAQ, math table, worked example, etc.).
 4. **Lead-paragraph audit deferred items.** `LEAD_AUDIT.md` at repo root flags 7 articles with 4–5 sentence leads. All open with a strong first-sentence claim + number, so featured-snippet eligibility is intact. Decision: defer rewrites and re-evaluate based on actual GSC snippet impressions over the next month.
 3. ~~**Per-article hero images.** Article schema falls back to single site-wide OG image. For rich-result CTR, eventually want per-article 1x1/4x3/16x9 1200px+.~~ ✅ Done 2026-06-02 — dynamic `src/app/og/[slug]/[ratio]/route.tsx` renders branded PNG at 16x9/4x3/1x1; `articleJsonLd` emits all three URLs per article; `metadata.openGraph.images` on all 74 article pages points at `/og/<slug>/16x9`. Issue fully closed.
 4. ~~**Newsletter cadence.** beehiiv wired but no sends scheduled.~~ ✅ Done 2026-06-05 — `/api/cron/newsletter` Mondays 14:00 UTC, Haiku-written intro emailed via Resend to `admin@finbrief.space`. ~30 sec manual paste-and-send into beehiiv per week. Issue fully closed.
@@ -80,8 +81,8 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 1. Standard checklist (read this file, then `FINBRIEF_SEO_PLAYBOOK.md`, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
 2. **GSC indexation funnel check.** Discovered = 108 ✅. Next number to watch: GSC → Pages → "Crawled — currently indexed". This is the only state that actually drives traffic. If still very low (single digits) after a week, the lever is content quality + backlinks, not more on-page work.
 3. **GSC daily URL submissions continue** — next batch from the older-article backlog. Aim ~10/day quota.
-4. **FlexOffers status check** — 5-day review window closed 2026-06-10. If approved, apply to H&R Block immediately. If still pending or declined, log in `affiliate_applications.md`.
-5. **Critical #3 — HARO/Connectively/Featured.com signups.** This is the highest-leverage move remaining on the playbook. ~3h in user's own browser, sets up the inbound-link bootstrap. **Recommended for next session.**
+4. ~~**FlexOffers status check**~~ ✅ Closed 2026-06-16: declined. H&R Block via FlexOffers no longer reachable. Same Italy-publisher pattern as CJ. Logged in affiliate-status table above as ❌ Rejected.
+5. ~~**Critical #3 — HARO/Connectively/Featured.com signups.**~~ ✅ **Fully closed 2026-06-16.** 5 source platforms active: Qwoted (full profile + 3 pitches sent), Featured.com (account only — they pivoted away from directory model), MentionMatch (email digest, Finance+Insurance), Help a B2B Writer (auto-covered: redirects to MentionMatch), SourceBottle (expert profile live at `expert-account.asp` — playbook URL `/sources-signup.asp` was 404). HARO/Connectively confirmed dead since 2024-12-09. See `HARO_SIGNUP_KIT.md` + `HARO_RESPONSE_LOG.md`. Next move: monitor admin@finbrief.space for pitch responses + query digests; refill pitching cadence to ~5/week.
 6. **Editorial pass on article-refresh digest findings.** 11 flags from the 2026-06-09 digest sitting in `admin@finbrief.space` inbox. ~45-min pass to patch the legitimate ones — first one alone (HYSA rate in `how-to-budget`) is a real catch.
 7. **Beehiiv weekly publish.** ~30-sec recurring task each Monday: paste the cron-generated draft from `admin@finbrief.space` into beehiiv (login = `finbrief@gmail.com`, NOT `admin@finbrief.space` as prior SESSION_LOG implied). Posts section → + New post → paste subject + body + add CTA link → Send.
 8. **Next code priorities per playbook:** Net Worth Percentile tool (link-magnet, 1 day), 50-state paycheck calculator scaffold (3 days), Glossary v1 (1 day). Critical #1 and #2 already shipped 2026-06-11.
@@ -1313,3 +1314,176 @@ Future-you: when looking for the beehiiv draft publish flow, use `finbrief@gmail
 5. **Watch GSC "Crawled — currently indexed" number**. If still single-digits after another week, the next lever is content quality + backlinks (Critical #3), not more on-page changes.
 
 *Last updated: 2026-06-15 (Pipeline-verification session — all three crons confirmed firing clean, first manual newsletter published to beehiiv 1 subscriber, GSC discovered pages 22→108, beehiiv login email correction logged. No code commits; SESSION_LOG-only.)*
+
+---
+
+## Session 2026-06-15 (continued, evening) — Critical #3 inbound-link bootstrap (Qwoted live, 3 pitches sent)
+
+Drove the source-platform signups from `FINBRIEF_SEO_PLAYBOOK.md` Critical #3. Net: **Qwoted profile fully built and 3 pitches sent on day one**, plus a major correction to the playbook — HARO/Connectively has been dead since 2024-12-09 and Featured.com has been rebuilt around an AI co-pilot chat instead of an expert directory. Playbook is partially obsolete; the live universe in 2026 is narrower than it was in 2024.
+
+### Platform-state findings (drop into future planning)
+
+- **HARO / Connectively** — Cision shut down 2024-12-09 ([source](https://www.cision.com/connectively-has-been-discontinued/)). The old `connectively.us/expert-pages` URL still serves a signup form (either zombie infra or a squatter); **do not sign up there.** Drop from playbook permanently.
+- **Featured.com** — completely rebuilt as "your co-pilot for PR". No expert profile, no bio, no expertise tags, no directory journalists browse. Account exists for sending pitches via their chat UI only. Display name shows on every pitch (changed `jahanzeb nawaz` → `Jahanzeb Nawaz`). Email verified. Low priority going forward unless Qwoted under-delivers.
+- **Qwoted** — live and unchanged from playbook description. Signup flow: pick "I'm Looking to Earn Media" + "I plan to pitch myself." Free tier = **7 pitch credits**. Profile fields: bio (medium 720-char from kit), 11 personal-finance tags (replaced Qwoted's auto-assigned wrong tags `#BrandStrategy/#BrandManagement/#BrandMarketing`), 3 media items linking to FinBrief cornerstones (best-hysa-2026, 401k-vs-ira-which-first, tax-brackets-2026). "Off the record" checkbox at the bottom of the contact-edit page **must be left unchecked** — it's off-by-default but easy to flip by accident. Also clean up: third email-row field on signup defaulted to phone number; delete it.
+- **Help a B2B Writer** and **SourceBottle** — deferred. Qwoted's volume + the 7-credit free cap is enough to drive the next month's pitching; circle back only if Qwoted dries up.
+
+### Identity defaults in `HARO_SIGNUP_KIT.md` (paste-ready for future signups)
+
+New file at repo root. Contains: identity defaults (name, email, phone, country, topics), short bio (280 char) + medium bio (720 char), expertise-tag list, pitch response template, worked 401(k) example, operating cadence, status of each platform.
+
+### Pitches sent (3) — all via Qwoted
+
+All sent 2026-06-15 evening. Tracked in `HARO_RESPONSE_LOG.md`:
+
+| Outlet | Query topic | Pitch angle | Deadline |
+|---|---|---|---|
+| **MoneyWise** | CoastFIRE assumptions + overlooked expenses | Q2 sequence-of-returns risk in the post-contribution decade + Q4 healthcare/LTC carve-out (Fidelity 2024: ~$165K single / $330K couple at 65 before LTC) | 2026-06-16 16:42 UTC |
+| **Realtor.com** | Older millennials $427K retirement shortfall | Q1 catch-up math is recoverable with 2026 limits ($24.5K 401(k) + $8K catch-up + $7.5K IRA); Q2 housing isn't the sole driver, it's the *layering* with daycare + property tax + effective state/local | 2026-06-16 16:00 UTC |
+| **MoneyLion** | Americans feel ready for retirement — key concepts they actually don't know | SECURE 2.0 super catch-up ($11.25K for ages 60–63), sequence risk, healthcare cost carve-out | 2026-06-18 |
+
+The original "small habits that make people feel more financially secure" MoneyLion query from the desktop CSV had already closed by signup time; substituted the "Americans Feel Ready for Retirement" query because it was a stronger fit anyway (no CFP gate, FinBrief-native topic).
+
+**CuraDebt deliberately skipped** — they require an "independently credentialed professional (CFP, CPA, EA, attorney, or accredited credit counselor)" and state the credential in the byline. Jahanzeb is none of those; pitching would have wasted hours and signaled non-fit. Logged the skip in `HARO_RESPONSE_LOG.md`.
+
+### Tooling lessons
+
+- **Qwoted auto-assigns expertise tags based on substring match against company name.** "FinBrief" → `#BrandStrategy/#BrandManagement/#BrandMarketing` (it matched on "Brand"). If left unfixed, every journalist match would have been wrong. Mandatory profile-cleanup step before pitching.
+- **Featured.com is no longer a HARO substitute.** It's now a search-and-pitch tool, not a directory. Update the playbook description.
+- **Country selection matters for matching.** Qwoted is geo-aware — picked **United States** as country (publication audience) rather than Italy (residence). The 3 pitches sent confirm US queries match correctly.
+- **Display name capitalization shows on every pitch.** Both Qwoted and Featured.com defaulted to lowercase from email auto-fill; fixed to "Jahanzeb Nawaz" on both before pitching.
+
+### Files added this session (no code commits)
+
+- `HARO_SIGNUP_KIT.md` — paste-ready identity, bios, URLs, pitch template, worked example. Reuse for any future source-platform signup.
+- `HARO_RESPONSE_LOG.md` — one-row-per-pitch tracker. Status column to update when pickup/publish/pass happens.
+
+### Where to pick up
+
+1. **Watch admin@finbrief.space inbox** for Qwoted reply notifications over next 3–7 days. Pickup window is short — most queries close 24–72h after posting.
+2. **Refill the pitching cadence** to ~5 pitches/week. 4 of 7 free pitch credits remain after today; will need to budget credits or upgrade if pace holds.
+3. **Featured.com — try sending one chat-based pitch** to learn whether their AI co-pilot actually surfaces useful queries vs. ad-driven upsell prompts. If queries are real, build a separate response cadence there.
+4. **If any of the 3 pitches gets picked up and produces a backlink** — that's the first inbound link FinBrief has earned. Log the URL in `HARO_RESPONSE_LOG.md` and screenshot for the affiliate-applications "publisher evidence" use case.
+5. Standing items unchanged: GSC daily ~10 URLs, FlexOffers status check, 11 article-refresh flags awaiting editorial pass.
+
+*Last updated: 2026-06-15 (Critical #3 partially shipped — HARO/Connectively confirmed dead, Featured.com pivoted away from directory model, Qwoted live with full profile and 3 pitches sent. First batch of source-platform pitches in FinBrief's history. No code commits; doc-only session.)*
+
+---
+
+## Session 2026-06-16 (morning) — Critical #3 closeout: MentionMatch + SourceBottle live
+
+Picked up the remaining two source platforms from yesterday's Critical #3 push. Net: **5 platforms total now active**, source-platform bootstrap is fully shipped end-to-end.
+
+### Platform-state findings (additions to yesterday's playbook corrections)
+
+- **`helpab2bwriter.com` 301-redirects to MentionMatch.** Same operator now owns both — Help a B2B Writer no longer needs a separate signup; the MentionMatch subscription covers it. Mark Help a B2B Writer as ✅ via this redirect chain in `HARO_RESPONSE_LOG.md`.
+- **MentionMatch is subscribe-only**, no profile/bio/headshot. Daily query digest emailed to admin@finbrief.space. Categories selected: Finance + Insurance. Did **not** over-select (the platform is dominated by B2B/marketing categories like CRO, DTC, SaaS that are off-topic for FinBrief — irrelevant subscriptions just spam the inbox).
+- **SourceBottle's playbook URL is wrong.** `sourcebottle.com/sources-signup.asp` returns IIS 404. The current real URLs are `subscribe.asp` (digest only) and `expert-account.asp` (free expert profile — picked this one for the better discoverability). Site is still ASP-classic infra; expect quirks but it does work. Submit form fields used: Occupation = `Founder & Editor`, Org = `FinBrief`, Main areas = personal-finance pillars, 200-char summary built from the kit's short bio, full story = medium bio, categories = Business & Finance + Lifestyle.
+
+### Where to pick up
+
+1. **Watch admin@finbrief.space.** Three signals now arrive there:
+   - Qwoted reporter replies (3 pitches in flight)
+   - Daily MentionMatch query digest (Finance + Insurance)
+   - Daily SourceBottle "call-out" digest (Business & Finance + Lifestyle)
+2. **Refill Qwoted pitching to ~5/week.** 4 of 7 free credits remain after this week. Need to decide credit budget or paid upgrade before the credits run out.
+3. **Featured.com — defer.** No directory model anymore; revisit only if Qwoted/MentionMatch/SourceBottle don't produce a backlink in 30 days.
+
+*Last updated: 2026-06-16 (Critical #3 closeout — MentionMatch and SourceBottle expert profile live. 5 source platforms now active end-to-end. helpab2bwriter.com redirects into MentionMatch and is covered transitively. Doc-only session.)*
+
+---
+
+## Session 2026-06-16 (continued) — Editorial pass on wk24 article-refresh digest
+
+Picked up the 11-flag digest from 2026-06-09 (delivered to admin@finbrief.space). Triaged into 7 real fixes + 4 dismissable false-positives. All real fixes applied. Clean build.
+
+### Triage outcome
+
+| Article | Flag | Verdict | Edit |
+|---|---|---|---|
+| how-to-budget | HIGH HYSA `4–4.5%` APY | ✅ Fix | → `4.2–4.6%` (+ updated $400 → $420 implied) |
+| how-to-budget | MED unsourced 75% dropout claim | ✅ Soften | Replaced specific stat with anecdotal phrasing |
+| how-to-budget | MED 401(k) link verification | ⚠️ Cron-bug | Linked article has correct $24,500 — see below |
+| credit-utilization-ratio | MED APR ranges `10–18% / 22–28%` | ✅ Update | → `11–20% / 22–26%` |
+| credit-utilization-ratio | LOW SoFi affiliate link | ❌ Dismiss | Link works; nothing to verify |
+| personal-loan-vs-credit-card | HIGH×2 APR ranges (description + table) | ✅ Update | → `11–20% / 22–26%` (3 occurrences: description, table, narrative) |
+| personal-loan-vs-credit-card | MED×2 13% APR example math | ❌ Dismiss | Examples are illustrative, not market-rate claims |
+| personal-loan-vs-credit-card | MED FICO `20–40 points` unsourced | ✅ Attribute | Softened to `10–40 points` with Experian/FICO methodology note |
+| personal-loan-vs-credit-card | LOW intro APR `12–21 months` | ❌ Dismiss | Range still holds against current Chase/Citi/Discover |
+
+### Meta-finding — the cron itself has stale reference data
+
+Flag 1.3 told us to verify `how-much-to-contribute-to-401k` uses 2026 IRS limits, specifically **"$23,500 for under-50, $29,000 for 50+"**. Those are the **2025** numbers. The actual 2026 limits per IR-2025-111 (verified and used throughout the site already): **$24,500 + $8,000 catch-up = $32,500 total at 50+, plus $11,250 super catch-up at 60–63**. The linked article is correct; the cron's reference data is wrong.
+
+This means Haiku in `src/app/api/cron/article-refresh/route.ts` (or the verified-figures string it uses in its prompt) is feeding 2025 limits forward. Open question for a future session: find where the limits are stringified in the cron prompt and update them. Until then, every "verify 401(k) limits" flag from the cron will be a false positive.
+
+### Date bumps
+
+Added a `const UPDATED = "2026-06-16"` to all 3 edited articles and wired it through both `articleJsonLd.updatedAt` and `ArticleHeader.updatedAt`. The `dateModified` JSON-LD field now reflects the actual refresh date, which is the signal Google reads for content-freshness.
+
+### Build state
+
+✅ `npm run build` clean. 115 routes unchanged (no new articles, just text edits).
+
+### Where to pick up
+
+1. **The cron's stale reference data.** Should fix the Haiku-prompt 401(k) limits to stop false-positive flags in future Tuesday digests. ~15 min.
+2. **`mega-backdoor-roth-guide` $46K vs $40.5K body drift** — still pending. The article-refresh cron will probably catch it when its rotation comes up; or fix manually.
+3. Source platforms — monitor admin@finbrief.space for Qwoted reporter replies + daily MentionMatch/SourceBottle digests.
+4. GSC daily quota — 9 URLs carried to tomorrow.
+
+*Last updated: 2026-06-16 (Editorial pass on wk24 cron digest. 7 real fixes shipped across 3 articles + dateModified bumps. Meta-finding: the cron's Haiku prompt cites 2025 IRS limits as 2026 — produces false-positive 401(k) flags. Build clean. No commit yet — staged for next code session's batch commit.)*
+
+---
+
+## Session 2026-06-16 (continued) — Cron stale-data fix + mega-backdoor-roth-guide drift
+
+Two follow-on code fixes after the editorial pass.
+
+### 1. Article-refresh cron prompt — anchor Haiku to verified IRS figures
+
+Root cause of the false-positive 401(k) flag in the wk24 digest: the system prompt in `src/lib/article-refresh.ts` did NOT carry verified current-year IRS limits. It only told Haiku that limits "may have been updated" — so Haiku filled in training-data numbers ($23,500 / $29,000, which are 2025) when suggesting verification steps.
+
+**Fix:** added a "Verified ground-truth IRS figures for tax year 2026" block to the system prompt, listing:
+- 401(k): $24,500 / +$8,000 catch-up / +$11,250 super catch-up (60–63) / $74,500 415(c) cap — IR-2025-111
+- IRA: $7,500 / +$1,100 catch-up — IR-2025-111
+- Standard deduction: $16,100 / $32,200 / $24,150 — IR-2025-103 / Rev. Proc. 2025-32
+- HSA: $4,400 / $8,750 / +$1,000 catch-up; HDHP $1,700/$3,400 + $8,500/$17,000 OOP — Rev. Proc. 2025-19
+- FSA: 2026 figure still TBA (do not suggest a number)
+
+Prompt explicitly tells Haiku: when a suggestion names a contribution limit, quote these figures, never a prior-year number.
+
+This should kill false-positive 401(k)/IRA/HSA flags in future Tuesday digests while preserving the legitimate "verify this rate citation" flags.
+
+### 2. mega-backdoor-roth-guide $46K vs $40.5K drift — RESOLVED
+
+Pre-existing drift logged in standing issues as item #3. Title said "$46K loophole" but the body math (in 4 places) computed $40,500. Investigation: body math used a $70,000 estimated 415(c) cap and a $5,000 employer match. The verified 2026 415(c) cap per IR-2025-111 is **$74,500** (also confirmed in `how-much-to-contribute-to-401k:44`).
+
+Recomputed with verified numbers:
+- $74,500 cap − $24,500 employee − **$4,000** typical match = **$46,000** ← matches title's "$46K"
+
+Updated 6 occurrences across the article:
+- STEPS array (step 3 and step 4 of the HowTo)
+- FAQ answer for "How much can I actually contribute in 2026?"
+- Feature 1 bullet
+- "The 2026 contribution math" intro paragraph
+- The full math table (4 rows: cap, deferral, match, room)
+- The "higher employer matches" example ($20K match → $30K room, was $25.5K)
+- The worked example for a $250K earner ($74,500 cap + 5% match $12,500 → $37,500 room ≈ 15% of salary, was $33,000 / 13%)
+
+Removed all "(estimate; verify final figure)" hedges since we have the verified IR-2025-111 number. Bumped `dateModified` to 2026-06-16.
+
+The standing issue #3 ("Pre-existing content drift — mega-backdoor-roth-guide") is now resolved and can be removed from the Open Issues list.
+
+### Build state
+
+✅ `npm run build` clean. 115 routes unchanged. Total files touched this session: 5 article TSX + 1 cron lib.
+
+### Where to pick up
+
+1. **Commit** — six edited files staged in working tree, ready for one batch commit covering: editorial pass + cron stale-data fix + mega-backdoor drift fix.
+2. Monitor admin@finbrief.space for Qwoted/MentionMatch/SourceBottle inbound.
+3. GSC daily quota (9 URLs carried).
+4. Next Tuesday's article-refresh digest will be the test of whether the cron prompt fix actually kills false-positive limit flags.
+
+*Last updated: 2026-06-16 (Cron prompt anchored with verified 2026 IRS figures + mega-backdoor-roth-guide drift fully resolved ($74,500 / $46K math throughout). Build clean. Six files modified; staged for next batch commit.)*

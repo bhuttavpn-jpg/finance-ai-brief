@@ -14,6 +14,7 @@ const title = "How to budget: A practical guide for 2026";
 const description =
   "A plain-English budgeting guide for 2026. Pick a method (50/30/20, zero-based, envelopes, or pay-yourself-first), set realistic categories, automate the boring parts, and check in monthly. Includes a step-by-step setup that takes ~45 minutes.";
 const PUBLISHED = "2026-06-01";
+const UPDATED = "2026-06-16";
 
 export const metadata: Metadata = {
   title,
@@ -58,7 +59,7 @@ export default function Page() {
           title,
           description,
           publishedAt: PUBLISHED,
-          updatedAt: PUBLISHED,
+          updatedAt: UPDATED,
           author: "Jahanzeb Nawaz",
         })}
       />
@@ -84,7 +85,7 @@ export default function Page() {
           subtitle="The 2026 version — pick a method that fits your discipline level, set up the boring automation once, then spend 10 minutes a week keeping it alive."
           pillar="Budget"
           publishedAt={PUBLISHED}
-          updatedAt={PUBLISHED}
+          updatedAt={UPDATED}
           author="Jahanzeb Nawaz"
           reviewer="the FinBrief Editorial Team"
           readingTime="11 min read"
@@ -132,8 +133,8 @@ export default function Page() {
           <p>
             <strong>Honest advice:</strong> if you've never budgeted before, do{" "}
             <strong>pay-yourself-first</strong> or <strong>50/30/20</strong>. Zero-based is the most
-            precise method, but it has a 75%+ dropout rate within 90 days for people new to
-            budgeting.
+            precise method, but anecdotally most people new to budgeting abandon it within the first
+            few months — the daily category-balancing is the failure point.
           </p>
 
           <hr className="my-10 border-brand-100" />
@@ -161,8 +162,8 @@ export default function Page() {
 
           <p>
             <strong>The dollars you're trying to save should live somewhere they can earn.</strong>{" "}
-            A high-yield savings account in 2026 pays roughly 4–4.5% APY — versus 0.01% at most
-            big-bank checking. On a $10,000 emergency fund, that's <strong>~$400/year</strong> of
+            A high-yield savings account in 2026 pays roughly 4.2–4.6% APY — versus 0.01% at most
+            big-bank checking. On a $10,000 emergency fund, that's <strong>~$420/year</strong> of
             free money for moving accounts.
           </p>
 

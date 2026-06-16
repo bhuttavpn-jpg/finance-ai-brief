@@ -14,6 +14,7 @@ const title = "Mega backdoor Roth: The high-earner's $46K loophole (2026)";
 const description =
   "An honest 2026 guide to the mega backdoor Roth — how it works, the 2026 contribution math, who qualifies, and the exact step-by-step inside a 401(k) plan that allows it. Cites IR-2025-111 for the overall 415(c) limit.";
 const PUBLISHED = "2026-06-01";
+const UPDATED = "2026-06-16";
 
 export const metadata: Metadata = {
   title,
@@ -25,8 +26,8 @@ export const metadata: Metadata = {
 const STEPS = [
   { name: "Confirm your 401(k) plan allows after-tax contributions", text: "Call HR or the 401(k) provider. Ask two specific questions: 'Does the plan allow after-tax (non-Roth) contributions above the elective deferral limit?' and 'Does the plan allow in-service withdrawals or in-plan Roth conversions?' Both must be yes." },
   { name: "Max your regular pre-tax or Roth 401(k) contribution", text: "$24,500 in 2026 (per IRS IR-2025-111). The mega backdoor is on top of this, not instead." },
-  { name: "Capture the full employer match", text: "Employer contributions count toward the $70,000 total 415(c) limit (estimate; verify final figure for 2026)." },
-  { name: "Contribute additional after-tax dollars up to the gap", text: "$70,000 (est) minus your $24,500 employee + employer match = the room for after-tax contributions. For a typical $5K match scenario, that's about $40,500." },
+  { name: "Capture the full employer match", text: "Employer contributions count toward the $74,500 total 415(c) limit (per IRS IR-2025-111)." },
+  { name: "Contribute additional after-tax dollars up to the gap", text: "$74,500 minus your $24,500 employee + employer match = the room for after-tax contributions. With a typical $4,000 employer match, that's $46,000." },
   { name: "Convert after-tax to Roth as quickly as possible", text: "Either via in-plan Roth conversion or via in-service withdrawal rolled to a Roth IRA. Speed matters — earnings on the after-tax dollars are taxable on conversion." },
   { name: "Repeat annually", text: "Most providers let you automate after-tax contributions and auto-conversion. Set it once; it runs every paycheck." },
 ];
@@ -38,7 +39,7 @@ const FAQS: QA[] = [
   },
   {
     q: "How much can I actually contribute via the mega backdoor in 2026?",
-    a: "The cap is the total 415(c) limit (commonly estimated at $70,000 for 2026 — verify final IRS figure) minus your regular 401(k) employee deferral ($24,500) minus employer contributions. With a typical $5,000 employer match, that leaves roughly $40,500 of room for after-tax contributions. Higher employer matches reduce this; lower matches expand it.",
+    a: "The cap is the total 415(c) limit of $74,500 for 2026 (per IR-2025-111) minus your regular 401(k) employee deferral ($24,500) minus employer contributions. With a typical $4,000 employer match, that leaves $46,000 of room for after-tax contributions. Higher employer matches reduce this; lower matches expand it.",
   },
   {
     q: "Why does the mega backdoor even exist?",
@@ -67,7 +68,7 @@ export default function Page() {
           title,
           description,
           publishedAt: PUBLISHED,
-          updatedAt: PUBLISHED,
+          updatedAt: UPDATED,
           author: "Jahanzeb Nawaz",
         })}
       />
@@ -81,7 +82,7 @@ export default function Page() {
           subtitle="The high-earner's most powerful Roth strategy — how it works, the 2026 math, and the exact 6-step playbook."
           pillar="Save tax"
           publishedAt={PUBLISHED}
-          updatedAt={PUBLISHED}
+          updatedAt={UPDATED}
           author="Jahanzeb Nawaz"
           reviewer="the FinBrief Editorial Team"
           readingTime="11 min read"
@@ -114,7 +115,7 @@ export default function Page() {
           </p>
 
           <ul>
-            <li><strong>Feature 1:</strong> the 401(k) statutory contribution limit ($70K estimate for 2026, including all sources).</li>
+            <li><strong>Feature 1:</strong> the 401(k) statutory contribution limit ($74,500 for 2026, including all sources).</li>
             <li><strong>Feature 2:</strong> after-tax (non-Roth) contributions above the elective deferral limit.</li>
             <li><strong>Feature 3:</strong> in-plan Roth conversion or in-service withdrawal to a Roth IRA.</li>
           </ul>
@@ -128,8 +129,7 @@ export default function Page() {
           <p>
             Per IRS news release <strong>IR-2025-111</strong> (Nov 13, 2025), the 2026 elective
             deferral limit is <strong>$24,500</strong>. The overall §415(c) total contribution limit
-            is commonly estimated around <strong>$70,000</strong> for 2026 (verify against the final
-            published figure before executing). The math:
+            is <strong>$74,500</strong> for 2026 (same source). The math:
           </p>
 
           <div className="my-6 overflow-x-auto">
@@ -141,17 +141,17 @@ export default function Page() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-100">
-                <tr><td className="py-3 pr-4 font-semibold">Total 415(c) limit (estimate)</td><td className="py-3 pr-4">$70,000</td></tr>
+                <tr><td className="py-3 pr-4 font-semibold">Total 415(c) limit</td><td className="py-3 pr-4">$74,500</td></tr>
                 <tr><td className="py-3 pr-4 font-semibold">Your employee elective deferral (pre-tax or Roth)</td><td className="py-3 pr-4">($24,500)</td></tr>
-                <tr><td className="py-3 pr-4 font-semibold">Employer match / contribution (example $5,000)</td><td className="py-3 pr-4">($5,000)</td></tr>
-                <tr><td className="py-3 pr-4 font-semibold"><strong>Room for after-tax contribution (mega backdoor)</strong></td><td className="py-3 pr-4"><strong>$40,500</strong></td></tr>
+                <tr><td className="py-3 pr-4 font-semibold">Employer match / contribution (example $4,000)</td><td className="py-3 pr-4">($4,000)</td></tr>
+                <tr><td className="py-3 pr-4 font-semibold"><strong>Room for after-tax contribution (mega backdoor)</strong></td><td className="py-3 pr-4"><strong>$46,000</strong></td></tr>
               </tbody>
             </table>
           </div>
 
           <p>
             <strong>Higher employer matches reduce the room.</strong> If your employer contributes
-            $20,000/year, your mega backdoor capacity drops to ~$25,500.
+            $20,000/year, your mega backdoor capacity drops to ~$30,000.
           </p>
 
           <p>
@@ -214,9 +214,9 @@ export default function Page() {
           <ul>
             <li>Regular elective deferral: $24,500 (~9.8% of salary)</li>
             <li>Employer match (5% of pay): $12,500</li>
-            <li>415(c) cap (estimate): $70,000</li>
-            <li><strong>After-tax room: $33,000</strong> ≈ 13.2% of salary</li>
-            <li>Set after-tax contribution at ~13% of pay</li>
+            <li>415(c) cap: $74,500</li>
+            <li><strong>After-tax room: $37,500</strong> ≈ 15% of salary</li>
+            <li>Set after-tax contribution at ~15% of pay</li>
           </ul>
 
           <hr className="my-10 border-brand-100" />

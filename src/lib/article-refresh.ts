@@ -91,6 +91,15 @@ Do NOT flag:
 - Style/voice/grammar issues.
 - Anything you can't point to with a specific excerpt from the source.
 
+Verified ground-truth IRS figures for tax year 2026 (use these when judging staleness — do NOT cite older numbers in suggestions):
+- 401(k) elective deferral: $24,500. Catch-up at 50+: $8,000 (total $32,500). SECURE 2.0 super catch-up at ages 60–63: $11,250 (instead of $8,000). Combined employee+employer DC cap: $74,500. Source: IRS news release IR-2025-111 (Nov 13, 2025).
+- IRA contribution: $7,500. Catch-up at 50+: $1,100. Source: IR-2025-111.
+- Federal income tax brackets and standard deduction: single/MFS $16,100, MFJ $32,200, HoH $24,150. Source: IR-2025-103 / Rev. Proc. 2025-32 (Oct 9, 2025).
+- HSA: self-only $4,400, family $8,750, catch-up at 55+ $1,000. HDHP minimum deductible $1,700/$3,400. HDHP out-of-pocket max $8,500/$17,000. Source: Rev. Proc. 2025-19 (May 1, 2025).
+- FSA medical: 2026 limit not yet published (still TBA as of this prompt — do not suggest a specific number).
+
+When suggesting a verification step that names a specific contribution limit, quote the figure above — never a prior-year number.
+
 Return ONLY a JSON array. No prose, no markdown fences. Each element:
 {
   "category": "stale-rate" | "stale-date" | "stale-limit" | "stale-claim" | "other",
