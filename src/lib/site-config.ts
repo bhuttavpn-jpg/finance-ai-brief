@@ -859,5 +859,14 @@ export const siteConfig = {
       publishedAt: "2026-06-17",
       updatedAt: "2026-06-17",
     },
+    {
+      slug: "target-date-funds-explained",
+      title: "Target-date funds explained: are they actually good investments?",
+      pillar: "Invest",
+      tool: "401k-match",
+      keyword: "target date funds",
+      publishedAt: "2026-06-17",
+      updatedAt: "2026-06-17",
+    },
   ] as const,
 };
