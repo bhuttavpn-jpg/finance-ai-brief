@@ -850,5 +850,14 @@ export const siteConfig = {
       publishedAt: "2026-06-07",
       updatedAt: "2026-06-07",
     },
+    {
+      slug: "hsa-vs-roth-ira",
+      title: "HSA vs. Roth IRA: which should you fund first in 2026?",
+      pillar: "Save tax",
+      tool: "roth-vs-traditional",
+      keyword: "hsa vs roth ira",
+      publishedAt: "2026-06-17",
+      updatedAt: "2026-06-17",
+    },
   ] as const,
 };
