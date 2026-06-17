@@ -19,6 +19,7 @@ export const siteConfig = {
     { slug: "tax-bracket", label: "Marginal tax rate", pillar: "Save tax" },
     { slug: "roth-vs-traditional", label: "Roth vs. Traditional IRA", pillar: "Invest" },
     { slug: "life-insurance", label: "Life insurance need", pillar: "Protect" },
+    { slug: "net-worth-percentile", label: "Net worth percentile", pillar: "Invest" },
   ] as const,
   articles: [
     {
