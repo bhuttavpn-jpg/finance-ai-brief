@@ -42,6 +42,7 @@ export function Footer() {
           <ul className="mt-2 space-y-1.5 text-sm">
             <li><Link href="/about" className="text-ink-muted no-underline hover:text-brand-700">About</Link></li>
             <li><Link href="/editorial-standards" className="text-ink-muted no-underline hover:text-brand-700">Editorial standards</Link></li>
+            <li><Link href="/glossary" className="text-ink-muted no-underline hover:text-brand-700">Glossary</Link></li>
             <li><Link href="/author/jahanzeb-nawaz" className="text-ink-muted no-underline hover:text-brand-700">Author: Jahanzeb Nawaz</Link></li>
             <li><Link href="/about#disclosure" className="text-ink-muted no-underline hover:text-brand-700">Affiliate disclosure</Link></li>
             <li><Link href="/about#privacy" className="text-ink-muted no-underline hover:text-brand-700">Privacy</Link></li>

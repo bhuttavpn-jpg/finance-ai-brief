@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/learn`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
     { url: `${base}/editorial-standards`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${base}/glossary`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/author/jahanzeb-nawaz`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
   ];
   // Pillar hub pages — high priority; they're the topic-cluster homes.
