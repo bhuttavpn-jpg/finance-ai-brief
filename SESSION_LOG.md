@@ -13,8 +13,8 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | `0d2253f` (pushed 2026-06-16) — Editorial pass on wk24 article-refresh digest (7 fixes across 3 articles: HYSA, APR ranges, FICO claim) + cron prompt anchored to verified 2026 IRS figures (fixes Haiku hallucinating 2025 limits as 2026) + mega-backdoor-roth-guide $46K vs $40.5K drift resolved with $74,500 415(c) cap + HARO_SIGNUP_KIT.md & HARO_RESPONSE_LOG.md added for source-platform bootstrap. Preceded by `0e49405` (2026-06-15 pipeline verification, SESSION_LOG-only). |
-| Build | clean, **115 routes** (was 110 at session start; +5 pillar hubs), all 92 articles + 5 hubs statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
+| Latest commit | `6c8f422` (pushed 2026-06-17) — target-date-funds-explained Invest cornerstone. Session-day chain: `2390608` Net Worth Percentile tool + 8/9 GSC URLs cleared, `ac6a3fa` Glossary v1 (45 terms), `62a3610` hsa-vs-roth-ira article, `42f56a5` wk25 cron editorial pass (TCJA misc-itemized → OBBBA-permanent), `366a3c1` Qwoted account-disabled episode logged. |
+| Build | clean, **119 routes** (was 115 at start of 2026-06-17; +2 new articles, +1 Net Worth Percentile tool, +1 Glossary), all 94 articles + 5 hubs statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
 | Vercel env vars | **37 total** (32 affiliate + 5 newsletter). Unchanged today. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
@@ -81,10 +81,10 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 
 1. Standard checklist (read this file, then `FINBRIEF_SEO_PLAYBOOK.md`, sanity-check `src/app/layout.tsx` non-empty, `npm run build`).
 2. **GSC indexation funnel check.** Discovered = 108 ✅. Next number to watch: GSC → Pages → "Crawled — currently indexed". This is the only state that actually drives traffic. If still very low (single digits) after a week, the lever is content quality + backlinks, not more on-page work.
-3. **GSC daily URL submissions continue** — next batch from the older-article backlog. Aim ~10/day quota.
+3. **GSC daily URL submissions continue** — next batch from the older-article backlog. Aim ~10/day quota. **First URL ready: `/learn/how-much-should-emergency-fund-be`** (carryover from 2026-06-17 quota wall). Also worth submitting the four new URLs shipped today: `/glossary`, `/tools/net-worth-percentile`, `/learn/hsa-vs-roth-ira`, `/learn/target-date-funds-explained`.
 4. ~~**FlexOffers status check**~~ ✅ Closed 2026-06-16: declined. H&R Block via FlexOffers no longer reachable. Same Italy-publisher pattern as CJ. Logged in affiliate-status table above as ❌ Rejected.
-5. ~~**Critical #3 — HARO/Connectively/Featured.com signups.**~~ ✅ **Fully closed 2026-06-16.** 5 source platforms active: Qwoted (full profile + 3 pitches sent), Featured.com (account only — they pivoted away from directory model), MentionMatch (email digest, Finance+Insurance), Help a B2B Writer (auto-covered: redirects to MentionMatch), SourceBottle (expert profile live at `expert-account.asp` — playbook URL `/sources-signup.asp` was 404). HARO/Connectively confirmed dead since 2024-12-09. See `HARO_SIGNUP_KIT.md` + `HARO_RESPONSE_LOG.md`. Next move: monitor admin@finbrief.space for pitch responses + query digests; refill pitching cadence to ~5/week.
-6. ~~**Editorial pass on article-refresh digest findings.**~~ ✅ Done 2026-06-16 in commit `0d2253f`. 7 real fixes shipped across 3 articles (how-to-budget HYSA, credit-utilization-ratio + personal-loan-vs-credit-card APR ranges, FICO claim attribution). 4 dismissed. Also fixed the cron's underlying stale-data prompt at root cause. Next Tuesday's digest validates whether the prompt fix kills the false-positive limit flags.
+5. ~~**Critical #3 — HARO/Connectively/Featured.com signups.**~~ ✅ Closed 2026-06-16; 5 source platforms active. ⚠️ **Qwoted blocker 2026-06-17:** account temporarily disabled by vetting team mid-session. Replied to support agent Therese with `finbrief.space` + `/author/jahanzeb-nawaz` (no LinkedIn). Martha Stewart Living tax-paperwork pitch is drafted (full body in `HARO_RESPONSE_LOG.md` 2026-06-17 entry) and ready to send the moment the account is back. ETA 3–7 business days. When refilling the pitch queue, space submissions 2–3 days apart and vary the angle to avoid re-tripping vetting. Other 4 platforms (Featured.com, MentionMatch, SourceBottle, Help a B2B Writer) remain active and feeding `admin@finbrief.space`.
+6. ~~**Editorial pass on article-refresh digest findings.**~~ ✅ wk24 done 2026-06-16 (`0d2253f`). ✅ **wk25 done 2026-06-17 (`42f56a5`):** 1 real fix to `standard-vs-itemized-deduction` (TCJA misc-itemized hedge → permanently suspended under OBBBA 2025), 2 false positives dismissed. **Prompt fix validated** — wk25 had 3 flags / 6 articles vs wk24's 11 / 6, a 73% drop, and no more hallucinated-limit flags.
 7. **Beehiiv weekly publish.** ~30-sec recurring task each Monday: paste the cron-generated draft from `admin@finbrief.space` into beehiiv (login = `finbrief@gmail.com`). Posts section → + New post → paste subject + body + add CTA link → Send.
 8. **Next code priorities per playbook:** ~~Net Worth Percentile tool~~ ✅ Shipped 2026-06-17 at `/tools/net-worth-percentile`. Uses 2022 SCF percentile bands by age cohort (u35, 35-44, 45-54, 55-64, 65-74, 75+), linear interpolation between published breakpoints, dynamic CTAs (sub-50th → SoFi HYSA + Fidelity; 50th+ → Fidelity/Schwab/Vanguard). Data lives in `src/lib/net-worth-percentiles.ts`; refresh when 2025 SCF releases ~Oct 2026. ~~Glossary v1~~ ✅ Shipped 2026-06-17 at `/glossary`: 45 terms across 19 letter sections, each with pillar tag + plain-language definition + links back to related cornerstone articles. `DefinedTermSet` JSON-LD emitted for SEO. Data in `src/lib/glossary.ts`; expand as new pillars/articles ship. Footer link added; sitemap entry added. **Still TODO:** 50-state paycheck calculator scaffold (3 days). Critical #1 and #2 already shipped 2026-06-11.
 9. ~~**Pre-existing content drifts**~~ ✅ Both resolved 2026-06-16. `mega-backdoor-roth-guide` $46K vs $40.5K body math fixed in commit `0d2253f` (verified $74,500 415(c) cap throughout). Lead-audit deferrals remain deferred per the LEAD_AUDIT.md decision rationale (re-evaluate based on actual GSC snippet impressions).
@@ -1489,3 +1489,39 @@ The standing issue #3 ("Pre-existing content drift — mega-backdoor-roth-guide"
 4. Next Tuesday's article-refresh digest will be the test of whether the cron prompt fix actually kills false-positive limit flags.
 
 *Last updated: 2026-06-16 (Cron prompt anchored with verified 2026 IRS figures + mega-backdoor-roth-guide drift fully resolved ($74,500 / $46K math throughout). Build clean. Six files modified; staged for next batch commit.)*
+
+---
+
+## Session 2026-06-17 — Net Worth tool + Glossary + 2 new articles + wk25 cron pass + Qwoted blocker
+
+Six commits shipped (`2390608`, `ac6a3fa`, `62a3610`, `42f56a5`, `366a3c1`, `6c8f422`). Site went from 115 → 119 routes; 92 → 94 cornerstones.
+
+### Operational
+
+- **GSC manual batch:** 8 of 9 carryover URLs cleared via manual paste (user driven). Chrome-MCP auto-flow blocked — GSC's long-poll network never reaches `document_idle`, which the `screenshot`/`find` tools require, so the documented agent recipe can't complete. To retry via agent in the future, interrupt the long-poll first (click any sidebar item). 9th URL (`how-much-should-emergency-fund-be`) carries to 2026-06-18 quota reset.
+- **Article-refresh wk25:** 3 flags / 6 articles vs wk24's 11 / 6 — **prompt fix from `0d2253f` validated** at 73% volume drop. Only 1 real fix (`standard-vs-itemized-deduction` TCJA hedge → OBBBA-permanent). 2 false positives (Haiku flagged "55+ should be 55+" tautologically; flagged a 2026-link as stale where the target article is itself a 2026 publication).
+- **Qwoted account disabled mid-session.** Vetting team flagged the account when the user logged in to send the Martha Stewart Living pitch. Support agent Therese asked for company + bio URLs. Replied with `finbrief.space` + `/author/jahanzeb-nawaz`. No LinkedIn (Jahanzeb doesn't maintain one). Dashboard reset all pitch stats to 0, so the two 2026-06-16 "your pitch was read" notifications (MoneyWise + Realtor.com) are now downgraded to ambiguous — they may have been automated nudges, not real opens. Martha Stewart Living tax-paperwork pitch is drafted and held in `HARO_RESPONSE_LOG.md` 2026-06-17 entry. ETA on reinstatement: 3–7 business days. **Hypothesis worth testing post-reinstatement:** the 3 pitches sent on 2026-06-15 may have looked too template-similar (all retirement-themed, same day, no LinkedIn). Space refills 2–3 days apart and vary the angle.
+- **Parade emergency-savings query skipped** — query had expired and reporter declared enough pitches.
+
+### Code shipped
+
+- **`/tools/net-worth-percentile`** (`2390608`) — 2022 SCF percentile bands across 6 age cohorts with linear interpolation; dynamic CTAs (sub-50th → SoFi HYSA + Fidelity; 50th+ → Fidelity/Schwab/Vanguard). Data in `src/lib/net-worth-percentiles.ts`. Refresh trigger: 2025 SCF release ~Oct 2026.
+- **`/glossary`** (`ac6a3fa`) — 45 terms across 19 A-Z sections, each with pillar tag + plain-language definition + links to related cornerstone articles. `DefinedTermSet` JSON-LD. Data in `src/lib/glossary.ts`; expand as new pillars/articles ship. Footer link + sitemap entry added.
+- **`/learn/hsa-vs-roth-ira`** (`62a3610`) — Save-tax cornerstone bridging the 8 existing HSA + Roth articles. FICA-included tax math example (HSA wins by ~46% on identical pre-tax salary in 24% bracket), receipt-bank strategy, 6-step priority stack. 6 affiliate CTAs (fidelity-hsa, lively, healthequity, fidelity, schwab, vanguard), 7 internal links. Save-tax pillar: 26 → 27 articles.
+- **`/learn/target-date-funds-explained`** (`6c8f422`) — Invest cornerstone. Glide-path table, 2026 expense-ratio comparison across 8 providers (Vanguard/Schwab 0.08% → Fidelity Freedom active 0.71%), when-to-use vs skip rules, three biggest TDF myths. 3 affiliate CTAs (Vanguard/Fidelity/Schwab), 15 internal links. Invest pillar: 19 → 20 articles.
+
+### Tooling lessons (carry forward)
+
+- **Preview server lives in `~/.claude/launch.json`**, not the project's `.claude/`. The harness's primary CWD is `/Users/jahanzabnawaz`, so the `preview_start` tool reads from there. To register a project's dev server, append a `finbrief-dev` (or similar) config alongside whatever's already there; don't overwrite. Local `.claude/launch.json` was added to `.gitignore` to keep agent config out of the repo.
+- **`siteConfig.articles` slugs are a strict `as const` union.** Looking up arbitrary slugs in a Map of articles requires a typed key: `new Map<string, ArticleEntry>(...)`. Otherwise TS narrows the input parameter to the literal union and rejects glossary-style cross-links.
+- **GSC `document_idle` blocker.** GSC's long-poll keeps the tab from ever reaching idle, so Chrome-MCP `screenshot`/`find` time out at 45s. The recipe in earlier sessions assumed both worked; in practice the agent-driven flow now needs an interrupt step (click a sidebar item) to short the long-poll before screenshot.
+
+### Where to pick up next session
+
+1. Submit `/learn/how-much-should-emergency-fund-be` to GSC (carryover from today's quota).
+2. Then submit the four URLs shipped today: `/glossary`, `/tools/net-worth-percentile`, `/learn/hsa-vs-roth-ira`, `/learn/target-date-funds-explained`.
+3. Check inbox for Qwoted reinstatement reply from Therese. If reinstated → send the Martha Stewart Living pitch (full body in `HARO_RESPONSE_LOG.md` 2026-06-17 entry).
+4. Continue Beehiiv Monday publish cadence.
+5. Next code priority: **50-state paycheck calculator scaffold** (~3-day build) — the last remaining playbook item from the original "Where to start" list. Net Worth Percentile + Glossary now closed.
+
+*Last updated: 2026-06-17 (Net Worth Percentile tool, Glossary v1, hsa-vs-roth-ira, target-date-funds-explained, wk25 cron pass, Qwoted account-disabled episode logged. 94 cornerstones / 119 routes. Build clean. 6 commits pushed.)*
