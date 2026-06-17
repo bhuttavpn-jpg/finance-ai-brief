@@ -9,6 +9,25 @@ Pickup rate target per kit: ~5%, ~1 link/month at 5 pitches/week pace.
 | 2026-06-15 | Qwoted | MoneyWise | CoastFIRE assumptions + overlooked expenses | Q2 sequence risk + Q4 healthcare/LTC | sent | — |
 | 2026-06-15 | Qwoted | Realtor.com | Older millennials $427K retirement shortfall | Q1 catch-up math is recoverable + Q2 layering, not housing alone | sent | — |
 | 2026-06-15 | Qwoted | MoneyLion | Americans feel ready for retirement — key concepts | SECURE 2.0 super catch-up, sequence risk, healthcare carve-out | sent | — |
+| 2026-06-16 | Qwoted | MoneyWise | Pitch READ signal | — | ambiguous — see 2026-06-17 note | — |
+| 2026-06-16 | Qwoted | Realtor.com | Pitch READ signal | — | ambiguous — see 2026-06-17 note | — |
+| 2026-06-17 | Qwoted | Martha Stewart Living | Tax/financial paperwork: what to keep, toss, dispose | Direct 5-question Q&A — IRS Topic 305, Pub 583, Rev. Proc. 97-22 anchors | drafted, blocked | — |
+| 2026-06-17 | Qwoted | Parade | Realistic emergency savings target | SKIPPED — query expired + reporter declared enough pitches | skipped | — |
+
+## 2026-06-17 — Qwoted account temporarily disabled
+
+When logging in to send the Martha Stewart Living pitch, the dashboard surfaced an **"Account temporarily disabled"** banner with an instruction to chat with support. Support agent (Therese) requested links to a professional bio / LinkedIn and a company website to push the account through internal vetting and re-enable.
+
+**Reply sent:**
+- Company: `https://finbrief.space`
+- Author/bio: `https://finbrief.space/author/jahanzeb-nawaz`
+- No LinkedIn — Finbrief is the primary professional channel.
+
+**Side-effect: pitch stats reset to 0.** The dashboard now shows `Pitches Sent: 0 / Profile Views: 0 / Media Response Rate: N/A / Media Connections: 0`, despite three pitches having been sent on 2026-06-15. The two "Brian O'Connell from MoneyWise read your pitch" and "Anna Baluch from Realtor.com read your pitch" inbox notifications (Jun 16) are therefore downgraded to `ambiguous` until verified post-reinstatement — they may have been automated nudge emails rather than real reporter opens, especially given the account was flagged for vetting around the same time.
+
+**Hypothesis to test if reinstated:** vetting may have been triggered by the three 2026-06-15 pitches looking too template-similar (all retirement-themed, sent same day, same author with no LinkedIn). When the queue refills, space pitches 2–3 days apart and vary the article angles cited.
+
+**Status:** waiting on Qwoted vetting team. Martha Stewart Living pitch is drafted (in SESSION_LOG / commit history) and ready to send the moment the account is back. Track ~3–7 business days for verification turnaround.
 
 ## Status values
 - `sent` — pitch submitted, no reply yet
