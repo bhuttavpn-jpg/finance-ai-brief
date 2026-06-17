@@ -29,6 +29,28 @@ When logging in to send the Martha Stewart Living pitch, the dashboard surfaced 
 
 **Status:** waiting on Qwoted vetting team. Martha Stewart Living pitch is drafted (in SESSION_LOG / commit history) and ready to send the moment the account is back. Track ~3–7 business days for verification turnaround.
 
+### 2026-06-17 (later) — Therese asked for third-party trace
+
+Therese followed up: company URL + own-domain author page weren't enough. She wants one of: media mention, guest byline, podcast/speaker profile, or a third-party directory listing Jahanzeb by name. The structural issue is that everything Finbrief-side lives on a self-published domain; she needs external verification.
+
+Decision: build a LinkedIn profile rather than try to stretch what's available (SourceBottle expert profile + public GitHub repo). LinkedIn is the cheapest one-time fix that unblocks every future PR/affiliate platform — not just Qwoted.
+
+**Status as of 2026-06-17 evening:**
+- LinkedIn account created at `linkedin.com/in/finbrief-admin-2398a340b`.
+- Account is in LinkedIn's initial new-account review state; profile cannot be edited yet. Typical clearance: 24–48 hours.
+- Profile name currently displays as `finbrief admin` (default at signup) — must be changed to `Jahanzeb Nawaz` the moment the review clears, otherwise Therese will reject it.
+- Holding message sent to Therese acknowledging the LinkedIn-review delay; no URL shared yet.
+
+**Next-session action list (do these in order):**
+1. Confirm LinkedIn approval cleared.
+2. Set name to `Jahanzeb Nawaz`, headline to `Founder at Finbrief — U.S. personal-finance research`, industry to `Online Media`.
+3. Add About / Position / Skills / Education per the spec drafted in session chat (verbatim copy is in the assistant's response).
+4. Settings → Visibility → Edit public profile → toggle every section public.
+5. Visit profile in incognito to confirm it renders to a logged-out visitor.
+6. Send the URL to Therese.
+7. Wire the LinkedIn URL into `src/lib/authors.ts` → `jahanzeb-nawaz` entry (likely needs a `linkedinUrl` field added) and surface it on `/author/jahanzeb-nawaz`. Helps E-E-A-T signals + makes the two profiles cross-link.
+8. Remove any "no LinkedIn" language anywhere it was added (likely none beyond log entries).
+
 ## Status values
 - `sent` — pitch submitted, no reply yet
 - `picked` — reporter responded, quote selected, awaiting publish

@@ -1520,7 +1520,7 @@ Six commits shipped (`2390608`, `ac6a3fa`, `62a3610`, `42f56a5`, `366a3c1`, `6c8
 
 1. Submit `/learn/how-much-should-emergency-fund-be` to GSC (carryover from today's quota).
 2. Then submit the four URLs shipped today: `/glossary`, `/tools/net-worth-percentile`, `/learn/hsa-vs-roth-ira`, `/learn/target-date-funds-explained`.
-3. Check inbox for Qwoted reinstatement reply from Therese. If reinstated → send the Martha Stewart Living pitch (full body in `HARO_RESPONSE_LOG.md` 2026-06-17 entry).
+3. **Qwoted reinstatement is now LinkedIn-gated.** Therese rejected the own-domain-only trace and asked for an external one. LinkedIn account was created late 2026-06-17 (`linkedin.com/in/finbrief-admin-2398a340b`) but is in LinkedIn's initial review — can't edit yet, typically 24–48h. Next-session checklist: (a) confirm LinkedIn approval cleared, (b) set name to "Jahanzeb Nawaz" + headline + industry "Online Media", (c) fill About/Position/Skills/Education per the spec in `HARO_RESPONSE_LOG.md` 2026-06-17 second entry, (d) make profile public, (e) verify in incognito, (f) send URL to Therese, (g) wire LinkedIn link into `src/lib/authors.ts` + author page for E-E-A-T signals. Then the held Martha Stewart Living pitch can finally send.
 4. Continue Beehiiv Monday publish cadence.
 5. Next code priority: **50-state paycheck calculator scaffold** (~3-day build) — the last remaining playbook item from the original "Where to start" list. Net Worth Percentile + Glossary now closed.
 
