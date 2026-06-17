@@ -506,7 +506,7 @@ export const siteConfig = {
       tool: "tax-bracket",
       keyword: "standard vs itemized deduction",
       publishedAt: "2026-06-01",
-      updatedAt: "2026-06-01",
+      updatedAt: "2026-06-17",
     },
     {
       slug: "how-to-lower-car-insurance",

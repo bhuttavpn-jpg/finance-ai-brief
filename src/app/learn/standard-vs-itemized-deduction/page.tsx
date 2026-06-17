@@ -14,6 +14,7 @@ const title = "Standard vs. itemized deduction: Which should you take?";
 const description =
   "The 2026 standard deduction is $16,100 single / $32,200 married filing jointly per IRS Rev. Proc. 2025-32. About 90% of filers take it — itemizing only beats it if your mortgage interest, SALT, and charitable giving exceed those numbers. Here's the math and the moves to make itemizing actually pay off.";
 const PUBLISHED = "2026-06-01";
+const UPDATED = "2026-06-17";
 
 export const metadata: Metadata = {
   title,
@@ -58,7 +59,7 @@ export default function Page() {
           title,
           description,
           publishedAt: PUBLISHED,
-          updatedAt: PUBLISHED,
+          updatedAt: UPDATED,
           author: "Jahanzeb Nawaz",
         })}
       />
@@ -71,7 +72,7 @@ export default function Page() {
           subtitle="In 2026, the standard deduction is $16,100 / $32,200 — about 90% of filers take it. Itemizing only beats it for homeowners and heavy charitable givers."
           pillar="Save tax"
           publishedAt={PUBLISHED}
-          updatedAt={PUBLISHED}
+          updatedAt={UPDATED}
           author="Jahanzeb Nawaz"
           reviewer="the FinBrief Editorial Team"
           readingTime="10 min read"
@@ -140,10 +141,10 @@ export default function Page() {
           </ul>
 
           <p>
-            Notable items <strong>NOT</strong> deductible since TCJA (still suspended through tax
-            year 2025 and likely into 2026 unless Congress extends): unreimbursed employee
-            expenses, tax prep fees, investment advisory fees, and other "miscellaneous itemized
-            deductions subject to 2% AGI floor."
+            Notable items <strong>NOT</strong> deductible since TCJA, and now permanently
+            suspended under the One Big Beautiful Bill Act of 2025: unreimbursed employee
+            expenses, tax prep fees, investment advisory fees, and other &quot;miscellaneous
+            itemized deductions subject to 2% AGI floor.&quot;
           </p>
 
           <hr className="my-10 border-brand-100" />
