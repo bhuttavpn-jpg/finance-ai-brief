@@ -386,6 +386,7 @@ export default function Page() {
             <li><Link href="/tools/401k-match">401(k) match calculator</Link></li>
             <li><Link href="/tools/roth-vs-traditional">Roth vs. Traditional IRA comparator</Link></li>
             <li><Link href="/learn/best-hysa-2026">Best high-yield savings accounts 2026</Link></li>
+            <li><Link href="/learn/webull-review">Webull review (2026) — commission-free trading</Link></li>
           </ul>
         </div>
 

@@ -252,6 +252,8 @@ export default function Page() {
             <li><Link href="/learn/debt-snowball-vs-avalanche">Debt snowball vs. avalanche</Link></li>
             <li><Link href="/learn/what-affects-your-credit-score">What affects your credit score?</Link></li>
             <li><Link href="/learn/how-to-build-credit-from-scratch">How to build credit from scratch</Link></li>
+            <li><Link href="/learn/student-loan-refinance">Student loan refinance — when it pays off</Link></li>
+            <li><Link href="/learn/sofi-personal-loan-review">SoFi personal loan review (2026)</Link></li>
           </ul>
         </div>
 

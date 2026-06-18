@@ -297,6 +297,7 @@ export default function Page() {
             <li><Link href="/learn/roth-ira-vs-traditional-ira">Roth IRA vs. Traditional IRA</Link></li>
             <li><Link href="/learn/best-hsa-providers">Best HSA providers 2026</Link></li>
             <li><Link href="/learn/how-much-do-i-need-to-retire">How much do I need to retire?</Link></li>
+            <li><Link href="/learn/webull-review">Webull review (2026) — for active traders</Link></li>
           </ul>
         </div>
 

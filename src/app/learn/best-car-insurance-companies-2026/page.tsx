@@ -283,6 +283,7 @@ export default function Page() {
             <li><Link href="/learn/how-much-life-insurance-do-i-need">How much life insurance do I need?</Link></li>
             <li><Link href="/learn/best-life-insurance-companies-2026">Best life insurance companies 2026</Link></li>
             <li><Link href="/learn/term-vs-whole-life-insurance">Term vs. whole life insurance</Link></li>
+            <li><Link href="/learn/how-much-car-insurance-do-i-need">How much car insurance do I need?</Link></li>
           </ul>
         </div>
 

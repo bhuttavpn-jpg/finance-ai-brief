@@ -342,6 +342,7 @@ export default function Page() {
             <li><Link href="/learn/how-to-build-credit-from-scratch">How to build credit from scratch</Link> — get to the 700+ score these cards require.</li>
             <li><Link href="/learn/how-to-budget-50-30-20">How to budget using the 50/30/20 rule</Link> — keep card spending inside your plan so rewards stay rewards.</li>
             <li><Link href="/tools/tax-bracket">Tax bracket calculator</Link> — see your marginal rate before optimizing the rest of your money.</li>
+            <li><Link href="/learn/amex-gold-card-review">Amex Gold Card review — premium rewards</Link></li>
           </ul>
         </div>
 

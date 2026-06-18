@@ -351,6 +351,7 @@ export default function Page() {
             <li><Link href="/learn/tax-loss-harvesting-guide">Tax-loss harvesting</Link> — reduce your capital-gains tax bill.</li>
             <li><Link href="/learn/hsa-vs-fsa">HSA vs. FSA</Link> — the most powerful pre-tax bucket if you&apos;re HDHP-eligible.</li>
             <li><Link href="/tools/tax-bracket">Marginal tax rate calculator</Link> — find your bracket in 30 seconds.</li>
+            <li><Link href="/learn/qualified-vs-ordinary-dividends">Qualified vs. ordinary dividends — how dividends are taxed</Link></li>
           </ul>
         </div>
 

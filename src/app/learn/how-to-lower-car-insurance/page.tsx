@@ -346,6 +346,7 @@ export default function Page() {
             <li><Link href="/learn/term-vs-whole-life-insurance">Term vs. whole life insurance</Link></li>
             <li><Link href="/learn/credit-utilization-ratio">Credit utilization ratio</Link></li>
             <li><Link href="/learn/how-to-build-emergency-fund">How to build an emergency fund</Link></li>
+            <li><Link href="/learn/how-much-car-insurance-do-i-need">How much car insurance do I need?</Link></li>
           </ul>
         </div>
 

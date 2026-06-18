@@ -296,6 +296,7 @@ export default function Page() {
             <li><Link href="/learn/best-cashback-credit-cards-2026">Best cashback credit cards 2026</Link></li>
             <li><Link href="/learn/best-credit-cards-for-beginners">Best credit cards for beginners</Link></li>
             <li><Link href="/learn/how-to-build-credit-from-scratch">How to build credit from scratch</Link></li>
+            <li><Link href="/learn/amex-gold-card-review">Amex Gold Card review — primary CSP competitor</Link></li>
           </ul>
         </div>
 

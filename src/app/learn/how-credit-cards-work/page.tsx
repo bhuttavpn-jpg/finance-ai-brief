@@ -283,6 +283,7 @@ export default function Page() {
             <li><Link href="/learn/what-affects-your-credit-score">What affects your credit score?</Link></li>
             <li><Link href="/learn/personal-loan-vs-credit-card">Personal loan vs. credit card</Link></li>
             <li><Link href="/learn/how-to-pay-off-credit-card-debt">How to pay off credit card debt</Link></li>
+            <li><Link href="/learn/best-business-credit-cards">Best business credit cards (2026)</Link></li>
           </ul>
         </div>
 

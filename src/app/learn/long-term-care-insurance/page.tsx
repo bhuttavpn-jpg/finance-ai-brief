@@ -376,6 +376,7 @@ export default function Page() {
             <li><Link href="/learn/medicare-basics-2026">Medicare basics 2026</Link></li>
             <li><Link href="/learn/how-much-do-i-need-to-retire">How much do I need to retire?</Link></li>
             <li><Link href="/learn/when-to-take-social-security">When to take Social Security</Link></li>
+            <li><Link href="/learn/umbrella-insurance-guide">Umbrella insurance — broader asset protection</Link></li>
           </ul>
         </div>
 

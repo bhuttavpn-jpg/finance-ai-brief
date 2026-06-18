@@ -274,6 +274,7 @@ export default function Page() {
             <li><Link href="/learn/freetaxusa-review">FreeTaxUSA review</Link> — the value pick in depth.</li>
             <li><Link href="/learn/turbotax-vs-taxact">TurboTax vs. TaxAct</Link> — when paid software is worth it.</li>
             <li><Link href="/learn/tax-brackets-2026">2026 tax brackets</Link> — the rates the software applies.</li>
+            <li><Link href="/learn/qualified-vs-ordinary-dividends">Qualified vs. ordinary dividends</Link></li>
           </ul>
         </div>
 

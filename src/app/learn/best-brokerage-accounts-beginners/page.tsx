@@ -333,6 +333,7 @@ export default function Page() {
             <li><Link href="/learn/401k-vs-ira-which-first">401(k) vs. IRA: which to fund first</Link> — the right contribution order.</li>
             <li><Link href="/learn/roth-ira-contribution-limits-2026">Roth IRA contribution limits 2026</Link> — the cap you&apos;re filling each year.</li>
             <li><Link href="/tools/401k-match">401(k) match calculator</Link> — quantify the free money before you fund an IRA.</li>
+            <li><Link href="/learn/webull-review">Webull review (2026) — active-trader option</Link></li>
           </ul>
         </div>
 

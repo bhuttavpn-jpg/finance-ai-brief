@@ -332,6 +332,7 @@ export default function Page() {
             <li><Link href="/learn/how-to-budget-50-30-20">How to budget with the 50/30/20 rule</Link></li>
             <li><Link href="/learn/how-to-build-credit-from-scratch">How to build credit from scratch</Link></li>
             <li><Link href="/learn/best-hysa-2026">Best high-yield savings accounts 2026</Link></li>
+            <li><Link href="/learn/how-to-save-money-fast">How to save money fast</Link></li>
           </ul>
         </div>
 

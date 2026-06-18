@@ -291,6 +291,7 @@ export default function Page() {
             <li><Link href="/learn/roth-ira-vs-traditional-ira">Roth IRA vs. Traditional IRA</Link></li>
             <li><Link href="/learn/roth-ira-contribution-limits-2026">Roth IRA contribution limits 2026</Link></li>
             <li><Link href="/learn/401k-vs-ira-which-first">401(k) vs. IRA: which first?</Link></li>
+            <li><Link href="/learn/webull-review">Webull review (2026) — peer broker comparison</Link></li>
           </ul>
         </div>
 

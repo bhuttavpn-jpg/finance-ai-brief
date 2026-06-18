@@ -445,6 +445,8 @@ export default function Page() {
             <li><Link href="/tools/tax-bracket">Tax bracket calculator</Link> — pair good credit with smart tax planning.</li>
             <li><Link href="/learn/how-to-budget-50-30-20">How to budget using the 50/30/20 rule</Link> — pay off the card from the &quot;needs&quot; bucket, not the &quot;wants&quot; bucket.</li>
             <li><Link href="/learn/best-hysa-2026">Best high-yield savings accounts 2026</Link> — pair good credit habits with an emergency fund.</li>
+            <li><Link href="/learn/best-student-credit-cards">Best student credit cards (2026)</Link></li>
+            <li><Link href="/learn/best-credit-cards-for-fair-credit">Best credit cards for fair credit</Link></li>
           </ul>
         </div>
 

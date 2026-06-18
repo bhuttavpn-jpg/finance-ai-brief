@@ -337,6 +337,7 @@ export default function Page() {
             <li><Link href="/learn/best-cashback-credit-cards-2026">Best cashback credit cards 2026</Link></li>
             <li><Link href="/learn/how-to-pay-off-credit-card-debt">How to pay off credit card debt</Link></li>
             <li><Link href="/learn/debt-snowball-vs-avalanche">Debt snowball vs. avalanche</Link></li>
+            <li><Link href="/learn/best-credit-cards-for-fair-credit">Best credit cards for fair credit</Link></li>
           </ul>
         </div>
 

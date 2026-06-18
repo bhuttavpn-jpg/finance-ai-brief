@@ -269,6 +269,7 @@ export default function Page() {
             <li><Link href="/learn/best-cashback-credit-cards-2026">Best cashback credit cards 2026</Link> — where to graduate to.</li>
             <li><Link href="/learn/best-travel-credit-cards-2026">Best travel credit cards 2026</Link> — for after you cross 720.</li>
             <li><Link href="/learn/how-to-pay-off-credit-card-debt">How to pay off credit card debt fast</Link> — if you&apos;ve already fallen behind.</li>
+            <li><Link href="/learn/best-student-credit-cards">Best student credit cards (2026)</Link></li>
           </ul>
         </div>
 

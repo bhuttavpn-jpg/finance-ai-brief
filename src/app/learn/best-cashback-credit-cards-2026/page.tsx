@@ -376,6 +376,8 @@ export default function Page() {
             <li><Link href="/learn/best-travel-credit-cards-2026">Best travel credit cards 2026</Link> — when cashback isn&apos;t the right currency.</li>
             <li><Link href="/learn/how-to-budget-50-30-20">How to budget using the 50/30/20 rule</Link> — keep card spending inside your needs/wants envelope.</li>
             <li><Link href="/learn/how-to-build-emergency-fund">How to build an emergency fund</Link> — the safety net that keeps you from carrying a card balance.</li>
+            <li><Link href="/learn/best-business-credit-cards">Best business credit cards (2026)</Link></li>
+            <li><Link href="/learn/amex-gold-card-review">Amex Gold Card review</Link></li>
           </ul>
         </div>
 

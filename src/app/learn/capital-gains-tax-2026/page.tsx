@@ -363,6 +363,7 @@ export default function Page() {
             <li><Link href="/learn/best-brokerage-accounts-beginners">Best brokerage accounts for beginners</Link></li>
             <li><Link href="/learn/roth-ira-vs-traditional-ira">Roth vs. Traditional IRA</Link></li>
             <li><Link href="/learn/best-tax-software-2026">Best tax software 2026</Link></li>
+            <li><Link href="/learn/qualified-vs-ordinary-dividends">Qualified vs. ordinary dividends</Link></li>
           </ul>
         </div>
 

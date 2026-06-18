@@ -304,6 +304,7 @@ export default function Page() {
             <li><Link href="/tools/life-insurance">Life insurance need calculator</Link> — find your coverage amount with the DIME method.</li>
             <li><Link href="/learn/how-to-invest-1000-beginners">How to invest $1,000 for beginners</Link> — where to put the money you save by choosing term.</li>
             <li><Link href="/learn/401k-vs-ira-which-first">401(k) vs. IRA: which to fund first</Link> — the accounts to invest the difference in.</li>
+            <li><Link href="/learn/umbrella-insurance-guide">Umbrella insurance — the next layer of protection</Link></li>
           </ul>
         </div>
 

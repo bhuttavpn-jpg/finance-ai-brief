@@ -167,6 +167,7 @@ export default function Page() {
             <li><Link href="/learn/roth-ira-vs-traditional-ira">Roth IRA vs. Traditional IRA</Link> — once your match is maxed, the next dollar belongs here.</li>
             <li>How to build an emergency fund (coming soon)</li>
             <li>Best high-yield savings accounts (coming soon)</li>
+            <li><Link href="/learn/how-to-save-money-fast">How to save money fast — accelerator tactics</Link></li>
           </ul>
         </div>
 

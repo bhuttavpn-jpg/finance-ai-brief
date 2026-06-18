@@ -292,6 +292,7 @@ export default function Page() {
             <li><Link href="/learn/term-vs-whole-life-insurance">Term vs. whole life insurance</Link></li>
             <li><Link href="/learn/best-term-life-insurance-young-professionals">Best term life insurance for young professionals</Link></li>
             <li><Link href="/tools/life-insurance">Life insurance need calculator</Link></li>
+            <li><Link href="/learn/umbrella-insurance-guide">Umbrella insurance — beyond standard liability limits</Link></li>
           </ul>
         </div>
 

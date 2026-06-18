@@ -305,6 +305,7 @@ export default function Page() {
             <li><Link href="/tools/budget-50-30-20">50/30/20 budget calculator</Link> — find your essential expenses and savings room.</li>
             <li><Link href="/learn/how-to-budget-50-30-20">How to budget with the 50/30/20 rule</Link> — the framework that frees up money to save.</li>
             <li><Link href="/learn/how-to-invest-1000-beginners">How to invest $1,000 for beginners</Link> — what to do once the fund is full.</li>
+            <li><Link href="/learn/how-to-save-money-fast">How to save money fast — accelerator tactics</Link></li>
           </ul>
         </div>
 

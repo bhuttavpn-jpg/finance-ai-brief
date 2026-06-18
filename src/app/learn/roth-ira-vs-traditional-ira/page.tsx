@@ -156,6 +156,7 @@ export default function Page() {
             <li><Link href="/learn/how-to-budget-50-30-20">How to Budget Using the 50/30/20 Rule</Link> — figure out how much you can actually contribute.</li>
             <li>The Backdoor Roth IRA Guide (coming soon)</li>
             <li>How much should I contribute to my 401(k)? (coming soon)</li>
+            <li><Link href="/learn/qualified-vs-ordinary-dividends">Qualified vs. ordinary dividends — taxation inside Roth</Link></li>
           </ul>
         </div>
 
