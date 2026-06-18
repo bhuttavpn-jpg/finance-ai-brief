@@ -4,7 +4,7 @@
 
 ---
 
-## Live state (as of 2026-06-17)
+## Live state (as of 2026-06-18)
 
 ### Deployment
 
@@ -13,8 +13,8 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | `6c8f422` (pushed 2026-06-17) — target-date-funds-explained Invest cornerstone. Session-day chain: `2390608` Net Worth Percentile tool + 8/9 GSC URLs cleared, `ac6a3fa` Glossary v1 (45 terms), `62a3610` hsa-vs-roth-ira article, `42f56a5` wk25 cron editorial pass (TCJA misc-itemized → OBBBA-permanent), `366a3c1` Qwoted account-disabled episode logged. |
-| Build | clean, **119 routes** (was 115 at start of 2026-06-17; +2 new articles, +1 Net Worth Percentile tool, +1 Glossary), all 94 articles + 5 hubs statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
+| Latest commit | `9148e1f` (pushed 2026-06-18) — 5-article batch across Invest, Save tax, Borrow (i-bonds-vs-tips, index-funds-vs-etfs, solo-401k-vs-sep-ira, heloc-vs-home-equity-loan, quarterly-estimated-taxes-guide). Prior session chain: `80e3f2f` LinkedIn account setup + Qwoted third-party verification gate, `009cb29` SESSION_LOG 2026-06-17 wrap, `6c8f422` target-date-funds-explained, `2390608` Net Worth Percentile tool + 8/9 GSC URLs cleared, `ac6a3fa` Glossary v1 (45 terms), `62a3610` hsa-vs-roth-ira. |
+| Build | clean, **124 routes** (was 119 at end of 2026-06-17; +5 new articles), all 99 articles + 5 hubs statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
 | Vercel env vars | **37 total** (32 affiliate + 5 newsletter). Unchanged today. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
@@ -25,21 +25,21 @@
 
 ### Author + editorial (E-E-A-T)
 
-- Named author across all 92 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
+- Named author across all 99 articles: **Jahanzeb Nawaz** (Founder). `/author/jahanzeb-nawaz` page live, real photo.
 - Named reviewer: **FinBrief Editorial Team**; `/editorial-standards` page describes the process.
 - Schema validated by Google's Rich Results Test (`author` + `reviewedBy` + valid datetimes + image).
 
-### Articles shipped (94 cornerstones)
+### Articles shipped (99 cornerstones)
 
-Original Phase 2 plan called for 10. We're 82 ahead. The workbook calendar (71 article slots) is fully exhausted; everything past that is fresh ideation. Reconciled 2026-06-07 — pillar counts derived directly from `siteConfig.articles`. **Bold** entries are the newest additions (2026-06-02 → 2026-06-07 sessions: 10 mid-batch articles + the 2026-06-07 sixth content batch of 8).
+Original Phase 2 plan called for 10. We're 89 ahead. The workbook calendar (71 article slots) is fully exhausted; everything past that is fresh ideation. **Bold** entries are the newest additions (2026-06-18 session: 5 fresh-ideation articles — first batch since workbook ran out).
 
 | Pillar | Count | Slugs |
 |---|---|---|
 | Budget | 12 | best-budgeting-apps-2026, best-hysa-2026, couples-budgeting-guide, debt-snowball-vs-avalanche, how-much-should-emergency-fund-be, how-to-budget, how-to-budget-50-30-20, how-to-build-emergency-fund, how-to-pay-off-credit-card-debt, how-to-pay-off-debt, how-to-save-money-fast, how-to-stop-living-paycheck-to-paycheck |
-| Invest | 20 | 401k-vs-ira-which-first, **target-date-funds-explained**, **asset-allocation-by-age**, best-brokerage-accounts-beginners, dollar-cost-averaging-vs-lump-sum, **espp-guide**, fidelity-vs-schwab, fire-movement-guide, how-much-do-i-need-to-retire, how-much-to-contribute-to-401k, how-to-choose-a-financial-advisor, how-to-invest-1000-beginners, how-to-invest-in-stocks, **mutual-funds-vs-etfs**, robinhood-review, roth-ira-vs-traditional-ira, **sequence-of-returns-risk**, vanguard-vs-fidelity, webull-review, **when-to-take-social-security** |
-| Save tax | 27 | **529-plan-guide**, backdoor-roth-ira-guide, **hsa-vs-roth-ira**, best-hsa-providers, best-tax-software-2026, capital-gains-tax-2026, freetaxusa-review, **fsa-explainer**, how-to-file-taxes-for-free, hsa-as-retirement-account, hsa-vs-fsa, **ira-rmd-rules**, mega-backdoor-roth-guide, **qualified-vs-ordinary-dividends**, roth-conversion-ladder, **roth-ira-5-year-rules**, roth-ira-contribution-limits-2026, **secure-2-0-changes-2026**, short-vs-long-term-capital-gains, standard-vs-itemized-deduction, tax-brackets-2026, tax-deductions-checklist, tax-loss-harvesting-guide, tax-loss-harvesting-wash-sale-rule, **taxes-on-social-security-benefits**, turbotax-vs-taxact, when-to-hire-a-cpa |
-| Borrow smart | 20 | amex-gold-card-review, best-business-credit-cards, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, best-credit-cards-for-fair-credit, best-personal-loans-2026, best-student-credit-cards, best-travel-credit-cards-2026, chase-sapphire-preferred-review, credit-utilization-ratio, debt-consolidation-loan, how-credit-cards-work, how-to-build-credit-from-scratch, how-to-check-credit-score-for-free, how-to-get-a-mortgage, personal-loan-vs-credit-card, sofi-personal-loan-review, student-loan-refinance, what-affects-your-credit-score, when-to-refinance-mortgage |
-| Protect | 15 | best-car-insurance-companies-2026, best-life-insurance-companies-2026, best-term-life-insurance-young-professionals, **disability-insurance-guide**, **estate-planning-basics**, hmo-vs-ppo-vs-hdhp, how-much-car-insurance-do-i-need, how-much-life-insurance-do-i-need, how-to-lower-car-insurance, **identity-theft-protection**, **long-term-care-insurance**, **medicare-basics-2026**, renters-vs-homeowners-insurance, term-vs-whole-life-insurance, **umbrella-insurance-guide** |
+| Invest | 22 | 401k-vs-ira-which-first, target-date-funds-explained, asset-allocation-by-age, best-brokerage-accounts-beginners, dollar-cost-averaging-vs-lump-sum, espp-guide, fidelity-vs-schwab, fire-movement-guide, how-much-do-i-need-to-retire, how-much-to-contribute-to-401k, how-to-choose-a-financial-advisor, how-to-invest-1000-beginners, how-to-invest-in-stocks, **i-bonds-vs-tips**, **index-funds-vs-etfs**, mutual-funds-vs-etfs, robinhood-review, roth-ira-vs-traditional-ira, sequence-of-returns-risk, vanguard-vs-fidelity, webull-review, when-to-take-social-security |
+| Save tax | 29 | 529-plan-guide, backdoor-roth-ira-guide, hsa-vs-roth-ira, best-hsa-providers, best-tax-software-2026, capital-gains-tax-2026, freetaxusa-review, fsa-explainer, how-to-file-taxes-for-free, hsa-as-retirement-account, hsa-vs-fsa, ira-rmd-rules, mega-backdoor-roth-guide, qualified-vs-ordinary-dividends, **quarterly-estimated-taxes-guide**, roth-conversion-ladder, roth-ira-5-year-rules, roth-ira-contribution-limits-2026, secure-2-0-changes-2026, short-vs-long-term-capital-gains, **solo-401k-vs-sep-ira**, standard-vs-itemized-deduction, tax-brackets-2026, tax-deductions-checklist, tax-loss-harvesting-guide, tax-loss-harvesting-wash-sale-rule, taxes-on-social-security-benefits, turbotax-vs-taxact, when-to-hire-a-cpa |
+| Borrow smart | 21 | amex-gold-card-review, best-business-credit-cards, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, best-credit-cards-for-fair-credit, best-personal-loans-2026, best-student-credit-cards, best-travel-credit-cards-2026, chase-sapphire-preferred-review, credit-utilization-ratio, debt-consolidation-loan, **heloc-vs-home-equity-loan**, how-credit-cards-work, how-to-build-credit-from-scratch, how-to-check-credit-score-for-free, how-to-get-a-mortgage, personal-loan-vs-credit-card, sofi-personal-loan-review, student-loan-refinance, what-affects-your-credit-score, when-to-refinance-mortgage |
+| Protect | 15 | best-car-insurance-companies-2026, best-life-insurance-companies-2026, best-term-life-insurance-young-professionals, disability-insurance-guide, estate-planning-basics, hmo-vs-ppo-vs-hdhp, how-much-car-insurance-do-i-need, how-much-life-insurance-do-i-need, how-to-lower-car-insurance, identity-theft-protection, long-term-care-insurance, medicare-basics-2026, renters-vs-homeowners-insurance, term-vs-whole-life-insurance, umbrella-insurance-guide |
 
 Article presentation spec (apply to every new article): mixed content blocks (comparison tables + bullets + inline Q&A + ≤5-sentence paragraphs), strategic bold on numbers/key terms, `<hr className="my-10 border-brand-100" />` separators between H2s (except "Related reading"), Jahanzeb Nawaz as `author`, "the FinBrief Editorial Team" as `reviewer`. Every article: `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` for step-by-steps), FTC `AffiliateDisclosure` above the fold, dense cross-pillar internal linking.
 
@@ -62,7 +62,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 ### Standing open issues
 
 1. **Real affiliate URLs.** Only Wise + SoFi Money pay. Two under review (Ethos, Betterment). FlexOffers fully declined 2026-06-16 at the publisher-account level — H&R Block path now closed. Structural Italy×US blocker holds across CJ + FlexOffers + HasOffers. SoFi Money CTAs added across 8 Save-tax articles 2026-06-05 to monetize CJ-blocked tax-software gap (commit `681dd46`).
-2. **GSC indexing.** Through 2026-06-12 ~28 URLs submitted across early sittings, all pillar hubs + most recent articles cleared. 2026-06-16: quota hit after 1 URL (`best-personal-loans-2026`); 9 carried over. **2026-06-17: 8 of 9 carryover URLs cleared by user manually** (`sofi-personal-loan-review`, `amex-gold-card-review`, `when-to-refinance-mortgage`, `how-to-get-a-mortgage`, `fire-movement-guide`, `mutual-funds-vs-etfs`, `when-to-take-social-security`, `roth-conversion-ladder`). Quota hit on #9 — `how-much-should-emergency-fund-be` carries to 2026-06-18. Driven manually because GSC's long-poll network kept the page from reaching `document_idle`, blocking the Chrome-MCP `screenshot`/`find` tools (recipe assumes both work). If retrying via agent, interrupt the long-poll first by clicking a sidebar item. Daily quota ~10/property; recipe in 2026-06-01 session entry.
+2. **GSC indexing.** Through 2026-06-12 ~28 URLs submitted across early sittings, all pillar hubs + most recent articles cleared. 2026-06-16: quota hit after 1 URL. 2026-06-17: 8 of 9 carryover URLs cleared by user manually. **2026-06-18: quota still exceeded — first attempt at `how-much-should-emergency-fund-be` blocked.** Carryover queue rolling to 2026-06-19 now includes 5 URLs: `how-much-should-emergency-fund-be` (1-day-old), `/glossary`, `/tools/net-worth-percentile`, `/learn/hsa-vs-roth-ira`, `/learn/target-date-funds-explained`, plus today's 5 fresh slugs (`i-bonds-vs-tips`, `index-funds-vs-etfs`, `solo-401k-vs-sep-ira`, `heloc-vs-home-equity-loan`, `quarterly-estimated-taxes-guide`). Daily quota ~10/property; recipe in 2026-06-01 session entry.
 3. **Source-platform inbound queue.** 5 platforms feeding `admin@finbrief.space`: Qwoted, Featured.com (chat-based queries only), MentionMatch (daily digest Finance + Insurance), Help a B2B Writer (covered via MentionMatch redirect), SourceBottle (expert profile live). **Qwoted blocker (2026-06-17):** account temporarily disabled by vetting team; support agent Therese asked for company + bio URLs. Replied with `finbrief.space` + `/author/jahanzeb-nawaz` (no LinkedIn). Pitch stats reset to 0 post-disable — the two Jun 16 "your pitch was read" notifications are now ambiguous (may have been automated). Martha Stewart Living tax-paperwork pitch is drafted and ready to send the moment the account is re-enabled. ETA 3–7 business days. Parade emergency-savings pitch skipped (query expired + reporter declared enough pitches). See `HARO_RESPONSE_LOG.md` 2026-06-17 entry for hypothesis on what triggered the disable.
 3. ~~**Pre-existing content drift — `mega-backdoor-roth-guide`.**~~ ✅ Resolved 2026-06-16. Title's "$46K loophole" now matches body math throughout, using verified IR-2025-111 415(c) cap of $74,500 minus $24,500 employee minus $4,000 typical match = $46,000. Six occurrences updated (STEPS, FAQ, math table, worked example, etc.).
 4. **Lead-paragraph audit deferred items.** `LEAD_AUDIT.md` at repo root flags 7 articles with 4–5 sentence leads. All open with a strong first-sentence claim + number, so featured-snippet eligibility is intact. Decision: defer rewrites and re-evaluate based on actual GSC snippet impressions over the next month.
@@ -1525,3 +1525,53 @@ Six commits shipped (`2390608`, `ac6a3fa`, `62a3610`, `42f56a5`, `366a3c1`, `6c8
 5. Next code priority: **50-state paycheck calculator scaffold** (~3-day build) — the last remaining playbook item from the original "Where to start" list. Net Worth Percentile + Glossary now closed.
 
 *Last updated: 2026-06-17 (Net Worth Percentile tool, Glossary v1, hsa-vs-roth-ira, target-date-funds-explained, wk25 cron pass, Qwoted account-disabled episode logged. 94 cornerstones / 119 routes. Build clean. 6 commits pushed.)*
+
+---
+
+## Session 2026-06-18 — 5-article fresh-ideation batch (first since workbook exhaust)
+
+Short session. GSC daily submission blocked by quota on first attempt, so pivoted to article writing — the first fresh-ideation batch since the Phase-2 workbook calendar ran out.
+
+### GSC carryover
+
+User attempted manual submission of `/learn/how-much-should-emergency-fund-be` (yesterday's carryover). **Quota exceeded on the first URL** — the 24h rolling window from yesterday's batch hasn't reset yet (yesterday's 8 submissions ran late). Five URLs now roll to 2026-06-19: the carryover plus `/glossary`, `/tools/net-worth-percentile`, `/learn/hsa-vs-roth-ira`, `/learn/target-date-funds-explained`. Plus today's 5 new article slugs once they're a day old.
+
+### 5-article batch (commit `9148e1f`)
+
+Picked the gaps with the highest US search intent + live affiliate fit, balanced across pillars:
+
+| Slug | Pillar | Affiliate CTAs | Notes |
+|---|---|---|---|
+| `i-bonds-vs-tips` | Invest | fidelity, schwab, vanguard | Inflation-protected Treasury comparison. Phantom-income tax problem on TIPS; 1.20% I Bond fixed rate; tax-equivalent yield math. |
+| `index-funds-vs-etfs` | Invest | fidelity, vanguard, schwab | 2026 ER table across 8 funds; ETF tax-efficiency edge in taxable; Fidelity's FZROX/FXAIX 0% / 0.015% MFs counter the "ETFs always cheaper" myth. |
+| `solo-401k-vs-sep-ira` | Save tax | fidelity, schwab, vanguard | 2026 contribution math at 5 income levels showing $24.5K Solo edge until ~$300K. Backdoor Roth pro-rata blocker on SEP. SECURE 2.0 Roth-SEP rules. IR-2025-111 cited. |
+| `heloc-vs-home-equity-loan` | Borrow smart | better-mortgage, rocket-mortgage, sofi-loans | 2026 rate context; CLTV math worked example; end-of-draw payment-shock trap; deductibility rule from IRS Pub 936 ("buy, build, substantially improve"). |
+| `quarterly-estimated-taxes-guide` | Save tax | turbotax, freetaxusa, taxact + sofi-money, marcus, ally (parking the cash) | 2026 deadlines (Apr 15 / Jun 15 / Sep 15 / Jan 15, 2027). Prior-year safe harbor (100% / 110% over $150K AGI). W-2 withholding workaround. IRS Direct Pay walkthrough. |
+
+All match the `target-date-funds-explained` spec: mixed content blocks, `<hr>` separators, `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` on quarterly-estimated-taxes), FTC `AffiliateDisclosure` above the fold, Jahanzeb Nawaz author + FinBrief Editorial Team reviewer, 6-FAQ blocks, 6 cross-pillar Related Reading links each. ~340 lines per file.
+
+### Pillar shifts
+
+- Invest: 20 → **22**
+- Save tax: 27 → **29**
+- Borrow smart: 20 → **21**
+- Budget: 12 (unchanged)
+- Protect: 15 (unchanged)
+- Total cornerstones: 94 → **99**
+- Routes: 119 → **124**
+
+### Process notes (carry forward)
+
+- **Workbook-exhausted ideation workflow.** Pick 5 missing topics per session with: (a) named affiliate partner already in `affiliates.ts`, (b) verified 2026 IRS / regulatory figures available (IR-2025-111, IR-2025-103, Rev. Proc. 2025-19, IRS Pub 936), (c) balanced pillar coverage, (d) high US search intent. Then write all 5 in one pass, register in `site-config.ts`, build, commit. ~1,700 lines per batch is achievable in one sitting.
+- **Affiliate keys reused this batch:** fidelity, schwab, vanguard, better-mortgage, rocket-mortgage, sofi-loans, turbotax, freetaxusa, taxact, sofi-money, marcus, ally. No new partner keys / env vars needed.
+- **Cross-link density:** every article links to 5-7 existing cornerstones in Related reading + inline; this batch added ~30 new cross-references into the existing pillar mesh.
+
+### Where to pick up next session
+
+1. GSC daily submissions when quota resets. 5 carryovers ready + 5 new slugs from today.
+2. Qwoted reinstatement progress — LinkedIn profile check + send URL to Therese (per 2026-06-17 entry).
+3. Beehiiv Monday publish (next: 2026-06-22).
+4. Optional: another 5-article batch using the same gap-analysis workflow. Candidate gaps still open: I Bonds redemption mechanics deep-dive, K-1 vs 1099 explainer, depreciation basics, balance-transfer card mechanics, beneficiary designation guide, freelancer health-insurance guide.
+5. **Still TODO from playbook:** 50-state paycheck calculator scaffold (~3 days).
+
+*Last updated: 2026-06-18 (5-article batch shipped — i-bonds-vs-tips, index-funds-vs-etfs, solo-401k-vs-sep-ira, heloc-vs-home-equity-loan, quarterly-estimated-taxes-guide. GSC quota wall on attempted carryover submission. 99 cornerstones / 124 routes. Build clean. Commit `9148e1f` pushed.)*
