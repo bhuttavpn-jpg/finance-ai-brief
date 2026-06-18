@@ -24,11 +24,19 @@ export function ArticleHeader({
       <h1 className="mt-2 text-3xl font-medium text-brand-700 sm:text-4xl">{title}</h1>
       {subtitle && <p className="mt-3 text-lg text-ink-muted">{subtitle}</p>}
       <AuthorBox author={resolvedAuthor} variant="header" />
-      <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-subtle">
-        <span>Updated {formatDate(updatedAt)}</span>
+      <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-muted">
+        <span>
+          Updated{" "}
+          <time dateTime={updatedAt} className="font-medium text-ink">
+            {formatDate(updatedAt)}
+          </time>
+        </span>
         {readingTime && <span>· {readingTime}</span>}
         {publishedAt !== updatedAt && (
-          <span>· Originally published {formatDate(publishedAt)}</span>
+          <span>
+            · Originally published{" "}
+            <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
+          </span>
         )}
       </div>
     </header>
