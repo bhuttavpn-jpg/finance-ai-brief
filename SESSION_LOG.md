@@ -13,8 +13,8 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | `9148e1f` (pushed 2026-06-18) — 5-article batch across Invest, Save tax, Borrow (i-bonds-vs-tips, index-funds-vs-etfs, solo-401k-vs-sep-ira, heloc-vs-home-equity-loan, quarterly-estimated-taxes-guide). Prior session chain: `80e3f2f` LinkedIn account setup + Qwoted third-party verification gate, `009cb29` SESSION_LOG 2026-06-17 wrap, `6c8f422` target-date-funds-explained, `2390608` Net Worth Percentile tool + 8/9 GSC URLs cleared, `ac6a3fa` Glossary v1 (45 terms), `62a3610` hsa-vs-roth-ira. |
-| Build | clean, **124 routes** (was 119 at end of 2026-06-17; +5 new articles), all 99 articles + 5 hubs statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
+| Latest commit | `283b3b9` (pushed 2026-06-18) — SERP fixes: dynamic apple-icon.tsx generating "FB" (replaces stale `apple-icon.png` showing old "FP"); `<time dateTime>` element + larger/higher-contrast date stamp in ArticleHeader for Google SERP date extraction. Today's chain: `60fbb84` SESSION_LOG baseline, `70398a2` 27 inbound-link injection to 11 starved cornerstones, `45b0836` Growth roadmap, `0c911ef` /tools/paycheck (50-state calculator + state-tax-2026 dataset), `b1817e1` SESSION_LOG wrap, `9148e1f` 5-article batch. |
+| Build | clean, **125 routes** (was 119 at end of 2026-06-17; +5 articles, +1 /tools/paycheck), all 99 articles + 5 hubs + 6 tools statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
 | Vercel env vars | **37 total** (32 affiliate + 5 newsletter). Unchanged today. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
@@ -1694,3 +1694,62 @@ Target progression for the next 4 weeks:
 5. **Don't write more articles.** Until indexation rate crosses 75 / discovered-not-indexed under 25, the lever is link equity and Tier 2 distribution, not more content.
 
 *Last updated: 2026-06-18 (Baseline frozen: 23 visitors / 108 PV / 4.7 PPV / 1 Google click / 262 impressions / avg pos 78 / 59 indexed / 45 discovered-not-indexed. Action: 27 inbound-link injection into 11 starved cornerstones. Build clean. Commit `70398a2` pushed.)*
+
+---
+
+## Session 2026-06-18 (continued) — SERP fixes (favicon + date element)
+
+User dropped a Google SERP screenshot for `how much to contribute to 401k finbrief.space` showing two visible issues:
+
+1. **Favicon showed "FP" not "FB"** in the SERP rich-result icon.
+2. **No publication date** appeared next to the article snippet.
+
+### Diagnosis
+
+**Issue 1:** `src/app/icon.tsx` (the dynamic generator) used `siteConfig.shortName = "FB"` ✓. But `src/app/apple-icon.png` was a stale static PNG from 2026-05-17 — back when the project was named "Finance Platform" with shortName "FP". Apple-icon precedence won the SERP icon assignment, so Google was serving the old PNG.
+
+**Issue 2:** `ArticleHeader.tsx` rendered the date as a plain `<span>Updated [date]</span>` in `text-xs text-ink-subtle` — small + low contrast. Google's SERP date-extraction algorithm prefers semantic `<time dateTime="ISO">` elements + adequate visual prominence. The current rendering was below threshold for confident extraction.
+
+### Fixes (commit `283b3b9`)
+
+1. **Deleted** `src/app/apple-icon.png`. **Created** `src/app/apple-icon.tsx` — dynamic 180×180 ImageResponse generator matching the icon.tsx pattern, using `siteConfig.shortName = "FB"`. Next deploy regenerates the apple-touch-icon with correct branding.
+
+2. **ArticleHeader** updated to wrap dates in `<time dateTime={iso}>` semantic elements, bumped from `text-xs text-ink-subtle` → `text-sm text-ink-muted`, with the date itself in `font-medium text-ink` for visual prominence. Applies to all 99 article pages via the shared component.
+
+### Caveats
+
+- **Favicon update is slow.** Google caches favicons aggressively. The SERP rich-result icon may not flip from "FP" to "FB" for 1–3 weeks. To accelerate: request indexing on the homepage in GSC after Vercel deploys — Google often re-fetches favicons during URL inspection passes.
+- **Date element should appear faster.** Most existing indexed articles will pick up the new `<time>` on Google's next crawl (typically days for indexed cornerstones, longer for less-frequented).
+
+### Today's full chain (2026-06-18, 7 commits)
+
+| # | Commit | What |
+|---|---|---|
+| 1 | `9148e1f` | 5-article batch (Invest/Save tax/Borrow) |
+| 2 | `b1817e1` | SESSION_LOG wrap |
+| 3 | `0c911ef` | /tools/paycheck — 50-state calculator + state-tax-2026 dataset |
+| 4 | `45b0836` | Growth roadmap (Tier 1–4 ordered by effort × cost) |
+| 5 | `70398a2` | 27 inbound-link injection to 11 starved cornerstones |
+| 6 | `60fbb84` | Baseline frozen + diagnostic (Vercel + GSC pulls) |
+| 7 | `283b3b9` | SERP fixes (favicon + `<time>` date element) |
+
+### State at end of session
+
+- **99 cornerstones / 125 routes / 6 tools / 5 hubs / 1 glossary**
+- **Build clean**, all routes statically prerendered
+- **Vercel** auto-deploying from `main` on push
+- **Indexation baseline**: 59 indexed / 45 discovered-not-indexed / 4 crawled-not-indexed
+- **Performance baseline**: 262 impressions / 1 click / avg position 78 (last 3 months)
+- **Vercel baseline**: 23 visitors / 108 PV / 4.7 pages-per-visit / 39% bounce / 65% USA (last 7 days)
+
+### Next session checklist (in order)
+
+1. **Read SESSION_LOG.md (this file) and CLAUDE.md.** Sanity-check `src/app/layout.tsx` non-empty + `npm run build` clean.
+2. **GSC indexation re-check** — pull fresh Coverage + Performance + Drilldown exports. Compare against the 2026-06-18 baseline. Watch for: `Discovered – not indexed` dropping 45 → under 30 (validates link-injection thesis); `Indexed` crossing 70; avg position dropping under 60.
+3. **GSC daily URL submissions resume** when quota resets.
+4. **Verify SERP fixes propagated** — search "site:finbrief.space" in incognito; look for "FB" icon + dates in snippets. Favicon may need 1–3 weeks; date element should appear faster.
+5. **If indexation moved + new "Discovered" cohort exists** → repeat link-injection workflow on that cohort.
+6. **If indexation did NOT move within 2 weeks** → external authority is the bottleneck; pivot to Tier 2 backlinks (Reddit + HARO push specifically targeting `term-vs-whole-life-insurance` and `qualified-vs-ordinary-dividends`).
+7. **Don't write more articles** until indexation rate crosses 75 / discovered-not-indexed under 25. Lever is link equity + distribution, not content volume.
+
+*Last updated: 2026-06-18 end-of-day (SERP fixes shipped — favicon "FB" + `<time dateTime>` date element. 7 commits pushed today. 125 routes, build clean. Indexation baseline frozen for 2-week re-check.)*
