@@ -20,6 +20,7 @@ export const siteConfig = {
     { slug: "roth-vs-traditional", label: "Roth vs. Traditional IRA", pillar: "Invest" },
     { slug: "life-insurance", label: "Life insurance need", pillar: "Protect" },
     { slug: "net-worth-percentile", label: "Net worth percentile", pillar: "Invest" },
+    { slug: "paycheck", label: "Paycheck — all 50 states", pillar: "Save tax" },
   ] as const,
   articles: [
     {
