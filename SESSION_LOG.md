@@ -90,6 +90,48 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 9. ~~**Pre-existing content drifts**~~ ✅ Both resolved 2026-06-16. `mega-backdoor-roth-guide` $46K vs $40.5K body math fixed in commit `0d2253f` (verified $74,500 415(c) cap throughout). Lead-audit deferrals remain deferred per the LEAD_AUDIT.md decision rationale (re-evaluate based on actual GSC snippet impressions).
 10. **US LLC consideration.** When GSC "Crawled — currently indexed" crosses ~30 pages OR first month with >500 organic clicks, evaluate setting up a foreign-owned US LLC (Wyoming/Delaware single-member, ~$300 setup + ~$300–500/yr). Unlocks CJ/FlexOffers/ShareASale that currently auto-decline on Italy×US-only geo grounds. Not worth doing pre-traffic. Stripe Atlas ($500 all-in) is the zero-friction option when the trigger metric hits.
 
+### Growth roadmap — 4 → 300+ daily visits (added 2026-06-18)
+
+Site is at ~4 visitors/day (per Vercel Analytics). Product side is mature (99 articles, 6 tools, 5 hubs, 125 routes); traffic is a **distribution problem**. Three layered blockers: (1) GSC "Crawled — currently indexed" count is the gate, not "Discovered"; (2) `finbrief.space` has effectively 0 domain authority — YMYL doesn't get a freshness boost; (3) no off-site funnel — Google SERPs is the only source. Roadmap below is ordered by **effort + cost ascending** (cheapest, fastest first). Each tier compounds; don't skip Tier 1 to do Tier 3.
+
+#### Tier 1 — Free, 1–3 hours per item, this week
+
+1. **GSC indexation audit.** Open GSC → Pages report → break down counts: "Indexed" vs "Crawled – currently not indexed" vs "Discovered – currently not indexed". The middle bucket is the fixable one (Google saw the page and chose not to index — usually thin content, dup title, weak inbound links from other pages on the site). Pick top 20 stuck URLs and fix the signal.
+2. **Internal-link audit.** Every cornerstone should have **≥3 inbound links from other articles**. Recently shipped ones (i-bonds-vs-tips, index-funds-vs-etfs, solo-401k-vs-sep-ira, heloc-vs-home-equity-loan, quarterly-estimated-taxes-guide, paycheck calculator) need backlinks from older articles. Script-able: grep article files for keywords matching new slugs, propose inserts.
+3. **Visible "Last reviewed" stamp.** Currently in `articleJsonLd` only. Move to visible byline area (`ArticleHeader` component) — E-E-A-T signal for YMYL Google cares about. ~30-min code change, applies to all 99 articles via the shared component.
+4. **GSC daily submissions continue.** ~10/day quota. Carryover queue per the standing open issues list. Most leverage now is on URLs Google has discovered but won't index — request-indexing alone won't fix those (see item #1).
+
+#### Tier 2 — Free, 2–6 weeks of consistent effort (compounding)
+
+5. **Reddit organic engagement.** Top-tier free distribution. Target r/personalfinance, r/Bogleheads, r/tax, r/IRA, r/financialindependence. 5–10 genuinely helpful answers/week. Link to a finbrief article ONLY when directly relevant to a real question (1 in 5 max). One quality answer with a finbrief link can drive 50–200 visits + 1 high-value backlink. The subs ban spam fast — read each sub's rules first.
+6. **HARO/Featured.com/MentionMatch/SourceBottle daily.** Already plugged in. Discipline-execution problem, not setup. Make it a 15-min daily ritual on the 4 platforms still active. One quote in MarketWatch / Yahoo Finance / Investopedia = one high-DA backlink + brand exposure. Track in `HARO_RESPONSE_LOG.md`. Qwoted unblocks separately once LinkedIn clears (see Issue #3 in standing list).
+7. **Long-tail keyword pivot for next 20 articles.** Big keywords ("best HYSA 2026") need domain authority we don't have. Long-tail with zero competition ("solo 401k vs SEP IRA for Etsy seller", "HSA contribution limits if I'm covered by my spouse's HDHP") get indexed in days and rank page 1 immediately because nobody else wrote them. Source ideas from Reddit thread titles + Quora + GSC's Performance report (which queries impressed us with low CTR — that's an opportunity).
+8. **Substack republishing.** Open free Substack. Republish 1 article/week with `rel="canonical"` pointing back to finbrief. New surface, new readers, builds an email list independent of beehiiv. Substack's internal recommendation engine is the win.
+
+#### Tier 3 — Free but slow compound, 1–3 month horizon
+
+9. **Reverse-engineer competitor backlinks.** Use Ahrefs Webmaster Tools (free for owned sites) + free tier of Ubersuggest / Moz Link Explorer. Pull `nerdwallet.com/article/banking/best-high-yield-savings-account`'s backlinks. Identify the small-blog and HARO-style placements. Pitch the same outlets with our angle.
+10. **YouTube Shorts / TikTok companion content.** 60-second versions of the most actionable articles (quarterly-estimated-taxes-guide, solo-401k-vs-sep-ira, paycheck calculator demo). Doesn't drive direct SEO traffic but builds **brand search** ("finbrief 401k") which Google uses as a quality signal for the domain. Even 100 followers compound.
+11. **Newsletter compound past 500 subs.** Once subscriber count crosses ~500, the Monday cron becomes its own distribution channel — re-engaging readers around new articles, recouping the 7–14 day attention gap between visits.
+
+#### Tier 4 — Money / structural, 3–6 month horizon (only after Tier 1–3 working)
+
+12. **Qwoted reinstatement complete.** LinkedIn gate per Issue #3. ~$0 cost but unblocks a 5th source platform that was producing real pitches.
+13. **Genuine guest posts on mid-tier finance blogs.** $0 cash cost but 5–10 hours per pitch+draft+placement cycle. Target sites in the DA 30–50 range writing about personal finance — not the top tier, the tier that still accepts guest contributors. One placement = one strong backlink = measurable DA lift over months.
+14. **Paid link-building.** $200–$1,500 per placement on real finance/business outlets via outreach services (e.g., uSERP, Page One Power). Only after Tier 1–3 have proven the on-page side converts traffic to clicks. Don't burn money on traffic that won't monetize.
+15. **US LLC for affiliate unlocks.** Wyoming/Delaware single-member, ~$300 setup + ~$300–500/yr (or Stripe Atlas $500 all-in). Trigger metric: GSC "Crawled — currently indexed" crosses ~30 pages OR first month with >500 organic clicks. Unblocks CJ/FlexOffers/ShareASale (currently auto-declined on Italy×US-only geo grounds). Already in Issue list #10.
+
+#### What the math says
+
+- 99 articles × 4 visits/day = ~1.4 hits/article/month — pre-indexation noise floor.
+- **Once "Crawled — currently indexed" crosses ~50 pages**, expect a step-change to ~30–80 daily visits *from existing content alone* (no new work).
+- **300/day realistic by month 4** if Tier 1 lands + 2–3 backlinks from Tier 2 placements.
+- **1,000+/day by month 9** requires DA crossing ~15 (Ahrefs scale) from sustained Tier 2+3 backlink work, OR a single viral hit (rare — don't plan around it).
+
+#### Telemetry needed each session
+
+User to report from Vercel Analytics each session: (a) 30-day unique visitors, (b) 30-day page views, (c) top 5 pages, (d) top referrer sources, (e) US %. From GSC: (f) "Indexed" vs "Crawled-not-indexed" page counts, (g) top 10 impressions queries with CTR. These five Vercel + two GSC numbers are the dashboard for whether the roadmap is working.
+
 ### Recovery notes
 
 - **`layout.tsx` was 0 bytes at one early session.** If it ever happens again, restore from `finance-platform.zip` in the parent outputs/ directory.
