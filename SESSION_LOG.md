@@ -1617,3 +1617,80 @@ All match the `target-date-funds-explained` spec: mixed content blocks, `<hr>` s
 5. **Still TODO from playbook:** 50-state paycheck calculator scaffold (~3 days).
 
 *Last updated: 2026-06-18 (5-article batch shipped — i-bonds-vs-tips, index-funds-vs-etfs, solo-401k-vs-sep-ira, heloc-vs-home-equity-loan, quarterly-estimated-taxes-guide. GSC quota wall on attempted carryover submission. 99 cornerstones / 124 routes. Build clean. Commit `9148e1f` pushed.)*
+
+---
+
+## Session 2026-06-18 (continued) — Traffic baseline + indexation diagnostic + link-injection unlock
+
+User pulled real Vercel Analytics + GSC Coverage + GSC Performance + Coverage Drilldown exports for the first time. Numbers revealed the actual diagnosis — which is very different from the assumed framing. Then executed the highest-leverage Tier 1 unlock (inbound-link injection into starved unindexed URLs) in the same session.
+
+### Baseline (frozen 2026-06-18)
+
+**Vercel Analytics (last 7 days):**
+- Visitors: 23 (~3.3/day)
+- Page views: 108 (**4.7 pages per visitor** — surprisingly strong engagement signal)
+- Bounce rate: 39% (healthy, under 50%)
+- Top referrers: app.intercom.com (1), chat.chaton.ai (1), google.com (1). Everything else direct/no-referrer.
+- Top countries: USA 65%, Italy 17% (user's own testing), Germany/India/Nigeria 4% each (likely bots).
+- Top pages: `/` (7), `/learn/estate-planning-basics` (5), `/learn/amex-gold-card-review` + `/learn/how-much-should-emergency-fund-be` + `/learn/identity-theft-protection` + `/learn/sofi-personal-loan-review` (4 each).
+
+**GSC Coverage (as of 2026-06-12):**
+- Indexed: **59 / 108** (55% indexation rate — normal for a 1-month-old domain).
+- Not indexed: 49 total. **Discovered – currently not indexed: 45.** Crawled – currently not indexed: 4.
+- Indexation growth trend: 7 → 28 → 37 → 51 → **59** over 3 weeks = ~5 indexed pages/week.
+
+**GSC Performance (last 3 months):**
+- Total clicks: **1** (from "finbrief" branded search via India — `/author/jahanzeb-nawaz`).
+- Total impressions: **262**.
+- Average position: **~78** = page 8 of Google. Nobody scrolls to page 8.
+- CTR: 0.4% desktop, 0% mobile.
+
+### The diagnostic insight
+
+**The site is NOT failing on content or engagement.** Pages/visit of 4.7 (vs NerdWallet's ~2.5) and 39% bounce rate prove the content works when humans land. The real problems are two distinct issues:
+
+1. **Crawl-budget starvation on 45 URLs** ("Discovered – not indexed"). Google saw them in the sitemap but hasn't allocated crawl budget — new-domain authority gate.
+2. **Indexed pages rank position ~78 average.** They're showing in search but on page 8. ONE page concentrates 60% of all impressions: `/learn/term-vs-whole-life-insurance` (154 imp @ pos 80). Two close seconds: `qualified-vs-ordinary-dividends` (39 @ 92), `couples-budgeting-guide` (18 @ 52).
+
+**But here's the buried good news:** 18+ pages already rank top 10 — they just have 1–4 impressions each because the queries are low-volume long-tail. Compound this over time and it adds up. Examples: `how-much-to-contribute-to-401k` at position 1.0, `editorial-standards` at 3.5, `best-life-insurance-companies-2026` at 4.5, `best-car-insurance-companies-2026` at 7.25, `chase-sapphire-preferred-review` at 6.5.
+
+### Action shipped this session — Inbound-link injection (commit `70398a2`)
+
+Diagnostic ran first. For each of the 45 unindexed slugs, counted inbound links from indexed articles. 10 cornerstones had 0–2 inbound links — that's the crawl-signal starvation. Added 1–2 targeted inbound links each from same-pillar indexed siblings.
+
+| Target slug (was unindexed) | Inbound before | Inbound after |
+|---|---|---|
+| webull-review | 0 | 4 |
+| best-business-credit-cards | 0 | 2 |
+| best-student-credit-cards | 0 | 2 |
+| how-to-save-money-fast | 0 | 3 |
+| amex-gold-card-review | 1 | 4 |
+| best-credit-cards-for-fair-credit | 1 | 3 |
+| how-much-car-insurance-do-i-need | 1 | 3 |
+| student-loan-refinance | 1 | 2 |
+| umbrella-insurance-guide | 1 | 4 |
+| sofi-personal-loan-review | 2 | 3 |
+| qualified-vs-ordinary-dividends | 1 | 5 (rank-lift side bet) |
+
+24 source articles edited, 27 new internal links. Build clean. Expected effect: 2–4 week lag as Google re-crawls source pages and follows the new internal links → reassesses crawl priority on the target pages. Watch GSC "Discovered – not indexed" count over the next two weeks; success looks like that number dropping below 30.
+
+### Telemetry to track each week
+
+User to pull these from Vercel + GSC exports and drop into chat:
+1. Vercel: 7-day visitors, page views, top 5 pages, top referrers.
+2. GSC Coverage: indexed count, "Discovered – not indexed" count, "Crawled – not indexed" count.
+3. GSC Performance: average position, total clicks, total impressions.
+
+Target progression for the next 4 weeks:
+- Week 1: indexed 59 → 65, discovered-not-indexed 45 → 35, term-vs-whole-life page position 80 → 50.
+- Week 4: indexed 75+, discovered-not-indexed under 20, avg position under 60, first 5+ clicks/week from Google.
+
+### Where to pick up next session
+
+1. **Watch indexation curve.** If the 45 → 35 → 25 trend holds, the link-injection thesis is validated and we repeat the pattern on any new "Discovered – not indexed" cohort.
+2. **Term-vs-whole-life-insurance content+CTR audit.** User to search "term vs whole life" in incognito Google → screenshot the SERP. If our snippet looks weak vs Policygenius/NerdWallet, we tweak the meta description for CTR. If the page is appearing in unfavorable comparison contexts, we may need content additions (comparison tables, FAQ depth).
+3. **Push Tier 2 backlinks for term-vs-whole-life specifically.** It already has 154 impressions — every backlink earned to this URL specifically is high-leverage. Reddit answers about life insurance + HARO queries about term vs whole = first targets.
+4. **GSC daily URL submissions resume** when quota resets. Carryover queue per the standing open issues list.
+5. **Don't write more articles.** Until indexation rate crosses 75 / discovered-not-indexed under 25, the lever is link equity and Tier 2 distribution, not more content.
+
+*Last updated: 2026-06-18 (Baseline frozen: 23 visitors / 108 PV / 4.7 PPV / 1 Google click / 262 impressions / avg pos 78 / 59 indexed / 45 discovered-not-indexed. Action: 27 inbound-link injection into 11 starved cornerstones. Build clean. Commit `70398a2` pushed.)*
