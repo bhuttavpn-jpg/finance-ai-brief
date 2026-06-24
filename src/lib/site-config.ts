@@ -21,6 +21,7 @@ export const siteConfig = {
     { slug: "life-insurance", label: "Life insurance need", pillar: "Protect" },
     { slug: "net-worth-percentile", label: "Net worth percentile", pillar: "Invest" },
     { slug: "paycheck", label: "Paycheck — all 50 states", pillar: "Save tax" },
+    { slug: "roth-conversion", label: "Roth conversion calculator", pillar: "Save tax" },
   ] as const,
   articles: [
     {
@@ -956,6 +957,15 @@ export const siteConfig = {
       pillar: "Save tax",
       tool: "tax-bracket",
       keyword: "w4 withholding guide",
+      publishedAt: "2026-06-24",
+      updatedAt: "2026-06-24",
+    },
+    {
+      slug: "roth-conversion-calculator",
+      title: "Roth conversion calculator 2026: should you convert, and how much?",
+      pillar: "Save tax",
+      tool: "roth-conversion",
+      keyword: "roth conversion calculator",
       publishedAt: "2026-06-24",
       updatedAt: "2026-06-24",
     },
