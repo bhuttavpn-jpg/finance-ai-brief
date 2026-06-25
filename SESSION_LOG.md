@@ -4,7 +4,7 @@
 
 ---
 
-## Live state (as of 2026-06-18)
+## Live state (as of 2026-06-24)
 
 ### Deployment
 
@@ -13,8 +13,8 @@
 | Custom domain | https://finbrief.space (www 308-redirects) |
 | GitHub repo | https://github.com/bhuttavpn-jpg/finance-ai-brief (SSH auth via `~/.ssh/id_ed25519`) |
 | Vercel project | `finance-ai-brief` (team `bhuttavpn-1595s-projects`); auto-deploy from `main` |
-| Latest commit | `d745388` (pushed 2026-06-24) — 5 new long-tail articles: side-hustle-taxes, how-to-save-for-a-house, balance-transfer-credit-cards, how-to-rebalance-portfolio, w4-withholding-guide. site-config.ts updated (104 articles total). Build: 130 static routes. — SERP fixes: dynamic apple-icon.tsx generating "FB" (replaces stale `apple-icon.png` showing old "FP"); `<time dateTime>` element + larger/higher-contrast date stamp in ArticleHeader for Google SERP date extraction. Today's chain: `60fbb84` SESSION_LOG baseline, `70398a2` 27 inbound-link injection to 11 starved cornerstones, `45b0836` Growth roadmap, `0c911ef` /tools/paycheck (50-state calculator + state-tax-2026 dataset), `b1817e1` SESSION_LOG wrap, `9148e1f` 5-article batch. |
-| Build | clean, **130 routes** (was 125 at end of 2026-06-18; +5 articles 2026-06-24), 104 articles + 5 hubs + 6 tools statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
+| Latest commit | `bc70da1` (pushed 2026-06-24) — Roth Conversion Calculator (Tool #2 in playbook): `RothConversionCalculator.tsx`, `/tools/roth-conversion`, `/learn/roth-conversion-calculator`, site-config.ts updated. Prior chain same day: `d745388` 5 new long-tail articles (side-hustle-taxes, how-to-save-for-a-house, balance-transfer-credit-cards, how-to-rebalance-portfolio, w4-withholding-guide). Earlier chain: `60fbb84` SESSION_LOG baseline, `70398a2` 27 inbound-link injection to 11 starved cornerstones, `45b0836` Growth roadmap, `0c911ef` /tools/paycheck (50-state calculator + state-tax-2026 dataset), `b1817e1` SESSION_LOG wrap, `9148e1f` 5-article batch. |
+| Build | clean, **132 routes** (was 130 after 5 articles; +2 for roth-conversion tool + article), 105 articles + 5 hubs + 8 tools statically prerendered, `ƒ /api/cron/newsletter` + `ƒ /api/cron/article-refresh` dynamic routes |
 | Vercel env vars | **37 total** (32 affiliate + 5 newsletter). Unchanged today. |
 | Vercel Analytics | enabled and verified |
 | Newsletter (beehiiv subscribe) | LIVE (`pub_c2d0f7f4-d91e-4d84-bef3-1024298cecdf`); API key on Vercel prod+dev |
@@ -29,16 +29,16 @@
 - Named reviewer: **FinBrief Editorial Team**; `/editorial-standards` page describes the process.
 - Schema validated by Google's Rich Results Test (`author` + `reviewedBy` + valid datetimes + image).
 
-### Articles shipped (99 cornerstones)
+### Articles shipped (105 cornerstones)
 
-Original Phase 2 plan called for 10. We're 89 ahead. The workbook calendar (71 article slots) is fully exhausted; everything past that is fresh ideation. **Bold** entries are the newest additions (2026-06-18 session: 5 fresh-ideation articles — first batch since workbook ran out).
+Original Phase 2 plan called for 10. We're 95 ahead. The workbook calendar (71 article slots) is fully exhausted; everything past that is fresh ideation. **Bold** entries are the newest additions (2026-06-24 sessions: 5 long-tail articles + 1 tool-paired article).
 
 | Pillar | Count | Slugs |
 |---|---|---|
-| Budget | 12 | best-budgeting-apps-2026, best-hysa-2026, couples-budgeting-guide, debt-snowball-vs-avalanche, how-much-should-emergency-fund-be, how-to-budget, how-to-budget-50-30-20, how-to-build-emergency-fund, how-to-pay-off-credit-card-debt, how-to-pay-off-debt, how-to-save-money-fast, how-to-stop-living-paycheck-to-paycheck |
-| Invest | 22 | 401k-vs-ira-which-first, target-date-funds-explained, asset-allocation-by-age, best-brokerage-accounts-beginners, dollar-cost-averaging-vs-lump-sum, espp-guide, fidelity-vs-schwab, fire-movement-guide, how-much-do-i-need-to-retire, how-much-to-contribute-to-401k, how-to-choose-a-financial-advisor, how-to-invest-1000-beginners, how-to-invest-in-stocks, **i-bonds-vs-tips**, **index-funds-vs-etfs**, mutual-funds-vs-etfs, robinhood-review, roth-ira-vs-traditional-ira, sequence-of-returns-risk, vanguard-vs-fidelity, webull-review, when-to-take-social-security |
-| Save tax | 29 | 529-plan-guide, backdoor-roth-ira-guide, hsa-vs-roth-ira, best-hsa-providers, best-tax-software-2026, capital-gains-tax-2026, freetaxusa-review, fsa-explainer, how-to-file-taxes-for-free, hsa-as-retirement-account, hsa-vs-fsa, ira-rmd-rules, mega-backdoor-roth-guide, qualified-vs-ordinary-dividends, **quarterly-estimated-taxes-guide**, roth-conversion-ladder, roth-ira-5-year-rules, roth-ira-contribution-limits-2026, secure-2-0-changes-2026, short-vs-long-term-capital-gains, **solo-401k-vs-sep-ira**, standard-vs-itemized-deduction, tax-brackets-2026, tax-deductions-checklist, tax-loss-harvesting-guide, tax-loss-harvesting-wash-sale-rule, taxes-on-social-security-benefits, turbotax-vs-taxact, when-to-hire-a-cpa |
-| Borrow smart | 21 | amex-gold-card-review, best-business-credit-cards, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, best-credit-cards-for-fair-credit, best-personal-loans-2026, best-student-credit-cards, best-travel-credit-cards-2026, chase-sapphire-preferred-review, credit-utilization-ratio, debt-consolidation-loan, **heloc-vs-home-equity-loan**, how-credit-cards-work, how-to-build-credit-from-scratch, how-to-check-credit-score-for-free, how-to-get-a-mortgage, personal-loan-vs-credit-card, sofi-personal-loan-review, student-loan-refinance, what-affects-your-credit-score, when-to-refinance-mortgage |
+| Budget | 13 | best-budgeting-apps-2026, best-hysa-2026, couples-budgeting-guide, debt-snowball-vs-avalanche, how-much-should-emergency-fund-be, how-to-budget, how-to-budget-50-30-20, how-to-build-emergency-fund, how-to-pay-off-credit-card-debt, how-to-pay-off-debt, **how-to-save-for-a-house**, how-to-save-money-fast, how-to-stop-living-paycheck-to-paycheck |
+| Invest | 23 | 401k-vs-ira-which-first, target-date-funds-explained, asset-allocation-by-age, best-brokerage-accounts-beginners, dollar-cost-averaging-vs-lump-sum, espp-guide, fidelity-vs-schwab, fire-movement-guide, how-much-do-i-need-to-retire, how-much-to-contribute-to-401k, how-to-choose-a-financial-advisor, how-to-invest-1000-beginners, how-to-invest-in-stocks, **how-to-rebalance-portfolio**, i-bonds-vs-tips, index-funds-vs-etfs, mutual-funds-vs-etfs, robinhood-review, roth-ira-vs-traditional-ira, sequence-of-returns-risk, vanguard-vs-fidelity, webull-review, when-to-take-social-security |
+| Save tax | 32 | 529-plan-guide, backdoor-roth-ira-guide, hsa-vs-roth-ira, best-hsa-providers, best-tax-software-2026, capital-gains-tax-2026, freetaxusa-review, fsa-explainer, how-to-file-taxes-for-free, hsa-as-retirement-account, hsa-vs-fsa, ira-rmd-rules, mega-backdoor-roth-guide, qualified-vs-ordinary-dividends, quarterly-estimated-taxes-guide, **roth-conversion-calculator**, roth-conversion-ladder, roth-ira-5-year-rules, roth-ira-contribution-limits-2026, secure-2-0-changes-2026, short-vs-long-term-capital-gains, **side-hustle-taxes**, solo-401k-vs-sep-ira, standard-vs-itemized-deduction, tax-brackets-2026, tax-deductions-checklist, tax-loss-harvesting-guide, tax-loss-harvesting-wash-sale-rule, taxes-on-social-security-benefits, turbotax-vs-taxact, **w4-withholding-guide**, when-to-hire-a-cpa |
+| Borrow smart | 22 | amex-gold-card-review, **balance-transfer-credit-cards**, best-business-credit-cards, best-cashback-credit-cards-2026, best-credit-cards-for-beginners, best-credit-cards-for-fair-credit, best-personal-loans-2026, best-student-credit-cards, best-travel-credit-cards-2026, chase-sapphire-preferred-review, credit-utilization-ratio, debt-consolidation-loan, heloc-vs-home-equity-loan, how-credit-cards-work, how-to-build-credit-from-scratch, how-to-check-credit-score-for-free, how-to-get-a-mortgage, personal-loan-vs-credit-card, sofi-personal-loan-review, student-loan-refinance, what-affects-your-credit-score, when-to-refinance-mortgage |
 | Protect | 15 | best-car-insurance-companies-2026, best-life-insurance-companies-2026, best-term-life-insurance-young-professionals, disability-insurance-guide, estate-planning-basics, hmo-vs-ppo-vs-hdhp, how-much-car-insurance-do-i-need, how-much-life-insurance-do-i-need, how-to-lower-car-insurance, identity-theft-protection, long-term-care-insurance, medicare-basics-2026, renters-vs-homeowners-insurance, term-vs-whole-life-insurance, umbrella-insurance-guide |
 
 Article presentation spec (apply to every new article): mixed content blocks (comparison tables + bullets + inline Q&A + ≤5-sentence paragraphs), strategic bold on numbers/key terms, `<hr className="my-10 border-brand-100" />` separators between H2s (except "Related reading"), Jahanzeb Nawaz as `author`, "the FinBrief Editorial Team" as `reviewer`. Every article: `articleJsonLd` + `faqJsonLd` (+ `howToJsonLd` for step-by-steps), FTC `AffiliateDisclosure` above the fold, dense cross-pillar internal linking.
@@ -86,7 +86,7 @@ Article presentation spec (apply to every new article): mixed content blocks (co
 5. ~~**Critical #3 — HARO/Connectively/Featured.com signups.**~~ ✅ Closed 2026-06-16; 5 source platforms active. ⚠️ **Qwoted blocker 2026-06-17:** account temporarily disabled by vetting team mid-session. Replied to support agent Therese with `finbrief.space` + `/author/jahanzeb-nawaz` (no LinkedIn). Martha Stewart Living tax-paperwork pitch is drafted (full body in `HARO_RESPONSE_LOG.md` 2026-06-17 entry) and ready to send the moment the account is back. ETA 3–7 business days. When refilling the pitch queue, space submissions 2–3 days apart and vary the angle to avoid re-tripping vetting. Other 4 platforms (Featured.com, MentionMatch, SourceBottle, Help a B2B Writer) remain active and feeding `admin@finbrief.space`.
 6. ~~**Editorial pass on article-refresh digest findings.**~~ ✅ wk24 done 2026-06-16 (`0d2253f`). ✅ **wk25 done 2026-06-17 (`42f56a5`):** 1 real fix to `standard-vs-itemized-deduction` (TCJA misc-itemized hedge → permanently suspended under OBBBA 2025), 2 false positives dismissed. **Prompt fix validated** — wk25 had 3 flags / 6 articles vs wk24's 11 / 6, a 73% drop, and no more hallucinated-limit flags.
 7. **Beehiiv weekly publish.** ~30-sec recurring task each Monday: paste the cron-generated draft from `admin@finbrief.space` into beehiiv (login = `finbrief@gmail.com`). Posts section → + New post → paste subject + body + add CTA link → Send.
-8. **Next code priorities per playbook:** ~~Net Worth Percentile tool~~ ✅ Shipped 2026-06-17 at `/tools/net-worth-percentile`. ~~Glossary v1~~ ✅ Shipped 2026-06-17 at `/glossary`. ~~50-state paycheck calculator~~ ✅ Shipped 2026-06-18 at `/tools/paycheck`. **Next build priority: Roth Conversion Calculator** (`/tools/roth-conversion`) — Tool #2 in playbook, high search volume, pairs with `roth-conversion-ladder` article. After that: HYSA live rate table enhancement on `best-hysa-2026`.
+8. **Next code priorities per playbook:** ~~Net Worth Percentile tool~~ ✅ Shipped 2026-06-17 at `/tools/net-worth-percentile`. ~~Glossary v1~~ ✅ Shipped 2026-06-17 at `/glossary`. ~~50-state paycheck calculator~~ ✅ Shipped 2026-06-18 at `/tools/paycheck`. ~~**Roth Conversion Calculator**~~ ✅ Shipped 2026-06-24 at `/tools/roth-conversion` + `/learn/roth-conversion-calculator`. Uses `computeFederalTax()` from 2026 brackets for exact marginal cost; bracket-jump warning; verdict (convert/partial/skip); Fidelity/Schwab/Vanguard CTAs. **Next build priority:** HYSA live rate table on `best-hysa-2026` OR next article batch from playbook keyword list (`vti-vs-vtsax-vs-voo`, `is-720-a-good-credit-score`, `do-i-need-life-insurance-if-im-single-with-no-kids`).
 9. ~~**Pre-existing content drifts**~~ ✅ Both resolved 2026-06-16. `mega-backdoor-roth-guide` $46K vs $40.5K body math fixed in commit `0d2253f` (verified $74,500 415(c) cap throughout). Lead-audit deferrals remain deferred per the LEAD_AUDIT.md decision rationale (re-evaluate based on actual GSC snippet impressions).
 10. **US LLC consideration.** When GSC "Crawled — currently indexed" crosses ~30 pages OR first month with >500 organic clicks, evaluate setting up a foreign-owned US LLC (Wyoming/Delaware single-member, ~$300 setup + ~$300–500/yr). Unlocks CJ/FlexOffers/ShareASale that currently auto-decline on Italy×US-only geo grounds. Not worth doing pre-traffic. Stripe Atlas ($500 all-in) is the zero-friction option when the trigger metric hits.
 
@@ -1753,3 +1753,86 @@ User dropped a Google SERP screenshot for `how much to contribute to 401k finbri
 7. **Don't write more articles** until indexation rate crosses 75 / discovered-not-indexed under 25. Lever is link equity + distribution, not content volume.
 
 *Last updated: 2026-06-18 end-of-day (SERP fixes shipped — favicon "FB" + `<time dateTime>` date element. 7 commits pushed today. 125 routes, build clean. Indexation baseline frozen for 2-week re-check.)*
+
+---
+
+## Session 2026-06-24 — 5 long-tail articles + GSC batch + Roth Conversion Calculator
+
+Three tasks completed in one session.
+
+### Task 1 — 5 new long-tail articles (commit `d745388`)
+
+All 5 articles follow the full spec: `articleJsonLd` + `faqJsonLd` + `breadcrumbJsonLd` + `howToJsonLd`, 6 FAQs, `ArticleHeader` with Jahanzeb Nawaz author + FinBrief Editorial Team reviewer, `AffiliateDisclosure` above fold, dense cross-pillar internal linking, `<hr>` separators between H2s.
+
+| Slug | Pillar | Tool linked | Key CTAs |
+|---|---|---|---|
+| `side-hustle-taxes` | Save tax | tax-bracket | freetaxusa, turbotax, taxact |
+| `how-to-save-for-a-house` | Budget | budget-50-30-20 | sofi-money, marcus, ally |
+| `balance-transfer-credit-cards` | Borrow smart | budget-50-30-20 | discover-it, capital-one |
+| `how-to-rebalance-portfolio` | Invest | roth-vs-traditional | fidelity, schwab, vanguard |
+| `w4-withholding-guide` | Save tax | tax-bracket | turbotax, freetaxusa, taxact |
+
+**Content highlights:**
+- `side-hustle-taxes`: SE tax (15.3%), quarterly estimates, deductions (home office, mileage $0.70/mi, platform fees), retirement contributions (SEP IRA $70K, Solo 401k $24,500).
+- `how-to-save-for-a-house`: real savings target (down + closing + reserves), HYSA for the fund, 3% vs 20% down math, first-time buyer programs, Roth IRA exception ($10K lifetime).
+- `balance-transfer-credit-cards`: savings math ($5K at 24% APR = $971 interest vs $150 fee), 2026 card comparison table (Citi Simplicity 21mo/5%, BankAmericard 21mo/3%, Discover it 18mo/3%, Capital One 15mo, Chase Freedom 15mo).
+- `how-to-rebalance-portfolio`: drift math (70/30 → 88/12 over 7 years), calendar vs threshold rebalancing, 3 methods (tax-advantaged first, new contributions, sell in taxable), robo-advisor options.
+- `w4-withholding-guide`: 2020 redesign (no more allowances), all 5 steps decoded, side-hustle coverage via Step 4(c).
+
+### Task 2 — GSC URL submission batch (complete)
+
+Submitted `debt-consolidation-loan` (last new URL). Discovered that all other backlog candidates (`disability-insurance-guide`, `dollar-cost-averaging-vs-lump-sum`, `estate-planning-basics`, `fidelity-vs-schwab`, `fire-movement-guide`, `freetaxusa-review`, `fsa-explainer`, `hmo-vs-ppo-vs-hdhp`) already showed "Indexing requested" from prior sessions + sitemap auto-discovery.
+
+**Conclusion: manual submission phase is complete.** All URLs in Google's queue. Next lever is NOT more submissions — it's content quality + inbound links to convert the 45 "Discovered – not indexed" URLs to indexed. Daily quota ~10/property; doing more submissions would not help (those URLs are already known to Google).
+
+**GSC Pages breakdown at time of check:** 59 indexed / 45 "Discovered – not indexed" / ~4 "Crawled – not indexed".
+
+### Task 3 — Roth Conversion Calculator, Tool #2 (commit `bc70da1`)
+
+**Files shipped:**
+- `src/components/tools/RothConversionCalculator.tsx` — `"use client"` component
+- `src/app/tools/roth-conversion/page.tsx` — bare tool route, canonical → article
+- `src/app/learn/roth-conversion-calculator/page.tsx` — full SEO article with embedded calculator above fold
+- `src/lib/site-config.ts` — `roth-conversion` added to `tools[]` and `articles[]`
+
+**Calculator math:**
+```
+taxableBase = max(0, income − standardDeduction[status])
+taxableWithConversion = max(0, income + convert − standardDeduction[status])
+conversionTax = computeFederalTax(taxableWithConversion) − computeFederalTax(taxableBase)
+effectiveRate = conversionTax / convert
+rothFV = convert × (1+r)^years                          // tax-free at withdrawal
+tradFV = convert × (1+r)^years × (1 − retireBracket)   // after retirement tax
+netBenefit = rothFV − tradFV − conversionTax × (1+r)^years
+verdict = effectiveRate < retireBracket → "convert" | effectiveRate < retireBracket+5% → "partial" | "skip"
+```
+Uses `computeFederalTax()` from `tax-brackets-2026.ts` — handles conversions that cross bracket boundaries correctly (not a flat-rate approximation). Bracket-jump warning fires when `taxAfter.marginalRate > taxBefore.marginalRate`.
+
+**Article:** Save tax pillar, 7 FAQs (what is it, when does it make sense, annual limit, pay from IRA vs savings, ladder, recharacterize/undo, contribution limit interaction), `Article + FAQPage + BreadcrumbList` JSON-LD, Fidelity/Schwab/Vanguard CTAs, internal links to roth-conversion-ladder, backdoor-roth-ira-guide, roth-ira-vs-traditional-ira, ira-rmd-rules, mega-backdoor-roth-guide, tax-brackets-2026.
+
+**Build verified:** 132 static routes, zero TypeScript errors. Dev server HTTP 200 on both `/tools/roth-conversion` and `/learn/roth-conversion-calculator`. Article + FAQPage + BreadcrumbList JSON-LD all present.
+
+### Today's commits
+
+| Commit | What |
+|---|---|
+| `d745388` | 5 long-tail articles + site-config update (130 routes) |
+| `bc70da1` | Roth Conversion Calculator — 3 new files + site-config (132 routes) |
+
+### State at end of session
+
+- **105 articles / 132 routes / 8 tools / 5 hubs / 1 glossary**
+- **Build clean**, all routes statically prerendered
+- **GSC manual submission phase complete** — 59 indexed, 45 in queue, lever is now content quality + backlinks
+- **Tools shipped:** budget-50-30-20, 401k-match, tax-bracket, roth-vs-traditional, life-insurance, net-worth-percentile, paycheck (50-state), roth-conversion
+
+### Next session checklist (in order)
+
+1. Read SESSION_LOG.md + CLAUDE.md. Sanity-check `layout.tsx` non-empty + `npm run build` clean.
+2. **GSC re-check** — pull Coverage report: watch for "Indexed" crossing 65+ and "Discovered – not indexed" dropping below 35. If not moving, priority is Tier 2 backlinks (Reddit + HARO), not more on-page work.
+3. **Next build option A:** HYSA live rate table — enhance `best-hysa-2026` with a dynamic rate comparison widget (scrape or use a data source). High CTR page, monetization impact.
+4. **Next build option B:** Next article batch from the SEO playbook keyword list — `vti-vs-vtsax-vs-voo`, `is-720-a-good-credit-score`, `do-i-need-life-insurance-if-im-single-with-no-kids`.
+5. **Qwoted:** check if account is re-enabled (ETA was 3–7 business days from 2026-06-17). Martha Stewart Living pitch is drafted in `HARO_RESPONSE_LOG.md` and ready to send.
+6. **Beehiiv weekly publish** — Monday ritual: paste cron-generated draft from `admin@finbrief.space` into beehiiv (login `finbrief@gmail.com`).
+
+*Last updated: 2026-06-24 end-of-day (5 articles + GSC batch done + Roth Conversion Calculator shipped. Commits d745388 + bc70da1. 132 routes, 105 articles, 8 tools, build clean.)*
