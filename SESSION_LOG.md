@@ -1901,3 +1901,103 @@ The two URLs to push backlinks to (proven demand, just stuck on page 8):
 - GSC numbers frozen as new baseline for the Tier 2 push: 59 indexed / 45 disc-not-indexed / 1 click / 352 imp / pos 77
 
 *Last updated: 2026-06-29 (GSC re-check ran, link-injection thesis NOT validated — zero indexation movement in 11 days. Pivoting to Tier 2 backlinks on term-vs-whole-life-insurance + qualified-vs-ordinary-dividends.)*
+
+---
+
+## Session 2026-06-29 (continued) — Beehiiv wk 27 + Qwoted/LinkedIn dual-verification trap
+
+Same-day continuation of the GSC verdict session.
+
+### Beehiiv wk 27 — shipped
+
+Vercel cron at `/api/cron/newsletter` (schedule `0 14 * * 1`) fired at 14:00 UTC, emailed draft to `admin@finbrief.space` via Resend at 16:22 local (CEST).
+- Subject: "Index funds vs. ETFs: which should you actually buy in 2026?"
+- Pasted into Beehiiv (login `finbrief@gmail.com`), published manually.
+- Current sub count: 1/2,500. Mostly a discipline/archive build at this stage.
+- Missed weeks 25 + 26 — don't backfill; just keep the wk N+1 cadence going.
+
+### Qwoted is back on — found 8+ emails in admin@finbrief.space today
+
+Account re-enable from 2026-06-17 has resolved. Today's haul includes a direct outreach from **Shelby Bridges, Director of User Success at Qwoted** (shelby@qwoted.com) at 17:01 local, flagging a Yahoo Finance query: *"Expert needed for article on retirement savings by state"*, 22hr deadline (≈ 15:00 local Tue 2026-06-30).
+
+**This is exactly the off-domain authority lever Branch (b) calls for.** A Yahoo Finance quote with `finbrief.space` byline + backlink is the kind of signal that unsticks the 45 "Discovered – not indexed" URLs.
+
+### The blocker — dual identity-verification queue
+
+Tried to log into Qwoted to pitch → identity verification page → "review already in progress." Tried to log into LinkedIn → temporarily restricted → Persona ID verification page → "review already in progress."
+
+Diagnosis: there are TWO LinkedIn accounts on the same gov ID:
+- **Account A (locked):** Jahanzeb Nawaz LinkedIn, tied to `admin@finbrief.space`. Restricted by LinkedIn's anti-duplicate detection. Persona review is in limbo.
+- **Account B (active, verified):** `linkedin.com/in/james-carter-259716411` — display name "James Carter" but **legal name "Jahanzeb Nawaz" already on file** (verified via gov ID May 2026). Tied to `admin@mindlessincome.it`. Title: "Amministratore di rete presso mindlessincome", location Rome, Italy.
+
+Account B was created as part of the mindlessincome project (James Carter is the public persona for mindlessincome content), but the LinkedIn profile itself is not load-bearing for that brand — it can be repurposed.
+
+### Tonight's action — sent Shelby a transparency reply
+
+Email sent at ~18:00 local. Asks her to verify identity via non-LinkedIn channels (finbrief.space/author/jahanzeb-nawaz, domain registration, gov ID via secure intake) since LinkedIn is currently locked. Ball in her court for tomorrow.
+
+### Path A — staged LinkedIn consolidation (the plan, DON'T start tonight)
+
+Goal: repurpose Account B (currently "James Carter") into the official Jahanzeb Nawaz / finbrief.space LinkedIn. Critical insight: LinkedIn's verified legal name on Account B is already "Jahanzeb Nawaz" (shown in parens after "James Carter") — so renaming display name to "Jahanzeb Nawaz" matches verified ID, verification badge should survive cleanly.
+
+Staged because LinkedIn's anti-takeover algorithm fires when too many identity-tied fields change at once.
+
+| When | Action |
+|---|---|
+| Tomorrow AM (2026-06-30) | Rename display: James Carter → Jahanzeb Nawaz |
+| +1–2 days (Wed/Thu) | File LinkedIn support ticket to delete Account A (locked Jahanzeb LinkedIn) so `admin@finbrief.space` frees up. Draft of ticket text in this entry. |
+| +7 days from rename | Update headline → "Editor, finbrief.space" |
+| +3 days after headline | Update location → real (CEST-based) |
+| After support deletes locked account | Add `admin@finbrief.space` as secondary email on Account B |
+| +7 days after adding email | Promote `admin@finbrief.space` to primary |
+| +3 days | (Optional) Demote `admin@mindlessincome.it` to secondary backup, do not remove entirely — free fallback access |
+
+Total: 4–5 weeks to full consolidation if no LinkedIn pushback.
+
+**Draft text for the LinkedIn support ticket (use Wed/Thu, not tonight):**
+
+> Help category: Account access → Account closure / duplicate account
+>
+> I have a duplicate account that's been restricted and which I have not been able to recover via Persona verification. I'd like to request its closure so that the email tied to it can be freed up for use on my primary account.
+>
+> Account to delete (locked): [URL to locate from old emails]. Email: admin@finbrief.space. Legal name: Jahanzeb Nawaz.
+>
+> Account to keep (active, verified): linkedin.com/in/james-carter-259716411 (recently renamed display to "Jahanzeb Nawaz" — legal name on file is Jahanzeb Nawaz, verified via gov ID May 2026). Current primary email: admin@mindlessincome.it.
+>
+> Both accounts belong to me. Please delete the locked one so I can move admin@finbrief.space over.
+
+### Parallel — Persona on the locked account
+
+`admin@finbrief.space` (and `bhuttavpn@gmail.com`) inbox needs a search for `from:persona`, `from:withpersona.com`, `from:linkedin verification` to find out what Persona's prior submission did (success / fail-with-reason / still processing). Result determines whether the locked account is recoverable on its own or strictly needs support-ticket deletion.
+
+EU notarized affidavit fallback exists (user is in CEST = EU territory, qualifies). Slow path (1–2 weeks), use only if Persona keeps rejecting.
+
+### Where to pick up next session
+
+**Order matters:**
+
+1. **Check inbox for Shelby reply** (`admin@finbrief.space`, look for response to "Re: Good fit – Yahoo Finance opportunity")
+2. **If Shelby found a workaround** → submit Yahoo Finance pitch on Qwoted before ~15:00 local Tue 2026-06-30. Lead with the state-tax-matters-more-than-people-realize angle, cite `/tools/paycheck` 50-state calculator + Roth conversion state-by-state nuance. Mention finbrief.space byline + URL so any quote becomes a backlink.
+3. **If no Shelby reply yet** → don't escalate. She has 22-hour-deadline context.
+4. **Tomorrow AM, separately:** rename LinkedIn Account B display to "Jahanzeb Nawaz". Just the display name. Nothing else.
+5. **Search admin@finbrief.space + bhuttavpn@gmail.com for Persona / LinkedIn verification result emails.** Knowing what Persona decided unblocks the rest of the LinkedIn path.
+6. **Wed or Thu:** file the LinkedIn support ticket per the draft above.
+7. **Don't do** any more on-page work (article writing, GSC submissions, internal-link rounds) until indexation crosses 75 / disc-not-indexed under 25.
+
+### Hard "don't" list for the next 1–2 weeks
+
+- ❌ Don't create a third LinkedIn account
+- ❌ Don't resubmit Persona on the locked account (creates duplicate queue)
+- ❌ Don't change multiple LinkedIn fields in the same session
+- ❌ Don't write more articles for finbrief
+- ❌ Don't pitch any Qwoted query as "Jahanzeb Nawaz" while Account B still displays "James Carter" — quotes will get killed
+
+### State at end of session
+
+- 105 articles / 132 routes / 8 tools / 5 hubs / 1 glossary (no code changes this session)
+- 2 commits today: f10b934 (SESSION_LOG GSC verdict), [next commit] (SESSION_LOG today's wrap-up)
+- Beehiiv wk 27 published
+- 1 email sent to Shelby Bridges, awaiting reply
+- GSC baseline unchanged: 59 indexed / 45 disc-not-indexed / pos 77
+
+*Last updated: 2026-06-29 ~18:45 CEST (wrap-up after dual-verification trap diagnosis. Tomorrow's first move: rename Account B display name. Shelby reply is the gate for tomorrow's Yahoo Finance pitch.)*
