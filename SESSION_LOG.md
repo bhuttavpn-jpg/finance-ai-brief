@@ -1836,3 +1836,68 @@ Uses `computeFederalTax()` from `tax-brackets-2026.ts` — handles conversions t
 6. **Beehiiv weekly publish** — Monday ritual: paste cron-generated draft from `admin@finbrief.space` into beehiiv (login `finbrief@gmail.com`).
 
 *Last updated: 2026-06-24 end-of-day (5 articles + GSC batch done + Roth Conversion Calculator shipped. Commits d745388 + bc70da1. 132 routes, 105 articles, 8 tools, build clean.)*
+
+---
+
+## Session 2026-06-29 — GSC re-check: link-injection thesis did NOT validate
+
+11 days after the 2026-06-18 link-injection (commit `70398a2`, 27 inbound links to 11 starved cornerstones), pulled fresh GSC Coverage + Performance exports.
+
+### Coverage — zero movement
+
+| Metric | 2026-06-18 baseline | 2026-06-29 today | Δ |
+|---|---|---|---|
+| Indexed | 59 | 59 | 0 |
+| Discovered – not indexed | 45 | 45 | 0 |
+| Crawled – not indexed | 4 | 4 | 0 |
+
+Not a single new page indexed. The crawl-budget gate is still closed.
+
+### Performance (last 3 months)
+
+| Metric | Baseline | Today | Δ |
+|---|---|---|---|
+| Clicks | 1 | 1 | flat (still the lone India branded click) |
+| Impressions | 262 | 352 | +90 (+34%) |
+| Avg position | 78 | 77 | flat |
+
+Google is surfacing more pages — but not landing any of them above page 5.
+
+### Key URL drilldown
+
+| Page | Baseline | Today | Verdict |
+|---|---|---|---|
+| `/learn/term-vs-whole-life-insurance` | 154 imp @ pos 80 | 154 @ 80.15 | flat — injection did NOT lift the top page |
+| `/learn/qualified-vs-ordinary-dividends` | 39 imp @ pos 92 | 93 @ 89.22 | **+54 imp, -3 pos** — only validated win |
+| `/learn/couples-budgeting-guide` | 18 imp @ pos 52 | 18 @ 52 | flat |
+
+### What the data actually says
+
+- **Internal link-juice works when Google is already crawling** (qualified-vs-ordinary-dividends got +138% impressions because its inbound count went 1 → 5 and it was already indexed).
+- **Internal links do NOT rescue pages stuck in "Discovered – not indexed"** — zero of the 45 starved URLs got indexed.
+- The bottleneck is **external authority**, not on-page structure. The site lacks off-domain trust signals for Google to allocate fresh crawl budget.
+
+### Verdict & branch decision
+
+**Branch (b) — pivot to Tier 2 backlinks.** Stop writing articles. Stop GSC submissions. Stop internal-link reshuffles.
+
+The two URLs to push backlinks to (proven demand, just stuck on page 8):
+1. `/learn/term-vs-whole-life-insurance` — 154 imp/quarter, 60% of site impressions
+2. `/learn/qualified-vs-ordinary-dividends` — 93 imp, already trending up
+
+### Next session checklist (in order)
+
+1. **Qwoted account check** — re-enable ETA was 2026-06-17 + 3–7 business days. As of 2026-06-29 it's overdue. If live, send the drafted Martha Stewart Living pitch from `HARO_RESPONSE_LOG.md`.
+2. **Beehiiv weekly publish** — Monday ritual (today is Mon 2026-06-29). Paste cron-generated draft from `admin@finbrief.space` into beehiiv (login `finbrief@gmail.com`).
+3. **Reddit Tier 2 pass** — find 3–5 active threads in r/personalfinance, r/LifeInsurance, r/dividends, r/investing. Answer with substance, drop one of the two target URLs only when the URL is genuinely the best resource. Don't spam — Reddit kills spammers fast and one ban tanks the strategy.
+4. **HARO/Qwoted filtering** — set filters for life-insurance and dividend-tax queries; queue 2–3 pitches per week.
+5. **Safe build option** (doesn't violate the no-articles rule) — HYSA live rate widget on `best-hysa-2026` if backlink work hits a wall.
+6. **Do NOT** write new articles, run more GSC URL submissions, or do another internal-link injection round. Until indexation crosses 75 / discovered-not-indexed under 25, those levers are confirmed-inert on this domain.
+
+### State at end of session
+
+- **105 articles / 132 routes / 8 tools / 5 hubs / 1 glossary** (no code changes this session)
+- Build clean, no new commits required (data-pull session, SESSION_LOG update only)
+- GSC numbers frozen as new baseline for the Tier 2 push: 59 indexed / 45 disc-not-indexed / 1 click / 352 imp / pos 77
+
+*Last updated: 2026-06-29 (GSC re-check ran, link-injection thesis NOT validated — zero indexation movement in 11 days. Pivoting to Tier 2 backlinks on term-vs-whole-life-insurance + qualified-vs-ordinary-dividends.)*
